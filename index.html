@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KaliLauncher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="logo-area neon-text">KALI<br>LAUNCHER</div>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li class="active" data-tab="play"><i class="fas fa-gamepad"></i> Play</li>
+                    <li data-tab="settings"><i class="fas fa-cog"></i> Settings</li>
+                    <li data-tab="tools"><i class="fas fa-wrench"></i> Tools</li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">Client v3.0.0</div>
+        </aside>
+
+        <main class="main-container">
+            <div class="grid-bg"></div>
+
+            <section class="content-view" id="tab-play">
+                <section class="content-hero">
+                    <div class="hero-card neon-border">
+                        <div class="hero-main">
+                            <div class="hero-heading-row">
+                                <h2 id="hero-title">&gt; TBILISI 2077_</h2>
+                                <span class="status-pill" id="status-pill">READY</span>
+                            </div>
+                            <div class="hero-top-controls">
+                                <button id="java-btn" class="mini-action"><i class="fas fa-mug-hot"></i> Java 17</button>
+                                <button id="open-minecraft-folder-btn" class="mini-action"><i class="fas fa-folder-open"></i> .minecraft</button>
+                                <button id="open-instances-folder-btn" class="mini-action"><i class="fas fa-boxes-stacked"></i> Instances</button>
+                                <button id="open-current-folder-btn" class="mini-action"><i class="fas fa-folder-tree"></i> Current</button>
+                            </div>
+                            <div class="hero-status-line" id="hero-status-line">Ready</div>
+                        </div>
+
+                        <div class="hero-preview">
+                            <img id="player-head" src="https://minotar.net/helm/KaliPlayer/84.png" alt="Player head" class="hero-avatar neon-border">
+                            <button id="refresh-avatar-btn" class="avatar-refresh"><i class="fas fa-rotate"></i></button>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <section class="content-view hidden" id="tab-settings">
+                <div class="panel-card neon-border">
+                    <div class="panel-header">GAME SETTINGS</div>
+                    <div class="settings-grid">
+                        <label class="setting-field">
+                            <span>Max RAM</span>
+                            <input id="memory-max" type="number" min="2" max="32" step="1">
+                        </label>
+                        <label class="setting-field">
+                            <span>Min RAM</span>
+                            <input id="memory-min" type="number" min="1" max="32" step="1">
+                        </label>
+                        <label class="setting-field">
+                            <span>Width</span>
+                            <input id="resolution-width" type="number" min="854" max="3840" step="1">
+                        </label>
+                        <label class="setting-field">
+                            <span>Height</span>
+                            <input id="resolution-height" type="number" min="480" max="2160" step="1">
+                        </label>
+                        <label class="setting-field">
+                            <span>Launcher on start</span>
+                            <select id="close-behavior" class="cyber-select">
+                                <option value="hide">Hide</option>
+                                <option value="minimize">Minimize</option>
+                                <option value="stay">Stay open</option>
+                            </select>
+                        </label>
+                        <label class="setting-field checkbox-field">
+                            <span>Fullscreen</span>
+                            <div class="check-wrap">
+                                <input id="fullscreen" type="checkbox">
+                                <small>Enable fullscreen</small>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-view hidden" id="tab-tools">
+                <div class="panel-card neon-border">
+                    <div class="panel-header">TOOLS</div>
+                    <div class="tools-grid">
+                        <button id="open-tbilisi-folder-btn" class="tool-btn"><i class="fas fa-city"></i> Tbilisi Files</button>
+                        <button id="open-minecraft-root-btn" class="tool-btn"><i class="fas fa-folder-open"></i> Minecraft Root</button>
+                        <button id="open-launcher-root-btn" class="tool-btn"><i class="fas fa-hard-drive"></i> Launcher Root</button>
+                        <button id="check-updates-btn" class="tool-btn"><i class="fas fa-cloud-arrow-down"></i> Check Updates</button>
+                        <button id="reset-settings-btn" class="tool-btn danger"><i class="fas fa-rotate-left"></i> Reset Settings</button>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="action-bar">
+                <div class="user-controls">
+                    <div class="user-info">
+                        <img id="footer-avatar" src="https://minotar.net/avatar/KaliPlayer/40" alt="Skin" class="user-head neon-border">
+                        <div class="user-details">
+                            <span class="label">PLAYER</span>
+                            <input type="text" id="username" class="username neon-cyan" value="KaliPlayer" maxlength="16" placeholder="Enter Nickname">
+                        </div>
+                    </div>
+
+                    <div class="version-selector neon-border">
+                        <span class="label">PROFILE</span>
+                        <select id="profile-select" class="cyber-select"></select>
+                    </div>
+
+                    <div class="version-selector neon-border">
+                        <span class="label">VERSION</span>
+                        <select id="version-select" class="cyber-select"></select>
+                    </div>
+                </div>
+
+                <div class="launch-controls">
+                    <button id="play-btn" class="big-play-button">PLAY</button>
+                </div>
+            </footer>
+        </main>
+    </div>
+    <script src="renderer.js"></script>
+</body>
+</html>

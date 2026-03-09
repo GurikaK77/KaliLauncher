@@ -1,0 +1,59 @@
+name: Build and Release KaliLauncher
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            run: npm run dist:win
+            upload: |
+              dist/*.exe
+              dist/latest*.yml
+              dist/*.blockmap
+          - os: ubuntu-latest
+            run: npm run dist:linux
+            upload: |
+              dist/*.AppImage
+              dist/*.deb
+              dist/latest*.yml
+              dist/*.blockmap
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build distributables
+        run: ${{ matrix.run }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_OWNER: ${{ github.repository_owner }}
+          GH_REPO: ${{ github.event.repository.name }}
+
+      - name: Upload release assets
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ matrix.upload }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
