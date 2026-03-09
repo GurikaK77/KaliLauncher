@@ -55,6 +55,7 @@ module.exports = {
     ],
     icon: 'build/icons',
     category: 'Game',
+    maintainer: 'Gurika Qartvelishvili <noreply@kalilauncher.local>',
     artifactName: '${productName}-${version}-${arch}.${ext}'
   },
   nsis: {
