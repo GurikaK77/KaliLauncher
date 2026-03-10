@@ -1,6 +1,6 @@
 {
   "name": "kalilauncher",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "KaliLauncher desktop app with installers and auto-updates",
   "main": "main.js",
   "scripts": {
@@ -13,8 +13,8 @@
   },
   "keywords": [],
   "author": {
-    "name": "Gurika Kartvelishvili",
-    "email": "gurikaqartvelishvili44@gmail.com"
+    "name": "Gurika Qartvelishvili",
+    "email": "noreply@kalilauncher.local"
   },
   "license": "ISC",
   "type": "commonjs",

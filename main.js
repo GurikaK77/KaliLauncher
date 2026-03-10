@@ -1160,8 +1160,9 @@ ipcMain.handle('open-launcher-folder', async (_event, folderKey, payload = {}) =
     return error ? { ok: false, error } : { ok: true, path: targetPath };
 });
 
-ipcMain.on('open-java-download', async () => {
-    await shell.openExternal('https://adoptium.net/temurin/releases/?version=17');
+ipcMain.on('open-java-download', async (_event, version = '17') => {
+    const normalizedVersion = String(version) === '21' ? '21' : '17';
+    await shell.openExternal(`https://adoptium.net/temurin/releases/?version=${normalizedVersion}`);
 });
 
 ipcMain.handle('check-for-updates', async () => {

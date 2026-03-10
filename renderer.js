@@ -115,8 +115,8 @@ function switchTab(tab) {
 function updateAvatar() {
     const username = encodeURIComponent(state.config.username || 'KaliPlayer');
     const cacheBust = `?t=${Date.now()}`;
-    playerHead.src = `https://minotar.net/helm/${username}/84.png${cacheBust}`;
-    footerAvatar.src = `https://minotar.net/avatar/${username}/40.png${cacheBust}`;
+    if (playerHead) playerHead.src = `https://minotar.net/helm/${username}/84.png${cacheBust}`;
+    if (footerAvatar) footerAvatar.src = `https://minotar.net/avatar/${username}/40.png${cacheBust}`;
 }
 
 function updateHeroStatus(message, pill = 'READY') {
@@ -226,7 +226,8 @@ function bindEvents() {
         persistConfig();
     });
 
-    document.getElementById('java-btn').addEventListener('click', () => ipcRenderer.send('open-java-download'));
+    document.getElementById('java17-btn').addEventListener('click', () => ipcRenderer.send('open-java-download', '17'));
+    document.getElementById('java21-btn').addEventListener('click', () => ipcRenderer.send('open-java-download', '21'));
     document.getElementById('open-minecraft-folder-btn').addEventListener('click', () => ipcRenderer.invoke('open-launcher-folder', 'minecraftRoot'));
     document.getElementById('open-instances-folder-btn').addEventListener('click', () => ipcRenderer.invoke('open-launcher-folder', 'instancesRoot'));
     document.getElementById('open-current-folder-btn').addEventListener('click', () => {
@@ -238,7 +239,8 @@ function bindEvents() {
     document.getElementById('open-tbilisi-folder-btn').addEventListener('click', () => ipcRenderer.invoke('open-launcher-folder', 'tbilisiRoot'));
     document.getElementById('open-minecraft-root-btn').addEventListener('click', () => ipcRenderer.invoke('open-launcher-folder', 'minecraftRoot'));
     document.getElementById('open-launcher-root-btn').addEventListener('click', () => ipcRenderer.invoke('open-launcher-folder', 'launcherRoot'));
-    document.getElementById('refresh-avatar-btn').addEventListener('click', updateAvatar);
+    const refreshAvatarBtn = document.getElementById('refresh-avatar-btn');
+    if (refreshAvatarBtn) refreshAvatarBtn.addEventListener('click', updateAvatar);
     document.getElementById('check-updates-btn').addEventListener('click', async () => {
         const result = await ipcRenderer.invoke('check-for-updates');
         if (result?.ok === false && result?.reason) {
