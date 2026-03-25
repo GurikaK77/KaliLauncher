@@ -16,12 +16,13 @@
             <nav class="nav-menu">
                 <ul>
                     <li class="active" data-tab="play"><i class="fas fa-gamepad"></i> Play</li>
+                    <li data-tab="profile"><i class="fas fa-user"></i> Profile</li>
                     <li data-tab="settings"><i class="fas fa-cog"></i> Settings</li>
                     <li data-tab="tools"><i class="fas fa-wrench"></i> Tools</li>
                 </ul>
             </nav>
 
-            <div class="sidebar-footer">Client v3.0.2</div>
+            <div class="sidebar-footer">Client v3.1.0</div>
         </aside>
 
         <main class="main-container">
@@ -38,6 +39,7 @@
                             <div class="hero-top-controls">
                                 <button id="java17-btn" class="mini-action"><i class="fas fa-mug-hot"></i> Java 17</button>
                                 <button id="java21-btn" class="mini-action"><i class="fas fa-bolt"></i> Java 21</button>
+                                <button id="go-profile-btn" class="mini-action"><i class="fas fa-user-circle"></i> Profile</button>
                                 <button id="open-minecraft-folder-btn" class="mini-action"><i class="fas fa-folder-open"></i> .minecraft</button>
                                 <button id="open-instances-folder-btn" class="mini-action"><i class="fas fa-boxes-stacked"></i> Instances</button>
                                 <button id="open-current-folder-btn" class="mini-action"><i class="fas fa-folder-tree"></i> Current</button>
@@ -52,12 +54,56 @@
                                 <div class="system-preview-lines">
                                     <span>WINDOWS + LINUX</span>
                                     <span>AUTO INSTALL READY</span>
-                                    <span>NEON EDITION</span>
+                                    <span>PROFILE CENTER</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
+            </section>
+
+            <section class="content-view hidden" id="tab-profile">
+                <div class="panel-card neon-border profile-panel">
+                    <div class="panel-header">PROFILE CENTER</div>
+                    <div class="profile-layout">
+                        <div class="profile-card profile-summary">
+                            <div class="profile-head-wrap neon-border">
+                                <img id="profile-head-preview" src="https://minotar.net/helm/KaliPlayer/160" alt="Player head" class="profile-head-image">
+                            </div>
+                            <div class="profile-summary-text">
+                                <div class="profile-name" id="profile-display-name">KaliPlayer</div>
+                                <div class="profile-subtitle">Local profile settings and skin preview</div>
+                            </div>
+                            <div class="profile-actions-grid">
+                                <button id="upload-skin-btn" class="tool-btn"><i class="fas fa-upload"></i> Upload Skin</button>
+                                <button id="remove-skin-btn" class="tool-btn"><i class="fas fa-trash"></i> Remove Skin</button>
+                                <button id="open-profile-folder-btn" class="tool-btn"><i class="fas fa-folder-open"></i> Open Profile Folder</button>
+                            </div>
+                        </div>
+
+                        <div class="profile-card profile-details-card">
+                            <div class="profile-settings-grid">
+                                <label class="setting-field">
+                                    <span>Player Name</span>
+                                    <input id="profile-username" type="text" maxlength="16" placeholder="Enter Nickname">
+                                </label>
+
+                                <div class="setting-field skin-status-card">
+                                    <span>Skin Status</span>
+                                    <strong id="profile-skin-status">Default skin preview</strong>
+                                    <small id="profile-skin-path">No custom skin selected</small>
+                                </div>
+                            </div>
+
+                            <div class="skin-preview-stage neon-border">
+                                <div class="skin-preview-frame">
+                                    <img id="profile-skin-image" src="https://minotar.net/skin/KaliPlayer" alt="Skin preview" class="profile-skin-sheet">
+                                </div>
+                                <div class="skin-preview-note">PNG skin file preview</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section class="content-view hidden" id="tab-settings">

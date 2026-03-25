@@ -14,9 +14,9 @@ const FABRIC_META = 'https://meta.fabricmc.net';
 const FORGE_FILES_BASE = 'https://files.minecraftforge.net/net/minecraftforge/forge';
 const FORGE_MAVEN_BASE = 'https://maven.minecraftforge.net/net/minecraftforge/forge';
 const OPTIFINE_DOWNLOADS_URL = 'https://optifine.net/downloads';
-const USER_AGENT = 'KaliLauncher/3.0.0';
+const USER_AGENT = 'KaliLauncher/3.1.0';
 
-const LAUNCHER_VERSION = '3.0.0';
+const LAUNCHER_VERSION = '3.1.0';
 const TBILISI_MC_VERSION = '1.20.1';
 const TBILISI_FORGE_BUILD = '47.4.10';
 const TBILISI_FORGE_VERSION_ID = `${TBILISI_MC_VERSION}-forge-${TBILISI_FORGE_BUILD}`;
@@ -42,6 +42,23 @@ const DEFAULT_LAUNCHER_CONFIG = {
 
 function getLauncherConfigPath() {
     return path.join(app.getPath('userData'), 'launcher-config.json');
+}
+
+function getProfileRoot() {
+    return path.join(app.getPath('userData'), '.kalilauncher', 'profile');
+}
+
+function getCustomSkinPath() {
+    return path.join(getProfileRoot(), 'custom-skin.png');
+}
+
+function getProfileAssets() {
+    const profileRoot = getProfileRoot();
+    const customSkinPath = getCustomSkinPath();
+    return {
+        profileRoot,
+        customSkinPath: fs.existsSync(customSkinPath) ? customSkinPath : null
+    };
 }
 
 function deepMergeConfig(base, override) {
@@ -1140,6 +1157,45 @@ ipcMain.handle('save-launcher-config', async (_event, partialConfig) => {
 
 ipcMain.handle('reset-launcher-config', async () => saveLauncherConfig(DEFAULT_LAUNCHER_CONFIG));
 
+ipcMain.handle('get-profile-assets', async () => getProfileAssets());
+
+ipcMain.handle('select-custom-skin', async () => {
+    const result = await dialog.showOpenDialog({
+        title: 'Choose skin PNG',
+        properties: ['openFile'],
+        filters: [{ name: 'PNG Skin', extensions: ['png'] }]
+    });
+
+    if (result.canceled || !result.filePaths?.length) {
+        return { ok: false, cancelled: true };
+    }
+
+    const selectedPath = result.filePaths[0];
+    if (path.extname(selectedPath).toLowerCase() !== '.png') {
+        return { ok: false, error: 'Please select a PNG skin file.' };
+    }
+
+    try {
+        ensureDir(getProfileRoot());
+        fs.copyFileSync(selectedPath, getCustomSkinPath());
+        return { ok: true, ...getProfileAssets() };
+    } catch (error) {
+        console.error('[Profile] Failed to save custom skin:', error);
+        return { ok: false, error: error?.message || 'Failed to save custom skin' };
+    }
+});
+
+ipcMain.handle('clear-custom-skin', async () => {
+    try {
+        const customSkinPath = getCustomSkinPath();
+        if (fs.existsSync(customSkinPath)) fs.unlinkSync(customSkinPath);
+        return { ok: true, ...getProfileAssets() };
+    } catch (error) {
+        console.error('[Profile] Failed to remove custom skin:', error);
+        return { ok: false, error: error?.message || 'Failed to remove custom skin' };
+    }
+});
+
 ipcMain.handle('open-launcher-folder', async (_event, folderKey, payload = {}) => {
     let targetPath = app.getPath('userData');
 
@@ -1151,6 +1207,8 @@ ipcMain.handle('open-launcher-folder', async (_event, folderKey, payload = {}) =
         targetPath = getInstanceRoot();
     } else if (folderKey === 'launcherRoot') {
         targetPath = app.getPath('userData');
+    } else if (folderKey === 'profileRoot') {
+        targetPath = getProfileRoot();
     } else if (folderKey === 'currentProfile') {
         targetPath = getCurrentProfileFolderPath(payload?.profile, payload?.version);
     }
@@ -1197,6 +1255,12 @@ ipcMain.on('launch-game', async (_event, args) => {
     bindLauncherEvents();
 
     try {
+        const customSkinPath = getCustomSkinPath();
+        if (fs.existsSync(customSkinPath)) {
+            const launcherProfileRoot = path.join(app.getPath('userData'), '.kalilauncher', 'profile-export');
+            ensureDir(launcherProfileRoot);
+            fs.copyFileSync(customSkinPath, path.join(launcherProfileRoot, 'custom-skin.png'));
+        }
         if (profile === 'tbilisi') {
             const minecraftRoot = getOfficialMinecraftRoot();
             const forgeVersion = await ensureForgeVersionInstalled(minecraftRoot, TBILISI_MC_VERSION, {
