@@ -4,80 +4,125 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KaliLauncher</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app-layout">
+    <div class="page-noise" aria-hidden="true"></div>
+    <div class="page-glow page-glow-left" aria-hidden="true"></div>
+    <div class="page-glow page-glow-right" aria-hidden="true"></div>
+
+    <div class="app-shell">
         <aside class="sidebar">
-            <div class="logo-area neon-text">KALI<br>LAUNCHER</div>
+            <div class="brand-card">
+                <div class="brand-eyebrow">Independent Minecraft Workspace</div>
+                <div class="logo-area">KaliLauncher</div>
+                <p class="brand-copy">Separate runtime, separate instances, cleaner launches.</p>
+            </div>
 
             <nav class="nav-menu">
                 <ul>
-                    <li class="active" data-tab="play"><i class="fas fa-gamepad"></i> Play</li>
-                    <li data-tab="profile"><i class="fas fa-user"></i> Profile</li>
-                    <li data-tab="settings"><i class="fas fa-cog"></i> Settings</li>
-                    <li data-tab="tools"><i class="fas fa-wrench"></i> Tools</li>
+                    <li class="active" data-tab="play"><i class="fas fa-house"></i><span>Home</span></li>
+                    <li data-tab="profile"><i class="fas fa-id-card"></i><span>Profile</span></li>
+                    <li data-tab="settings"><i class="fas fa-sliders"></i><span>Settings</span></li>
+                    <li data-tab="tools"><i class="fas fa-toolbox"></i><span>Tools</span></li>
                 </ul>
             </nav>
+
+            <div class="sidebar-status-card">
+                <span class="status-label">Runtime Mode</span>
+                <strong id="sidebar-runtime-mode">Isolated</strong>
+                <small>KaliLauncher keeps its own Minecraft data folder.</small>
+            </div>
 
             <div class="sidebar-footer">Client v3.1.0</div>
         </aside>
 
         <main class="main-container">
-            <div class="grid-bg"></div>
-
             <section class="content-view" id="tab-play">
-                <section class="content-hero">
-                    <div class="hero-card neon-border">
-                        <div class="hero-main">
-                            <div class="hero-heading-row">
-                                <h2 id="hero-title">&gt; TBILISI 2077_</h2>
-                                <span class="status-pill" id="status-pill">READY</span>
+                <div class="play-grid">
+                    <section class="panel-card hero-card">
+                        <div class="hero-topbar">
+                            <div>
+                                <div class="hero-eyebrow" id="hero-eyebrow">Independent launcher runtime</div>
+                                <h1 id="hero-title">Tbilisi 2077</h1>
                             </div>
-                            <div class="hero-top-controls">
-                                <button id="java17-btn" class="mini-action"><i class="fas fa-mug-hot"></i> Java 17</button>
-                                <button id="java21-btn" class="mini-action"><i class="fas fa-bolt"></i> Java 21</button>
-                                <button id="go-profile-btn" class="mini-action"><i class="fas fa-user-circle"></i> Profile</button>
-                                <button id="open-minecraft-folder-btn" class="mini-action"><i class="fas fa-folder-open"></i> .minecraft</button>
-                                <button id="open-instances-folder-btn" class="mini-action"><i class="fas fa-boxes-stacked"></i> Instances</button>
-                                <button id="open-current-folder-btn" class="mini-action"><i class="fas fa-folder-tree"></i> Current</button>
-                            </div>
-                            <div class="hero-status-line" id="hero-status-line">Ready</div>
+                            <span class="status-pill" id="status-pill" data-state="ready">READY</span>
                         </div>
 
-                        <div class="hero-preview system-preview">
-                            <div class="system-preview-card">
-                                <div class="system-preview-label">SYSTEM PANEL</div>
-                                <div class="system-preview-title">READY TO LAUNCH</div>
-                                <div class="system-preview-lines">
-                                    <span>WINDOWS + LINUX</span>
-                                    <span>AUTO INSTALL READY</span>
-                                    <span>PROFILE CENTER</span>
-                                </div>
-                            </div>
+                        <p class="hero-description" id="hero-description">Runs in KaliLauncher&#39;s own sandbox so your main Minecraft folder stays untouched.</p>
+
+                        <div class="hero-status-line" id="hero-status-line">Ready</div>
+
+                        <div class="hero-summary-grid">
+                            <article class="summary-tile">
+                                <span>Profile</span>
+                                <strong id="hero-profile-label">Tbilisi 2077</strong>
+                            </article>
+                            <article class="summary-tile">
+                                <span>Version</span>
+                                <strong id="hero-version-label">1.20.1</strong>
+                            </article>
+                            <article class="summary-tile">
+                                <span>Data mode</span>
+                                <strong id="hero-runtime-mode">Isolated</strong>
+                            </article>
                         </div>
-                    </div>
-                </section>
+
+                        <div class="hero-actions">
+                            <button id="java17-btn" class="mini-action"><i class="fas fa-mug-hot"></i> Get Java 17</button>
+                            <button id="java21-btn" class="mini-action"><i class="fas fa-bolt"></i> Get Java 21</button>
+                            <button id="go-profile-btn" class="mini-action"><i class="fas fa-user-pen"></i> Edit Profile</button>
+                            <button id="open-minecraft-folder-btn" class="mini-action"><i class="fas fa-database"></i> Launcher Runtime</button>
+                            <button id="open-instances-folder-btn" class="mini-action"><i class="fas fa-box-archive"></i> Instances</button>
+                            <button id="open-current-folder-btn" class="mini-action"><i class="fas fa-folder-tree"></i> Current Folder</button>
+                        </div>
+                    </section>
+
+                    <aside class="status-column">
+                        <section class="panel-card status-card accent-card">
+                            <span class="card-kicker">Launcher data</span>
+                            <strong id="launcher-data-short">Loading...</strong>
+                            <p id="launcher-data-path">Waiting for path info...</p>
+                        </section>
+
+                        <section class="panel-card status-card">
+                            <span class="card-kicker">Current instance</span>
+                            <strong id="current-folder-label">Loading...</strong>
+                            <p id="current-folder-path">Waiting for path info...</p>
+                        </section>
+
+                        <section class="panel-card status-card soft-card">
+                            <span class="card-kicker">Why this is safer</span>
+                            <p id="isolation-summary">Versions, libraries and assets live inside KaliLauncher instead of the system .minecraft folder.</p>
+                        </section>
+                    </aside>
+                </div>
             </section>
 
             <section class="content-view hidden" id="tab-profile">
-                <div class="panel-card neon-border profile-panel">
-                    <div class="panel-header">PROFILE CENTER</div>
+                <div class="panel-card profile-panel">
+                    <div class="panel-header-row">
+                        <div>
+                            <div class="panel-eyebrow">Identity</div>
+                            <h2 class="panel-title">Player Profile</h2>
+                        </div>
+                        <div class="panel-copy">Keep nickname and skin settings in one place.</div>
+                    </div>
+
                     <div class="profile-layout">
                         <div class="profile-card profile-summary">
-                            <div class="profile-head-wrap neon-border">
+                            <div class="profile-head-wrap">
                                 <img id="profile-head-preview" src="https://minotar.net/helm/KaliPlayer/160" alt="Player head" class="profile-head-image">
                             </div>
                             <div class="profile-summary-text">
                                 <div class="profile-name" id="profile-display-name">KaliPlayer</div>
-                                <div class="profile-subtitle">Local profile settings and skin preview</div>
+                                <div class="profile-subtitle">Local identity used by the launcher.</div>
                             </div>
                             <div class="profile-actions-grid">
                                 <button id="upload-skin-btn" class="tool-btn"><i class="fas fa-upload"></i> Upload Skin</button>
-                                <button id="remove-skin-btn" class="tool-btn"><i class="fas fa-trash"></i> Remove Skin</button>
-                                <button id="open-profile-folder-btn" class="tool-btn"><i class="fas fa-folder-open"></i> Open Profile Folder</button>
+                                <button id="remove-skin-btn" class="tool-btn"><i class="fas fa-trash-can"></i> Remove Skin</button>
+                                <button id="open-profile-folder-btn" class="tool-btn"><i class="fas fa-folder-open"></i> Profile Folder</button>
                             </div>
                         </div>
 
@@ -85,7 +130,7 @@
                             <div class="profile-settings-grid">
                                 <label class="setting-field">
                                     <span>Player Name</span>
-                                    <input id="profile-username" type="text" maxlength="16" placeholder="Enter Nickname">
+                                    <input id="profile-username" type="text" maxlength="16" placeholder="Enter nickname">
                                 </label>
 
                                 <div class="setting-field skin-status-card">
@@ -95,11 +140,11 @@
                                 </div>
                             </div>
 
-                            <div class="skin-preview-stage neon-border">
+                            <div class="skin-preview-stage">
                                 <div class="skin-preview-frame">
                                     <img id="profile-skin-image" src="https://minotar.net/skin/KaliPlayer" alt="Skin preview" class="profile-skin-sheet">
                                 </div>
-                                <div class="skin-preview-note">PNG skin file preview</div>
+                                <div class="skin-preview-note">PNG skin preview used by KaliLauncher.</div>
                             </div>
                         </div>
                     </div>
@@ -107,8 +152,15 @@
             </section>
 
             <section class="content-view hidden" id="tab-settings">
-                <div class="panel-card neon-border">
-                    <div class="panel-header">GAME SETTINGS</div>
+                <div class="panel-card">
+                    <div class="panel-header-row">
+                        <div>
+                            <div class="panel-eyebrow">Performance</div>
+                            <h2 class="panel-title">Game Settings</h2>
+                        </div>
+                        <div class="panel-copy">Tune memory, resolution and launch behavior without touching the system launcher.</div>
+                    </div>
+
                     <div class="settings-grid">
                         <label class="setting-field">
                             <span>Max RAM</span>
@@ -138,7 +190,7 @@
                             <span>Fullscreen</span>
                             <div class="check-wrap">
                                 <input id="fullscreen" type="checkbox">
-                                <small>Enable fullscreen</small>
+                                <small>Enable fullscreen launch</small>
                             </div>
                         </label>
                     </div>
@@ -146,12 +198,19 @@
             </section>
 
             <section class="content-view hidden" id="tab-tools">
-                <div class="panel-card neon-border">
-                    <div class="panel-header">TOOLS</div>
+                <div class="panel-card">
+                    <div class="panel-header-row">
+                        <div>
+                            <div class="panel-eyebrow">Utilities</div>
+                            <h2 class="panel-title">Launcher Tools</h2>
+                        </div>
+                        <div class="panel-copy">Open folders, check updates and reset only KaliLauncher data.</div>
+                    </div>
+
                     <div class="tools-grid">
                         <button id="open-tbilisi-folder-btn" class="tool-btn"><i class="fas fa-city"></i> Tbilisi Files</button>
-                        <button id="open-minecraft-root-btn" class="tool-btn"><i class="fas fa-folder-open"></i> Minecraft Root</button>
-                        <button id="open-launcher-root-btn" class="tool-btn"><i class="fas fa-hard-drive"></i> Launcher Root</button>
+                        <button id="open-minecraft-root-btn" class="tool-btn"><i class="fas fa-database"></i> Runtime Folder</button>
+                        <button id="open-launcher-root-btn" class="tool-btn"><i class="fas fa-hard-drive"></i> Launcher Data</button>
                         <button id="check-updates-btn" class="tool-btn"><i class="fas fa-cloud-arrow-down"></i> Check Updates</button>
                         <button id="reset-settings-btn" class="tool-btn danger"><i class="fas fa-rotate-left"></i> Reset Settings</button>
                     </div>
@@ -159,32 +218,35 @@
             </section>
 
             <footer class="action-bar">
-                <div class="user-controls">
-                    <div class="user-info">
-                        <img id="footer-avatar" src="https://minotar.net/avatar/KaliPlayer/40" alt="Skin" class="user-head neon-border">
-                        <div class="user-details">
-                            <span class="label">PLAYER</span>
-                            <input type="text" id="username" class="username neon-cyan" value="KaliPlayer" maxlength="16" placeholder="Enter Nickname">
-                        </div>
-                    </div>
+                <div class="footer-player">
+                    <img id="footer-avatar" src="https://minotar.net/avatar/KaliPlayer/40" alt="Skin" class="user-head">
+                    <label class="username-field">
+                        <span class="label">Player</span>
+                        <input type="text" id="username" class="username" value="KaliPlayer" maxlength="16" placeholder="Enter nickname">
+                    </label>
+                </div>
 
-                    <div class="version-selector neon-border">
-                        <span class="label">PROFILE</span>
+                <div class="footer-selectors">
+                    <div class="version-selector">
+                        <span class="label">Profile</span>
                         <select id="profile-select" class="cyber-select"></select>
+                        <small id="footer-profile-label">Tbilisi 2077</small>
                     </div>
 
-                    <div class="version-selector neon-border">
-                        <span class="label">VERSION</span>
+                    <div class="version-selector">
+                        <span class="label">Version</span>
                         <select id="version-select" class="cyber-select"></select>
+                        <small id="footer-version-label">1.20.1</small>
                     </div>
                 </div>
 
                 <div class="launch-controls">
-                    <button id="play-btn" class="big-play-button">PLAY</button>
+                    <button id="play-btn" class="big-play-button">Launch</button>
                 </div>
             </footer>
         </main>
     </div>
+
     <script src="renderer.js"></script>
 </body>
 </html>

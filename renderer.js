@@ -1,4 +1,5 @@
 const { ipcRenderer } = require('electron');
+const path = require('path');
 const { pathToFileURL } = require('url');
 
 const RELEASE_VERSIONS = [
@@ -15,11 +16,41 @@ const RELEASE_VERSIONS = [
 ];
 
 const PROFILE_CONFIG = {
-    tbilisi: { label: 'Tbilisi 2077', versions: ['1.20.1'], title: '> TBILISI 2077_' },
-    release: { label: 'Release', versions: RELEASE_VERSIONS, title: '> RELEASE_' },
-    forge: { label: 'Forge', versions: RELEASE_VERSIONS, title: '> FORGE_' },
-    fabric: { label: 'Fabric', versions: RELEASE_VERSIONS.filter((version) => /^1\.(1[4-9]|20|21)(\.|$)/.test(version)), title: '> FABRIC_' },
-    optifine: { label: 'OptiFine', versions: RELEASE_VERSIONS, title: '> OPTIFINE_' }
+    tbilisi: {
+        label: 'Tbilisi 2077',
+        versions: ['1.20.1'],
+        title: 'Tbilisi 2077',
+        eyebrow: 'Curated modpack',
+        description: 'A prebuilt pack that now runs from KaliLauncher\'s own isolated runtime, so your real Minecraft folder stays untouched.'
+    },
+    release: {
+        label: 'Vanilla Release',
+        versions: RELEASE_VERSIONS,
+        title: 'Vanilla Release',
+        eyebrow: 'Clean sandbox',
+        description: 'A clean Minecraft install using KaliLauncher\'s private runtime with a separate game folder for each selected version.'
+    },
+    forge: {
+        label: 'Forge',
+        versions: RELEASE_VERSIONS,
+        title: 'Forge Workspace',
+        eyebrow: 'Mod loader',
+        description: 'Forge versions install into the launcher runtime instead of sharing data with the official launcher or other launchers.'
+    },
+    fabric: {
+        label: 'Fabric',
+        versions: RELEASE_VERSIONS.filter((version) => /^1\.(1[4-9]|20|21)(\.|$)/.test(version)),
+        title: 'Fabric Workspace',
+        eyebrow: 'Lightweight loader',
+        description: 'Fast Fabric profiles with isolated assets, libraries and versions managed only by KaliLauncher.'
+    },
+    optifine: {
+        label: 'OptiFine',
+        versions: RELEASE_VERSIONS,
+        title: 'OptiFine Workspace',
+        eyebrow: 'Performance profile',
+        description: 'OptiFine installs into KaliLauncher\'s own runtime, which avoids collisions with any other Minecraft launcher on the machine.'
+    }
 };
 
 const DEFAULT_CONFIG = {
@@ -48,6 +79,14 @@ const state = {
         profileRoot: '',
         customSkinPath: null
     },
+    paths: {
+        launcherDataRoot: '',
+        minecraftRoot: '',
+        systemMinecraftRoot: '',
+        instancesRoot: '',
+        profileRoot: '',
+        currentProfile: ''
+    },
     saveTimer: null,
     activeTab: 'play'
 };
@@ -69,9 +108,22 @@ const profileSkinImage = document.getElementById('profile-skin-image');
 const profileDisplayName = document.getElementById('profile-display-name');
 const profileSkinStatus = document.getElementById('profile-skin-status');
 const profileSkinPath = document.getElementById('profile-skin-path');
+const heroEyebrow = document.getElementById('hero-eyebrow');
 const heroTitle = document.getElementById('hero-title');
+const heroDescription = document.getElementById('hero-description');
 const heroStatusLine = document.getElementById('hero-status-line');
 const statusPill = document.getElementById('status-pill');
+const heroProfileLabel = document.getElementById('hero-profile-label');
+const heroVersionLabel = document.getElementById('hero-version-label');
+const heroRuntimeMode = document.getElementById('hero-runtime-mode');
+const sidebarRuntimeMode = document.getElementById('sidebar-runtime-mode');
+const launcherDataShort = document.getElementById('launcher-data-short');
+const launcherDataPath = document.getElementById('launcher-data-path');
+const currentFolderLabel = document.getElementById('current-folder-label');
+const currentFolderPath = document.getElementById('current-folder-path');
+const isolationSummary = document.getElementById('isolation-summary');
+const footerProfileLabel = document.getElementById('footer-profile-label');
+const footerVersionLabel = document.getElementById('footer-version-label');
 const navItems = [...document.querySelectorAll('.nav-menu li')];
 const tabs = {
     play: document.getElementById('tab-play'),
@@ -117,15 +169,41 @@ function currentProfileConfig() {
     return PROFILE_CONFIG[state.config.selectedProfile] || PROFILE_CONFIG.tbilisi;
 }
 
+function currentSelectedVersion() {
+    const config = currentProfileConfig();
+    return state.config.selectedVersions[state.config.selectedProfile] || config.versions[0];
+}
+
+function setText(element, value) {
+    if (element) element.textContent = value;
+}
+
+function formatShortPath(filePath) {
+    if (!filePath) return 'Unavailable';
+    const normalized = path.normalize(filePath);
+    const parts = normalized.split(path.sep).filter(Boolean);
+    if (parts.length <= 3) return normalized;
+    return `...${path.sep}${parts.slice(-3).join(path.sep)}`;
+}
+
 function switchTab(tab) {
     state.activeTab = tab;
     navItems.forEach((item) => item.classList.toggle('active', item.dataset.tab === tab));
     Object.entries(tabs).forEach(([name, el]) => el.classList.toggle('hidden', name !== tab));
 }
 
+function resolveStatusTone(text) {
+    const normalized = String(text || '').toLowerCase();
+    if (/error|fail|err/.test(normalized)) return 'error';
+    if (/update|download|checking|progress|upd|new|info/.test(normalized)) return 'info';
+    if (/start|launch|work|skin|reset|asset/.test(normalized)) return 'accent';
+    return 'ready';
+}
+
 function updateHeroStatus(message, pill = 'READY') {
-    heroStatusLine.textContent = message;
-    statusPill.textContent = pill;
+    setText(heroStatusLine, message);
+    setText(statusPill, pill);
+    if (statusPill) statusPill.dataset.state = resolveStatusTone(`${message} ${pill}`);
 }
 
 function populateProfiles() {
@@ -229,6 +307,51 @@ async function refreshProfileAssets() {
     await updateAvatar();
 }
 
+function updatePathUI() {
+    const profile = currentProfileConfig();
+    const selectedVersion = currentSelectedVersion();
+    const runtimePath = state.paths.minecraftRoot;
+    const currentPath = state.paths.currentProfile;
+    const systemPath = state.paths.systemMinecraftRoot;
+
+    setText(heroProfileLabel, profile.label);
+    setText(heroVersionLabel, selectedVersion);
+    setText(heroRuntimeMode, 'Isolated');
+    setText(sidebarRuntimeMode, 'Isolated');
+    setText(launcherDataShort, formatShortPath(runtimePath || state.paths.launcherDataRoot));
+    setText(launcherDataPath, runtimePath || 'Launcher runtime path unavailable');
+    setText(currentFolderLabel, `${profile.label} / ${selectedVersion}`);
+    setText(currentFolderPath, currentPath || 'Current instance path unavailable');
+    setText(footerProfileLabel, profile.label);
+    setText(footerVersionLabel, selectedVersion);
+
+    if (runtimePath && systemPath) {
+        setText(isolationSummary, `KaliLauncher now uses ${formatShortPath(runtimePath)} instead of the shared system folder ${formatShortPath(systemPath)}.`);
+    } else {
+        setText(isolationSummary, 'Versions, libraries and assets stay inside KaliLauncher only.');
+    }
+}
+
+async function refreshLauncherPaths() {
+    try {
+        state.paths = await ipcRenderer.invoke('get-launcher-paths', {
+            profile: state.config.selectedProfile,
+            version: currentSelectedVersion()
+        });
+    } catch (error) {
+        console.error('Failed to load launcher paths:', error);
+        state.paths = {
+            launcherDataRoot: '',
+            minecraftRoot: '',
+            systemMinecraftRoot: '',
+            instancesRoot: '',
+            profileRoot: '',
+            currentProfile: ''
+        };
+    }
+    updatePathUI();
+}
+
 function applyConfigToUI() {
     state.config = sanitizeConfig(state.config);
     const profile = state.config.selectedProfile;
@@ -238,13 +361,16 @@ function applyConfigToUI() {
     profileSelect.value = profile;
     populateVersions();
 
-    heroTitle.textContent = config.title;
+    setText(heroEyebrow, config.eyebrow);
+    setText(heroTitle, config.title);
+    setText(heroDescription, config.description);
     memoryMaxInput.value = state.config.settings.memoryMax;
     memoryMinInput.value = state.config.settings.memoryMin;
     resolutionWidthInput.value = state.config.settings.resolutionWidth;
     resolutionHeightInput.value = state.config.settings.resolutionHeight;
     fullscreenInput.checked = state.config.settings.fullscreen;
     closeBehaviorSelect.value = state.config.settings.closeBehavior;
+    updatePathUI();
 }
 
 async function persistConfig(immediate = false) {
@@ -259,7 +385,7 @@ async function persistConfig(immediate = false) {
     applyConfigToUI();
 }
 
-function setLaunchingState(isLaunching, text = 'PLAY') {
+function setLaunchingState(isLaunching, text = 'Launch') {
     playBtn.disabled = isLaunching;
     playBtn.classList.toggle('loading', isLaunching);
     playBtn.textContent = text;
@@ -283,11 +409,14 @@ function bindEvents() {
     profileSelect.addEventListener('change', () => {
         state.config.selectedProfile = profileSelect.value;
         applyConfigToUI();
+        void refreshLauncherPaths();
         persistConfig();
     });
 
     versionSelect.addEventListener('change', () => {
         state.config.selectedVersions[state.config.selectedProfile] = versionSelect.value;
+        updatePathUI();
+        void refreshLauncherPaths();
         persistConfig();
     });
 
@@ -316,7 +445,7 @@ function bindEvents() {
     document.getElementById('open-current-folder-btn').addEventListener('click', () => {
         ipcRenderer.invoke('open-launcher-folder', 'currentProfile', {
             profile: state.config.selectedProfile,
-            version: state.config.selectedVersions[state.config.selectedProfile]
+            version: currentSelectedVersion()
         });
     });
     document.getElementById('open-tbilisi-folder-btn').addEventListener('click', () => ipcRenderer.invoke('open-launcher-folder', 'tbilisiRoot'));
@@ -359,13 +488,14 @@ function bindEvents() {
         state.config = await ipcRenderer.invoke('reset-launcher-config');
         applyConfigToUI();
         await refreshProfileAssets();
+        await refreshLauncherPaths();
         updateHeroStatus('Defaults restored', 'RESET');
     });
 
     playBtn.addEventListener('click', async () => {
         await persistConfig(true);
-        const selectedVersion = state.config.selectedVersions[state.config.selectedProfile];
-        setLaunchingState(true, 'LAUNCHING...');
+        const selectedVersion = currentSelectedVersion();
+        setLaunchingState(true, 'Launching...');
         updateHeroStatus(`${currentProfileConfig().label} ${selectedVersion}`, 'START');
         ipcRenderer.send('launch-game', {
             username: state.config.username,
@@ -396,12 +526,12 @@ ipcRenderer.on('download-progress', (_event, progress) => {
 });
 
 ipcRenderer.on('game-closed', () => {
-    setLaunchingState(false, 'PLAY');
+    setLaunchingState(false, 'Launch');
     updateHeroStatus('Ready', 'READY');
 });
 
 ipcRenderer.on('launch-error', (_event, message) => {
-    setLaunchingState(false, 'PLAY');
+    setLaunchingState(false, 'Launch');
     updateHeroStatus('Launch failed', 'ERROR');
     alert(`Error: ${message}`);
 });
@@ -412,7 +542,7 @@ ipcRenderer.on('updater-status', (_event, payload) => {
     const pill = payload.pill || 'UPD';
     updateHeroStatus(message, pill);
     if (payload.type === 'downloaded') {
-        alert('ახალი ვერსია გადმოიწერა. Launcher დაიხურება და update დაყენდება როცა დაეთანხმები.');
+        alert('A new launcher update has been downloaded. Close the launcher when you are ready to install it.');
     }
 });
 
@@ -429,7 +559,9 @@ async function initialize() {
 
     applyConfigToUI();
     await refreshProfileAssets();
+    await refreshLauncherPaths();
     switchTab('play');
+    setLaunchingState(false, 'Launch');
     updateHeroStatus('Ready', 'READY');
 }
 

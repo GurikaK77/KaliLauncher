@@ -44,8 +44,101 @@ function getLauncherConfigPath() {
     return path.join(app.getPath('userData'), 'launcher-config.json');
 }
 
+function getLauncherDataRoot() {
+    return path.join(app.getPath('userData'), '.kalilauncher');
+}
+
+function getInstancesRoot() {
+    return path.join(getLauncherDataRoot(), 'instances');
+}
+
+function getSystemMinecraftRoot() {
+    return path.join(app.getPath('appData'), '.minecraft');
+}
+
+function getLauncherMinecraftRoot() {
+    const root = path.join(getLauncherDataRoot(), 'runtime', '.minecraft');
+    for (const dirPath of [
+        root,
+        path.join(root, 'versions'),
+        path.join(root, 'libraries'),
+        path.join(root, 'assets'),
+        path.join(root, 'assets', 'indexes'),
+        path.join(root, 'assets', 'objects'),
+        path.join(root, 'natives')
+    ]) {
+        ensureDir(dirPath);
+    }
+    ensureLauncherMetadataFiles(root);
+    return root;
+}
+
+function getDefaultLauncherProfilePayload() {
+    const now = new Date().toISOString();
+    return {
+        profiles: {
+            KaliLauncher: {
+                created: now,
+                icon: 'Grass',
+                lastUsed: now,
+                lastVersionId: 'latest-release',
+                name: 'KaliLauncher',
+                type: 'custom'
+            }
+        },
+        selectedProfile: 'KaliLauncher',
+        clientToken: '00000000-0000-0000-0000-000000000000',
+        authenticationDatabase: {},
+        settings: {
+            crashAssistance: true,
+            enableAdvanced: false,
+            enableAnalytics: false,
+            keepLauncherOpen: false,
+            showGameLog: false
+        },
+        version: 3
+    };
+}
+
+function ensureJsonFile(filePath, fallbackFactory) {
+    if (fs.existsSync(filePath)) {
+        try {
+            JSON.parse(fs.readFileSync(filePath, 'utf8'));
+            return;
+        } catch {
+            // Rewrite broken files with a safe default payload.
+        }
+    }
+
+    ensureDir(path.dirname(filePath));
+    fs.writeFileSync(filePath, JSON.stringify(fallbackFactory(), null, 2));
+}
+
+function ensureLauncherMetadataFiles(minecraftRoot) {
+    ensureJsonFile(path.join(minecraftRoot, 'launcher_profiles.json'), getDefaultLauncherProfilePayload);
+    ensureJsonFile(path.join(minecraftRoot, 'launcher_profiles_microsoft_store.json'), getDefaultLauncherProfilePayload);
+    ensureJsonFile(path.join(minecraftRoot, 'launcher_accounts.json'), () => ({ accounts: {}, activeAccountLocalId: null }));
+}
+
+function buildIsolatedProcessEnv(minecraftRoot = getLauncherMinecraftRoot()) {
+    const runtimeRoot = path.dirname(minecraftRoot);
+    const env = {
+        ...process.env,
+        APPDATA: runtimeRoot,
+        MINECRAFT_HOME: minecraftRoot,
+        KALILAUNCHER_DATA: getLauncherDataRoot(),
+        KALILAUNCHER_MINECRAFT_ROOT: minecraftRoot
+    };
+
+    if (process.platform !== 'win32') {
+        env.HOME = runtimeRoot;
+    }
+
+    return env;
+}
+
 function getProfileRoot() {
-    return path.join(app.getPath('userData'), '.kalilauncher', 'profile');
+    return path.join(getLauncherDataRoot(), 'profile');
 }
 
 function getCustomSkinPath() {
@@ -293,9 +386,31 @@ function findJavaExecutableInRoots(roots, patterns = []) {
     return null;
 }
 
+function resolvePreferredJavaMajor(mcVersion, loader = 'release') {
+    const normalized = String(mcVersion || '');
+    if (loader === 'forge' && needsJava8ForForge(normalized)) return 8;
+
+    const match = normalized.match(/^1\.(\d+)(?:\.(\d+))?/);
+    if (!match) return null;
+
+    const minor = Number(match[1]);
+    const patch = Number(match[2] || 0);
+
+    if (minor >= 21) return 21;
+    if (minor === 20 && patch >= 5) return 21;
+    if (minor >= 17) return 17;
+    return 8;
+}
+
 function getJavaExecutable(requiredMajor = null) {
-    if (requiredMajor === 8) {
-        const envCandidates = [process.env.JAVA8_HOME, process.env.JRE8_HOME]
+    if ([8, 17, 21].includes(requiredMajor)) {
+        const envMap = {
+            8: [process.env.JAVA8_HOME, process.env.JRE8_HOME],
+            17: [process.env.JAVA17_HOME, process.env.JDK17_HOME],
+            21: [process.env.JAVA21_HOME, process.env.JDK21_HOME]
+        };
+
+        const envCandidates = (envMap[requiredMajor] || [])
             .filter(Boolean)
             .map((base) => path.join(base, 'bin', 'java.exe'))
             .filter((candidate) => fs.existsSync(candidate));
@@ -312,15 +427,26 @@ function getJavaExecutable(requiredMajor = null) {
             path.join(base, 'Amazon Corretto')
         ]);
 
-        const found = findJavaExecutableInRoots(roots, [
-            /jdk.*1\.8/, /jre.*1\.8/, /jdk-?8/, /jre-?8/, /temurin.*8/, /corretto.*8/
-        ]);
+        const patternMap = {
+            8: [/jdk.*1\.8/, /jre.*1\.8/, /jdk-?8/, /jre-?8/, /temurin.*8/, /corretto.*8/],
+            17: [/jdk.*17/, /jre.*17/, /jdk-?17/, /jre-?17/, /temurin.*17/, /corretto.*17/],
+            21: [/jdk.*21/, /jre.*21/, /jdk-?21/, /jre-?21/, /temurin.*21/, /corretto.*21/]
+        };
 
-        if (!found) {
+        const found = findJavaExecutableInRoots(roots, patternMap[requiredMajor] || []);
+        if (found) return found;
+
+        if (requiredMajor === 8) {
             throw new Error('Forge 1.16.5 and below need Java 8. Install Java 8 first, then try again.');
         }
 
-        return found;
+        if (requiredMajor === 17) {
+            throw new Error('Minecraft 1.17 to 1.20.4 needs Java 17. Install Java 17 first, then try again.');
+        }
+
+        if (requiredMajor === 21) {
+            throw new Error('Minecraft 1.20.5+ needs Java 21. Install Java 21 first, then try again.');
+        }
     }
 
     return 'java';
@@ -348,12 +474,12 @@ function showLauncherWindow() {
 
 function createWindow() {
     win = new BrowserWindow({
-        width: 1120,
-        height: 700,
-        minWidth: 1120,
-        minHeight: 700,
-        resizable: false,
-        backgroundColor: '#07111f',
+        width: 1320,
+        height: 860,
+        minWidth: 1080,
+        minHeight: 720,
+        resizable: true,
+        backgroundColor: '#f2ecdf',
         title: 'KaliLauncher',
         icon: path.join(__dirname, 'build', 'icons', process.platform === 'win32' ? 'icon.ico' : 'icon.png'),
         autoHideMenuBar: true,
@@ -422,11 +548,11 @@ function copyPathIfExists(sourcePath, targetPath) {
 }
 
 function getOfficialMinecraftRoot() {
-    return path.join(app.getPath('appData'), '.minecraft');
+    return getLauncherMinecraftRoot();
 }
 
 function getInstanceRoot() {
-    return path.join(app.getPath('userData'), '.kalilauncher', 'instances', 'tbilisi-2077');
+    return path.join(getInstancesRoot(), 'tbilisi-2077');
 }
 
 function sanitizeSegment(value) {
@@ -434,7 +560,7 @@ function sanitizeSegment(value) {
 }
 
 function prepareProfileInstance(profile, version) {
-    const instanceRoot = path.join(app.getPath('userData'), '.kalilauncher', 'instances', `${sanitizeSegment(profile)}-${sanitizeSegment(version)}`);
+    const instanceRoot = getCurrentProfileFolderPath(profile, version);
     ensureDir(instanceRoot);
     for (const folder of ['mods', 'config', 'resourcepacks', 'shaderpacks', 'saves']) {
         ensureDir(path.join(instanceRoot, folder));
@@ -445,9 +571,9 @@ function prepareProfileInstance(profile, version) {
 function getCurrentProfileFolderPath(profile, version) {
     if (profile === 'tbilisi') return getInstanceRoot();
     if (profile === 'release') {
-        return path.join(app.getPath('userData'), '.kalilauncher', 'vanilla', sanitizeSegment(version || '1.20.1'));
+        return path.join(getLauncherDataRoot(), 'vanilla', sanitizeSegment(version || '1.20.1'));
     }
-    return path.join(app.getPath('userData'), '.kalilauncher', 'instances', `${sanitizeSegment(profile || 'release')}-${sanitizeSegment(version || '1.20.1')}`);
+    return path.join(getInstancesRoot(), `${sanitizeSegment(profile || 'release')}-${sanitizeSegment(version || '1.20.1')}`);
 }
 
 function prepareTbilisiInstance() {
@@ -864,7 +990,8 @@ function runCommandCapture(command, args, options = {}) {
     return new Promise((resolve, reject) => {
         const child = spawn(command, args, {
             cwd: options.cwd,
-            windowsHide: true,
+            env: options.env || process.env,
+            windowsHide: options.windowsHide ?? true,
             detached: false
         });
 
@@ -977,17 +1104,19 @@ async function ensureForgeVersionInstalled(minecraftRoot, mcVersion, options = {
         await downloadFile(installerUrl, installerPath);
     }
 
-    const javaBin = needsJava8ForForge(mcVersion) ? getJavaExecutable(8) : getJavaExecutable();
+    const javaBin = getJavaExecutable(resolvePreferredJavaMajor(mcVersion, 'forge'));
 
     sendStatus(`Installing Forge ${mcVersion}...`);
     let installResult = await runCommandCapture(javaBin, ['-jar', installerPath, '--installClient', minecraftRoot], {
         cwd: path.dirname(installerPath),
+        env: buildIsolatedProcessEnv(minecraftRoot),
         logPrefix: 'ForgeInstaller'
     });
 
     if (installResult.code !== 0) {
         installResult = await runCommandCapture(javaBin, ['-jar', installerPath, '--installClient'], {
             cwd: minecraftRoot,
+            env: buildIsolatedProcessEnv(minecraftRoot),
             logPrefix: 'ForgeInstallerFallback'
         });
     }
@@ -1046,8 +1175,10 @@ async function ensureOptiFineInstalled(minecraftRoot, mcVersion) {
     }
 
     sendStatus(`Opening OptiFine ${mcVersion} installer...`);
-    const guiResult = await runCommandCapture(getJavaExecutable(), ['-jar', installerPath], {
+    const guiResult = await runCommandCapture(getJavaExecutable(resolvePreferredJavaMajor(mcVersion, 'optifine')), ['-jar', installerPath], {
         cwd: path.dirname(installerPath),
+        env: buildIsolatedProcessEnv(minecraftRoot),
+        windowsHide: false,
         logPrefix: 'OptiFineInstaller'
     });
 
@@ -1058,7 +1189,7 @@ async function ensureOptiFineInstalled(minecraftRoot, mcVersion) {
         throw new Error(`OptiFine installer closed with code ${guiResult.code}.`);
     }
 
-    throw new Error('The OptiFine installer opened, but no profile was found. Click Install in the installer, then press Play again.');
+    throw new Error('The OptiFine installer opened, but no profile was found. Install into the KaliLauncher runtime that opened by default, then press Play again.');
 }
 
 async function launchForgeFromOfficialInstall(username, forgeVersion, launchSettings = {}, instanceRootOverride = null) {
@@ -1076,10 +1207,11 @@ async function launchForgeFromOfficialInstall(username, forgeVersion, launchSett
     console.log('[ForgeLaunch] mainClass:', mainClass);
     console.log('[ForgeLaunch] args:', finalArgs.join(' '));
 
-    const javaBin = needsJava8ForForge(mergedJson.inheritsFrom || forgeVersion) ? getJavaExecutable(8) : getJavaExecutable();
+    const javaBin = getJavaExecutable(resolvePreferredJavaMajor(mergedJson.inheritsFrom || forgeVersion, 'forge'));
 
     activeGameProcess = spawn(javaBin, finalArgs, {
         cwd: minecraftRoot,
+        env: buildIsolatedProcessEnv(minecraftRoot),
         windowsHide: false,
         detached: false
     });
@@ -1127,7 +1259,7 @@ function launchInstalledCustomViaMCLC(username, loader, mcVersion, customVersion
     const opts = {
         authorization: getBaseAuth(username),
         root: minecraftRoot,
-        javaPath: loader === 'forge' && needsJava8ForForge(mcVersion) ? getJavaExecutable(8) : getJavaExecutable(),
+        javaPath: getJavaExecutable(resolvePreferredJavaMajor(mcVersion, loader)),
         version: {
             number: mcVersion,
             type: 'release',
@@ -1197,16 +1329,16 @@ ipcMain.handle('clear-custom-skin', async () => {
 });
 
 ipcMain.handle('open-launcher-folder', async (_event, folderKey, payload = {}) => {
-    let targetPath = app.getPath('userData');
+    let targetPath = getLauncherDataRoot();
 
     if (folderKey === 'minecraftRoot') {
         targetPath = getOfficialMinecraftRoot();
     } else if (folderKey === 'instancesRoot') {
-        targetPath = path.join(app.getPath('userData'), '.kalilauncher', 'instances');
+        targetPath = getInstancesRoot();
     } else if (folderKey === 'tbilisiRoot') {
         targetPath = getInstanceRoot();
     } else if (folderKey === 'launcherRoot') {
-        targetPath = app.getPath('userData');
+        targetPath = getLauncherDataRoot();
     } else if (folderKey === 'profileRoot') {
         targetPath = getProfileRoot();
     } else if (folderKey === 'currentProfile') {
@@ -1216,6 +1348,19 @@ ipcMain.handle('open-launcher-folder', async (_event, folderKey, payload = {}) =
     ensureDir(targetPath);
     const error = await shell.openPath(targetPath);
     return error ? { ok: false, error } : { ok: true, path: targetPath };
+});
+
+ipcMain.handle('get-launcher-paths', async (_event, payload = {}) => {
+    const requestedProfile = payload?.profile || DEFAULT_LAUNCHER_CONFIG.selectedProfile;
+    const requestedVersion = payload?.version || DEFAULT_LAUNCHER_CONFIG.selectedVersions[requestedProfile] || '1.20.1';
+    return {
+        launcherDataRoot: getLauncherDataRoot(),
+        minecraftRoot: getOfficialMinecraftRoot(),
+        systemMinecraftRoot: getSystemMinecraftRoot(),
+        instancesRoot: getInstancesRoot(),
+        profileRoot: getProfileRoot(),
+        currentProfile: getCurrentProfileFolderPath(requestedProfile, requestedVersion)
+    };
 });
 
 ipcMain.on('open-java-download', async (_event, version = '17') => {
@@ -1257,7 +1402,7 @@ ipcMain.on('launch-game', async (_event, args) => {
     try {
         const customSkinPath = getCustomSkinPath();
         if (fs.existsSync(customSkinPath)) {
-            const launcherProfileRoot = path.join(app.getPath('userData'), '.kalilauncher', 'profile-export');
+            const launcherProfileRoot = path.join(getLauncherDataRoot(), 'profile-export');
             ensureDir(launcherProfileRoot);
             fs.copyFileSync(customSkinPath, path.join(launcherProfileRoot, 'custom-skin.png'));
         }
@@ -1269,7 +1414,7 @@ ipcMain.on('launch-game', async (_event, args) => {
             });
 
             if (forgeVersion !== TBILISI_FORGE_VERSION_ID) {
-                throw new Error(`Expected official Tbilisi Forge profile ${TBILISI_FORGE_VERSION_ID}, but got ${forgeVersion}. Remove custom 1.20.1 Forge packs and try again.`);
+                throw new Error(`Expected isolated Tbilisi Forge profile ${TBILISI_FORGE_VERSION_ID}, but got ${forgeVersion}. Remove old custom 1.20.1 Forge data inside KaliLauncher and try again.`);
             }
 
             sendStatus('Tbilisi 2077 launching...');
@@ -1278,13 +1423,13 @@ ipcMain.on('launch-game', async (_event, args) => {
         }
 
         if (profile === 'release') {
-            const vanillaRoot = path.join(app.getPath('userData'), '.kalilauncher', 'vanilla', sanitizeSegment(version));
-            ensureDir(vanillaRoot);
+            const minecraftRoot = getOfficialMinecraftRoot();
+            const vanillaRoot = prepareProfileInstance(profile, version);
 
             const opts = {
                 authorization: getBaseAuth(username),
-                root: vanillaRoot,
-                javaPath: getJavaExecutable(),
+                root: minecraftRoot,
+                javaPath: getJavaExecutable(resolvePreferredJavaMajor(version, 'release')),
                 version: {
                     number: version,
                     type: 'release'
