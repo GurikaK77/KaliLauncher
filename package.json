@@ -1,6 +1,6 @@
 {
   "name": "kalilauncher",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "KaliLauncher desktop app with installers and auto-updates",
   "main": "main.js",
   "scripts": {
