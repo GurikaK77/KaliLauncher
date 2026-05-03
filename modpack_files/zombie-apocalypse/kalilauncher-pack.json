@@ -1,0 +1,15 @@
+{
+  "id": "zombie-apocalypse",
+  "name": "Zombie Apocalypse",
+  "author": "Gurika",
+  "description": "A ready Forge 1.20.1 zombie apocalypse modpack. Put your mods, configs, resource packs, shader packs and settings inside this source folder.",
+  "loader": "forge",
+  "mcVersion": "1.20.1",
+  "forgeBuild": "47.4.10",
+  "versionId": "1.20.1-forge-47.4.10",
+  "sourceType": "gurika-resource",
+  "status": "available",
+  "icon": "fa-biohazard",
+  "image": "zombie-apocalypse.svg",
+  "importedAt": ""
+}

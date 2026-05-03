@@ -1,0 +1,7 @@
+type = last_world
+
+last_world {
+  is_server = false
+  world = C:/Users/gurik/AppData/Roaming/.minecraft/modpacks/a2548577-dba9-382c-b05a-c39e2497ab86/saves/Mosslorn v3.1
+}
+

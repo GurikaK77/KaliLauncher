@@ -1,0 +1,14 @@
+{
+  "id": "coming-soon-2",
+  "name": "Coming Soon",
+  "author": "Gurika",
+  "description": "Reserved Gurika Resources slot for another future modpack.",
+  "loader": "forge",
+  "mcVersion": "1.20.1",
+  "forgeBuild": "47.4.10",
+  "versionId": "1.20.1-forge-47.4.10",
+  "sourceType": "gurika-resource",
+  "status": "coming-soon",
+  "icon": "fa-hourglass-half",
+  "image": "coming-soon-2.svg"
+}

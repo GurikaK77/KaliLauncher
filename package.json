@@ -1,0 +1,30 @@
+{
+  "name": "kalilauncher",
+  "version": "3.1.1",
+  "description": "KaliLauncher desktop app with installers and auto-updates",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir --config electron-builder.config.js",
+    "dist": "electron-builder --config electron-builder.config.js",
+    "dist:win": "electron-builder --config electron-builder.config.js --win nsis",
+    "dist:linux": "electron-builder --config electron-builder.config.js --linux AppImage deb",
+    "release": "electron-builder --config electron-builder.config.js --publish always"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Gurika Qartvelishvili",
+    "email": "noreply@kalilauncher.local"
+  },
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "electron-log": "^5.4.0",
+    "electron-updater": "^6.6.2",
+    "minecraft-launcher-core": "^3.18.2"
+  },
+  "devDependencies": {
+    "electron": "^40.2.1",
+    "electron-builder": "^26.0.12"
+  }
+}
