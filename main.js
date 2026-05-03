@@ -289,7 +289,7 @@ function formatPackNameFromId(packId) {
 }
 
 function getModpackFilesRoot() {
-    return path.join(__dirname, 'modpack_files');
+    return path.join(__dirname, 'modpack_files').replace('app.asar', 'app.asar.unpacked');
 }
 
 function getSourceModpackRoot(packId) {
@@ -301,7 +301,7 @@ function getTbilisiSourceRoot() {
 }
 
 function getResourceCoverRoot() {
-    return path.join(__dirname, 'assets', 'modpack-covers');
+    return path.join(__dirname, 'assets', 'modpack-covers').replace('app.asar', 'app.asar.unpacked');
 }
 
 function getResourceDefinitionById(packId) {
