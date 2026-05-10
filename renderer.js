@@ -17,13 +17,6 @@ const RELEASE_VERSIONS = [
 ];
 
 const PROFILE_CONFIG = {
-    tbilisi: {
-        label: 'Tbilisi 2077',
-        versions: ['1.20.1'],
-        title: 'Tbilisi 2077',
-        eyebrow: 'Curated modpack',
-        description: 'A prebuilt pack that runs from KaliLauncher\'s own isolated runtime, so your real Minecraft folder stays untouched.'
-    },
     release: {
         label: 'Vanilla Release',
         versions: RELEASE_VERSIONS,
@@ -56,9 +49,8 @@ const PROFILE_CONFIG = {
 
 const DEFAULT_CONFIG = {
     username: 'KaliPlayer',
-    selectedProfile: 'tbilisi',
+    selectedProfile: 'release',
     selectedVersions: {
-        tbilisi: '1.20.1',
         release: '1.21.11',
         forge: '1.20.1',
         fabric: '1.20.1',
@@ -183,7 +175,7 @@ function sanitizeConfig(raw) {
 }
 
 function currentProfileConfig() {
-    return PROFILE_CONFIG[state.config.selectedProfile] || PROFILE_CONFIG.tbilisi;
+    return PROFILE_CONFIG[state.config.selectedProfile] || PROFILE_CONFIG.release;
 }
 
 function currentSelectedVersion() {

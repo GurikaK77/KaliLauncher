@@ -289,7 +289,7 @@ function formatPackNameFromId(packId) {
 }
 
 function getModpackFilesRoot() {
-    return path.join(__dirname, 'modpack_files').replace('app.asar', 'app.asar.unpacked');
+    return path.join(__dirname, 'modpack_files');
 }
 
 function getSourceModpackRoot(packId) {
@@ -301,7 +301,7 @@ function getTbilisiSourceRoot() {
 }
 
 function getResourceCoverRoot() {
-    return path.join(__dirname, 'assets', 'modpack-covers').replace('app.asar', 'app.asar.unpacked');
+    return path.join(__dirname, 'assets', 'modpack-covers');
 }
 
 function getResourceDefinitionById(packId) {
@@ -600,7 +600,10 @@ function setupAutoUpdater() {
     autoUpdater.on('update-not-available', () => sendUpdaterStatus('none', 'Launcher is up to date', 'OK'));
     autoUpdater.on('error', (error) => {
         console.error('[Updater] Error:', error);
-        sendUpdaterStatus('error', 'Update check failed', 'ERR');
+        const msg = error?.message?.includes('404') 
+            ? 'No update found on GitHub releases'
+            : error?.message || 'Update check failed';
+        sendUpdaterStatus('error', msg, 'ERR');
     });
     autoUpdater.on('download-progress', (progress) => {
         const percent = Math.round(progress.percent || 0);
@@ -750,12 +753,17 @@ function getJavaExecutable(requiredMajor = null) {
 
         const roots = [
             process.env['ProgramFiles'],
-            process.env['ProgramFiles(x86)']
+            process.env['ProgramFiles(x86)'],
+            process.env['LocalAppData'],
+            process.env['APPDATA']
         ].filter(Boolean).flatMap((base) => [
             path.join(base, 'Java'),
             path.join(base, 'Eclipse Adoptium'),
             path.join(base, 'Temurin'),
-            path.join(base, 'Amazon Corretto')
+            path.join(base, 'Amazon Corretto'),
+            path.join(base, 'Microsoft'),
+            path.join(base, 'Programs', 'Eclipse Adoptium'),
+            path.join(base, 'Programs', 'Java')
         ]);
 
         const patternMap = {
