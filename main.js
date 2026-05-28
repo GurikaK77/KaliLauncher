@@ -46,6 +46,20 @@ const GURIKA_RESOURCE_DEFINITIONS = [
         imageName: 'coming-soon-1.svg'
     },
     {
+        id: 'survival-fantasy',
+        folderName: 'survival-fantasy',
+        name: 'Survival (Fantasy)',
+        author: 'Gurika',
+        description: 'A Gurika fantasy survival modpack for Forge 1.20.1.',
+        loader: 'forge',
+        mcVersion: '1.20.1',
+        forgeBuild: '47.4.10',
+        versionId: '1.20.1-forge-47.4.10',
+        status: 'available',
+        icon: 'fa-dragon',
+        imageName: 'coming-soon-2.svg'
+    },
+    {
         id: 'coming-soon-2',
         folderName: 'coming-soon-2',
         name: 'Coming Soon',

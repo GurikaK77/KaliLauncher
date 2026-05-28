@@ -410,48 +410,35 @@ function renderModpackCard(pack, context) {
     const isResource = context === 'resource';
     const comingSoon = isResource && pack.status === 'coming-soon';
     const installed = Boolean(pack.installed);
-    const statusText = isResource
-        ? (comingSoon ? 'Coming soon' : (installed ? 'Downloaded' : 'Ready to download'))
-        : 'Installed pack';
-    const description = pack.description || 'No description provided.';
     const coverUrl = renderPackCover(pack);
     const cover = coverUrl
         ? `<img src="${escapeHtml(coverUrl)}" alt="${escapeHtml(pack.name)} cover" class="modpack-cover-image">`
         : `<div class="modpack-cover-placeholder"><i class="fas ${escapeHtml(pack.icon || 'fa-cube')}"></i></div>`;
+
     const resourceActions = comingSoon
-        ? `
-            <button class="tool-btn" disabled><i class="fas fa-clock"></i> Coming Soon</button>
-            <button class="tool-btn" data-pack-action="open-source" data-pack-id="${escapeHtml(pack.id)}"><i class="fas fa-folder-open"></i> Open Source</button>
-        `
+        ? `<button class="tool-btn" disabled><i class="fas fa-clock"></i> Coming Soon</button>`
         : `
-            <button class="tool-btn" data-pack-action="install-resource" data-pack-id="${escapeHtml(pack.id)}"><i class="fas fa-cloud-arrow-down"></i> ${installed ? 'Update Download' : 'Download'}</button>
-            <button class="tool-btn" data-pack-action="launch-resource" data-pack-id="${escapeHtml(pack.id)}"><i class="fas fa-play"></i> Play</button>
-            <button class="tool-btn" data-pack-action="open-source" data-pack-id="${escapeHtml(pack.id)}"><i class="fas fa-folder-open"></i> Open Source</button>
-            <button class="tool-btn" data-pack-action="open-installed" data-pack-id="${escapeHtml(pack.id)}"><i class="fas fa-box-open"></i> Open Downloaded</button>
-            ${installed ? `<button class="tool-btn danger" data-pack-action="delete-installed" data-pack-id="${escapeHtml(pack.id)}"><i class="fas fa-trash-can"></i> Delete Download</button>` : ''}
+            <button class="tool-btn full-width" data-pack-action="install-resource" data-pack-id="${escapeHtml(pack.id)}"><i class="fas fa-cloud-arrow-down"></i> ${installed ? 'Update Download' : 'Download'}</button>
+            <button class="tool-btn" data-pack-action="open-installed" data-pack-id="${escapeHtml(pack.id)}"><i class="fas fa-folder-open"></i> Open Files</button>
         `;
-    const actions = isResource
-        ? resourceActions
-        : `
-            <button class="tool-btn" data-pack-action="launch-library-pack" data-pack-id="${escapeHtml(pack.id)}"><i class="fas fa-play"></i> Play</button>
-            <button class="tool-btn" data-pack-action="open-library-pack" data-pack-id="${escapeHtml(pack.id)}"><i class="fas fa-folder-open"></i> Open Files</button>
-            <button class="tool-btn danger" data-pack-action="delete-library-pack" data-pack-id="${escapeHtml(pack.id)}"><i class="fas fa-trash-can"></i> Delete</button>
-        `;
+
+    const libraryActions = `
+        <button class="tool-btn full-width" data-pack-action="launch-library-pack" data-pack-id="${escapeHtml(pack.id)}"><i class="fas fa-play"></i> Play</button>
+        <button class="tool-btn" data-pack-action="open-library-pack" data-pack-id="${escapeHtml(pack.id)}"><i class="fas fa-folder-open"></i> Open Files</button>
+        <button class="tool-btn danger" data-pack-action="delete-library-pack" data-pack-id="${escapeHtml(pack.id)}"><i class="fas fa-trash-can"></i> Delete</button>
+    `;
+
+    const actions = isResource ? resourceActions : libraryActions;
 
     return `
         <article class="modpack-card ${comingSoon ? 'is-coming-soon' : ''}">
             <div class="modpack-cover">${cover}</div>
             <div class="modpack-card-body">
-                <div class="modpack-card-head">
-                    <div>
-                        <span class="card-kicker">${escapeHtml(statusText)}</span>
-                        <h3>${escapeHtml(pack.name)}</h3>
-                    </div>
-                    <span class="modpack-state-pill">${escapeHtml(pack.author || 'Gurika')}</span>
+                <div class="modpack-card-meta-top">
+                    <span class="card-by">By ${escapeHtml((pack.author || 'Gurika').toUpperCase())}</span>
                 </div>
-                <p>${escapeHtml(description)}</p>
+                <h3 class="modpack-card-title">${escapeHtml(pack.name)}</h3>
                 <div class="modpack-chip-row">${renderPackMetaChips(pack)}</div>
-                <div class="modpack-path-note">${escapeHtml(formatShortPath(pack.sourcePath || pack.rootPath || ''))}</div>
                 <div class="modpack-actions">${actions}</div>
             </div>
         </article>

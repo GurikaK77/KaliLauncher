@@ -1,0 +1,7 @@
+type = last_world
+
+last_world {
+  is_server = false
+  world = C:/Users/gurik/AppData/Roaming/.minecraft/modpacks/62d8b758-4727-3ed2-b729-7a1afdaedeba/saves/nigga
+}
+

@@ -1,0 +1,1 @@
+{"jarName":"farsight-1.20.1-4.5.jar","modId":"farsight_view","version":"1.20.1-4.5","mixinConfigs":["farsight.mixins.json"],"jarJarMods":[{"jarName":"jctools-core-4.0.5.jar","mixinConfigs":[],"jarJarMods":[],"pathFromJarJar":"/META-INF/jarjar/"}],"curseForgeHash":597355476,"modrinthHash":"985eb925a7d8e3d3eca79f7759f59d0af09e3831"}

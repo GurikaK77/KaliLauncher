@@ -1,0 +1,1 @@
+{"jarName":"cristellib-1.1.6-forge.jar","modId":"cristellib","version":"1.1.6","mixinConfigs":["cristellib.mixins.json","cristellib-common.mixins.json"],"jarJarMods":[{"jarName":"jankson-1.2.3.jar","mixinConfigs":[],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}],"curseForgeHash":3580663282,"modrinthHash":"524ecf0f93f28be2f5db21d87dd81bdbc1a450e1"}

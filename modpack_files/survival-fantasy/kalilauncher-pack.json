@@ -1,0 +1,15 @@
+{
+  "id": "survival-fantasy",
+  "name": "Survival (Fantasy)",
+  "author": "Gurika",
+  "description": "A Gurika fantasy survival modpack for Forge 1.20.1.",
+  "loader": "forge",
+  "mcVersion": "1.20.1",
+  "forgeBuild": "47.4.10",
+  "versionId": "1.20.1-forge-47.4.10",
+  "sourceType": "gurika-resource",
+  "status": "available",
+  "icon": "fa-dragon",
+  "image": "coming-soon-2.svg",
+  "importedAt": ""
+}
