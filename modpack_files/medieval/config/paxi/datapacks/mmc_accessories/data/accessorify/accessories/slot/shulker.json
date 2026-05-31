@@ -1,0 +1,7 @@
+{
+  "replace": true,
+  "amount": 0,
+  "operation": "set",
+  "order": 810,
+  "icon": "accessorify:gui/slot/shulker"
+}

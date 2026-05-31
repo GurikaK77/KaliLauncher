@@ -1,0 +1,47 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/block",
+	"textures": {
+		"particle": "another_furniture:block/shelf/oak_top",
+		"top": "another_furniture:block/shelf/oak_top",
+		"edge": "another_furniture:block/shelf/oak_side_1",
+		"side": "another_furniture:block/shelf/oak_side"
+	},
+	"elements": [
+		{
+			"from": [0, 14, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 5, 16, 7], "texture": "#edge", "cullface": "north"},
+				"east": {"uv": [0, 12, 16, 14], "texture": "#edge", "cullface": "east"},
+				"south": {"uv": [0, 0, 16, 2], "texture": "#edge", "cullface": "south"},
+				"west": {"uv": [0, 8, 16, 10], "texture": "#edge", "cullface": "west"},
+				"up": {"uv": [0, 0, 16, 16], "rotation": 180, "texture": "#top", "cullface": "up"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#top"}
+			}
+		},
+		{
+			"from": [0, 6, 14],
+			"to": [4, 14, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, -2, 0]},
+			"faces": {
+				"north": {"uv": [6, 3, 10, 11], "texture": "#side"},
+				"east": {"uv": [6, 3, 8, 11], "texture": "#side"},
+				"south": {"uv": [6, 3, 10, 11], "texture": "#side", "cullface": "south"},
+				"west": {"uv": [8, 3, 10, 11], "texture": "#side", "cullface": "west"},
+				"down": {"uv": [6, 3, 10, 5], "texture": "#side"}
+			}
+		},
+		{
+			"from": [1, 3.8, 10.5],
+			"to": [3, 14.8, 12.5],
+			"rotation": {"angle": -45, "axis": "x", "origin": [2, 9.8, 9]},
+			"faces": {
+				"north": {"uv": [7, 5, 9, 16], "texture": "#side"},
+				"east": {"uv": [10, 5, 8, 16], "texture": "#side"},
+				"south": {"uv": [10, 5, 8, 16], "texture": "#side"},
+				"west": {"uv": [8, 5, 10, 16], "texture": "#side"}
+			}
+		}
+	]
+}

@@ -1,0 +1,1 @@
+{"jarName":"spark-1.10.53-fabric.jar","modId":"spark","version":"1.10.53","mixinConfigs":["spark.mixins.json"],"jarJarMods":[{"jarName":"fabric-permissions-api-0.1-SNAPSHOT.jar","modId":"fabric-permissions-api-v0","version":"0.1-SNAPSHOT","mixinConfigs":[],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

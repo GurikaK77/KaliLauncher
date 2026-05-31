@@ -1,0 +1,1 @@
+{"jarName":"Nyctophobia_1.9_(FABRIC)_for_1.20+.jar","modId":"nyctophobia","version":"1.9","mixinConfigs":["nyctophobia.mixins.json"],"jarJarMods":[{"jarName":"omega-config-base-1.2.2-1.18.1.jar","modId":"omega-config","version":"1.2.2-1.18.1","mixinConfigs":["omega-config.mixins.json"],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

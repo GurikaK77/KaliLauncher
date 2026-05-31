@@ -1,0 +1,1 @@
+{"jarName":"watut-fabric-1.20.1-1.2.3.jar","modId":"watut","version":"1.20.1-1.2.3","mixinConfigs":["watut_fabric.mixins.json","watut.mixins.json"],"jarJarMods":[{"jarName":"forge-config-api-port-fabric-547434-4583000.jar","modId":"forgeconfigapiport","version":"8.0.0","mixinConfigs":["forgeconfigapiport.common.mixins.json"],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

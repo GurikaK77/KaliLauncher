@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " #N",
+        "#S#",
+        "## "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:leather"
+        },
+        "S": {
+            "item": "minecraft:nether_star"
+        },
+        "N": {
+            "item": "minecraft:netherite_ingot"
+        }
+    },
+    "result": {
+        "item": "scorchful:water_skin"
+    }
+}

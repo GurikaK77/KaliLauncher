@@ -1,0 +1,447 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "forgery"
+	group: "4D72E07320E2A8E0"
+	icon: {
+		Count: 1
+		id: "minecraft:diamond_sword"
+		tag: {
+			Damage: 0
+		}
+	}
+	id: "61AD1FCA411E5B58"
+	images: [
+		{
+			height: 10.0d
+			image: "medieval:textures/forge_tut_2.png"
+			rotation: 0.0d
+			width: 10.0d
+			x: -1.5d
+			y: 0.5d
+		}
+		{
+			height: 4.0d
+			image: "iceandfire:item/dragonsteel_ice_sword"
+			rotation: 180.0d
+			width: 4.0d
+			x: -1.0d
+			y: -6.5d
+		}
+		{
+			height: 4.0d
+			image: "iceandfire:item/dragonsteel_fire_sword"
+			rotation: 90.0d
+			width: 4.0d
+			x: -2.0d
+			y: -6.5d
+		}
+		{
+			height: 4.0d
+			image: "minecraft:item/cit/custom/shield_round"
+			rotation: 0.0d
+			width: 4.0d
+			x: -1.5d
+			y: -6.5d
+		}
+	]
+	order_index: 4
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"To use an alloy forge, you'll need to make a &6multiblock structure&r made out of the same block type as the forge controller: "
+				"(Keep scrolling down!)"
+				""
+				"{image:medieval:textures/forge_tut_1.png width:150 height:150 align:center}"
+				""
+				"The 3x3 grid of blocks on the bottom must have all 9 blocks, but the center column in the middle and top layers can be hollow. "
+				""
+				"Some alloys or recipes require Tier 2 or Tier 3 forges, such as Adamantite."
+				"You can fuel the forge with &8coal&r, &clava&r, or &3morkite&r."
+				""
+				"It's also possible to automate forgery using hoppers. The left hopper is for &cfuel&r, the right for &6raw ores&r, and the bottom hopper is an &2output&r."
+				" "
+				"{image:medieval:textures/forge_tut_2.png width:150 height:150 align:center}"
+			]
+			id: "0FD305CCF89ABC0A"
+			rewards: [{
+				count: 2
+				id: "03A1527EF807235E"
+				item: "mythicmetals:morkite"
+				type: "item"
+			}]
+			subtitle: "&8Alloy Forges&r can be used to smelt ores faster, and are required to make certain &dalloys&r. Click to learn more."
+			tasks: [{
+				icon: "alloy_forgery:deepslate_bricks_forge_controller"
+				id: "34DDD0054E6E5FA7"
+				item: "alloy_forgery:deepslate_bricks_forge_controller"
+				match_nbt: false
+				title: "Craft a &8Deepslate Brick Forge Controller&r"
+				type: "item"
+			}]
+			x: -1.5d
+			y: 0.5d
+		}
+		{
+			dependencies: ["0FD305CCF89ABC0A"]
+			id: "69C6B1E77D9E7147"
+			subtitle: "A rare and refined alloy, forged from celestial materials. Tools crafted from &bCelestium&r offer enhanced agility, faster resource gathering, and high durability."
+			tasks: [{
+				id: "60B549EE8957F9D5"
+				item: "mythicmetals:celestium_ingot"
+				title: "Forge &b&lCelestium&r"
+				type: "item"
+			}]
+			x: -3.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["0FD305CCF89ABC0A"]
+			id: "4A94BD70BFC76804"
+			rewards: [
+				{
+					id: "18246B4D5545D78C"
+					type: "xp_levels"
+					xp_levels: 15
+				}
+				{
+					count: 4
+					id: "7461797E3E2B6581"
+					item: "minecraft:amethyst_shard"
+					random_bonus: 8
+					type: "item"
+				}
+			]
+			subtitle: "The densest of all alloys, forged from the rarest substances known to man. Used to craft powerful gear."
+			tasks: [{
+				id: "722F92A4742AEE5F"
+				item: "mythicmetals:metallurgium_ingot"
+				title: "Forge &d&lMetallurgium&r"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 2.0d
+		}
+		{
+			id: "30EF8F63379550ED"
+			rewards: [{
+				count: 3
+				id: "5568BFF70EA3967D"
+				item: "minecraft:amethyst_shard"
+				random_bonus: 2
+				type: "item"
+			}]
+			subtitle: "In addition to repairing gear and combining enchants, &5Anvils&r can be used to crush &3Gems&r to make &3Gem Dust&r! "
+			tasks: [{
+				id: "3ED28415E02CF3AA"
+				item: {
+					Count: 1
+					id: "itemfilters:tag"
+					tag: {
+						value: "minecraft:anvil"
+					}
+				}
+				title: "Any #minecraft:anvil"
+				type: "item"
+			}]
+			title: "Craft an &5Anvil"
+			x: -1.5d
+			y: -3.0d
+		}
+		{
+			hide_dependency_lines: true
+			hide_until_deps_visible: true
+			id: "544D2E09C1246B6F"
+			rewards: [{
+				id: "0C3C4274D832E74D"
+				item: "minecraft:bucket"
+				type: "item"
+			}]
+			subtitle: "Find any &5Zenith Gem&r, then make an &8Anvil Block&r fall on it."
+			tasks: [{
+				id: "7F8C6256BDC5DBD5"
+				item: "zenith:gem_dust"
+				title: "Acquire some &5Gem Dust"
+				type: "item"
+			}]
+			x: 2.0d
+			y: -3.5d
+		}
+		{
+			id: "204BBD7160439819"
+			rewards: [{
+				id: "3CA53B9017DBE71B"
+				item: "minecraft:obsidian"
+				random_bonus: 1
+				type: "item"
+			}]
+			subtitle: "Place in any &6affixed&r gear, and break it down into &6reforging&r materials. \\n\\nIt can also more conveniently break down &3gems&r into &3gem dust&r."
+			tasks: [{
+				id: "4CAEB1876C5DF203"
+				item: "zenith:salvaging_table"
+				type: "item"
+			}]
+			title: "Craft a &3Salvaging Table&r"
+			x: -5.0d
+			y: -3.5d
+		}
+		{
+			id: "4CC4EAD2B864A41A"
+			rewards: [{
+				id: "1D749DCC3DC113FD"
+				type: "xp_levels"
+				xp_levels: 5
+			}]
+			subtitle: "Used to add or reroll attributes and sockets to gear, up to &9Rare&r. \\n\\nTo reforge higher rarities, you'll need a &5Reforging Table&r.\\n\\nFor more information read the &6Chronicle of Shadows&r"
+			tasks: [{
+				id: "1EB1EFD0183BBD4C"
+				item: "zenith:simple_reforging_table"
+				type: "item"
+			}]
+			title: "Craft a &8Simple Reforging Table&r"
+			x: -4.0d
+			y: -2.0d
+		}
+		{
+			hide_dependency_lines: true
+			hide_until_deps_visible: true
+			id: "6BFFB3ACB261B6EC"
+			rewards: [{
+				count: 2
+				id: "209AC8BE8C2BB7AF"
+				item: "minecraft:iron_ingot"
+				type: "item"
+			}]
+			subtitle: "&dGems&r can be added into &6socketed&r gear at a Smithing Table. If gear doesn't have any &6sockets&r, they can be added via Reforging."
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "zenith:gem"
+					tag: {
+						affix_data: {
+							rarity: "zenith:ancient"
+						}
+						gem: "zenith:the_end/endersurge"
+					}
+				}
+				id: "7FDD1ECBD6D1038E"
+				item: {
+					Count: 1
+					id: "zenith:gem"
+					tag: {
+						affix_data: {
+							rarity: "zenith:common"
+						}
+						gem: "zenith:core/breach"
+					}
+				}
+				match_nbt: false
+				only_from_crafting: false
+				title: "Find any &dGem&r "
+				type: "item"
+				weak_nbt_match: true
+			}]
+			x: 1.0d
+			y: -5.0d
+		}
+		{
+			id: "08261B0CAE6104B8"
+			rewards: [{
+				id: "02D7EBFA67028015"
+				type: "xp_levels"
+				xp_levels: 5
+			}]
+			subtitle: "The most basic crafting material, obtained from salvaging &8Common&r gear and used to reforge gear into &8Common&r rarity. "
+			tasks: [{
+				id: "4EC1E19051A1B98E"
+				item: "zenith:common_material"
+				type: "item"
+			}]
+			title: "Acquire some &8Mysterious Scrap Metal&r"
+			x: 1.0d
+			y: -2.0d
+		}
+		{
+			id: "7452167E9B68C733"
+			rewards: [{
+				id: "36AD790550E41558"
+				item: "minecraft:ghast_tear"
+				type: "item"
+			}]
+			subtitle: "The first step toward a powerful enchanting setup. Other shelves add various boosts to enchanting."
+			tasks: [{
+				id: "321CA51B9B9D3097"
+				item: "zenith:hellshelf"
+				type: "item"
+			}]
+			title: "Craft a &4Hellshelf"
+			x: -1.5d
+			y: -4.5d
+		}
+		{
+			dependencies: ["0FD305CCF89ABC0A"]
+			id: "118A91F8A600A085"
+			rewards: [{
+				count: 16
+				id: "1CB71FA7EFC6FF36"
+				item: "mythicmetals:morkite"
+				type: "item"
+			}]
+			subtitle: "This &9morkite-powered&r mining implement can be attached with various &dupgrades&r, adding to its capabilities"
+			tasks: [{
+				id: "34FC390B92549B2F"
+				item: {
+					Count: 1
+					id: "mythicmetals:mythril_drill"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			title: "Craft a &9Mythril Drill"
+			x: -3.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["0FD305CCF89ABC0A"]
+			id: "15A9BE605943172A"
+			rewards: [{
+				count: 32
+				id: "559345659E6256C4"
+				item: "mythicmetals:midas_gold_block"
+				type: "item"
+			}]
+			subtitle: "Only for the most dedicated miners, this blade has the potential to surpass all others, but only if you can fold in enough &6Midas Gold&r."
+			tasks: [{
+				id: "347E0F67F377A5CD"
+				item: {
+					Count: 1
+					id: "mythicmetals:royal_midas_gold_sword"
+					tag: {
+						Damage: 0
+					}
+				}
+				match_nbt: false
+				type: "item"
+			}]
+			title: "Forge the &6Royal Midas Gold Sword&r"
+			x: 0.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["0FD305CCF89ABC0A"]
+			id: "33986383C7F4A607"
+			rewards: [{
+				id: "12C2BD0CA8849CE3"
+				type: "xp_levels"
+				xp_levels: 15
+			}]
+			subtitle: "An exceedingly rare metal(...?) found in the depths of the world. "
+			tasks: [{
+				id: "41CB4FA10D08200D"
+				item: "mythicmetals:unobtainium"
+				title: "&r&7Find &r&k&dL&r&d&lUnobtainium&r&k&dL&r"
+				type: "item"
+			}]
+			x: -1.5d
+			y: -1.5d
+		}
+		{
+			id: "15A1B686584FB044"
+			rewards: [{
+				count: 2
+				id: "02BFE2C4D50B41D8"
+				item: "minecraft:lapis_lazuli"
+				random_bonus: 2
+				type: "item"
+			}]
+			subtitle: "Enchanting is overhauled by &3Zenith&r - For details, read the &3Chronicle of Shadows&r."
+			tasks: [{
+				id: "462ACAE354EFEB90"
+				item: "minecraft:enchanting_table"
+				type: "item"
+			}]
+			x: -4.0d
+			y: -5.0d
+		}
+		{
+			id: "7087ACB97187E072"
+			rewards: [{
+				id: "6B1244CEC13E7C07"
+				item: "minecraft:blaze_powder"
+				random_bonus: 1
+				type: "item"
+			}]
+			subtitle: "Potion Charms are a powerful trinket that can be activated and equipped to constantly refresh &aalmost any&r potion effect. Careful, they can break!"
+			tasks: [{
+				id: "28FEDBB05B9C5EB6"
+				item: {
+					Count: 1
+					id: "zenith:potion_charm"
+					tag: {
+						Damage: 0
+						Potion: "minecraft:night_vision"
+					}
+				}
+				match_nbt: false
+				title: "Craft a &aPotion Charm&r"
+				type: "item"
+			}]
+			x: 4.0d
+			y: -3.5d
+		}
+		{
+			id: "45DA3E5823AC35E3"
+			rewards: [{
+				id: "6DE12841CE1436A0"
+				item: {
+					Count: 1
+					id: "zenith:gem"
+					tag: {
+						affix_data: {
+							rarity: "zenith:uncommon"
+						}
+						gem: "zephyr:core/dragonfire_spessartite"
+					}
+				}
+				type: "item"
+			}]
+			subtitle: "Place in any &dgem&r, some &5Gem Dust&r, &8Reforge Material&r, and another copy of the same &dgem&r, to upgrade the gem to a higher tier!"
+			tasks: [{
+				id: "029E54D77DBCC6EE"
+				item: "zenith:gem_cutting_table"
+				type: "item"
+			}]
+			title: "Craft a &dGem Cutting Table&r"
+			x: -7.0d
+			y: -3.5d
+		}
+		{
+			id: "5EF5B9AE6D0A5916"
+			rewards: [{
+				id: "4CB6926315ACE6B5"
+				item: "simplyswords:runic_tablet"
+				type: "item"
+			}]
+			subtitle: "&dUniques&r only drop from &4Bosses&r, and have unique passive or active abilities, some of which interact with &dMagic&r attributes."
+			tasks: [{
+				id: "56FBFA5386E813E0"
+				item: {
+					Count: 1
+					id: "itemfilters:tag"
+					tag: {
+						value: "simplyswords:uniques"
+					}
+				}
+				title: "Any #simplyswords:uniques"
+				type: "item"
+			}]
+			title: "Find a &dUnique Weapon&r"
+			x: -1.5d
+			y: -7.0d
+		}
+	]
+	title: " Gear"
+}

@@ -1,0 +1,1 @@
+{"jarName":"druids-0.9.8.0.jar","modId":"druids","version":"0.9.8.0","mixinConfigs":["druids.mixins.json"],"jarJarMods":[{"jarName":"TinyConfig-2.3.2.jar","modId":"com_github_zsoltmolnarrr_tinyconfig","version":"2.3.2","mixinConfigs":[],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

@@ -1,0 +1,1 @@
+{"jarName":"Patchouli-1.20.1-84.1-FABRIC.jar","modId":"patchouli","version":"1.20.1-84.1-FABRIC","mixinConfigs":["patchouli_xplat.mixins.json","patchouli_fabric.mixins.json"],"jarJarMods":[{"jarName":"fiber-0.23.0-2.jar","modId":"fiber","version":"0.23.0-2","mixinConfigs":[],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

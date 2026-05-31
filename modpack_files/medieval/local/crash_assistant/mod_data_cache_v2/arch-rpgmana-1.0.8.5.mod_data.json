@@ -1,0 +1,1 @@
+{"jarName":"arch-rpgmana-1.0.8.5.jar","modId":"rpgmana","version":"1.0.8.5","mixinConfigs":["rpgmana.mixins.json"],"jarJarMods":[{"jarName":"TinyConfig-2.3.2.jar","modId":"com_github_zsoltmolnarrr_tinyconfig","version":"2.3.2","mixinConfigs":[],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

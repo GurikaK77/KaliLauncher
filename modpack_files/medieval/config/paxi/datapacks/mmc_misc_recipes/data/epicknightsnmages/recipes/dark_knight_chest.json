@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "epicknightsnmages:magical_ingot"
+  },
+  "base": {
+    "item": "spellbladenext:magus_chest"
+  },
+  "result": {
+    "item": "epicknightsnmages:dark_knight_chestplate"
+  },
+  "template": {
+    "item": "runes:fire_stone"
+  }
+}

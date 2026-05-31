@@ -1,0 +1,10 @@
+{
+  "boosting_drinks_max_effect_stack_amplifier": 5,
+  "innkeepers_drink_max_cap": 3,
+  "innkeepers_drink_quality_0_duration_seconds": 300,
+  "innkeepers_drink_quality_1_duration_seconds": 300,
+  "innkeepers_drink_quality_2_duration_seconds": 300,
+  "wither_melee_damage_per_negative_effect": 0.1,
+  "elder_guardian_melee_swimming_damage": 0.25,
+  "ender_dragon_melee_regeneration_passive": 0.25
+}

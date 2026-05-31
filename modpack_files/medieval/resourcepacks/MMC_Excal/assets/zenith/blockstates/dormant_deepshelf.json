@@ -1,0 +1,9 @@
+{
+    "variants": {
+		"": [
+		{ "model": "zenith:block/dormant_deepshelf" },
+		{ "model": "zenith:block/dormant_deepshelf1" },
+		{ "model": "zenith:block/dormant_deepshelf2" }
+		]
+    }
+}

@@ -1,0 +1,1 @@
+{"jarName":"sodiumextras-fabric-1.0.7-1.20.1.jar","modId":"sodiumextras","version":"1.0.6","mixinConfigs":["mixins.sodiumextras.json"],"jarJarMods":[{"jarName":"forgeconfigapiport-fabric-8.0.0.jar","modId":"forgeconfigapiport","version":"8.0.0","mixinConfigs":["forgeconfigapiport.common.mixins.json"],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

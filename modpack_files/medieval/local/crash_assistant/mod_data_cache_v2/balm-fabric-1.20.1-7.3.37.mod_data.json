@@ -1,0 +1,1 @@
+{"jarName":"balm-fabric-1.20.1-7.3.37.jar","modId":"balm","version":"7.3.37","mixinConfigs":["balm.mixins.json"],"jarJarMods":[{"jarName":"kuma-api-fabric-20.1.12+1.20.1.jar","modId":"kuma_api","version":"20.1.12","mixinConfigs":["kuma_api.fabric.mixins.json","kuma_api.mixins.json"],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

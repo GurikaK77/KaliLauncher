@@ -1,0 +1,7 @@
+type = last_world
+
+last_world {
+  is_server = false
+  world = C:/Users/gurik/AppData/Roaming/.minecraft/modpacks/24c2394d-4068-3535-99b8-1a5b0bf0a0d3/saves/test
+}
+

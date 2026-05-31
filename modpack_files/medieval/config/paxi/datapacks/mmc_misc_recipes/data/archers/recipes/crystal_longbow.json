@@ -1,0 +1,25 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "betterend"
+      ]
+    }
+  ],
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "betterend:aeternium_ingot"
+  },
+  "base": {
+    "item": "archers:netherite_longbow"
+  },
+  "result": {
+    "item": "archers:crystal_longbow"
+  },
+  "template": {
+    "item": "betterend:crystal_shards"
+  },
+  "category": "equipment",
+  "show_notification": true
+}

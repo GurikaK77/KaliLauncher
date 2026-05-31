@@ -1,0 +1,148 @@
+{
+  "weapons": {
+    "elder_guardian_great_hammer": {
+      "attack_damage": 15.0,
+      "attack_speed": -3.2,
+      "attributes": [
+        {
+          "id": "spell_power:water",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "elder_guardian_mace": {
+      "attack_damage": 10.4,
+      "attack_speed": -3.0,
+      "attributes": [
+        {
+          "id": "spell_power:water",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "sirens_holy_staff": {
+      "attack_damage": 4.0,
+      "attack_speed": -3.0,
+      "attributes": [
+        {
+          "id": "spell_power:healing",
+          "value": 7.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "wither_claymore": {
+      "attack_damage": 12.25,
+      "attack_speed": -3.0,
+      "attributes": [
+        {
+          "id": "spell_power:soul",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "elder_guardian_claymore": {
+      "attack_damage": 12.25,
+      "attack_speed": -3.0,
+      "attributes": [
+        {
+          "id": "spell_power:water",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "wither_great_hammer": {
+      "attack_damage": 15.0,
+      "attack_speed": -3.2,
+      "attributes": [
+        {
+          "id": "spell_power:soul",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "ender_dragon_great_hammer": {
+      "attack_damage": 15.0,
+      "attack_speed": -3.2,
+      "attributes": [
+        {
+          "id": "spell_power:arcane",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "wither_mace": {
+      "attack_damage": 10.4,
+      "attack_speed": -3.0,
+      "attributes": [
+        {
+          "id": "spell_power:soul",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "glacial_mace": {
+      "attack_damage": 10.4,
+      "attack_speed": -2.8,
+      "attributes": [
+        {
+          "id": "spell_power:frost",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "ender_dragon_claymore": {
+      "attack_damage": 12.25,
+      "attack_speed": -3.0,
+      "attributes": [
+        {
+          "id": "spell_power:arcane",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "glacial_claymore": {
+      "attack_damage": 12.25,
+      "attack_speed": -3.0,
+      "attributes": [
+        {
+          "id": "spell_power:frost",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "glacial_great_hammer": {
+      "attack_damage": 15.0,
+      "attack_speed": -3.2,
+      "attributes": [
+        {
+          "id": "spell_power:frost",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "ender_dragon_mace": {
+      "attack_damage": 10.4,
+      "attack_speed": -3.0,
+      "attributes": [
+        {
+          "id": "spell_power:arcane",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    }
+  },
+  "armor_sets": {}
+}

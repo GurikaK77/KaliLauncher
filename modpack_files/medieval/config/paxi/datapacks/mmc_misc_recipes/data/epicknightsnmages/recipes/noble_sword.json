@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "epicknightsnmages:magical_ingot"
+  },
+  "base": {
+    "item": "minecraft:diamond_sword"
+  },
+  "result": {
+    "item": "epicknightsnmages:noble_sword"
+  },
+  "template": {
+    "item": "runes:frost_stone"
+  }
+}

@@ -1,0 +1,1 @@
+{"jarName":"CrashAssistant-fabric-1.19-1.21.4-1.10.22.jar","modId":"crash_assistant","version":"1.10.22","mixinConfigs":["crash_assistant-fabric.mixins.json","crash_assistant.mixins.json"],"jarJarMods":[{"jarName":"app.jar","mixinConfigs":[],"jarJarMods":[],"pathFromJarJar":"/META-INF/jarjar/"}]}

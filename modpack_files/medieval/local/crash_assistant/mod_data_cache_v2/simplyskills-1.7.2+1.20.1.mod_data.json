@@ -1,0 +1,1 @@
+{"jarName":"simplyskills-1.7.2+1.20.1.jar","modId":"simplyskills","version":"1.7.2+1.20.1","mixinConfigs":["simplyskills.mixins.json"],"jarJarMods":[{"jarName":"TinyConfig-2.3.2.jar","modId":"com_github_zsoltmolnarrr_tinyconfig","version":"2.3.2","mixinConfigs":[],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

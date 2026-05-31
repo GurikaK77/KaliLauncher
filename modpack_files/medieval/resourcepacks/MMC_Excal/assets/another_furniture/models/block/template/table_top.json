@@ -1,0 +1,25 @@
+{
+	"parent": "minecraft:block/block",
+	"render_type": "minecraft:cutout",
+	"textures": {
+		"particle": "another_furniture:block/table/oak_top",
+		"top": "another_furniture:block/table/oak_top",
+		"edge": "another_furniture:block/table/oak_side_1",
+		"side": "another_furniture:block/table/oak_side"
+	},
+	"elements": [
+		{
+			"name": "top",
+			"from": [0, 13, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 3], "texture": "#side"},
+				"east": {"uv": [0, 8, 16, 11], "texture": "edge"},
+				"south": {"uv": [0, 4, 16, 7], "texture": "edge"},
+				"west": {"uv": [0, 12, 16, 15], "texture": "edge"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#top"},
+				"down": {"uv": [16, 16, 0, 0], "texture": "#top"}
+			}
+		}
+	]
+}

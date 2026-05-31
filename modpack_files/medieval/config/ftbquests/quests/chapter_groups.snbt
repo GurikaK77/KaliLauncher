@@ -1,0 +1,8 @@
+{
+	chapter_groups: [
+		{ id: "4D72E07320E2A8E0", title: "Tutorial" }
+		{ id: "3C993182D3E6754B", title: "&aOverworld" }
+		{ id: "59C90AA1B128306B", title: "&5Dimensions" }
+		{ id: "799D8360B26E9792", title: "&bOddities" }
+	]
+}

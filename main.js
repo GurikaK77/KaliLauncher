@@ -36,15 +36,35 @@ const GURIKA_RESOURCE_DEFINITIONS = [
         imageName: 'zombie-apocalypse.svg'
     },
     {
-        id: 'coming-soon-1',
-        folderName: 'coming-soon-1',
-        name: 'Coming Soon',
+        id: 'zombie-optimized',
+        folderName: 'zombie-optimized',
+        name: 'Zombie Apocalypse (Optimized)',
         author: 'Gurika',
-        description: 'Reserved Gurika Resources slot for a future modpack.',
-        status: 'coming-soon',
-        icon: 'fa-hourglass-half',
+        description: 'Optimized Zombie Apocalypse Mod-Pack.',
+        loader: 'forge',
+        mcVersion: '1.20.1',
+        forgeBuild: '47.4.10',
+        versionId: '1.20.1-forge-47.4.10',
+        status: 'available',
+        icon: 'fa-house',
         imageName: 'coming-soon-1.svg'
     },
+
+    {
+        id: 'medieval',
+        folderName: 'medieval',
+        name: 'Medieval',
+        author: 'Gurika',
+        description: 'Optimized Fantazy Mod-Pack.',
+        loader: 'fabric',
+        mcVersion: '1.20.1',
+        fabricVersion: '0.15.11',
+        versionId: '1.20.1-fabric-0.15.11',
+        status: 'available',
+        icon: 'fa-house',
+        imageName: 'coming-soon-1.svg'
+    },
+
     {
         id: 'survival-fantasy',
         folderName: 'survival-fantasy',
@@ -62,7 +82,7 @@ const GURIKA_RESOURCE_DEFINITIONS = [
     {
         id: 'coming-soon-2',
         folderName: 'coming-soon-2',
-        name: 'Coming Soon',
+        name: 'Horror',
         author: 'Gurika',
         description: 'Reserved Gurika Resources slot for another future modpack.',
         status: 'coming-soon',
@@ -1892,17 +1912,77 @@ async function launchCustomModpack(packId, username, launchSettings = {}) {
         throw new Error(`Modpack "${packId}" was not found in your library.`);
     }
 
-    if (pack.loader !== 'forge') {
-        throw new Error(`Only Forge modpacks are supported right now. "${pack.name}" uses ${pack.loader}.`);
+    const loader = String(pack.loader || 'forge').toLowerCase();
+    const instanceRoot = path.join(getInstancesRoot(), 'modpacks', sanitizeSegment(pack.id));
+    const minecraftRoot = getOfficialMinecraftRoot();
+
+    if (loader === 'fabric') {
+        const fabricVersionId = await ensureFabricVersionInstalled(minecraftRoot, pack.mcVersion);
+        preparePackInstanceFromSource(pack.rootPath, instanceRoot);
+        sendStatus(`${pack.name} launching...`);
+
+        const opts = {
+            authorization: getBaseAuth(username),
+            root: minecraftRoot,
+            javaPath: getJavaExecutable(resolvePreferredJavaMajor(pack.mcVersion, 'fabric')),
+            version: {
+                number: pack.mcVersion,
+                type: 'release',
+                custom: fabricVersionId
+            },
+            memory: {
+                max: `${Math.max(2, Number(launchSettings.memoryMax) || 6)}G`,
+                min: `${Math.max(1, Number(launchSettings.memoryMin) || 2)}G`
+            },
+            window: {
+                width: Number(launchSettings.resolutionWidth) || 1280,
+                height: Number(launchSettings.resolutionHeight) || 720,
+                fullscreen: Boolean(launchSettings.fullscreen)
+            },
+            overrides: {
+                gameDirectory: instanceRoot
+            }
+        };
+
+        console.log(`[FabricLaunch] Launching Fabric ${pack.mcVersion} (${fabricVersionId})`);
+        applyLaunchWindowBehavior();
+
+        const fabricLauncher = new Client();
+
+        fabricLauncher.on('data', (e) => console.log('[Fabric][stdout]', e));
+        fabricLauncher.on('progress', (e) => sendStatus(`Fabric: ${e.task} (${e.cur}/${e.total})`));
+        fabricLauncher.on('close', (code) => {
+            console.log('[FabricLaunch] Game closed with code:', code);
+            activeGameProcess = null;
+            showLauncherWindow();
+            if (code !== 0 && win && !win.isDestroyed()) {
+                win.webContents.send('launch-error', `Game closed with code ${code}`);
+            }
+            if (win && !win.isDestroyed()) {
+                win.webContents.send('game-closed');
+            }
+        });
+        fabricLauncher.on('error', (err) => {
+            console.error('[FabricLaunch] Error:', err);
+            showLauncherWindow();
+            if (win && !win.isDestroyed()) {
+                win.webContents.send('launch-error', err?.message || String(err));
+            }
+        });
+
+        fabricLauncher.launch(opts);
+        return pack;
     }
 
-    const minecraftRoot = getOfficialMinecraftRoot();
+    if (loader !== 'forge') {
+        throw new Error(`Loader "${loader}" is not supported yet for modpacks. Use forge or fabric.`);
+    }
+
     const forgeVersion = await ensureForgeVersionInstalled(minecraftRoot, pack.mcVersion, {
         preferredBuild: `${pack.mcVersion}-${pack.forgeBuild}`,
         preferredVersionId: pack.versionId
     });
 
-    const instanceRoot = path.join(getInstancesRoot(), 'modpacks', sanitizeSegment(pack.id));
     preparePackInstanceFromSource(pack.rootPath, instanceRoot);
     sendStatus(`${pack.name} launching...`);
     await launchForgeFromOfficialInstall(username, forgeVersion, launchSettings, instanceRoot, null);

@@ -1,0 +1,9 @@
+{
+    "variants": {
+		"": [
+		{ "model": "zenith:block/stoneshelf" },
+		{ "model": "zenith:block/stoneshelf1" },
+		{ "model": "zenith:block/stoneshelf2" }
+		]
+    }
+}

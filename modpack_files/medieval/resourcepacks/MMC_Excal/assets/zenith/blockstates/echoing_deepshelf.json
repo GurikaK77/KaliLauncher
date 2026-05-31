@@ -1,0 +1,12 @@
+{
+    "variants": {
+		"": [
+		{ "model": "zenith:block/echoing_deepshelf" },
+		{ "model": "zenith:block/echoing_deepshelf1" },
+		{ "model": "zenith:block/echoing_deepshelf2" }
+		]
+    }
+}
+
+
+

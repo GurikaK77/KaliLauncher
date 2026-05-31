@@ -1,0 +1,329 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "the_bumblezone"
+	group: "59C90AA1B128306B"
+	icon: "the_bumblezone:glistering_honey_crystal"
+	id: "31CADC91678B618B"
+	images: [{
+		height: 15.0d
+		image: "medieval:textures/the_bumblezone/entity/bee_queen.png"
+		rotation: 0.0d
+		width: 15.0d
+		x: 13.0d
+		y: -0.5d
+	}]
+	order_index: 1
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["If you have trypophobia, go into the Resourcepacks menu and enable the Anti-trypophobia resourcepack."]
+			icon: "minecraft:bee_nest"
+			id: "75E4F14920C635CE"
+			rewards: [
+				{
+					id: "48FC38B052538044"
+					item: {
+						Count: 1
+						id: "the_bumblezone:honey_compass"
+						tag: { }
+					}
+					type: "item"
+				}
+				{
+					id: "029FDB1350AF6CC8"
+					item: "the_bumblezone:music_disc_flight_of_the_bumblebee_rimsky_korsakov"
+					type: "item"
+				}
+			]
+			size: 1.5d
+			subtitle: "To enter &6The Bumblezone&r, simply throw an &5Ender Pearl&r into a &eBee Nest&r or a Bee Hive. To leave, dig to &lY = 0 &ror tower up to &lY = 256&r. Player-ridden animals can be brought into &6The Bumblezone&r by pushing yourself into a &eBee Hive &rwith a piston, while riding the mob."
+			tasks: [{
+				dimension: "the_bumblezone:the_bumblezone"
+				icon: "minecraft:bee_nest"
+				id: "279D42609E5989EE"
+				title: "Enter &6The Bumblezone"
+				type: "dimension"
+			}]
+			title: "Enter &6The Bumblezone"
+			x: 15.75d
+			y: 3.0d
+		}
+		{
+			dependencies: ["703AF6F94A27F535"]
+			id: "4A357E6CB29D600F"
+			rewards: [
+				{
+					count: 3
+					id: "5D1901AE2EC03472"
+					item: "expandeddelight:peanut_butter_honey_sandwich"
+					type: "item"
+				}
+				{
+					count: 3
+					id: "5B26BDFCE578C6ED"
+					item: "minecraft:honey_bottle"
+					type: "item"
+				}
+			]
+			subtitle: "Found in Throne Pillar structures. Trades for a variety of resources. Try giving her &eHoney Bottles&r, &4Spider Eyes&r, &fString&r, or &dDyes&r."
+			tasks: [{
+				icon: "the_bumblezone:bee_queen_spawn_egg"
+				id: "5D8A3DF348CB241A"
+				observe_type: 5
+				timer: 0L
+				to_observe: "the_bumblezone:bee_queen"
+				type: "observation"
+			}]
+			title: "Find the &e&lBee Queen"
+			x: 16.0d
+			y: -3.5d
+		}
+		{
+			dependencies: ["75E4F14920C635CE"]
+			description: [
+				"When thrown at flowers, the flowers will reproduce."
+				""
+				"When thrown at a block, it will create a Pile of Pollen."
+				""
+				"Makes pandas sneeze."
+				""
+				"Pollinates unpollinated bees."
+				""
+				"Spawns mushrooms when thrown at a Mooshroom."
+				""
+				"Spawn pumpkin stems when thrown at a Snow Golem."
+			]
+			id: "3631A969ABC56C8E"
+			rewards: [
+				{
+					id: "4A1B9DF8CF890CC7"
+					item: "expandeddelight:peanut_honey_soup"
+					type: "item"
+				}
+				{
+					id: "043700A07A8D5B8F"
+					item: "the_bumblezone:music_disc_bee_laxing_with_the_hom_bees"
+					type: "item"
+				}
+			]
+			subtitle: "Obtained by mining a &fPile of Pollen&r. Click to read its many uses!"
+			tasks: [{
+				id: "13CE40837933D38B"
+				item: "the_bumblezone:pollen_puff"
+				type: "item"
+			}]
+			title: "Obtain &6Pollen Puff"
+			x: 13.5d
+			y: 2.5d
+		}
+		{
+			dependencies: ["5D93AADE78DA0B8E"]
+			id: "681920D0EEE1EF9D"
+			rewards: [
+				{
+					id: "0AEF1AADCDAE6220"
+					item: "farmersdelight:honey_glazed_ham"
+					type: "item"
+				}
+				{
+					id: "531C340FE5E8A114"
+					type: "xp_levels"
+					xp_levels: 5
+				}
+			]
+			subtitle: "A mystical, peaceful place, where it is said that flowers from &danywhere&r can be found."
+			tasks: [{
+				icon: "minecraft:flower_pot"
+				id: "6659268724FC68F1"
+				structure: "the_bumblezone:hanging_garden"
+				title: "Locate the Hanging Garden"
+				type: "structure"
+			}]
+			title: "Find a &dHanging Garden"
+			x: 17.5d
+			y: -1.0d
+		}
+		{
+			dependencies: ["681920D0EEE1EF9D"]
+			id: "3FE3D8873320E78A"
+			rewards: [{
+				id: "20CC4D317E4225D6"
+				item: "the_bumblezone:music_disc_honey_bee_rat_faced_boy"
+				type: "item"
+			}]
+			subtitle: "Found in &6The Bumblezone&r on &6Glistering Honey&r and &dAmethyst&r. Opened by right clicking. By feeding it items or &aExperience Points&r, it will give you enchanted books."
+			tasks: [{
+				icon: "the_bumblezone:crystalline_flower"
+				id: "58797C5F794EE1E0"
+				observe_type: 0
+				timer: 0L
+				title: "Observe a Crystalline Flower"
+				to_observe: "the_bumblezone:crystalline_flower"
+				type: "observation"
+			}]
+			title: "Find a &6Crystalline Flower"
+			x: 18.5d
+			y: -3.0d
+		}
+		{
+			dependencies: ["75E4F14920C635CE"]
+			id: "16D131BB629CFCA8"
+			rewards: [{
+				count: 2
+				id: "6745191AC91277BE"
+				item: "the_bumblezone:honey_crystal_shards"
+				type: "item"
+			}]
+			subtitle: "Upgradeable by repairing it in an anvil, using &6Honey Crystal Shards&r. Has double the durability of a normal shield at max level. Slows attackers."
+			tasks: [{
+				id: "0EDB937DD87A2FFA"
+				item: {
+					Count: 1
+					id: "the_bumblezone:honey_crystal_shield"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			title: "Craft a &6Honey Crystal Shield"
+			x: 14.0d
+			y: 1.0d
+		}
+		{
+			dependencies: ["5D93AADE78DA0B8E"]
+			id: "703AF6F94A27F535"
+			rewards: [{
+				id: "3B2142C641BF5905"
+				item: "fwaystones:desert_waystone"
+				type: "item"
+			}]
+			subtitle: "A large column of wax, home to the &6Bee Queen&r. "
+			tasks: [{
+				icon: "the_bumblezone:royal_jelly_block"
+				id: "6748B88A48352ECB"
+				structure: "the_bumblezone:throne_pillar"
+				title: "Find a &5Throne Pillar"
+				type: "structure"
+			}]
+			x: 15.5d
+			y: -1.5d
+		}
+		{
+			dependencies: ["4A357E6CB29D600F"]
+			id: "1B92D6F88C5F8BE8"
+			rewards: [{
+				count: 4
+				id: "471B165146A1E8B0"
+				random_bonus: 4
+				type: "item"
+			}]
+			subtitle: "&5Royal Jelly&r &fblocks&r can be found above throne rooms and collected in a &fbucket&r. The &fbucket&r can then be used to fill 4 &dbottles&r with jelly. You can get more &5royal jelly&r by trading with the Bee Queen."
+			tasks: [{
+				id: "59A457FF0DB29776"
+				item: "the_bumblezone:royal_jelly_bottle"
+				title: "Bottle up some &5Royal Jelly&r"
+				type: "item"
+			}]
+			x: 15.5d
+			y: -5.5d
+		}
+		{
+			dependencies: ["1B92D6F88C5F8BE8"]
+			description: [
+				"&o&7Text courtesy of The Bumblezone Wiki.&r"
+				"When consumed, you get the following bonuses permanently:"
+				""
+				"Can enter Cell Maze and not get Wrath of the Hive effect anymore."
+				""
+				"Can enter Throne Pillar and not get Mining Fatigue when near Bee Queen."
+				""
+				"Can take honey from Filled Porous Honeycomb Blocks safely without getting Wrath of the Hive Effect."
+				""
+				"Can mine translucent Honey Blocks without getting Wrath of the Hive effect anymore."
+				""
+				"Entering Honey Fluid will grant Regenerative effect."
+				""
+				"Entering Royal Jelly Fluid will grant a short lived Beenergized effect and stronger Regenerative effect."
+				""
+				"Beehive/Bee Nests can be mined, honey taken by bottle, or sheared for honeycombs without angering the bees. No campfire needed!"
+				""
+				"Honey Slime will not get angry at you when you take its honey."
+				""
+				"Honey Compasses pointing to Sempiternal Sanctums will start to show up in Honey Cocoons throughout Bumblezone!"
+				""
+				"Allow you to start the Essence events in Sempiternal Sanctums by touching the Essence Block!"
+				""
+				"Prevents player from getting negative effects when standing on Ancient Wax Luminescent Wax blocks. In fact, standing on Luminescent Wax blocks will start granting beneficial effects!"
+				""
+				"Makes mining lit Luminescent Wax blocks drop their lit form instead of their unlit form!"
+				""
+				"Allows usage of endgame Bumblezone Essence items. Their abilities are now usable by the player."
+			]
+			id: "2681AA01EA272E9B"
+			rewards: [{
+				id: "6DD1F9803988ECBC"
+				type: "xp_levels"
+				xp_levels: 30
+			}]
+			shape: "pentagon"
+			size: 1.5d
+			subtitle: "A legendary substance, given to you by the Bee Queen upon completing &dThe Queen's Desire&r advancement line. It is said to have many benefits - click to learn more."
+			tasks: [{
+				id: "28AD2FAF7EEA9ECF"
+				item: "the_bumblezone:essence_of_the_bees"
+				title: "Obtain the &dEssence of the Bees&r"
+				type: "item"
+			}]
+			x: 16.0d
+			y: -7.5d
+		}
+		{
+			dependencies: ["75E4F14920C635CE"]
+			id: "5D93AADE78DA0B8E"
+			rewards: [{
+				id: "3A7730988F92D3DD"
+				item: "farmersdelight:honey_cookie"
+				type: "item"
+			}]
+			subtitle: "Right click the air with a &6Honey Compass&r you crafted and it'll point to a &2Cell Maze&r. &6Honey Compasses&r found in structure loot may point to &dSomething Rarer...&r"
+			tasks: [{
+				id: "1E03672C882990C5"
+				item: {
+					Count: 1
+					id: "the_bumblezone:honey_compass"
+					tag: { }
+				}
+				type: "item"
+			}]
+			title: "Obtain a &6Honey Compass&r"
+			x: 16.0d
+			y: 0.5d
+		}
+		{
+			dependencies: ["75E4F14920C635CE"]
+			description: [
+				"The more you feed and ride your Beehemoth, the more your &6friendship&r will grow, and the faster it will fly.  "
+				""
+				"However, if the bee takes damage, you'll lose &6friendship&r - if it gets low enough, you'll have to feed it more sweet treats before it will let you ride it again."
+				""
+				"At max friendship, it will become a &dQueen Beehemoth&r and fly at maximum speed!"
+			]
+			id: "05954445BE29BDCE"
+			subtitle: "These massive bee variants can be &6tamed&r using sweet foods, then &2ridden&r! Click for more details"
+			tasks: [{
+				icon: "the_bumblezone:beehemoth_spawn_egg"
+				id: "3906BA82D8DA0ADC"
+				observe_type: 5
+				timer: 0L
+				title: "Find a &6Beehemoth"
+				to_observe: "the_bumblezone:beehemoth"
+				type: "observation"
+			}]
+			x: 17.5d
+			y: 1.5d
+		}
+	]
+	title: " &6The Bumblezone "
+}

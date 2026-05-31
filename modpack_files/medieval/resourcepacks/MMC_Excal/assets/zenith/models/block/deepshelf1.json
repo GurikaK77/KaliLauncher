@@ -1,0 +1,10 @@
+{
+  "parent": "zenith:block/template_bookhelf_deep",
+  "textures": {
+    	"2": "zenith:block/deepshelf/deepshelf_top",
+		"3": "zenith:block/deepshelf/cracked_deepslate_tiles_large",
+		"4": "zenith:block/deepshelf/cracked_deepslate_tiles",
+		"9": "zenith:block/deepshelf/deepshelf1",
+		"particle": "zenith:block/deepshelf/deepshelf_top"
+  }
+}

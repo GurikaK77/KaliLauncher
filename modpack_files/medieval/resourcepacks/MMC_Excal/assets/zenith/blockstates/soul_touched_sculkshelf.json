@@ -1,0 +1,9 @@
+{
+    "variants": {
+		"": [
+		{ "model": "zenith:block/soul_touched_sculkshelf" },
+		{ "model": "zenith:block/soul_touched_sculkshelf1" },
+		{ "model": "zenith:block/soul_touched_sculkshelf2" }
+		]
+    }
+}

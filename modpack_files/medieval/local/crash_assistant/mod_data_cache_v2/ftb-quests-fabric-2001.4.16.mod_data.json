@@ -1,0 +1,1 @@
+{"jarName":"ftb-quests-fabric-2001.4.16.jar","modId":"ftbquests","version":"2001.4.16","mixinConfigs":["ftbquests-fabric.mixins.json"],"jarJarMods":[{"jarName":"energy-3.0.0.jar","modId":"team_reborn_energy","version":"3.0.0","mixinConfigs":[],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

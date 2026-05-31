@@ -1,0 +1,1 @@
+{"jarName":"ShoulderSurfing-Fabric-1.20.1-4.15.0.jar","modId":"shouldersurfing","version":"4.15.0","mixinConfigs":["shouldersurfing.fabric.mixins.json","shouldersurfing.common.mixins.json","shouldersurfing.fabric.compat.mixins.json","shouldersurfing.common.compat.mixins.json"],"jarJarMods":[]}

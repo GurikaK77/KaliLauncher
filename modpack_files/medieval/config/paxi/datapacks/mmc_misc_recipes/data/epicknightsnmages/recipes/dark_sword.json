@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "epicknightsnmages:magical_ingot"
+  },
+  "base": {
+    "item": "simplyswords:netherite_claymore"
+  },
+  "result": {
+    "item": "epicknightsnmages:dark_sword"
+  },
+  "template": {
+    "item": "runes:fire_stone"
+  }
+}

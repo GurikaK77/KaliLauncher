@@ -1,0 +1,1 @@
+{"jarName":"MapFrontiers-1.20.1-2.6.1p3-fabric.jar","modId":"mapfrontiers","version":"2.6.1p3","mixinConfigs":["mapfrontiers.mixins.json"],"jarJarMods":[{"jarName":"common-networking-fabric-1.0.5-1.20.1.jar","modId":"commonnetworking","version":"1.0.5-1.20.1","mixinConfigs":[],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

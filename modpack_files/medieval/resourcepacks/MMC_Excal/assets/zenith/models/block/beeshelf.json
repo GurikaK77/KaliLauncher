@@ -1,0 +1,9 @@
+{
+	"parent": "zenith:block/bookshelf_zenith",
+	"textures": {
+		"side": "zenith:block/beeshelf",
+		"particle": "zenith:block/beeshelf",
+		"top": "minecraft:block/beehive_end"
+	}	
+	
+}

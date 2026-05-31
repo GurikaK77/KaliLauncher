@@ -1,0 +1,9 @@
+{
+	"parent": "zenith:block/bookshelf_zenith",
+	"textures": {
+		"side": "zenith:block/rectifier_t2",
+		"particle": "zenith:block/rectifier_t2",
+		"top": "zenith:block/rectifier_t2_top"
+	}	
+	
+}

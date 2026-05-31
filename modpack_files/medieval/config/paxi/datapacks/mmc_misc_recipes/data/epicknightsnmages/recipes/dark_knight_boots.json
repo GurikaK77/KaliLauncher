@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "epicknightsnmages:magical_ingot"
+  },
+  "base": {
+    "item": "spellbladenext:magus_feet"
+  },
+  "result": {
+    "item": "epicknightsnmages:dark_knight_boots"
+  },
+  "template": {
+    "item": "runes:fire_stone"
+  }
+}

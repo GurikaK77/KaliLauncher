@@ -1,0 +1,213 @@
+{
+  "injectors": {
+    "loot_n_explore:chests/inns/desert": {
+      "rolls": 0.5,
+      "bonus_rolls": 0.2,
+      "entries": [
+        {
+          "id": "#rpg_series:tier_0_weapons",
+          "weight": 1
+        },
+        {
+          "id": "#rpg_series:tier_0_accessories",
+          "weight": 1
+        },
+        {
+          "id": "#rpg_series:tier_1_armors",
+          "weight": 1
+        }
+      ]
+    },
+    "loot_n_explore:chests/inns/plains": {
+      "rolls": 0.5,
+      "bonus_rolls": 0.2,
+      "entries": [
+        {
+          "id": "#rpg_series:tier_0_weapons",
+          "weight": 1
+        },
+        {
+          "id": "#rpg_series:tier_0_accessories",
+          "weight": 1
+        },
+        {
+          "id": "#rpg_series:tier_1_armors",
+          "weight": 1
+        }
+      ]
+    },
+    "loot_n_explore:chests/vilages/plains/small_inn": {
+      "rolls": 0.5,
+      "bonus_rolls": 0.2,
+      "entries": [
+        {
+          "id": "#rpg_series:tier_0_weapons",
+          "weight": 1
+        },
+        {
+          "id": "#rpg_series:tier_0_accessories",
+          "weight": 1
+        },
+        {
+          "id": "#rpg_series:tier_1_armors",
+          "weight": 1
+        }
+      ]
+    },
+    "loot_n_explore:chests/vilages/desert/small_inn": {
+      "rolls": 0.5,
+      "bonus_rolls": 0.2,
+      "entries": [
+        {
+          "id": "#rpg_series:tier_0_weapons",
+          "weight": 1
+        },
+        {
+          "id": "#rpg_series:tier_0_accessories",
+          "weight": 1
+        },
+        {
+          "id": "#rpg_series:tier_1_armors",
+          "weight": 1
+        }
+      ]
+    },
+    "loot_n_explore:chests/vilages/savanna/small_inn": {
+      "rolls": 0.5,
+      "bonus_rolls": 0.2,
+      "entries": [
+        {
+          "id": "#rpg_series:tier_0_weapons",
+          "weight": 1
+        },
+        {
+          "id": "#rpg_series:tier_0_accessories",
+          "weight": 1
+        },
+        {
+          "id": "#rpg_series:tier_1_armors",
+          "weight": 1
+        }
+      ]
+    },
+    "loot_n_explore:chests/vilages/snowy/small_inn": {
+      "rolls": 0.5,
+      "bonus_rolls": 0.2,
+      "entries": [
+        {
+          "id": "#rpg_series:tier_0_weapons",
+          "weight": 1
+        },
+        {
+          "id": "#rpg_series:tier_0_accessories",
+          "weight": 1
+        },
+        {
+          "id": "#rpg_series:tier_1_armors",
+          "weight": 1
+        }
+      ]
+    },
+    "loot_n_explore:chests/vilages/taiga/small_inn": {
+      "rolls": 0.5,
+      "bonus_rolls": 0.2,
+      "entries": [
+        {
+          "id": "#rpg_series:tier_0_weapons",
+          "weight": 1
+        },
+        {
+          "id": "#rpg_series:tier_0_accessories",
+          "weight": 1
+        },
+        {
+          "id": "#rpg_series:tier_1_armors",
+          "weight": 1
+        }
+      ]
+    },
+    "loot_n_explore:chests/dungeons/glacial_tomb/common": {
+      "rolls": 0.5,
+      "bonus_rolls": 0.2,
+      "entries": [
+        {
+          "id": "#rpg_series:tier_1_weapons",
+          "weight": 1
+        },
+        {
+          "id": "#rpg_series:tier_2_accessories",
+          "weight": 1
+        },
+        {
+          "id": "#rpg_series:tier_1_armors",
+          "weight": 1
+        }
+      ]
+    },
+    "loot_n_explore:chests/glaze_tower": {
+      "rolls": 0.5,
+      "bonus_rolls": 0.2,
+      "entries": [
+        {
+          "id": "#rpg_series:tier_1_weapons",
+          "weight": 1
+        },
+        {
+          "id": "#rpg_series:tier_2_accessories",
+          "weight": 1
+        },
+        {
+          "id": "#rpg_series:tier_1_armors",
+          "weight": 1
+        }
+      ]
+    },
+    "loot_n_explore:chests/dungeons/glacial_tomb/spawner_room": {
+      "rolls": 0.5,
+      "bonus_rolls": 0.2,
+      "entries": [
+        {
+          "id": "#rpg_series:tier_1_weapons",
+          "weight": 1
+        },
+        {
+          "id": "#rpg_series:tier_2_accessories",
+          "weight": 1
+        },
+        {
+          "id": "#rpg_series:tier_1_armors",
+          "weight": 1
+        }
+      ]
+    },
+    "loot_n_explore:entities/frost_monarch": {
+      "rolls": 2.0,
+      "bonus_rolls": 0.2,
+      "entries": [
+        {
+          "id": "#rpg_series:tier_3_weapons",
+          "weight": 1,
+          "enchant": {
+            "min_power": 1.0,
+            "max_power": 30.0,
+            "allow_treasure": true
+          }
+        },
+        {
+          "id": "#rpg_series:tier_3_armors",
+          "weight": 1,
+          "enchant": {
+            "min_power": 1.0,
+            "max_power": 30.0,
+            "allow_treasure": true
+          }
+        },
+        {
+          "id": "#rpg_series:tier_3_accessories",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "regex_injectors": {}
+}

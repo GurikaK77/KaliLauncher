@@ -1,0 +1,1 @@
+{"jarName":"winterly-0.9.3+1.20.jar","modId":"winterly","version":"0.9.3+1.20","mixinConfigs":["winterly.mixins.json"],"jarJarMods":[{"jarName":"cardinal-components-world-5.2.1.jar","modId":"cardinal-components-world","version":"5.2.1","mixinConfigs":["mixins.cardinal_components_world.json"],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

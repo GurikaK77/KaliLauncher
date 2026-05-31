@@ -1,0 +1,1 @@
+{"jarName":"sodiumoptionsapi-fabric-1.0.10-1.20.1.jar","modId":"sodiumoptionsapi","version":"1.0.10","mixinConfigs":["mixins.sodiumoptionsapi.json"],"jarJarMods":[{"jarName":"forgeconfigapiport-fabric-8.0.0.jar","modId":"forgeconfigapiport","version":"8.0.0","mixinConfigs":["forgeconfigapiport.common.mixins.json"],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

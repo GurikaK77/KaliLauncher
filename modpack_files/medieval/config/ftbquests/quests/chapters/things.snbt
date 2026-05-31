@@ -1,0 +1,473 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "things"
+	group: "4D72E07320E2A8E0"
+	icon: "things:gleaming_compound"
+	id: "0669802958B2752D"
+	images: [{
+		height: 12.0d
+		image: "medieval:textures/things/open_book.png"
+		rotation: 0.0d
+		width: 19.2d
+		x: 0.0d
+		y: 0.5d
+	}]
+	order_index: 2
+	quest_links: [ ]
+	quests: [
+		{
+			icon: "things:gleaming_powder"
+			id: "70C1E82FA8B8243B"
+			rewards: [{
+				id: "5EA26A625B1CF32A"
+				item: "things:things_almanac"
+				type: "item"
+			}]
+			subtitle: "To get started, make your way into a cave to dig up some &4Gleaming Powder&r (found near Y=0), an indispensable material to the creation of most &eThings&r!"
+			tasks: [{
+				id: "19D3DBAD61F23013"
+				item: "things:gleaming_powder"
+				type: "item"
+			}]
+			title: "Obtain &4Gleaming Powder&r"
+			x: 4.5d
+			y: 1.5d
+		}
+		{
+			dependencies: ["70C1E82FA8B8243B"]
+			id: "4937F2F936B5C0A3"
+			rewards: [{
+				id: "39A09456AC9E19F2"
+				type: "xp_levels"
+				xp_levels: 3
+			}]
+			subtitle: "Allows for easy access to your Ender Chest."
+			tasks: [{
+				id: "73BC3550F0C4E64D"
+				item: "things:ender_pouch"
+				type: "item"
+			}]
+			title: "Craft an &9Ender Pouch&r"
+			x: 6.5d
+			y: 2.5d
+		}
+		{
+			dependencies: ["70C1E82FA8B8243B"]
+			id: "7FC3D6B82D351C17"
+			rewards: [{
+				id: "0FEB7EF58910A931"
+				item: "minecraft:gold_block"
+				type: "item"
+			}]
+			subtitle: "Monocles have long been used to provide their wearer with better vision. Taking one and adding some &4Gleaming Powder&r onto it's lens gives it a magical glow that, when worn, grants Night Vision on top of the usual benefits."
+			tasks: [{
+				id: "7C705FC4A22FD479"
+				item: "things:monocle"
+				type: "item"
+			}]
+			title: "Craft a &6Monocle&r"
+			x: 2.5d
+			y: 2.5d
+		}
+		{
+			dependencies: ["68EAA965AB79C17A"]
+			id: "6F0D0EFE602D4671"
+			rewards: [{
+				id: "51DA607C9BDD9E88"
+				item: {
+					Count: 1
+					id: "minecraft:enchanted_book"
+					tag: {
+						StoredEnchantments: [{
+							id: "minecraft:efficiency"
+							lvl: 3s
+						}]
+					}
+				}
+				type: "item"
+			}]
+			subtitle: "Even though mining is one of Minecraft's core game mechanics, doing it in bulk can be quite the task. A &6Mining Glove&r, however, can help speed this up. By both making the user's hands more tough and swift, a vast increase in mining speed is achieved."
+			tasks: [{
+				id: "30580F5837382245"
+				item: "things:mining_gloves"
+				type: "item"
+			}]
+			title: "Craft a &6Mining Glove&r"
+			x: 2.5d
+			y: -1.5d
+		}
+		{
+			dependencies: ["68EAA965AB79C17A"]
+			id: "1A7F799FAF8796B2"
+			rewards: [{
+				count: 4
+				id: "3EDABB3552D15BAB"
+				item: "minecraft:crying_obsidian"
+				type: "item"
+			}]
+			subtitle: "Utilizing &4Gleaming Compound's&r magical properties and the pure blunt force of two Netherite Ingots to the face, the &7Riot Gauntlet&r enhances its wearers strength significantly."
+			tasks: [{
+				id: "1A11DA9410EA98DF"
+				item: "things:riot_gauntlet"
+				type: "item"
+			}]
+			title: "Craft a &7Riot Gauntlet&r"
+			x: 6.5d
+			y: -1.5d
+		}
+		{
+			dependencies: ["68EAA965AB79C17A"]
+			id: "143849DDE0BA6CCB"
+			rewards: [
+				{
+					id: "337389BE99311F95"
+					type: "xp_levels"
+					xp_levels: 2
+				}
+				{
+					id: "6A3E0A882AF06E0C"
+					item: {
+						Count: 1
+						id: "minecraft:flint_and_steel"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+			]
+			subtitle: "By applying the Nether's tainted heat directly to &4Gleaming Compound&r, a &4Hades Crystal&r is formed. In this new form, the Compound has learned to absorb and neutralize heat, protecting the wearer from all kinds of fire as best it can."
+			tasks: [{
+				id: "3E957FE27D4A9224"
+				item: "things:hades_crystal"
+				type: "item"
+			}]
+			title: "Craft a &4Hades Crystal&r"
+			x: 6.0d
+			y: -2.5d
+		}
+		{
+			dependencies: ["68EAA965AB79C17A"]
+			description: ["As great as these powers are, heat is their downfall. This could be remedied however, if you were to to wear the gland in conjunction with a Hades Crystal"]
+			id: "2383F22DDD428692"
+			rewards: [{
+				id: "653217023513AB59"
+				item: "minecraft:honey_block"
+				type: "item"
+			}]
+			subtitle: "Strapping a &6Wax Gland&r to your feet is actually a great idea. Similar to its paragon in nature, a waxed lower body makes you float. Moreover, the &4Gleaming Compound&r mixed into this particular gland bestows upon you great speed in water, turning it a very effective means of transport."
+			tasks: [{
+				id: "226826E8481DF096"
+				item: "things:enchanted_wax_gland"
+				type: "item"
+			}]
+			title: "Craft an &6Enchanted Wax Gland&r"
+			x: 4.5d
+			y: -3.0d
+		}
+		{
+			dependencies: ["70C1E82FA8B8243B"]
+			id: "121FFC75800FCFE4"
+			rewards: [{
+				count: 2
+				id: "5920B3D47DB6382D"
+				item: "mythicmetals:durasteel_ingot"
+				type: "item"
+			}]
+			subtitle: "Can make an item unbreakable when applied in anvil. If a normal anvil isn't working, search \"Anvil\" in the REI Search Bar and use one of those instead."
+			tasks: [{
+				id: "1022B3EA0362181A"
+				item: "things:hardening_catalyst"
+				type: "item"
+			}]
+			title: "Craft a &bHardening Catalyst&r"
+			x: 5.5d
+			y: 3.5d
+		}
+		{
+			dependencies: ["70C1E82FA8B8243B"]
+			description: ["Should there be a need for even greater swiftness, the Socks may be upgraded in a Crafting Table with a Strong Potion of Swiftness and some Gleaming Powder."]
+			id: "0155C03D34719F6E"
+			rewards: [{
+				id: "0134AECF53D65F39"
+				item: {
+					Count: 1
+					id: "minecraft:potion"
+					tag: {
+						Potion: "minecraft:leaping"
+					}
+				}
+				type: "item"
+			}]
+			subtitle: "Everybody knows that all the cool kids have socks. As such, it is of course possible to obtain a pair for oneself. Easily obtained using some Wool adorned with &4Gleaming Powder&r, they provide an instant speed boost."
+			tasks: [{
+				id: "12AD592D961F413D"
+				item: "things:socks"
+				type: "item"
+			}]
+			title: "Craft a pair of &cSocks&r"
+			x: 3.5d
+			y: 3.5d
+		}
+		{
+			dependencies: ["68EAA965AB79C17A"]
+			description: [
+				"To begin, one must craft themselves an Empty Agglomeration as shown on the right. This must then be combined with two trinkets of choice in the next step. For obvious reasons, these trinkets must share at least one slot."
+				""
+				"It is recommended to take great care when choosing which trinkets to combine, as historical attempts have shown that separating them afterwards is not possible."
+			]
+			id: "33B9030908AF8C7E"
+			rewards: [
+				{
+					id: "68EA4B223438BF6D"
+					type: "xp_levels"
+					xp_levels: 5
+				}
+				{
+					count: 2
+					id: "7F37ED6ED01E2985"
+					item: "minecraft:netherite_scrap"
+					type: "item"
+				}
+			]
+			subtitle: "While building out one's supply of trinkets, a certain annoyance is often encountered - the need to choose between trinkets which occupy the same slot. Wouldn't it be truly great to wear two trinkets in a single slot? Luckily, the &4Agglomeration&r exists to fill precisely that purpose."
+			tasks: [{
+				id: "01862BBE92537D5A"
+				item: "things:empty_agglomeration"
+				type: "item"
+			}]
+			title: "Craft an &4Empty Agglomeration&r"
+			x: 3.0d
+			y: -2.5d
+		}
+		{
+			dependencies: ["70C1E82FA8B8243B"]
+			id: "68EAA965AB79C17A"
+			rewards: [{
+				id: "06D05BA3A0C605E9"
+				item: "minecraft:diamond"
+				type: "item"
+			}]
+			subtitle: "Covering a &bDiamond&r with &cGleaming Powder&r results in the even more powerful &4Gleaming Compound&r."
+			tasks: [{
+				id: "65E611228E3CB182"
+				item: "things:gleaming_compound"
+				type: "item"
+			}]
+			title: "Craft a &4Gleaming Compound&r"
+			x: 4.5d
+			y: -1.5d
+		}
+		{
+			id: "4AE0F77E11A498FF"
+			rewards: [{
+				id: "19C5BAC1B7FE0368"
+				item: {
+					Count: 1
+					id: "minecraft:lingering_potion"
+					tag: {
+						Potion: "goblintraders:extended_water_breathing"
+					}
+				}
+				type: "item"
+			}]
+			subtitle: "This cursed instrument would be constructed of pure water held together by god-knows-what and be able to dispense virtually infinite amounts of this purest of all substances. An &5infinite &9water &7source..."
+			tasks: [{
+				id: "3B443473BFAD7D35"
+				item: "things:bater_wucket"
+				type: "item"
+			}]
+			title: "Craft a &9Bater Wucket"
+			x: 1.0d
+			y: -1.0d
+		}
+		{
+			dependencies: ["68EAA965AB79C17A"]
+			id: "5E495BCEC021EEC7"
+			rewards: [
+				{
+					id: "76891D7E471DEA9A"
+					type: "xp_levels"
+					xp_levels: 3
+				}
+				{
+					count: 2
+					id: "28B705056E61C569"
+					item: "minecraft:sticky_piston"
+					type: "item"
+				}
+			]
+			subtitle: "Given that punching foes and rock is apparently one of the most exercised activities, having extended reach would no doubt ease one's life. Almost like it was purpose-made, the &6Arm Extender&r exists to fulfill that job. "
+			tasks: [{
+				id: "187E261B43FC6C7C"
+				item: "things:arm_extender"
+				type: "item"
+			}]
+			title: "Craft an &6Arm Extender&r"
+			x: 6.0d
+			y: -0.5d
+		}
+		{
+			dependencies: ["68EAA965AB79C17A"]
+			description: ["Being a stylish pair of shoes made mostly of &7Phantom Membrane&r and &fWool&r, held together by some &4Gleaming Compound&r, it is capable of &oreducing both fall and kinetic damage by 75%&r."]
+			id: "77ACB54B7006FF4D"
+			rewards: [
+				{
+					id: "2C4A1D2DD4FFD7F3"
+					item: {
+						Count: 1
+						id: "minecraft:potion"
+						tag: {
+							Potion: "minecraft:leaping"
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "4F38E44E23E7BF9E"
+					type: "xp_levels"
+					xp_levels: 2
+				}
+			]
+			subtitle: "Everyone knows the pain of smashing one's head into a wall or feet into the ground at terminal velocity. Conveniently, the &6Shock Absorber&r exists to lessen the impact."
+			tasks: [{
+				id: "75C22540F222E9D1"
+				item: "things:shock_absorber"
+				type: "item"
+			}]
+			title: "Craft a &6Shock Absorber&r"
+			x: 3.0d
+			y: -0.5d
+		}
+		{
+			dependencies: ["70C1E82FA8B8243B"]
+			description: [
+				"It sometimes decides, unbeknownst to you, to replace the potion you're drinking with a placebo yet somehow preserve the effects"
+				""
+				"How it accomplishes this is currently unknown, \"it just works\""
+			]
+			hide_dependency_lines: true
+			id: "02F533A13FE5F4AC"
+			rewards: [{
+				id: "6085A3EA8B06220D"
+				item: {
+					Count: 1
+					id: "minecraft:potion"
+					tag: {
+						Potion: "minecraft:strong_regeneration"
+					}
+				}
+				type: "item"
+			}]
+			subtitle: "Whilst producing mass-amounts of potions is not the most straining task imaginable, saving some would no doubt be useful. The &9Placebo&r might just about help with this. "
+			tasks: [{
+				id: "611CB5E390B3AEB3"
+				item: "things:placebo"
+				type: "item"
+			}]
+			title: "Craft a &9Placebo&r"
+			x: 1.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["70C1E82FA8B8243B"]
+			description: ["It extends their duration by 50%. Given the immense force required for breaking a Clock, simply using a Crafting Table is not an option. Instead, throw some &cLeather&r, a &6Clock&r as well as a piece of &4Gleaming Compound&r onto the ground and crush them with a piston."]
+			hide_dependency_lines: true
+			id: "03A29E94E115578C"
+			rewards: [
+				{
+					id: "759590BBCA47DC53"
+					item: "minecraft:clock"
+					type: "item"
+				}
+				{
+					id: "0FAA92FD34516BB8"
+					item: "minecraft:gold_ingot"
+					type: "item"
+				}
+			]
+			subtitle: "One would be forgiven for assuming that a &6Broken Watch&r isn't of much use. However, preserving one using &4Gleaming Compound&r turns out to have a positive outcome for any active Potion Effects."
+			tasks: [{
+				id: "54AB3114207E8165"
+				item: "things:broken_watch"
+				type: "item"
+			}]
+			title: "Craft a &6Broken Watch&r"
+			x: 1.0d
+			y: 1.0d
+		}
+		{
+			dependencies: ["70C1E82FA8B8243B"]
+			hide_dependency_lines: true
+			id: "15C1329B3B7B184A"
+			rewards: [{
+				count: 3
+				id: "66E3A7507DEEE86F"
+				item: "minecraft:golden_apple"
+				type: "item"
+			}]
+			subtitle: "By stimulating the ingredients usually used in potion-making, the &6Rabbit's Foot&r is coaxed into providing the user with permanent &9Jump Boost II&r."
+			tasks: [{
+				id: "5FE26B9B1A2D8B48"
+				item: "things:rabbit_foot_charm"
+				type: "item"
+			}]
+			title: "Craft a &6Rabbit Foot Charm&r"
+			x: 1.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["70C1E82FA8B8243B"]
+			description: ["The &4Gleaming Compound&r contained in it can transmute the poison effect one usually gets afflicted with into &cRegeneration II&r by applying knowledge gained from the incorporated Enchanted &dGolden Apple&r."]
+			hide_dependency_lines: true
+			id: "7E942D8506802605"
+			rewards: [{
+				count: 3
+				id: "46355B0245F5CA57"
+				item: "minecraft:poisonous_potato"
+				type: "item"
+			}]
+			subtitle: "To the average man, the &aPoisonous Potato&r might seem like a wasted opportunity. By crafting and wearing &2Luck of the Irish&r though, a great benefit can be extracted from them."
+			tasks: [{
+				id: "4C9B53A93DC636DE"
+				item: "things:luck_of_the_irish"
+				type: "item"
+			}]
+			title: "Craft a &2Luck of the Irish&r"
+			x: 1.0d
+			y: 3.0d
+		}
+		{
+			description: [""]
+			id: "0CAD2032C8B5C5FD"
+			rewards: [{
+				id: "19A210312033CB23"
+				type: "xp"
+				xp: 2
+			}]
+			subtitle: "A &dPressure Plate&r made of &3Diamonds&r is quite the unusual sight, but useful nonetheless. When constructed like this, it &donly reacts to players&r, making it finally a viable option for placing outside your front door."
+			tasks: [{
+				id: "7EAA923FDDF94D29"
+				item: "things:diamond_pressure_plate"
+				type: "item"
+			}]
+			title: "Craft a &bDiamond Pressure Plate&r"
+			x: 1.0d
+			y: -2.0d
+		}
+		{
+			id: "1AB4E51A076AA7A1"
+			subtitle: "A piece of &6Glowstone&r conveniently mounted on a small plate. Glows as bright as Glowstone and has pretty particles. Pretty neat, huh..."
+			tasks: [{
+				id: "52A54732449033E4"
+				item: "things:stone_glowstone_fixture"
+				type: "item"
+			}]
+			title: "Craft a &6Stone Glowstone Fixture&r"
+			x: 1.0d
+			y: -3.0d
+		}
+	]
+	title: " &4Things"
+}

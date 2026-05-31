@@ -1,0 +1,23 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "betterend"
+      ]
+    }
+  ],
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "betterend:aeternium_ingot"
+  },
+  "base": {
+    "item": "druids:staff_netherite_lightning"
+  },
+  "result": {
+    "item": "druids:staff_crystal_lightning"
+  },
+  "template": {
+    "item": "betterend:crystal_shards"
+  }
+}

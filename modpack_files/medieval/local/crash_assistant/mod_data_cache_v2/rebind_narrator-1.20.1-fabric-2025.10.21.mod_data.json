@@ -1,0 +1,1 @@
+{"jarName":"rebind_narrator-1.20.1-fabric-2025.10.21.jar","modId":"rebind_narrator","version":"2025.10.21","mixinConfigs":["rebind_narrator.mixins.json"],"jarJarMods":[{"jarName":"modder_name_lib-1.20.1-fabric-2025.10.21.jar","modId":"modder_name_lib","version":"2025.10.21","mixinConfigs":[],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

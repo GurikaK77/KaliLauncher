@@ -1,0 +1,136 @@
+{
+  "schema_version": 2,
+  "failed_reloads_per_session": 5,
+  "default_packs": [
+    "vanilla",
+    "fabric",
+    "file/Excalibur_V1.21.10.zip",
+    "file/Clarent_12110_1201_v1.zip",
+    "file/FreshAnimations_v1.9.2.zip",
+    "file/EFA_215.4.a.zip",
+    "soulsweapons:fresh_animations_compat",
+    "file/Excalibur_Takes_a_Pillage_v1.2.zip",
+    "file/Excalibur Vanilla Backport 1.2.zip",
+    "file/Excalibur Decorative Blocks Support.zip",
+    "file/Excalibur_Target_Dummy_v1.0.zip",
+    "file/Excalibur Deeper and Darker Support.zip",
+    "file/Excalibur_Transmog_v1.0.zip",
+    "file/Excalibur FriendsFoes 2.2.zip",
+    "file/Excalibur_DramaticDoors_0.2_1.20.1.zip",
+    "file/Excalibur Amendments 1.4.zip",
+    "file/Excalibur Travelers Backpack Support v2.0.zip",
+    "file/Excalibur_Tom\u0027s_Simple_Storage 1.2.zip",
+    "file/Aether_Excalibur_Support.zip",
+    "file/Excalibur End Remastered Support.zip",
+    "file/Excalibur_Supplementaries_1.0_1.20.1.zip",
+    "file/FarmersDelightExcaliburSupport.zip",
+    "file/MynethersDelight-Excalibur_support-1.20.1- ver-0.1.8.zip",
+    "file/Excalibur Goblin Traders Support.zip",
+    "file/Excalibur Illager Invasion 1.3.zip",
+    "file/Excalibur_Twigs_0.2_1.20.1.zip",
+    "file/Excalibur_Handcrafted_0.2_1.20.1.zip",
+    "file/Modded Enchantments Support.zip",
+    "file/IceandFireExcaliburizedv2.zip",
+    "file/MMC_Excal",
+    "file/STONEBORN+-+1.20-1.20.1+-+V3.2.3.zip",
+    "file/STONEBORN - 1.4-1.20.1 MeiAdditions.zip",
+    "file/SBMC-1.20.1-3.7.zip",
+    "Moonlight Mods Dynamic Assets",
+    "file/STONEBORN - MMC",
+    "file/EmbellishedStone-1.20.1-1.0.0.zip",
+    "file/EclecticTrove-1.20.1-1.3.0.zip",
+    "file/[1.4.1] Enhanced Boss Bars.zip",
+    "tinyskeletons:main",
+    "file/panorama_overrides.zip",
+    "file/cubic-sun-moon-v1.8.4a.zip",
+    "file/Enchantment Descriptions Compat 1.3.zip",
+    "file/Modded Omelet_1_20_1.zip",
+    "file/-1.21.2 Fresh Moves v3.1 (No Animated Eyes).zip"
+  ],
+  "default_overrides": {
+    "force_compatible": true
+  },
+  "pack_overrides": {
+    "file/MCA_resourcepack-V3.1.1.zip": {
+      "hidden": true
+    },
+    "file/LessStructures-SpacingTweaks-1.20.1-2.1.56.zip": {
+      "hidden": true
+    },
+    "file/ctov-villager-plus-add-on-v2-0.zip": {
+      "hidden": true
+    },
+    "file/WDA-VanillaLoot-1.18.2-1.19.2-0.0.1.zip": {
+      "hidden": true
+    },
+    "file/ctov-friends-and-foes-add-on-v2-0.zip": {
+      "hidden": true
+    },
+    "continuity:default": {
+      "hidden": true
+    },
+    "file/FarmersDelight_ToolFix_1.1+1.20.x.zip": {
+      "hidden": true
+    },
+    "file/ichphilipp-s-endcity-better-end-1-18-1.zip": {
+      "hidden": true
+    },
+    "file/Origins_Expanded_Foods_v2.7.zip": {
+      "hidden": true
+    },
+    "file/Trinkets_OffhandFix_1.2+1.20.1.zip": {
+      "hidden": true
+    },
+    "file/AdventureZ_NetheriteFix_1.0+1.20.1.zip": {
+      "hidden": true
+    },
+    "file/Dehydration_Expanded_Drinks_1.3.4+1.20.1.zip": {
+      "hidden": true
+    },
+    "file/Origins_EnvironmentZ_Dehydration_v1.7+1.20.1.zip": {
+      "hidden": true
+    },
+    "continuity:glass_pane_culling_fix": {
+      "hidden": true
+    },
+    "programmer_art": {
+      "hidden": true
+    },
+    "soulsweapons:2d_weapons": {
+      "hidden": true
+    },
+    "lambdabettergrass:default": {
+      "hidden": true
+    },
+    "autoslabs:distinct_slabs": {
+      "hidden": true
+    },
+    "Moonlight Mods Dynamic Assets": {
+      "hidden": true
+    },
+    "high_contrast": {
+      "hidden": true
+    },
+    "supplementaries:darker_ropes": {
+      "hidden": true
+    },
+    "natures_spirit:better_leaves_compatibility": {
+      "hidden": true
+    },
+    "file/ichphilipp-s-endcity-vanilla-v1-1-1-18-1-e640.zip": {
+      "hidden": true
+    },
+    "file/SkyVillages-WaystonesCompat-1.20.1-1.0.3-fabric.zip": {
+      "hidden": true
+    },
+    "file/SkyVillages-SupplementariesCompat-1.20.1-1.0.3.1.zip": {
+      "hidden": true
+    },
+    "file/SkyVillages-GraveyardCompat-1.20.1-1.0.3.zip": {
+      "hidden": true
+    },
+    "file/SkyVillages-FarmersDelightCompat-1.20.1-1.0.3.zip": {
+      "hidden": true
+    }
+  }
+}

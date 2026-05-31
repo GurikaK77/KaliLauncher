@@ -1,0 +1,7 @@
+{
+  "parent": "travelersbackpack:block/backpack_base",
+  "textures": {
+    "0": "travelersbackpack:block/backpack/sponge",
+    "particle": "minecraft:block/sponge"
+  }
+}

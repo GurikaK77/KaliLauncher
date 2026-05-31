@@ -1,0 +1,10 @@
+{
+    "variants": {
+		"": [
+		{ "model": "zenith:block/echoing_sculkshelf" },
+		{ "model": "zenith:block/echoing_sculkshelf1" },
+		{ "model": "zenith:block/echoing_sculkshelf2" }
+		]
+    }
+}
+

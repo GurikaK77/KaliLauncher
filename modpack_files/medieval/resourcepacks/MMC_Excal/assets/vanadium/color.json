@@ -1,0 +1,101 @@
+{
+  "particle": {
+    "portal": 		"733C96"
+  },
+  
+  "fog": {
+    "end": 			"332521"
+  },
+  
+  "sky": {
+    "end": 			"262120"
+  },
+  
+  "egg": {
+    "shell": {},
+	"spots": { 
+	  "blaze": 		"FF890C", 
+	  "donkey": 	"FFFFFF", 
+	  "horse": 		"563F25"
+	}
+  },
+  
+  "map": {
+    "foliage": 		"455622",
+	"dirt": 		"594535",
+	"grass": 		"5F7337",
+	"stone": 		"776C5E",
+	"water": 		"3E5A7F",
+	"sand": 		"DEC091",
+	"snow": 		"e3e5ec",
+	"ice": 			"8793AD",
+	"tnt": 			"EC4218",
+	"yellow": 		"C9A151",
+	"red": 			"a22e2e"
+  },
+  
+  "sheep": {
+    "black": 		"262626",
+    "blue": 		"3E5B77",
+	"brown": 		"4F3F36",
+	"cyan": 		"5A8484",
+	"gray": 		"5E5E5E",
+	"green": 		"457745",
+	"light_blue":	"6587A0",
+	"light_gray": 	"999999",
+	"lime": 		"6C9E5D",
+	"magenta": 		"A25B6A",
+	"orange": 		"A7643B",
+	"pink": 		"E2A1AC",
+	"purple": 		"744A7B",
+	"red": 			"823128",
+	"white": 		"ffffff",
+	"yellow": 		"AA8448"
+  },
+  
+  "collar": { 
+	"black": 		"262828",
+	"blue": 		"3E5B77",
+	"brown": 		"4F3F36",
+	"cyan": 		"5A8484",
+	"gray": 		"77716A",
+	"green": 		"457745",
+	"light_blue":	"6587A0",
+	"light_gray": 	"A49C92",
+	"lime": 		"4A7236",
+	"magenta": 		"A25B6A",
+	"orange": 		"A7643B",
+	"pink": 		"E2A1AC",
+	"purple": 		"744A7B",
+	"red": 			"823128",
+	"white": 		"D8C9B6",
+	"yellow": 		"AA8448"
+  },
+  
+  "banner": {
+    "black": 		"262828",
+    "blue": 		"3E5B77",
+	"brown": 		"4F3F36",
+	"cyan": 		"5A8484",
+	"gray": 		"77716A",
+	"green": 		"457745",
+	"light_blue":	"6587A0",
+	"light_gray": 	"A49C92",
+	"lime": 		"4A7236",
+	"magenta": 		"A25B6A",
+	"orange": 		"A7643B",
+	"pink": 		"E2A1AC",
+	"purple": 		"744A7B",
+	"red": 			"823128",
+	"white": 		"D8C9B6",
+	"yellow": 		"AA8448"
+  },
+  
+  "screen": {
+    "loading": { 
+	  "bar": 		"ffffff",
+	  "outline": 	"000000",
+	  "progress": 	"DB2331"
+	}
+  }
+}

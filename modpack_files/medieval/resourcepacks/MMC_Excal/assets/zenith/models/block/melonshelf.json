@@ -1,0 +1,9 @@
+{
+	"parent": "zenith:block/bookshelf_zenith",
+	"textures": {
+		"side": "zenith:block/melonshelf",
+		"particle": "zenith:block/melonshelf",
+		"top": "zenith:block/melonshelf_top"
+	}	
+	
+}

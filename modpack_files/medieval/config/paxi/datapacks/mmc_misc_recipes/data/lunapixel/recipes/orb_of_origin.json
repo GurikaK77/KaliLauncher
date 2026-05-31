@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  	"cdc",
+    "dtd",
+    "cdc"
+  ],
+  "key": {
+  	"d": {
+      "item": "mythicmetals:orichalcum_ingot"
+    },
+    "c": {
+      "item": "betterend:aeternium_ingot"
+    },
+    "t": {
+      "item": "soulsweapons:arkenstone"
+    }
+  },
+  "result": {
+    "item": "origins:orb_of_origin"
+  }
+}

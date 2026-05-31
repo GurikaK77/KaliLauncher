@@ -1,0 +1,1 @@
+{"jarName":"cristellib-1.1.5-fabric.jar","modId":"cristellib","version":"1.1.5","mixinConfigs":["cristellib.mixins.json","cristellib-common.mixins.json"],"jarJarMods":[{"jarName":"jankson-1.2.3.jar","modId":"blue_endless_jankson","version":"1.2.3","mixinConfigs":[],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

@@ -1,0 +1,181 @@
+{
+  "weapons": {
+    "elder_guardian_sickle": {
+      "attack_damage": 6.4,
+      "attack_speed": -2.0,
+      "attributes": [
+        {
+          "id": "spell_power:water",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "ender_dragon_glaive": {
+      "attack_damage": 8.7,
+      "attack_speed": -2.6,
+      "attributes": [
+        {
+          "id": "spell_power:arcane",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "glacial_double_axe": {
+      "attack_damage": 10.3,
+      "attack_speed": -2.8,
+      "attributes": [
+        {
+          "id": "spell_power:frost",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "ender_dragon_dagger": {
+      "attack_damage": 5.1,
+      "attack_speed": -1.6,
+      "attributes": [
+        {
+          "id": "spell_power:arcane",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "wither_sickle": {
+      "attack_damage": 6.4,
+      "attack_speed": -2.0,
+      "attributes": [
+        {
+          "id": "spell_power:soul",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "wither_double_axe": {
+      "attack_damage": 10.3,
+      "attack_speed": -2.8,
+      "attributes": [
+        {
+          "id": "spell_power:soul",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "elder_guardian_glaive": {
+      "attack_damage": 8.7,
+      "attack_speed": -2.6,
+      "attributes": [
+        {
+          "id": "spell_power:water",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "elder_guardian_dagger": {
+      "attack_damage": 5.1,
+      "attack_speed": -1.6,
+      "attributes": [
+        {
+          "id": "spell_power:water",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "wither_dagger": {
+      "attack_damage": 5.1,
+      "attack_speed": -1.6,
+      "attributes": [
+        {
+          "id": "spell_power:soul",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "glacial_glaive": {
+      "attack_damage": 8.7,
+      "attack_speed": -2.6,
+      "attributes": [
+        {
+          "id": "spell_power:frost",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "ender_dragon_sickle": {
+      "attack_damage": 6.4,
+      "attack_speed": -2.0,
+      "attributes": [
+        {
+          "id": "spell_power:arcane",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "ender_dragon_double_axe": {
+      "attack_damage": 10.3,
+      "attack_speed": -2.8,
+      "attributes": [
+        {
+          "id": "spell_power:arcane",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "glacial_dagger": {
+      "attack_damage": 5.1,
+      "attack_speed": -1.6,
+      "attributes": [
+        {
+          "id": "spell_power:frost",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "glacial_sickle": {
+      "attack_damage": 6.4,
+      "attack_speed": -2.0,
+      "attributes": [
+        {
+          "id": "spell_power:frost",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "wither_glaive": {
+      "attack_damage": 8.7,
+      "attack_speed": -2.6,
+      "attributes": [
+        {
+          "id": "spell_power:soul",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    },
+    "elder_guardian_double_axe": {
+      "attack_damage": 10.3,
+      "attack_speed": -2.8,
+      "attributes": [
+        {
+          "id": "spell_power:water",
+          "value": 3.0,
+          "operation": "ADDITION"
+        }
+      ]
+    }
+  },
+  "armor_sets": {}
+}

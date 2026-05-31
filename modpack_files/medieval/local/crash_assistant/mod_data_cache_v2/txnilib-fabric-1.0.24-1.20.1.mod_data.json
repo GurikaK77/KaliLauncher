@@ -1,0 +1,1 @@
+{"jarName":"txnilib-fabric-1.0.24-1.20.1.jar","modId":"txnilib","version":"1.0.24","mixinConfigs":["mixins.txnilib.json"],"jarJarMods":[{"jarName":"forgeconfigapiport-fabric-8.0.0.jar","modId":"forgeconfigapiport","version":"8.0.0","mixinConfigs":["forgeconfigapiport.common.mixins.json"],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

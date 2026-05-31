@@ -1,0 +1,9 @@
+{
+    "parent": "another_furniture:block/template/shelf_l",
+    "textures": {
+        "particle": "another_furniture:block/shelf/warped_top",
+        "top": "another_furniture:block/shelf/warped_top",
+        "edge": "another_furniture:block/shelf/warped_side_1",
+        "side": "another_furniture:block/shelf/warped_side"
+    }
+}

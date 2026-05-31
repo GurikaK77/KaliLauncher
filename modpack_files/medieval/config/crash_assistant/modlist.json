@@ -1,0 +1,2212 @@
+{
+  "fabric-loader-0.17.3.jar (modloader)": {
+    "jarName": "fabric-loader-0.17.3.jar (modloader)",
+    "modId": "fabric",
+    "version": "fabric-loader-0.17.3.jar"
+  },
+  "[1.20.1-Fabric] Hybrid Aquatic 1.5.3.jar": {
+    "jarName": "[1.20.1-Fabric] Hybrid Aquatic 1.5.3.jar",
+    "modId": "hybrid-aquatic",
+    "version": "1.5.3"
+  },
+  "[fabric]ctov-3.4.14.jar": {
+    "jarName": "[fabric]ctov-3.4.14.jar",
+    "modId": "ctov",
+    "version": "3.4.14"
+  },
+  "aaa_particles-1.20.1-1.4.8-fabric.jar": {
+    "jarName": "aaa_particles-1.20.1-1.4.8-fabric.jar",
+    "modId": "aaa_particles",
+    "version": "1.20.1-1.4.8"
+  },
+  "abridged-2.0.0-fabric-1.20.1.jar": {
+    "jarName": "abridged-2.0.0-fabric-1.20.1.jar",
+    "modId": "abridged",
+    "version": "2.0.0"
+  },
+  "accessories-fabric-1.0.0-beta.48+1.20.1.jar": {
+    "jarName": "accessories-fabric-1.0.0-beta.48+1.20.1.jar",
+    "modId": "accessories",
+    "version": "1.0.0-beta.48+1.20.1"
+  },
+  "accessories_tclayer-3.8.1-beta.14+1.20.1.jar": {
+    "jarName": "accessories_tclayer-3.8.1-beta.14+1.20.1.jar",
+    "modId": "tclayer",
+    "version": "3.8.1+beta.14"
+  },
+  "accessorify-2.3.4+1.20.1.jar": {
+    "jarName": "accessorify-2.3.4+1.20.1.jar",
+    "modId": "accessorify",
+    "version": "2.3.4+1.20.1"
+  },
+  "Adorn-5.0.1+1.20.1-fabric.jar": {
+    "jarName": "Adorn-5.0.1+1.20.1-fabric.jar",
+    "modId": "adorn",
+    "version": "5.0.1+1.20.1"
+  },
+  "AdvancementPlaques-1.20.1-fabric-1.6.7.jar": {
+    "jarName": "AdvancementPlaques-1.20.1-fabric-1.6.7.jar",
+    "modId": "advancementplaques",
+    "version": "1.6.7"
+  },
+  "adventurez-1.4.20.jar": {
+    "jarName": "adventurez-1.4.20.jar",
+    "modId": "adventurez",
+    "version": "1.4.20"
+  },
+  "aether-1.20.1-1.5.2-beta.9-fabric.jar": {
+    "jarName": "aether-1.20.1-1.5.2-beta.9-fabric.jar",
+    "modId": "aether",
+    "version": "1.5.2-beta.6"
+  },
+  "alloy-forgery-2.1.2+1.20.jar": {
+    "jarName": "alloy-forgery-2.1.2+1.20.jar",
+    "modId": "alloy_forgery",
+    "version": "2.1.2+1.20"
+  },
+  "almanac-1.20.x-fabric-1.0.2.jar": {
+    "jarName": "almanac-1.20.x-fabric-1.0.2.jar",
+    "modId": "almanac",
+    "version": "1.0.2"
+  },
+  "almostunified-fabric-1.20.1-0.10.1.jar": {
+    "jarName": "almostunified-fabric-1.20.1-0.10.1.jar",
+    "modId": "almostunified",
+    "version": "1.20.1-0.10.1"
+  },
+  "alternate-current-mc1.20-1.9.0.jar": {
+    "jarName": "alternate-current-mc1.20-1.9.0.jar",
+    "modId": "alternate-current",
+    "version": "1.9.0"
+  },
+  "AmbientSounds_FABRIC_v6.1.11_mc1.20.1.jar": {
+    "jarName": "AmbientSounds_FABRIC_v6.1.11_mc1.20.1.jar",
+    "modId": "ambientsounds",
+    "version": "6.1.11"
+  },
+  "amendments-1.20-2.2.3-fabric.jar": {
+    "jarName": "amendments-1.20-2.2.3-fabric.jar",
+    "modId": "amendments",
+    "version": "1.20-2.2.3"
+  },
+  "animatica-0.6.1+1.20.4.jar": {
+    "jarName": "animatica-0.6.1+1.20.4.jar",
+    "modId": "animatica",
+    "version": "0.6.1+1.20.4"
+  },
+  "another_furniture-fabric-1.20.1-3.0.4.jar": {
+    "jarName": "another_furniture-fabric-1.20.1-3.0.4.jar",
+    "modId": "another_furniture",
+    "version": "1.20.1-3.0.4"
+  },
+  "Aquamirae 6.jar": {
+    "jarName": "Aquamirae 6.jar",
+    "modId": "aquamirae",
+    "version": "6"
+  },
+  "arch-rpgmana-1.0.8.5.jar": {
+    "jarName": "arch-rpgmana-1.0.8.5.jar",
+    "modId": "rpgmana",
+    "version": "1.0.8.5"
+  },
+  "archers-1.3.0+1.20.1.jar": {
+    "jarName": "archers-1.3.0+1.20.1.jar",
+    "modId": "archers",
+    "version": "1.3.0+1.20.1"
+  },
+  "architectury-9.2.14-fabric.jar": {
+    "jarName": "architectury-9.2.14-fabric.jar",
+    "modId": "architectury",
+    "version": "9.2.14"
+  },
+  "archon-0.8.1.jar": {
+    "jarName": "archon-0.8.1.jar",
+    "modId": "archon",
+    "version": "0.8.1"
+  },
+  "ash_api-fabric-3.0.2+1.20.1.jar": {
+    "jarName": "ash_api-fabric-3.0.2+1.20.1.jar",
+    "modId": "ash_api",
+    "version": "3.0.2+1.20.1"
+  },
+  "async-locator-fabric-1.20-1.3.0.jar": {
+    "jarName": "async-locator-fabric-1.20-1.3.0.jar",
+    "modId": "asynclocator",
+    "version": "1.3.0"
+  },
+  "ATi Structures V1.4.3 (1.20+).jar": {
+    "jarName": "ATi Structures V1.4.3 (1.20+).jar",
+    "modId": "atistructures",
+    "version": "1.4.0"
+  },
+  "AttributeFix-Fabric-1.20.1-21.0.4.jar": {
+    "jarName": "AttributeFix-Fabric-1.20.1-21.0.4.jar",
+    "modId": "attributefix",
+    "version": "21.0.4"
+  },
+  "AutochefsDelight-1.20.1-Fabric-1.0.6.jar": {
+    "jarName": "AutochefsDelight-1.20.1-Fabric-1.0.6.jar",
+    "modId": "autochefsdelight",
+    "version": "1.0.6+fabric"
+  },
+  "azurelib-fabric-1.20.1-3.0.27.jar": {
+    "jarName": "azurelib-fabric-1.20.1-3.0.27.jar",
+    "modId": "azurelib",
+    "version": "3.0.27"
+  },
+  "azurelibarmor-fabric-1.20.1-2.0.14.jar": {
+    "jarName": "azurelibarmor-fabric-1.20.1-2.0.14.jar",
+    "modId": "azurelibarmor",
+    "version": "2.0.14"
+  },
+  "BadOptimizations-2.3.1-1.20.1.jar": {
+    "jarName": "BadOptimizations-2.3.1-1.20.1.jar",
+    "modId": "badoptimizations",
+    "version": "2.3.1"
+  },
+  "badpackets-fabric-0.4.3.jar": {
+    "jarName": "badpackets-fabric-0.4.3.jar",
+    "modId": "badpackets",
+    "version": "0.4.3"
+  },
+  "balm-fabric-1.20.1-7.3.37.jar": {
+    "jarName": "balm-fabric-1.20.1-7.3.37.jar",
+    "modId": "balm",
+    "version": "7.3.37"
+  },
+  "BarteringStation-v8.0.0-1.20.1-Fabric.jar": {
+    "jarName": "BarteringStation-v8.0.0-1.20.1-Fabric.jar",
+    "modId": "barteringstation",
+    "version": "8.0.0"
+  },
+  "bc_particle-0.0.2-1.20.1.jar": {
+    "jarName": "bc_particle-0.0.2-1.20.1.jar",
+    "modId": "malfu-mods",
+    "version": "0.0.2-1.20.1"
+  },
+  "bclib-3.0.14.jar": {
+    "jarName": "bclib-3.0.14.jar",
+    "modId": "bclib",
+    "version": "3.0.14"
+  },
+  "besmirchment-1.20.1-4.jar": {
+    "jarName": "besmirchment-1.20.1-4.jar",
+    "modId": "besmirchment",
+    "version": "1.20.1-4"
+  },
+  "better-clouds-1.3.37+1.20.1-fabric.jar": {
+    "jarName": "better-clouds-1.3.37+1.20.1-fabric.jar",
+    "modId": "betterclouds",
+    "version": "1.3.37+1.20.1-fabric"
+  },
+  "better-end-4.0.11.jar": {
+    "jarName": "better-end-4.0.11.jar",
+    "modId": "betterend",
+    "version": "4.0.11"
+  },
+  "better-nether-9.0.10.jar": {
+    "jarName": "better-nether-9.0.10.jar",
+    "modId": "betternether",
+    "version": "9.0.10"
+  },
+  "better-trim-tooltips-1.0.1.jar": {
+    "jarName": "better-trim-tooltips-1.0.1.jar",
+    "modId": "better-trim-tooltips",
+    "version": "1.0.1"
+  },
+  "BetterAdvancements-Fabric-1.20.1-0.4.2.25.jar": {
+    "jarName": "BetterAdvancements-Fabric-1.20.1-0.4.2.25.jar",
+    "modId": "betteradvancements",
+    "version": "0.4.2.25"
+  },
+  "betterarcheology-1.2.1-1.20.1.jar": {
+    "jarName": "betterarcheology-1.2.1-1.20.1.jar",
+    "modId": "betterarcheology",
+    "version": "1.2.1-1.20.1"
+  },
+  "bettercombat-fabric-1.8.6+1.20.1.jar": {
+    "jarName": "bettercombat-fabric-1.8.6+1.20.1.jar",
+    "modId": "bettercombat",
+    "version": "1.8.6+1.20.1"
+  },
+  "BetterCompatibilityChecker-fabric-4.0.8+mc1.20.1.jar": {
+    "jarName": "BetterCompatibilityChecker-fabric-4.0.8+mc1.20.1.jar",
+    "modId": "bcc",
+    "version": "4.0.8"
+  },
+  "betterend-crashed-ships-1.0.0.jar": {
+    "jarName": "betterend-crashed-ships-1.0.0.jar",
+    "modId": "betterend-crashed-ships",
+    "version": "1.0.0"
+  },
+  "bettermounthud-1.2.2.jar": {
+    "jarName": "bettermounthud-1.2.2.jar",
+    "modId": "bettermounthud",
+    "version": "1.2.2"
+  },
+  "betterstats-3.12.6+fabric-1.20.1.jar": {
+    "jarName": "betterstats-3.12.6+fabric-1.20.1.jar",
+    "modId": "betterstats",
+    "version": "3.12.6+fabric-1.20.1"
+  },
+  "BetterTrims-3.2.8-fabric+1.20.1.jar": {
+    "jarName": "BetterTrims-3.2.8-fabric+1.20.1.jar",
+    "modId": "bettertrims",
+    "version": "3.2.8"
+  },
+  "bewitchment-1.20-10.jar": {
+    "jarName": "bewitchment-1.20-10.jar",
+    "modId": "bewitchment",
+    "version": "1.20-10"
+  },
+  "BHMenu-Fabric-1.20.1-2.4.2.jar": {
+    "jarName": "BHMenu-Fabric-1.20.1-2.4.2.jar",
+    "modId": "bhmenu",
+    "version": "2.4.2"
+  },
+  "biolith-fabric-1.0.1-alpha.1.jar": {
+    "jarName": "biolith-fabric-1.0.1-alpha.1.jar",
+    "modId": "biolith",
+    "version": "1.0.1-alpha.1"
+  },
+  "biomemusic-fabric-1.20.1-3.5.jar": {
+    "jarName": "biomemusic-fabric-1.20.1-3.5.jar",
+    "modId": "biomemusic",
+    "version": "1.20.1-3.5"
+  },
+  "Boat-Item-View-Fabric-1.20.1-0.0.5.jar": {
+    "jarName": "Boat-Item-View-Fabric-1.20.1-0.0.5.jar",
+    "modId": "boatiview",
+    "version": "0.0.5"
+  },
+  "bobby-5.0.1.jar": {
+    "jarName": "bobby-5.0.1.jar",
+    "modId": "bobby",
+    "version": "5.0.1"
+  },
+  "BOMD-1.7.5-1.20.1.jar": {
+    "jarName": "BOMD-1.7.5-1.20.1.jar",
+    "modId": "bosses_of_mass_destruction",
+    "version": "1.7.5-1.20.1"
+  },
+  "Bookshelf-Fabric-1.20.1-20.2.13.jar": {
+    "jarName": "Bookshelf-Fabric-1.20.1-20.2.13.jar",
+    "modId": "bookshelf",
+    "version": "20.2.13"
+  },
+  "Bountiful-6.0.4+1.20.1-fabric.jar": {
+    "jarName": "Bountiful-6.0.4+1.20.1-fabric.jar",
+    "modId": "bountiful",
+    "version": "6.0.4+1.20.1"
+  },
+  "brewinandchewin-3.0.6+1.20.1.jar": {
+    "jarName": "brewinandchewin-3.0.6+1.20.1.jar",
+    "modId": "brewinandchewin",
+    "version": "3.0.6+1.20.1"
+  },
+  "bygonenether-1.20-1.3.2.jar": {
+    "jarName": "bygonenether-1.20-1.3.2.jar",
+    "modId": "bygonenether",
+    "version": "1.3.2"
+  },
+  "cardinal-components-api-5.2.3.jar": {
+    "jarName": "cardinal-components-api-5.2.3.jar",
+    "modId": "cardinal-components",
+    "version": "5.2.3"
+  },
+  "carryon-fabric-1.20.1-2.1.2.7.jar": {
+    "jarName": "carryon-fabric-1.20.1-2.1.2.7.jar",
+    "modId": "carryon",
+    "version": "2.1.2.7"
+  },
+  "certain_questing_additions-fabric-1.0.7+mc1.20.1.jar": {
+    "jarName": "certain_questing_additions-fabric-1.0.7+mc1.20.1.jar",
+    "modId": "certain_questing_additions",
+    "version": "1.0.7"
+  },
+  "cerulean-fabric-1.0.0-1.20.1.jar": {
+    "jarName": "cerulean-fabric-1.0.0-1.20.1.jar",
+    "modId": "cerulean",
+    "version": "1.0.0"
+  },
+  "charm-fabric-1.20.1-forked-6.0.25.jar": {
+    "jarName": "charm-fabric-1.20.1-forked-6.0.25.jar",
+    "modId": "charm",
+    "version": "forked-6.0.25"
+  },
+  "charmofundying-fabric-6.5.0+1.20.1.jar": {
+    "jarName": "charmofundying-fabric-6.5.0+1.20.1.jar",
+    "modId": "charmofundying",
+    "version": "6.5.0+1.20.1"
+  },
+  "chat_heads-0.14.2-fabric-1.20.jar": {
+    "jarName": "chat_heads-0.14.2-fabric-1.20.jar",
+    "modId": "chat_heads",
+    "version": "0.14.2"
+  },
+  "chatpatches-8.0-alpha.5+1.20.1-fabric.jar": {
+    "jarName": "chatpatches-8.0-alpha.5+1.20.1-fabric.jar",
+    "modId": "chatpatches",
+    "version": "8.0-alpha.5"
+  },
+  "chunksending-fabric-1.20.1-2.8.jar": {
+    "jarName": "chunksending-fabric-1.20.1-2.8.jar",
+    "modId": "chunksending",
+    "version": "1.20.1-2.8"
+  },
+  "citresewn-1.2.2+1.20.1.jar": {
+    "jarName": "citresewn-1.2.2+1.20.1.jar",
+    "modId": "citresewn",
+    "version": "1.2.2+1.20.1"
+  },
+  "clientcrafting-fabric-1.20.1-1.8.jar": {
+    "jarName": "clientcrafting-fabric-1.20.1-1.8.jar",
+    "modId": "clientcrafting",
+    "version": "1.20.1-1.8"
+  },
+  "clientsort-fabric-2.1.3+1.20.1.jar": {
+    "jarName": "clientsort-fabric-2.1.3+1.20.1.jar",
+    "modId": "clientsort",
+    "version": "2.1.3+1.20.1"
+  },
+  "cloth-config-11.1.136-fabric.jar": {
+    "jarName": "cloth-config-11.1.136-fabric.jar",
+    "modId": "cloth-config",
+    "version": "11.1.136"
+  },
+  "Clumps-fabric-1.20.1-12.0.0.4.jar": {
+    "jarName": "Clumps-fabric-1.20.1-12.0.0.4.jar",
+    "modId": "clumps",
+    "version": "12.0.0.4"
+  },
+  "collective-1.20.1-8.13.jar": {
+    "jarName": "collective-1.20.1-8.13.jar",
+    "modId": "collective",
+    "version": "8.13"
+  },
+  "combatroll-fabric-1.3.3+1.20.1.jar": {
+    "jarName": "combatroll-fabric-1.3.3+1.20.1.jar",
+    "modId": "combatroll",
+    "version": "1.3.3+1.20.1"
+  },
+  "common-networking-fabric-1.0.5-1.20.1.jar": {
+    "jarName": "common-networking-fabric-1.0.5-1.20.1.jar",
+    "modId": "commonnetworking",
+    "version": "1.0.5-1.20.1"
+  },
+  "companions-fabric-1.20.1-1.1.2.jar": {
+    "jarName": "companions-fabric-1.20.1-1.1.2.jar",
+    "modId": "companions",
+    "version": "1.1.2"
+  },
+  "Configurable-2.2.3-fabric-yarn+1.20.1.jar": {
+    "jarName": "Configurable-2.2.3-fabric-yarn+1.20.1.jar",
+    "modId": "configurable",
+    "version": "2.2.3"
+  },
+  "ConfiguredDefaults-v8.0.4-1.20.1-Fabric.jar": {
+    "jarName": "ConfiguredDefaults-v8.0.4-1.20.1-Fabric.jar",
+    "modId": "configureddefaults",
+    "version": "8.0.4"
+  },
+  "conjuring-1.0.29+1.20.jar": {
+    "jarName": "conjuring-1.0.29+1.20.jar",
+    "modId": "conjuring",
+    "version": "1.0.29+1.20"
+  },
+  "connectivity-fabric-1.20.1-7.2.jar": {
+    "jarName": "connectivity-fabric-1.20.1-7.2.jar",
+    "modId": "connectivity",
+    "version": "1.20.1-7.2"
+  },
+  "continuity-3.0.0+1.20.1.jar": {
+    "jarName": "continuity-3.0.0+1.20.1.jar",
+    "modId": "continuity",
+    "version": "3.0.0+1.20.1"
+  },
+  "Controlling-fabric-1.20.1-12.0.2.jar": {
+    "jarName": "Controlling-fabric-1.20.1-12.0.2.jar",
+    "modId": "controlling",
+    "version": "12.0.2"
+  },
+  "Corgilib-Fabric-1.20.1-4.0.3.4.jar": {
+    "jarName": "Corgilib-Fabric-1.20.1-4.0.3.4.jar",
+    "modId": "corgilib",
+    "version": "4.0.3.4"
+  },
+  "coroutil-fabric-1.20.1-1.3.7.jar": {
+    "jarName": "coroutil-fabric-1.20.1-1.3.7.jar",
+    "modId": "coroutil",
+    "version": "1.20.1-1.3.7"
+  },
+  "CrashAssistant-fabric-1.19-1.21.4-1.10.22.jar": {
+    "jarName": "CrashAssistant-fabric-1.19-1.21.4-1.10.22.jar",
+    "modId": "crash_assistant",
+    "version": "1.10.22"
+  },
+  "crashexploitfixer-fabric-1.1.0+1.20.1.jar": {
+    "jarName": "crashexploitfixer-fabric-1.1.0+1.20.1.jar",
+    "modId": "crashexploitfixer",
+    "version": "1.1.0"
+  },
+  "crawl-0.12.0.jar": {
+    "jarName": "crawl-0.12.0.jar",
+    "modId": "crawl",
+    "version": "0.12.0"
+  },
+  "CreativeCore_FABRIC_v2.12.34_mc1.20.1.jar": {
+    "jarName": "CreativeCore_FABRIC_v2.12.34_mc1.20.1.jar",
+    "modId": "creativecore",
+    "version": "2.12.34"
+  },
+  "cristellib-1.1.5-fabric.jar": {
+    "jarName": "cristellib-1.1.5-fabric.jar",
+    "modId": "cristellib",
+    "version": "1.1.5"
+  },
+  "Cull Less Leaves-1.4.2+1.21-fabric.jar": {
+    "jarName": "Cull Less Leaves-1.4.2+1.21-fabric.jar",
+    "modId": "cull-less-leaves",
+    "version": "1.4.2+1.21-fabric"
+  },
+  "cultural-delights-fabric-1.0.5+1.20.1.jar": {
+    "jarName": "cultural-delights-fabric-1.0.5+1.20.1.jar",
+    "modId": "culturaldelights",
+    "version": "1.0.5+1.20.1"
+  },
+  "cupboard-fabric-1.20.1-2.7.jar": {
+    "jarName": "cupboard-fabric-1.20.1-2.7.jar",
+    "modId": "cupboard",
+    "version": "1.20.1-2.7"
+  },
+  "dark-waters-1.20.1-0.0.22.jar": {
+    "jarName": "dark-waters-1.20.1-0.0.22.jar",
+    "modId": "darkwaters",
+    "version": "0.0.22"
+  },
+  "darkwindowbar-fabric-1.0.0-1.20.1.jar": {
+    "jarName": "darkwindowbar-fabric-1.0.0-1.20.1.jar",
+    "modId": "darkwindowbar",
+    "version": "1.0.0"
+  },
+  "dawn-5.0.0.jar": {
+    "jarName": "dawn-5.0.0.jar",
+    "modId": "dawn",
+    "version": "5.0.0"
+  },
+  "Debugify-1.20.1+2.0.jar": {
+    "jarName": "Debugify-1.20.1+2.0.jar",
+    "modId": "debugify",
+    "version": "1.20.1+2.0"
+  },
+  "decorative_blocks-fabric-1.20.1-4.1.3.jar": {
+    "jarName": "decorative_blocks-fabric-1.20.1-4.1.3.jar",
+    "modId": "decorative_blocks",
+    "version": "4.1.3"
+  },
+  "deeperdarker-fabric-1.20-1.3.3.jar": {
+    "jarName": "deeperdarker-fabric-1.20-1.3.3.jar",
+    "modId": "deeperdarker",
+    "version": "1.3.3"
+  },
+  "dehydration-1.3.6.jar": {
+    "jarName": "dehydration-1.3.6.jar",
+    "modId": "dehydration",
+    "version": "1.3.6"
+  },
+  "DeleteWorldsToTrash-v8.0.0-1.20.1-Fabric.jar": {
+    "jarName": "DeleteWorldsToTrash-v8.0.0-1.20.1-Fabric.jar",
+    "modId": "deleteworldstotrash",
+    "version": "8.0.0"
+  },
+  "DEUF_Refabricated-MC1.20.1-1.1.0.jar": {
+    "jarName": "DEUF_Refabricated-MC1.20.1-1.1.0.jar",
+    "modId": "deuf_refabricated",
+    "version": "1.1.0"
+  },
+  "dimensionalsyncfixes-fabric-1.20.1-0.0.2.jar": {
+    "jarName": "dimensionalsyncfixes-fabric-1.20.1-0.0.2.jar",
+    "modId": "dimensionalsyncfixes",
+    "version": "1.20.1-0.0.2"
+  },
+  "distraction_free_recipes-fabric-1.2.1-1.20.1.jar": {
+    "jarName": "distraction_free_recipes-fabric-1.2.1-1.20.1.jar",
+    "modId": "distraction_free_recipes",
+    "version": "1.2.1"
+  },
+  "dragonloot-1.1.4.jar": {
+    "jarName": "dragonloot-1.1.4.jar",
+    "modId": "dragonloot",
+    "version": "1.1.4"
+  },
+  "DramaticDoors-QuiFabrge-1.20.1-3.3.1.jar": {
+    "jarName": "DramaticDoors-QuiFabrge-1.20.1-3.3.1.jar",
+    "modId": "dramaticdoors",
+    "version": "1.20.1-3.3.1"
+  },
+  "drippyloadingscreen_fabric_3.0.12_MC_1.20.1.jar": {
+    "jarName": "drippyloadingscreen_fabric_3.0.12_MC_1.20.1.jar",
+    "modId": "drippyloadingscreen",
+    "version": "3.0.12"
+  },
+  "druids-0.9.8.0.jar": {
+    "jarName": "druids-0.9.8.0.jar",
+    "modId": "druids",
+    "version": "0.9.8.0"
+  },
+  "dummmmmmy-1.20-2.0.8-fabric.jar": {
+    "jarName": "dummmmmmy-1.20-2.0.8-fabric.jar",
+    "modId": "dummmmmmy",
+    "version": "1.20-2.0.8"
+  },
+  "dungeon_difficulty-2.2.1+1.20.1.jar": {
+    "jarName": "dungeon_difficulty-2.2.1+1.20.1.jar",
+    "modId": "dungeon_difficulty",
+    "version": "2.2.1+1.20.1"
+  },
+  "DungeonsArise-1.20.x-2.1.58-fabric-release.jar": {
+    "jarName": "DungeonsArise-1.20.x-2.1.58-fabric-release.jar",
+    "modId": "dungeons_arise",
+    "version": "2.1.58"
+  },
+  "DungeonsAriseSevenSeas-1.20.x-1.0.2-fabric.jar": {
+    "jarName": "DungeonsAriseSevenSeas-1.20.x-1.0.2-fabric.jar",
+    "modId": "dungeons_arise_seven_seas",
+    "version": "1.0.2"
+  },
+  "EasyAnvils-v8.0.2-1.20.1-Fabric.jar": {
+    "jarName": "EasyAnvils-v8.0.2-1.20.1-Fabric.jar",
+    "modId": "easyanvils",
+    "version": "8.0.2"
+  },
+  "eden-ring-reforked-20.1.20+1.20.1.jar": {
+    "jarName": "eden-ring-reforked-20.1.20+1.20.1.jar",
+    "modId": "edenring",
+    "version": "20.1.20"
+  },
+  "eldritch-mobs-1.15.2.jar": {
+    "jarName": "eldritch-mobs-1.15.2.jar",
+    "modId": "eldritch_mobs",
+    "version": "1.15.2"
+  },
+  "Eldritch_End-FABRIC-MC1.20.1-0.3.4.jar": {
+    "jarName": "Eldritch_End-FABRIC-MC1.20.1-0.3.4.jar",
+    "modId": "eldritch_end",
+    "version": "0.3.4"
+  },
+  "emi-1.1.22+1.20.1+fabric.jar": {
+    "jarName": "emi-1.1.22+1.20.1+fabric.jar",
+    "modId": "emi",
+    "version": "1.1.22+1.20.1+fabric"
+  },
+  "EnchantmentDescriptions-Fabric-1.20.1-17.1.19.jar": {
+    "jarName": "EnchantmentDescriptions-Fabric-1.20.1-17.1.19.jar",
+    "modId": "enchdesc",
+    "version": "17.1.19"
+  },
+  "EndersDelight-1.20.1-1.0.2.refabricated.jar": {
+    "jarName": "EndersDelight-1.20.1-1.0.2.refabricated.jar",
+    "modId": "endersdelight",
+    "version": "1.20.1-1.0.2.refabricated"
+  },
+  "entity_model_features_fabric_1.20.1-2.4.1.jar": {
+    "jarName": "entity_model_features_fabric_1.20.1-2.4.1.jar",
+    "modId": "entity_model_features",
+    "version": "2.4.1"
+  },
+  "entity_texture_features_fabric_1.20.1-6.2.9.jar": {
+    "jarName": "entity_texture_features_fabric_1.20.1-6.2.9.jar",
+    "modId": "entity_texture_features",
+    "version": "6.2.9"
+  },
+  "entityculling-fabric-1.9.3-mc1.20.1.jar": {
+    "jarName": "entityculling-fabric-1.9.3-mc1.20.1.jar",
+    "modId": "entityculling",
+    "version": "1.9.3"
+  },
+  "EpheroLib-1.20.1-FABRIC-1.2.0.jar": {
+    "jarName": "EpheroLib-1.20.1-FABRIC-1.2.0.jar",
+    "modId": "epherolib",
+    "version": "1.2.0"
+  },
+  "Epic Villages v1.1.0 (1.20+).jar": {
+    "jarName": "Epic Villages v1.1.0 (1.20+).jar",
+    "modId": "epicvillages",
+    "version": "1.0.1"
+  },
+  "Epic Witch Huts v1.1.0 (1.20+).jar": {
+    "jarName": "Epic Witch Huts v1.1.0 (1.20+).jar",
+    "modId": "epicwitchhuts",
+    "version": "1.1.0"
+  },
+  "epicknightsnmages-0.0.2.jar": {
+    "jarName": "epicknightsnmages-0.0.2.jar",
+    "modId": "epicknightsnmages",
+    "version": "0.0.2"
+  },
+  "EuphoriaPatcher-1.7.8-r5.6.1-fabric.jar": {
+    "jarName": "EuphoriaPatcher-1.7.8-r5.6.1-fabric.jar",
+    "modId": "euphoria_patcher",
+    "version": "1.7.8-r5.6.1-fabric"
+  },
+  "everycomp-1.20-2.9.9-fabric.jar": {
+    "jarName": "everycomp-1.20-2.9.9-fabric.jar",
+    "modId": "everycomp",
+    "version": "1.20-2.9.9"
+  },
+  "expandeddelight-0.3.2.jar": {
+    "jarName": "expandeddelight-0.3.2.jar",
+    "modId": "expandeddelight",
+    "version": "0.3.2"
+  },
+  "explorations-fabric-1.20.1-1.6.1.jar": {
+    "jarName": "explorations-fabric-1.20.1-1.6.1.jar",
+    "modId": "explorations",
+    "version": "1.20.1-1.6.1"
+  },
+  "Explorify v1.6.4 f15-88.mod.jar": {
+    "jarName": "Explorify v1.6.4 f15-88.mod.jar",
+    "modId": "explorify",
+    "version": "1.6.4"
+  },
+  "extraspellattributes-1.3.2.jar": {
+    "jarName": "extraspellattributes-1.3.2.jar",
+    "modId": "extraspellattributes",
+    "version": "1.3.2"
+  },
+  "fabric-api-0.92.6+1.20.1.jar": {
+    "jarName": "fabric-api-0.92.6+1.20.1.jar",
+    "modId": "fabric-api",
+    "version": "0.92.6+1.20.1"
+  },
+  "fabric-end-remastered-5.2.4.jar": {
+    "jarName": "fabric-end-remastered-5.2.4.jar",
+    "modId": "endrem",
+    "version": "5.2.4"
+  },
+  "fabric-language-kotlin-1.13.7+kotlin.2.2.21.jar": {
+    "jarName": "fabric-language-kotlin-1.13.7+kotlin.2.2.21.jar",
+    "modId": "fabric-language-kotlin",
+    "version": "1.13.7+kotlin.2.2.21"
+  },
+  "fabric-medievalend-1.0.1.jar": {
+    "jarName": "fabric-medievalend-1.0.1.jar",
+    "modId": "medievalend",
+    "version": "1.0.1"
+  },
+  "fabric-seasons-2.4.2-BETA+1.20.jar": {
+    "jarName": "fabric-seasons-2.4.2-BETA+1.20.jar",
+    "modId": "seasons",
+    "version": "2.4.2-BETA+1.20"
+  },
+  "fabric-seasons-delight-1.3.9-compat-1.0.jar": {
+    "jarName": "fabric-seasons-delight-1.3.9-compat-1.0.jar",
+    "modId": "seasonsdelightcompat",
+    "version": "1.0-1.3.9"
+  },
+  "fabric-seasons-extras-1.3.2-BETA+1.20.jar": {
+    "jarName": "fabric-seasons-extras-1.3.2-BETA+1.20.jar",
+    "modId": "seasonsextras",
+    "version": "1.3.2-BETA+1.20"
+  },
+  "fakerlib-0.1.5.jar": {
+    "jarName": "fakerlib-0.1.5.jar",
+    "modId": "fakerlib",
+    "version": "0.1.5"
+  },
+  "fallingleaves-1.15.6+1.20.1.jar": {
+    "jarName": "fallingleaves-1.15.6+1.20.1.jar",
+    "modId": "fallingleaves",
+    "version": "1.15.6"
+  },
+  "fancymenu_fabric_3.7.0_MC_1.20.1.jar": {
+    "jarName": "fancymenu_fabric_3.7.0_MC_1.20.1.jar",
+    "modId": "fancymenu",
+    "version": "3.7.0"
+  },
+  "FarmersDelight-1.20.1-2.4.1+refabricated.jar": {
+    "jarName": "FarmersDelight-1.20.1-2.4.1+refabricated.jar",
+    "modId": "farmersdelight",
+    "version": "1.20.1-2.4.1+refabricated"
+  },
+  "farmersknives-3.2.jar": {
+    "jarName": "farmersknives-3.2.jar",
+    "modId": "farmersknives",
+    "version": "3.2"
+  },
+  "FarmersStructures-1.0.0-1.20_fabric.jar": {
+    "jarName": "FarmersStructures-1.0.0-1.20_fabric.jar",
+    "modId": "farmers_structures",
+    "version": "1.0.0"
+  },
+  "fast-ip-ping-v1.0.7-mc1.20.4-fabric.jar": {
+    "jarName": "fast-ip-ping-v1.0.7-mc1.20.4-fabric.jar",
+    "modId": "fastipping",
+    "version": "1.0.7"
+  },
+  "fastasyncworldsave-fabric-1.20.1-2.6.jar": {
+    "jarName": "fastasyncworldsave-fabric-1.20.1-2.6.jar",
+    "modId": "fastasyncworldsave",
+    "version": "1.20.1-2.6"
+  },
+  "fasterrandom-5.1.0.jar": {
+    "jarName": "fasterrandom-5.1.0.jar",
+    "modId": "faster-random",
+    "version": "5.1.0"
+  },
+  "FastItemFrames-v20.1.5-1.20.1-Fabric.jar": {
+    "jarName": "FastItemFrames-v20.1.5-1.20.1-Fabric.jar",
+    "modId": "fastitemframes",
+    "version": "20.1.5"
+  },
+  "fastpaintings-1.20-1.2.7-fabric.jar": {
+    "jarName": "fastpaintings-1.20-1.2.7-fabric.jar",
+    "modId": "fastpaintings",
+    "version": "1.20-1.2.7"
+  },
+  "faunify-fabric-1.20.1-1.2.4.jar": {
+    "jarName": "faunify-fabric-1.20.1-1.2.4.jar",
+    "modId": "faunify",
+    "version": "1.2.4"
+  },
+  "Feature-Recycler-fabric-1.0.1.jar": {
+    "jarName": "Feature-Recycler-fabric-1.0.1.jar",
+    "modId": "featurerecycler",
+    "version": "1.0.1"
+  },
+  "ferritecore-6.0.1-fabric.jar": {
+    "jarName": "ferritecore-6.0.1-fabric.jar",
+    "modId": "ferritecore",
+    "version": "6.0.1"
+  },
+  "foolproof-fabric-1.0.4-1.20.1.jar": {
+    "jarName": "foolproof-fabric-1.0.4-1.20.1.jar",
+    "modId": "foolproof",
+    "version": "1.0.4"
+  },
+  "ForgeConfigAPIPort-v8.0.2-1.20.1-Fabric.jar": {
+    "jarName": "ForgeConfigAPIPort-v8.0.2-1.20.1-Fabric.jar",
+    "modId": "forgeconfigapiport",
+    "version": "8.0.2"
+  },
+  "ForgeConfigScreens-v8.0.2-1.20.1-Fabric.jar": {
+    "jarName": "ForgeConfigScreens-v8.0.2-1.20.1-Fabric.jar",
+    "modId": "forgeconfigscreens",
+    "version": "8.0.2"
+  },
+  "formations-1.0.4-fabric-mc1.20.2.jar": {
+    "jarName": "formations-1.0.4-fabric-mc1.20.2.jar",
+    "modId": "formations",
+    "version": "1.0.4"
+  },
+  "formationsnether-1.0.5.jar": {
+    "jarName": "formationsnether-1.0.5.jar",
+    "modId": "formationsnether",
+    "version": "1.0.5"
+  },
+  "formationsoverworld-1.0.5-mc1.20.jar": {
+    "jarName": "formationsoverworld-1.0.5-mc1.20.jar",
+    "modId": "formationsoverworld",
+    "version": "1.0.5"
+  },
+  "framework-fabric-1.20.1-0.6.16.jar": {
+    "jarName": "framework-fabric-1.20.1-0.6.16.jar",
+    "modId": "framework",
+    "version": "0.6.16"
+  },
+  "friendsandfoes-fabric-mc1.20.1-3.0.9.jar": {
+    "jarName": "friendsandfoes-fabric-mc1.20.1-3.0.9.jar",
+    "modId": "friendsandfoes",
+    "version": "3.0.9"
+  },
+  "frightsdelight-fabric-1.20.1-1.4.1.jar": {
+    "jarName": "frightsdelight-fabric-1.20.1-1.4.1.jar",
+    "modId": "frightsdelight",
+    "version": "1.4.1"
+  },
+  "frostiful-1.0.11.jar": {
+    "jarName": "frostiful-1.0.11.jar",
+    "modId": "frostiful",
+    "version": "1.0.11"
+  },
+  "ftb-chunks-fabric-2001.3.6.jar": {
+    "jarName": "ftb-chunks-fabric-2001.3.6.jar",
+    "modId": "ftbchunks",
+    "version": "2001.3.6"
+  },
+  "ftb-filter-system-fabric-20.0.1.jar": {
+    "jarName": "ftb-filter-system-fabric-20.0.1.jar",
+    "modId": "ftbfiltersystem",
+    "version": "20.0.1"
+  },
+  "ftb-library-fabric-2001.2.10.jar": {
+    "jarName": "ftb-library-fabric-2001.2.10.jar",
+    "modId": "ftblibrary",
+    "version": "2001.2.10"
+  },
+  "ftb-quests-fabric-2001.4.15.jar": {
+    "jarName": "ftb-quests-fabric-2001.4.15.jar",
+    "modId": "ftbquests",
+    "version": "2001.4.15"
+  },
+  "ftb-quests-fabric-2001.4.16.jar": {
+    "jarName": "ftb-quests-fabric-2001.4.16.jar",
+    "modId": "ftbquests",
+    "version": "2001.4.16"
+  },
+  "ftb-teams-fabric-2001.3.1.jar": {
+    "jarName": "ftb-teams-fabric-2001.3.1.jar",
+    "modId": "ftbteams",
+    "version": "2001.3.1"
+  },
+  "ftb-xmod-compat-fabric-2.1.3.jar": {
+    "jarName": "ftb-xmod-compat-fabric-2.1.3.jar",
+    "modId": "ftbxmodcompat",
+    "version": "2.1.3"
+  },
+  "fullstackwatchdog-1.0.1+1.19.2-fabric.jar": {
+    "jarName": "fullstackwatchdog-1.0.1+1.19.2-fabric.jar",
+    "modId": "fullstackwatchdog",
+    "version": "1.0.1+1.19.2-fabric"
+  },
+  "fzzy_config-0.7.3+1.20.1.jar": {
+    "jarName": "fzzy_config-0.7.3+1.20.1.jar",
+    "modId": "fzzy_config",
+    "version": "0.7.3+1.20.1"
+  },
+  "Galosphere-1.20.1-1.4.1-Fabric.jar": {
+    "jarName": "Galosphere-1.20.1-1.4.1-Fabric.jar",
+    "modId": "galosphere",
+    "version": "1.20.1-1.4.1"
+  },
+  "gazebo-1.1.1+1.20.1.jar": {
+    "jarName": "gazebo-1.1.1+1.20.1.jar",
+    "modId": "gazebo",
+    "version": "1.1.1+1.20.1"
+  },
+  "geckolib-fabric-1.20.1-4.8.2.jar": {
+    "jarName": "geckolib-fabric-1.20.1-4.8.2.jar",
+    "modId": "geckolib",
+    "version": "4.8.2"
+  },
+  "Geophilic v3.4.4 f15-88.mod.jar": {
+    "jarName": "Geophilic v3.4.4 f15-88.mod.jar",
+    "modId": "geophilic",
+    "version": "3.4.4"
+  },
+  "goblintraders-fabric-1.20.1-1.9.3.jar": {
+    "jarName": "goblintraders-fabric-1.20.1-1.9.3.jar",
+    "modId": "goblintraders",
+    "version": "1.9.3"
+  },
+  "gpumemleakfix-fabric-1.20.1-1.8.jar": {
+    "jarName": "gpumemleakfix-fabric-1.20.1-1.8.jar",
+    "modId": "gpumemleakfix",
+    "version": "1.20.1-1.8"
+  },
+  "guardvillagers-2.0.9-1.20.1.jar": {
+    "jarName": "guardvillagers-2.0.9-1.20.1.jar",
+    "modId": "guardvillagers",
+    "version": "2.0.9-1.20.1"
+  },
+  "guild-fabric-0.4.7.jar": {
+    "jarName": "guild-fabric-0.4.7.jar",
+    "modId": "guild",
+    "version": "0.4.7"
+  },
+  "handcrafted-fabric-1.20.1-3.0.6.jar": {
+    "jarName": "handcrafted-fabric-1.20.1-3.0.6.jar",
+    "modId": "handcrafted",
+    "version": "3.0.6"
+  },
+  "Hearths v1.0.5.mod.jar": {
+    "jarName": "Hearths v1.0.5.mod.jar",
+    "modId": "hearths",
+    "version": "1.0.5"
+  },
+  "Highlighter-1.20.1-fabric-1.1.9.jar": {
+    "jarName": "Highlighter-1.20.1-fabric-1.1.9.jar",
+    "modId": "highlighter",
+    "version": "1.1.9"
+  },
+  "horseman-1.20.1-1.3.14-fabric.jar": {
+    "jarName": "horseman-1.20.1-1.3.14-fabric.jar",
+    "modId": "horseman",
+    "version": "1.3.14"
+  },
+  "Icarus-Fabric-2.12.0.jar": {
+    "jarName": "Icarus-Fabric-2.12.0.jar",
+    "modId": "icarus",
+    "version": "2.12.0"
+  },
+  "IceAndFireCE-1.2.1-1.20.1-fabric.jar": {
+    "jarName": "IceAndFireCE-1.2.1-1.20.1-fabric.jar",
+    "modId": "iceandfire",
+    "version": "1.2.1"
+  },
+  "Iceberg-1.20.1-fabric-1.1.25.jar": {
+    "jarName": "Iceberg-1.20.1-fabric-1.1.25.jar",
+    "modId": "iceberg",
+    "version": "1.1.25"
+  },
+  "IllagerInvasion-v8.0.7-1.20.1-Fabric.jar": {
+    "jarName": "IllagerInvasion-v8.0.7-1.20.1-Fabric.jar",
+    "modId": "illagerinvasion",
+    "version": "8.0.7"
+  },
+  "ImmediatelyFast-Fabric-1.5.2+1.20.4.jar": {
+    "jarName": "ImmediatelyFast-Fabric-1.5.2+1.20.4.jar",
+    "modId": "immediatelyfast",
+    "version": "1.5.2+1.20.4"
+  },
+  "immersive_armors-1.7.1+1.20.1-fabric.jar": {
+    "jarName": "immersive_armors-1.7.1+1.20.1-fabric.jar",
+    "modId": "immersive_armors",
+    "version": "1.7.1+1.20.1"
+  },
+  "immersivelanterns-fabric-1.0.6-1.20.1.jar": {
+    "jarName": "immersivelanterns-fabric-1.0.6-1.20.1.jar",
+    "modId": "immersivelanterns",
+    "version": "1.0.4"
+  },
+  "immersivemessages-fabric-1.0.18-1.20.1.jar": {
+    "jarName": "immersivemessages-fabric-1.0.18-1.20.1.jar",
+    "modId": "immersivemessages",
+    "version": "1.0.18"
+  },
+  "imst_n-1.1.0.jar": {
+    "jarName": "imst_n-1.1.0.jar",
+    "modId": "imst_n",
+    "version": "1.0.0"
+  },
+  "indium-1.0.36+mc1.20.1.jar": {
+    "jarName": "indium-1.0.36+mc1.20.1.jar",
+    "modId": "indium",
+    "version": "1.0.36+mc1.20.1"
+  },
+  "interactic-0.2.0+1.20.jar": {
+    "jarName": "interactic-0.2.0+1.20.jar",
+    "modId": "interactic",
+    "version": "0.2.0+1.20"
+  },
+  "inventoryhud.fabric.1.20.1-3.4.26.jar": {
+    "jarName": "inventoryhud.fabric.1.20.1-3.4.26.jar",
+    "modId": "inventoryhud",
+    "version": "3.4.26"
+  },
+  "InventoryProfilesNext-fabric-1.20-1.10.19.jar": {
+    "jarName": "InventoryProfilesNext-fabric-1.20-1.10.19.jar",
+    "modId": "inventoryprofilesnext",
+    "version": "1.10.19"
+  },
+  "invoke-1.0.3.1-1.20.1.jar": {
+    "jarName": "invoke-1.0.3.1-1.20.1.jar",
+    "modId": "invoke",
+    "version": "1.0.3.1-1.20.1"
+  },
+  "iris-1.7.6+mc1.20.1.jar": {
+    "jarName": "iris-1.7.6+mc1.20.1.jar",
+    "modId": "iris",
+    "version": "1.7.6+mc1.20.1"
+  },
+  "iris_shader_folder-1.2.5-fabric.jar": {
+    "jarName": "iris_shader_folder-1.2.5-fabric.jar",
+    "modId": "iris_shader_folder",
+    "version": "1.2.5-fabric"
+  },
+  "item-filters-fabric-2001.1.0-build.59.jar": {
+    "jarName": "item-filters-fabric-2001.1.0-build.59.jar",
+    "modId": "itemfilters",
+    "version": "2001.1.0-build.59"
+  },
+  "Item_Obliterator-MC1.20.1-Fabric_Quilt-2.3.0.jar": {
+    "jarName": "Item_Obliterator-MC1.20.1-Fabric_Quilt-2.3.0.jar",
+    "modId": "item_obliterator",
+    "version": "2.3.0"
+  },
+  "Jade-1.20-Fabric-11.13.1.jar": {
+    "jarName": "Jade-1.20-Fabric-11.13.1.jar",
+    "modId": "jade",
+    "version": "11.13.1+fabric"
+  },
+  "jamlib-fabric-1.3.5+1.20.1.jar": {
+    "jarName": "jamlib-fabric-1.3.5+1.20.1.jar",
+    "modId": "jamlib",
+    "version": "1.3.5+1.20.1"
+  },
+  "Jewelry-1.3.7+1.20.1.jar": {
+    "jarName": "Jewelry-1.3.7+1.20.1.jar",
+    "modId": "jewelry",
+    "version": "1.3.7+1.20.1"
+  },
+  "jmi-fabric-1.20.1-0.14-48.jar": {
+    "jarName": "jmi-fabric-1.20.1-0.14-48.jar",
+    "modId": "jmi",
+    "version": "1.20.1-0.14-48"
+  },
+  "journeymap-1.20.1-5.10.3-fabric.jar": {
+    "jarName": "journeymap-1.20.1-5.10.3-fabric.jar",
+    "modId": "journeymap",
+    "version": "5.10.3"
+  },
+  "Jupiter-2.2.2-fabric.jar": {
+    "jarName": "Jupiter-2.2.2-fabric.jar",
+    "modId": "jupiter",
+    "version": "2.2.2"
+  },
+  "Kambrik-6.1.1+1.20.1-fabric.jar": {
+    "jarName": "Kambrik-6.1.1+1.20.1-fabric.jar",
+    "modId": "kambrik",
+    "version": "6.1.1+1.20.1"
+  },
+  "keybind_fix-1.0.0.jar": {
+    "jarName": "keybind_fix-1.0.0.jar",
+    "modId": "keybind_fix",
+    "version": "1.0.0"
+  },
+  "Kiwi-1.20.1-Fabric-11.8.29.jar": {
+    "jarName": "Kiwi-1.20.1-Fabric-11.8.29.jar",
+    "modId": "kiwi",
+    "version": "11.8.29+fabric"
+  },
+  "kleeslabs-fabric-1.20.1-15.0.9.jar": {
+    "jarName": "kleeslabs-fabric-1.20.1-15.0.9.jar",
+    "modId": "kleeslabs",
+    "version": "15.0.9"
+  },
+  "knightlib-fabric-1.20.1-1.4.2.jar": {
+    "jarName": "knightlib-fabric-1.20.1-1.4.2.jar",
+    "modId": "knightlib",
+    "version": "1.4.2"
+  },
+  "konkrete_fabric_1.8.1_MC_1.20.1.jar": {
+    "jarName": "konkrete_fabric_1.8.1_MC_1.20.1.jar",
+    "modId": "konkrete",
+    "version": "1.8.1"
+  },
+  "krypton-0.2.3.jar": {
+    "jarName": "krypton-0.2.3.jar",
+    "modId": "krypton",
+    "version": "0.2.3"
+  },
+  "language-reload-1.7.5+1.20.1.jar": {
+    "jarName": "language-reload-1.7.5+1.20.1.jar",
+    "modId": "languagereload",
+    "version": "1.7.5+1.20.1"
+  },
+  "lazydfu-0.1.3.jar": {
+    "jarName": "lazydfu-0.1.3.jar",
+    "modId": "lazydfu",
+    "version": "0.1.3"
+  },
+  "LeavesBeGone-v8.0.0-1.20.1-Fabric.jar": {
+    "jarName": "LeavesBeGone-v8.0.0-1.20.1-Fabric.jar",
+    "modId": "leavesbegone",
+    "version": "8.0.0"
+  },
+  "LegendaryTooltips-1.20.1-fabric-1.4.5.jar": {
+    "jarName": "LegendaryTooltips-1.20.1-fabric-1.4.5.jar",
+    "modId": "legendarytooltips",
+    "version": "1.4.5"
+  },
+  "letmedespawn-1.20.x-fabric-1.5.0.jar": {
+    "jarName": "letmedespawn-1.20.x-fabric-1.5.0.jar",
+    "modId": "letmedespawn",
+    "version": "1.5.0"
+  },
+  "letsdo-API-fabric-1.2.15-fabric.jar": {
+    "jarName": "letsdo-API-fabric-1.2.15-fabric.jar",
+    "modId": "doapi",
+    "version": "1.2.15"
+  },
+  "letsdo-bloomingnature-fabric-1.0.12.jar": {
+    "jarName": "letsdo-bloomingnature-fabric-1.0.12.jar",
+    "modId": "bloomingnature",
+    "version": "1.0.12"
+  },
+  "libIPN-fabric-1.20-4.0.2.jar": {
+    "jarName": "libIPN-fabric-1.20-4.0.2.jar",
+    "modId": "libipn",
+    "version": "4.0.2"
+  },
+  "libz-1.0.3.jar": {
+    "jarName": "libz-1.0.3.jar",
+    "modId": "libz",
+    "version": "1.0.3"
+  },
+  "lithium-fabric-mc1.20.1-0.11.3.jar": {
+    "jarName": "lithium-fabric-mc1.20.1-0.11.3.jar",
+    "modId": "lithium",
+    "version": "0.11.3"
+  },
+  "lithostitched-fabric-1.20.1-1.4.11.jar": {
+    "jarName": "lithostitched-fabric-1.20.1-1.4.11.jar",
+    "modId": "lithostitched",
+    "version": "1.4.11"
+  },
+  "lmft-1.1.1+1.21.9-fabric.jar": {
+    "jarName": "lmft-1.1.1+1.21.9-fabric.jar",
+    "modId": "lmft",
+    "version": "1.1.1+1.21.9"
+  },
+  "lne_archers-0.1.9-1.20.1.jar": {
+    "jarName": "lne_archers-0.1.9-1.20.1.jar",
+    "modId": "lne_archers",
+    "version": "0.1.9-1.20.1"
+  },
+  "lne_paladins-0.1.12-1.20.1.jar": {
+    "jarName": "lne_paladins-0.1.12-1.20.1.jar",
+    "modId": "lne_paladins",
+    "version": "0.1.12-1.20.1"
+  },
+  "lne_rogues-0.1.6-1.20.1.jar": {
+    "jarName": "lne_rogues-0.1.6-1.20.1.jar",
+    "modId": "lne_rogues",
+    "version": "0.1.6-1.20.1"
+  },
+  "lne_wizards-0.1.11-1.20.1.jar": {
+    "jarName": "lne_wizards-0.1.11-1.20.1.jar",
+    "modId": "lne_wizards",
+    "version": "0.1.11-1.20.1"
+  },
+  "Log-Begone-Fabric-1.20.1-1.0.8.jar": {
+    "jarName": "Log-Begone-Fabric-1.20.1-1.0.8.jar",
+    "modId": "logbegone",
+    "version": "1.0.8"
+  },
+  "LongNbtKiller-Fabric-1.20.1-1.0.0.jar": {
+    "jarName": "LongNbtKiller-Fabric-1.20.1-1.0.0.jar",
+    "modId": "longnbtkiller",
+    "version": "Fabric-1.20.1-1.0.0"
+  },
+  "loot_n_explore-0.1.12-1.20.1.jar": {
+    "jarName": "loot_n_explore-0.1.12-1.20.1.jar",
+    "modId": "loot_n_explore",
+    "version": "0.1.12-1.20.1"
+  },
+  "lootbeams-3.6.1-mc1.20-.4.jar": {
+    "jarName": "lootbeams-3.6.1-mc1.20-.4.jar",
+    "modId": "lootbeams",
+    "version": "3.6.1-mc1.20-.4"
+  },
+  "lootintegrations-fabric-1.20.1-4.7.jar": {
+    "jarName": "lootintegrations-fabric-1.20.1-4.7.jar",
+    "modId": "lootintegrations",
+    "version": "1.20.1-4.7"
+  },
+  "lukis-grand-capitals-1.1.2.jar": {
+    "jarName": "lukis-grand-capitals-1.1.2.jar",
+    "modId": "mr_lukis_grandcapitals",
+    "version": "1.1.2"
+  },
+  "luna_minecraft-fabric-5.3.1.jar": {
+    "jarName": "luna_minecraft-fabric-5.3.1.jar",
+    "modId": "luna_minecraft",
+    "version": "5.3.1"
+  },
+  "Lunar-fabric-1.20.1-0.2.7.jar": {
+    "jarName": "Lunar-fabric-1.20.1-0.2.7.jar",
+    "modId": "lunar",
+    "version": "0.2.7"
+  },
+  "MagnumTorch-v8.0.2-1.20.1-Fabric.jar": {
+    "jarName": "MagnumTorch-v8.0.2-1.20.1-Fabric.jar",
+    "modId": "magnumtorch",
+    "version": "8.0.2"
+  },
+  "MapFrontiers-1.20.1-2.6.1p3-fabric.jar": {
+    "jarName": "MapFrontiers-1.20.1-2.6.1p3-fabric.jar",
+    "modId": "mapfrontiers",
+    "version": "2.6.1p3"
+  },
+  "MaxHealthFix-Fabric-1.20.1-12.0.3.jar": {
+    "jarName": "MaxHealthFix-Fabric-1.20.1-12.0.3.jar",
+    "modId": "maxhealthfix",
+    "version": "12.0.3"
+  },
+  "mcda-5.0.2.jar": {
+    "jarName": "mcda-5.0.2.jar",
+    "modId": "mcda",
+    "version": "5.0.2"
+  },
+  "mcdw-9.0.4.jar": {
+    "jarName": "mcdw-9.0.4.jar",
+    "modId": "mcdw",
+    "version": "9.0.4"
+  },
+  "medieval-0.2.2.jar": {
+    "jarName": "medieval-0.2.2.jar",
+    "modId": "medieval",
+    "version": "0.2.2"
+  },
+  "medieval_buildings-1.20.1-1.1.2-fabric.jar": {
+    "jarName": "medieval_buildings-1.20.1-1.1.2-fabric.jar",
+    "modId": "medieval_buildings",
+    "version": "1.1.1"
+  },
+  "medievalorigins-fabric-1.20.1-6.7.4.jar": {
+    "jarName": "medievalorigins-fabric-1.20.1-6.7.4.jar",
+    "modId": "medievalorigins",
+    "version": "6.7.4"
+  },
+  "melody_fabric_1.0.4_MC_1.20.1-1.20.4.jar": {
+    "jarName": "melody_fabric_1.0.4_MC_1.20.1-1.20.4.jar",
+    "modId": "melody",
+    "version": "1.0.3"
+  },
+  "memoryleakfix-fabric-1.17+-1.1.5.jar": {
+    "jarName": "memoryleakfix-fabric-1.17+-1.1.5.jar",
+    "modId": "memoryleakfix",
+    "version": "1.1.5"
+  },
+  "memorysettings-fabric-1.20.1-5.9.jar": {
+    "jarName": "memorysettings-fabric-1.20.1-5.9.jar",
+    "modId": "memorysettings",
+    "version": "1.20.1-5.9"
+  },
+  "mes-1.4.6-1.20-fabric.jar": {
+    "jarName": "mes-1.4.6-1.20-fabric.jar",
+    "modId": "mes",
+    "version": "1.4.6-1.20-fabric"
+  },
+  "midnightlib-fabric-1.4.1.jar": {
+    "jarName": "midnightlib-fabric-1.4.1.jar",
+    "modId": "midnightlib",
+    "version": "1.4.1"
+  },
+  "minecells-2.0.0.jar": {
+    "jarName": "minecells-2.0.0.jar",
+    "modId": "minecells",
+    "version": "2.0.0"
+  },
+  "mixintrace-1.1.1+1.17.jar": {
+    "jarName": "mixintrace-1.1.1+1.17.jar",
+    "modId": "mixintrace",
+    "version": "1.1.1+1.17"
+  },
+  "mobs_of_mythology-fabric-1.20.1-2.1.2.jar": {
+    "jarName": "mobs_of_mythology-fabric-1.20.1-2.1.2.jar",
+    "modId": "mobs_of_mythology",
+    "version": "2.1.2"
+  },
+  "modernfix-fabric-5.25.1+mc1.20.1.jar": {
+    "jarName": "modernfix-fabric-5.25.1+mc1.20.1.jar",
+    "modId": "modernfix",
+    "version": "5.25.1+mc1.20.1"
+  },
+  "modmenu-7.2.2.jar": {
+    "jarName": "modmenu-7.2.2.jar",
+    "modId": "modmenu",
+    "version": "7.2.2"
+  },
+  "modpack-update-checker-1.20.1-fabric-0.15.6.jar": {
+    "jarName": "modpack-update-checker-1.20.1-fabric-0.15.6.jar",
+    "modId": "modpack-update-checker",
+    "version": "0.15.6"
+  },
+  "moogs_structure_lib-1.1.0-1.20-1.20.4-fabric.jar": {
+    "jarName": "moogs_structure_lib-1.1.0-1.20-1.20.4-fabric.jar",
+    "modId": "moogs_structures",
+    "version": "1.1.0-1.20-1.20.4"
+  },
+  "MoogsNetherStructures-1.20-2.0.2.jar": {
+    "jarName": "MoogsNetherStructures-1.20-2.0.2.jar",
+    "modId": "mns",
+    "version": "2.0.2"
+  },
+  "MoogsSoaringStructures-1.20-2.0.0.jar": {
+    "jarName": "MoogsSoaringStructures-1.20-2.0.0.jar",
+    "modId": "mss",
+    "version": "2.0.0"
+  },
+  "MoogsTemplesReimagined-1.20-1.0.2.jar": {
+    "jarName": "MoogsTemplesReimagined-1.20-1.0.2.jar",
+    "modId": "mtr",
+    "version": "1.0.2"
+  },
+  "MoogsVoyagerStructures-1.20-5.0.21.jar": {
+    "jarName": "MoogsVoyagerStructures-1.20-5.0.21.jar",
+    "modId": "mvs",
+    "version": "5.0.21"
+  },
+  "moonlight-1.20-2.16.15-fabric.jar": {
+    "jarName": "moonlight-1.20-2.16.15-fabric.jar",
+    "modId": "moonlight",
+    "version": "1.20-2.16.15"
+  },
+  "more_rpg_classes-1.2.18-1.20.1.jar": {
+    "jarName": "more_rpg_classes-1.2.18-1.20.1.jar",
+    "modId": "more_rpg_classes",
+    "version": "1.2.18-1.20.1"
+  },
+  "MouseTweaks-fabric-mc1.20-2.26.jar": {
+    "jarName": "MouseTweaks-fabric-mc1.20-2.26.jar",
+    "modId": "mousetweaks",
+    "version": "2.26"
+  },
+  "MutantMonsters-v8.0.8-1.20.1-Fabric.jar": {
+    "jarName": "MutantMonsters-v8.0.8-1.20.1-Fabric.jar",
+    "modId": "mutantmonsters",
+    "version": "8.0.8"
+  },
+  "MyNethersDelight-1.20.1-1.0.4+1.7.6.refabricated.jar": {
+    "jarName": "MyNethersDelight-1.20.1-1.0.4+1.7.6.refabricated.jar",
+    "modId": "mynethersdelight",
+    "version": "1.20.1-1.0.4+1.7.6.refabricated"
+  },
+  "mysticaloaktree-1.20-1.11-fabric.jar": {
+    "jarName": "mysticaloaktree-1.20-1.11-fabric.jar",
+    "modId": "mysticaloaktree",
+    "version": "1.20-1.11"
+  },
+  "mythic-mounts-1.20.1-7.4.jar": {
+    "jarName": "mythic-mounts-1.20.1-7.4.jar",
+    "modId": "mythicmounts",
+    "version": "1.20.1-7.4"
+  },
+  "mythicmetals-0.19.10+1.20.1.jar": {
+    "jarName": "mythicmetals-0.19.10+1.20.1.jar",
+    "modId": "mythicmetals",
+    "version": "0.19.10+1.20.1"
+  },
+  "mythicmetals-decorations-0.6.4+1.20.1.jar": {
+    "jarName": "mythicmetals-decorations-0.6.4+1.20.1.jar",
+    "modId": "mythicmetals_decorations",
+    "version": "0.6.4+1.20.1"
+  },
+  "nameplate-1.1.4.jar": {
+    "jarName": "nameplate-1.1.4.jar",
+    "modId": "nameplate",
+    "version": "1.1.4"
+  },
+  "naturalist-5.0pre5+fabric-1.20.1.jar": {
+    "jarName": "naturalist-5.0pre5+fabric-1.20.1.jar",
+    "modId": "naturalist",
+    "version": "5.0pre5"
+  },
+  "NaturesCompass-1.20.1-2.2.3-fabric.jar": {
+    "jarName": "NaturesCompass-1.20.1-2.2.3-fabric.jar",
+    "modId": "naturescompass",
+    "version": "1.20.1-2.2.3-fabric"
+  },
+  "naturesdelight-1.12-1.20.1.jar": {
+    "jarName": "naturesdelight-1.12-1.20.1.jar",
+    "modId": "natures_delight",
+    "version": "1.12-1.20.1"
+  },
+  "naturespirit-2.2.5-1.20.1.jar": {
+    "jarName": "naturespirit-2.2.5-1.20.1.jar",
+    "modId": "natures_spirit",
+    "version": "2.2.5-1.20.1"
+  },
+  "Necronomicon-Fabric-1.6.0+1.20.1.jar": {
+    "jarName": "Necronomicon-Fabric-1.6.0+1.20.1.jar",
+    "modId": "necronomicon",
+    "version": "1.6.0"
+  },
+  "Neruina-2.3.1-beta.1-fabric+1.20.1.jar": {
+    "jarName": "Neruina-2.3.1-beta.1-fabric+1.20.1.jar",
+    "modId": "neruina",
+    "version": "2.3.1-beta.1"
+  },
+  "netherdepthsupgrade-fabric-3.1.6-1.20.jar": {
+    "jarName": "netherdepthsupgrade-fabric-3.1.6-1.20.jar",
+    "modId": "netherdepthsupgrade",
+    "version": "fabric-3.1.6-1.20"
+  },
+  "netherportalfix-fabric-1.20-13.0.2.jar": {
+    "jarName": "netherportalfix-fabric-1.20-13.0.2.jar",
+    "modId": "netherportalfix",
+    "version": "13.0.2"
+  },
+  "nicer-skies-1.3.0+1.20.1.jar": {
+    "jarName": "nicer-skies-1.3.0+1.20.1.jar",
+    "modId": "nicer-skies",
+    "version": "1.3.0"
+  },
+  "NightConfigFixes-v8.0.0-1.20.1-Fabric.jar": {
+    "jarName": "NightConfigFixes-v8.0.0-1.20.1-Fabric.jar",
+    "modId": "nightconfigfixes",
+    "version": "8.0.0"
+  },
+  "no-report-button-fabric-1.5.0.jar": {
+    "jarName": "no-report-button-fabric-1.5.0.jar",
+    "modId": "noreportbutton",
+    "version": "1.5.0"
+  },
+  "NoChatReports-FABRIC-1.20.1-v2.2.2.jar": {
+    "jarName": "NoChatReports-FABRIC-1.20.1-v2.2.2.jar",
+    "modId": "nochatreports",
+    "version": "1.20.1-v2.2.2"
+  },
+  "notenoughanimations-fabric-1.10.6-mc1.20.1.jar": {
+    "jarName": "notenoughanimations-fabric-1.10.6-mc1.20.1.jar",
+    "modId": "notenoughanimations",
+    "version": "1.10.6"
+  },
+  "Nyctophobia_1.9_(FABRIC)_for_1.20+.jar": {
+    "jarName": "Nyctophobia_1.9_(FABRIC)_for_1.20+.jar",
+    "modId": "nyctophobia",
+    "version": "1.9"
+  },
+  "Obscure-API-16.jar": {
+    "jarName": "Obscure-API-16.jar",
+    "modId": "obscure_api",
+    "version": "16"
+  },
+  "oceansdelight-fdrf-fabric-1.0.2-1.20.jar": {
+    "jarName": "oceansdelight-fdrf-fabric-1.0.2-1.20.jar",
+    "modId": "oceansdelight",
+    "version": "fdrf-fabric-1.0.2-1.20"
+  },
+  "OctoLib-FABRIC-0.5.0.1+1.20.1.jar": {
+    "jarName": "OctoLib-FABRIC-0.5.0.1+1.20.1.jar",
+    "modId": "octolib",
+    "version": "0.5.0.1"
+  },
+  "Oh-The-Biomes-Weve-Gone-Fabric-1.7.1.jar": {
+    "jarName": "Oh-The-Biomes-Weve-Gone-Fabric-1.7.1.jar",
+    "modId": "biomeswevegone",
+    "version": "1.7.1"
+  },
+  "Oh-The-Trees-Youll-Grow-fabric-1.20.1-1.4.2.jar": {
+    "jarName": "Oh-The-Trees-Youll-Grow-fabric-1.20.1-1.4.2.jar",
+    "modId": "ohthetreesyoullgrow",
+    "version": "1.4.2"
+  },
+  "Origins-1.10.2+mc.1.20.x.jar": {
+    "jarName": "Origins-1.10.2+mc.1.20.x.jar",
+    "modId": "origins",
+    "version": "1.10.2+mc.1.20.x"
+  },
+  "owo-lib-0.11.2+1.20.jar": {
+    "jarName": "owo-lib-0.11.2+1.20.jar",
+    "modId": "owo",
+    "version": "0.11.2+1.20"
+  },
+  "packanalytics-fabric-1.0.4-1.20.1.jar": {
+    "jarName": "packanalytics-fabric-1.0.4-1.20.1.jar",
+    "modId": "packanalytics",
+    "version": "1.0.4"
+  },
+  "packetfixer-3.3.1-1.18-1.20.4-merged.jar": {
+    "jarName": "packetfixer-3.3.1-1.18-1.20.4-merged.jar",
+    "modId": "packetfixer",
+    "version": "3.3.1"
+  },
+  "Paintings-fabric-1.20.1-11.0.0.2.jar": {
+    "jarName": "Paintings-fabric-1.20.1-11.0.0.2.jar",
+    "modId": "paintings",
+    "version": "11.0.0.1"
+  },
+  "paladins-1.4.0+1.20.1.jar": {
+    "jarName": "paladins-1.4.0+1.20.1.jar",
+    "modId": "paladins",
+    "version": "1.4.0+1.20.1"
+  },
+  "particle_core-0.2.6+1.20.1.jar": {
+    "jarName": "particle_core-0.2.6+1.20.1.jar",
+    "modId": "particle_core",
+    "version": "0.2.6+1.20.1"
+  },
+  "ParticleEffects-1.0.8+1.20.1.jar": {
+    "jarName": "ParticleEffects-1.0.8+1.20.1.jar",
+    "modId": "particle-effects",
+    "version": "1.0.8+1.20.1"
+  },
+  "PassableFoliage-1.20.1-fabric-8.2.1.jar": {
+    "jarName": "PassableFoliage-1.20.1-fabric-8.2.1.jar",
+    "modId": "passablefoliage",
+    "version": "1.20.1-fabric-8.2.1"
+  },
+  "Patchouli-1.20.1-84.1-FABRIC.jar": {
+    "jarName": "Patchouli-1.20.1-84.1-FABRIC.jar",
+    "modId": "patchouli",
+    "version": "1.20.1-84.1-FABRIC"
+  },
+  "Paxi-1.20-Fabric-4.0.jar": {
+    "jarName": "Paxi-1.20-Fabric-4.0.jar",
+    "modId": "paxi",
+    "version": "1.20-Fabric-4.0"
+  },
+  "Pehkui-3.8.3+1.14.4-1.21.jar": {
+    "jarName": "Pehkui-3.8.3+1.14.4-1.21.jar",
+    "modId": "pehkui",
+    "version": "3.8.3+1.14.4-1.21"
+  },
+  "PickUpNotifier-v8.0.0-1.20.1-Fabric.jar": {
+    "jarName": "PickUpNotifier-v8.0.0-1.20.1-Fabric.jar",
+    "modId": "pickupnotifier",
+    "version": "8.0.0"
+  },
+  "Ping-Wheel-1.12.0-fabric-1.20.1.jar": {
+    "jarName": "Ping-Wheel-1.12.0-fabric-1.20.1.jar",
+    "modId": "pingwheel",
+    "version": "1.12.0"
+  },
+  "Platform-fabric-1.20.1-1.2.11.3.jar": {
+    "jarName": "Platform-fabric-1.20.1-1.2.11.3.jar",
+    "modId": "platform",
+    "version": "1.2.11.3"
+  },
+  "player-animation-lib-fabric-1.0.2-rc1+1.20.jar": {
+    "jarName": "player-animation-lib-fabric-1.0.2-rc1+1.20.jar",
+    "modId": "player-animator",
+    "version": "1.0.2-rc1+1.20"
+  },
+  "polymorph-fabric-0.49.10+1.20.1.jar": {
+    "jarName": "polymorph-fabric-0.49.10+1.20.1.jar",
+    "modId": "polymorph",
+    "version": "0.49.10+1.20.1"
+  },
+  "PresenceFootsteps-1.10.1+1.20.1.jar": {
+    "jarName": "PresenceFootsteps-1.10.1+1.20.1.jar",
+    "modId": "presencefootsteps",
+    "version": "1.10.1+1.20.1"
+  },
+  "Prism-1.20.1-fabric-1.0.5.jar": {
+    "jarName": "Prism-1.20.1-fabric-1.0.5.jar",
+    "modId": "prism",
+    "version": "1.0.5"
+  },
+  "promenade-4.1.1.jar": {
+    "jarName": "promenade-4.1.1.jar",
+    "modId": "promenade",
+    "version": "4.1.1"
+  },
+  "puffish_attributes-0.7.6-1.20-fabric.jar": {
+    "jarName": "puffish_attributes-0.7.6-1.20-fabric.jar",
+    "modId": "puffish_attributes",
+    "version": "0.7.6"
+  },
+  "puffish_skills-0.16.5-1.20-fabric.jar": {
+    "jarName": "puffish_skills-0.16.5-1.20-fabric.jar",
+    "modId": "puffish_skills",
+    "version": "0.16.5"
+  },
+  "PuzzlesLib-v8.1.33-1.20.1-Fabric.jar": {
+    "jarName": "PuzzlesLib-v8.1.33-1.20.1-Fabric.jar",
+    "modId": "puzzleslib",
+    "version": "8.1.33"
+  },
+  "quartz-elevator-2.2.7+1.20.4.jar": {
+    "jarName": "quartz-elevator-2.2.7+1.20.4.jar",
+    "modId": "quartzelv",
+    "version": "2.2.7+1.20.4"
+  },
+  "Quest Kill Task-0.2.0+1.20.1-fabric.jar": {
+    "jarName": "Quest Kill Task-0.2.0+1.20.1-fabric.jar",
+    "modId": "questkilltask",
+    "version": "0.2.0+1.20.1"
+  },
+  "ranged_weapon_api-1.1.4+1.20.1.jar": {
+    "jarName": "ranged_weapon_api-1.1.4+1.20.1.jar",
+    "modId": "ranged_weapon_api",
+    "version": "1.1.4+1.20.1"
+  },
+  "reacharound+1.20-1.3.1.jar": {
+    "jarName": "reacharound+1.20-1.3.1.jar",
+    "modId": "reacharound",
+    "version": "1.3.1"
+  },
+  "rebind_narrator-1.20.1-fabric-2025.10.21.jar": {
+    "jarName": "rebind_narrator-1.20.1-fabric-2025.10.21.jar",
+    "modId": "rebind_narrator",
+    "version": "2025.10.21"
+  },
+  "recipeessentials-fabric-1.20.1-4.1.jar": {
+    "jarName": "recipeessentials-fabric-1.20.1-4.1.jar",
+    "modId": "recipeessentials",
+    "version": "1.20.1-4.1"
+  },
+  "redirected-fabric-1.0.0-1.20.1.jar": {
+    "jarName": "redirected-fabric-1.0.0-1.20.1.jar",
+    "modId": "redirected",
+    "version": "1.0.0"
+  },
+  "reeses_sodium_options-1.7.2+mc1.20.1-build.101.jar": {
+    "jarName": "reeses_sodium_options-1.7.2+mc1.20.1-build.101.jar",
+    "modId": "reeses-sodium-options",
+    "version": "1.7.2+mc1.20.1-build.101"
+  },
+  "repurposed_structures-7.1.19+1.20.1-fabric.jar": {
+    "jarName": "repurposed_structures-7.1.19+1.20.1-fabric.jar",
+    "modId": "repurposed_structures",
+    "version": "7.1.19+1.20.1-fabric"
+  },
+  "resourcefulconfig-fabric-1.20.1-2.1.3.jar": {
+    "jarName": "resourcefulconfig-fabric-1.20.1-2.1.3.jar",
+    "modId": "resourcefulconfig",
+    "version": "2.1.3"
+  },
+  "resourcefullib-fabric-1.20.1-2.1.29.jar": {
+    "jarName": "resourcefullib-fabric-1.20.1-2.1.29.jar",
+    "modId": "resourcefullib",
+    "version": "2.1.29"
+  },
+  "ResourcePackOverrides-v8.0.3-1.20.1-Fabric.jar": {
+    "jarName": "ResourcePackOverrides-v8.0.3-1.20.1-Fabric.jar",
+    "modId": "resourcepackoverrides",
+    "version": "8.0.3"
+  },
+  "rightclickharvest-fabric-4.6.0+1.20.1.jar": {
+    "jarName": "rightclickharvest-fabric-4.6.0+1.20.1.jar",
+    "modId": "rightclickharvest",
+    "version": "4.6.0+1.20.1"
+  },
+  "rogues-1.2.0+1.20.1.jar": {
+    "jarName": "rogues-1.2.0+1.20.1.jar",
+    "modId": "rogues",
+    "version": "1.2.0+1.20.1"
+  },
+  "rpg-minibosses-1.8.1+1.20.1.jar": {
+    "jarName": "rpg-minibosses-1.8.1+1.20.1.jar",
+    "modId": "rpg-minibosses",
+    "version": "1.8.1+1.20.1"
+  },
+  "rpgdifficulty-1.3.16.jar": {
+    "jarName": "rpgdifficulty-1.3.16.jar",
+    "modId": "rpgdifficulty",
+    "version": "1.3.16"
+  },
+  "runes-0.9.13+1.20.1.jar": {
+    "jarName": "runes-0.9.13+1.20.1.jar",
+    "modId": "runes",
+    "version": "0.9.13+1.20.1"
+  },
+  "sawmill-1.20-1.4.10-fabric.jar": {
+    "jarName": "sawmill-1.20-1.4.10-fabric.jar",
+    "modId": "sawmill",
+    "version": "1.20-1.4.10"
+  },
+  "scorchful-0.6.6.jar": {
+    "jarName": "scorchful-0.6.6.jar",
+    "modId": "scorchful",
+    "version": "0.6.6"
+  },
+  "Searchables-fabric-1.20.1-1.0.3.jar": {
+    "jarName": "Searchables-fabric-1.20.1-1.0.3.jar",
+    "modId": "searchables",
+    "version": "1.0.3"
+  },
+  "ServerBrowser-1.20.1-FABRIC-1.3.1.jar": {
+    "jarName": "ServerBrowser-1.20.1-FABRIC-1.3.1.jar",
+    "modId": "serverbrowser",
+    "version": "1.3.0"
+  },
+  "ShieldAPI-1.0.1+1.20.1.jar": {
+    "jarName": "ShieldAPI-1.0.1+1.20.1.jar",
+    "modId": "shield_api",
+    "version": "1.0.1+1.20.1"
+  },
+  "Shoulder_Surfing_Pehkui_Compat-1.0.1.jar": {
+    "jarName": "Shoulder_Surfing_Pehkui_Compat-1.0.1.jar",
+    "modId": "shoulder_surfing_pehkui_compat",
+    "version": "1.0.1"
+  },
+  "ShoulderSurfing-Fabric-1.20.1-4.15.0.jar": {
+    "jarName": "ShoulderSurfing-Fabric-1.20.1-4.15.0.jar",
+    "modId": "shouldersurfing",
+    "version": "4.15.0"
+  },
+  "simple_snowy_fix-fabric-1.19-1.21-2.1.5.jar": {
+    "jarName": "simple_snowy_fix-fabric-1.19-1.21-2.1.5.jar",
+    "modId": "simple_snowy_fix",
+    "version": "2.1.5"
+  },
+  "SimpleDiscordRichPresence-fabric-4.0.3-build.40+mc1.20.1.jar": {
+    "jarName": "SimpleDiscordRichPresence-fabric-4.0.3-build.40+mc1.20.1.jar",
+    "modId": "sdrp",
+    "version": "4.0.3-build.40+mc1.20.1"
+  },
+  "simplyskills-1.7.2+1.20.1.jar": {
+    "jarName": "simplyskills-1.7.2+1.20.1.jar",
+    "modId": "simplyskills",
+    "version": "1.7.2+1.20.1"
+  },
+  "simplyswords-1.56.0-1.20.1.jar": {
+    "jarName": "simplyswords-1.56.0-1.20.1.jar",
+    "modId": "simplyswords",
+    "version": "1.56.0-1.20.1"
+  },
+  "skinlayers3d-fabric-1.9.2-mc1.20.1.jar": {
+    "jarName": "skinlayers3d-fabric-1.9.2-mc1.20.1.jar",
+    "modId": "skinlayers3d",
+    "version": "1.9.2"
+  },
+  "SkyVillages-1.0.4-1.19.2-1.20.1-fabric.jar": {
+    "jarName": "SkyVillages-1.0.4-1.19.2-1.20.1-fabric.jar",
+    "modId": "skyvillages",
+    "version": "1.0.4-1.19.2-1.20.1"
+  },
+  "SmartBrainLib-fabric-1.20.1-1.15.jar": {
+    "jarName": "SmartBrainLib-fabric-1.20.1-1.15.jar",
+    "modId": "smartbrainlib",
+    "version": "1.15"
+  },
+  "smarterfarmers-1.20-2.1.2-fabric.jar": {
+    "jarName": "smarterfarmers-1.20-2.1.2-fabric.jar",
+    "modId": "smarterfarmers",
+    "version": "1.20-2.1.2"
+  },
+  "smoothchunk-fabric-1.20.1-4.1.jar": {
+    "jarName": "smoothchunk-fabric-1.20.1-4.1.jar",
+    "modId": "smoothchunk",
+    "version": "1.20.1-4.1"
+  },
+  "SnowRealMagic-1.20.1-Fabric-10.6.4.jar": {
+    "jarName": "SnowRealMagic-1.20.1-Fabric-10.6.4.jar",
+    "modId": "snowrealmagic",
+    "version": "10.6.4"
+  },
+  "snowyspirit-1.20-3.0.10-fabric.jar": {
+    "jarName": "snowyspirit-1.20-3.0.10-fabric.jar",
+    "modId": "snowyspirit",
+    "version": "1.20-3.0.10"
+  },
+  "sodium-extra-0.5.9+mc1.20.1.jar": {
+    "jarName": "sodium-extra-0.5.9+mc1.20.1.jar",
+    "modId": "sodium-extra",
+    "version": "0.5.9+mc1.20.1"
+  },
+  "sodium-fabric-0.5.13+mc1.20.1.jar": {
+    "jarName": "sodium-fabric-0.5.13+mc1.20.1.jar",
+    "modId": "sodium",
+    "version": "0.5.13+mc1.20.1"
+  },
+  "sodiumdynamiclights-fabric-1.0.10-1.20.1.jar": {
+    "jarName": "sodiumdynamiclights-fabric-1.0.10-1.20.1.jar",
+    "modId": "sodiumdynamiclights",
+    "version": "1.0.9"
+  },
+  "sodiumextras-fabric-1.0.7-1.20.1.jar": {
+    "jarName": "sodiumextras-fabric-1.0.7-1.20.1.jar",
+    "modId": "sodiumextras",
+    "version": "1.0.6"
+  },
+  "sodiumoptionsapi-fabric-1.0.10-1.20.1.jar": {
+    "jarName": "sodiumoptionsapi-fabric-1.0.10-1.20.1.jar",
+    "modId": "sodiumoptionsapi",
+    "version": "1.0.10"
+  },
+  "soulslike-weaponry-1.3.1-1.20.1-fabric.jar": {
+    "jarName": "soulslike-weaponry-1.3.1-1.20.1-fabric.jar",
+    "modId": "soulsweapons",
+    "version": "1.3.1-1.20.1-fabric"
+  },
+  "sound-physics-remastered-fabric-1.20.1-1.5.1.jar": {
+    "jarName": "sound-physics-remastered-fabric-1.20.1-1.5.1.jar",
+    "modId": "sound_physics_remastered",
+    "version": "1.20.1-1.5.1"
+  },
+  "spark-1.10.53-fabric.jar": {
+    "jarName": "spark-1.10.53-fabric.jar",
+    "modId": "spark",
+    "version": "1.10.53"
+  },
+  "sparsestructures-fabric-1.20.1-3.0.jar": {
+    "jarName": "sparsestructures-fabric-1.20.1-3.0.jar",
+    "modId": "sparsestructures",
+    "version": "3.0"
+  },
+  "spawn-1.0.3-fabric.jar": {
+    "jarName": "spawn-1.0.3-fabric.jar",
+    "modId": "spawn",
+    "version": "1.0.3-fabric"
+  },
+  "spell_engine-0.15.12+1.20.1.jar": {
+    "jarName": "spell_engine-0.15.12+1.20.1.jar",
+    "modId": "spell_engine",
+    "version": "0.15.12+1.20.1"
+  },
+  "spell_power-0.12.0+1.20.1.jar": {
+    "jarName": "spell_power-0.12.0+1.20.1.jar",
+    "modId": "spell_power",
+    "version": "0.12.0+1.20.1"
+  },
+  "spellbladenext-2.4.0+1.20.1.jar": {
+    "jarName": "spellbladenext-2.4.0+1.20.1.jar",
+    "modId": "spellbladenext",
+    "version": "2.4.0+1.20.1"
+  },
+  "StackDeobfuscatorFabric-1.4.3+08e71cc.jar": {
+    "jarName": "StackDeobfuscatorFabric-1.4.3+08e71cc.jar",
+    "modId": "stackdeobfuscator",
+    "version": "1.4.3+08e71cc"
+  },
+  "starlight-1.1.2+fabric.dbc156f.jar": {
+    "jarName": "starlight-1.1.2+fabric.dbc156f.jar",
+    "modId": "starlight",
+    "version": "1.1.2+fabric.dbc156f"
+  },
+  "starterkit-1.20.1-7.4.jar": {
+    "jarName": "starterkit-1.20.1-7.4.jar",
+    "modId": "starterkit",
+    "version": "7.4"
+  },
+  "Stellar View-1.20.1-0.5.2-Fabric.jar": {
+    "jarName": "Stellar View-1.20.1-0.5.2-Fabric.jar",
+    "modId": "stellarview",
+    "version": "0.5.2-Fabric"
+  },
+  "Stony Cliffs for Lithostitched v1.1.2.jar": {
+    "jarName": "Stony Cliffs for Lithostitched v1.1.2.jar",
+    "modId": "stonycliffs",
+    "version": "1.1.2"
+  },
+  "Structory_1.20.x_v1.3.5.jar": {
+    "jarName": "Structory_1.20.x_v1.3.5.jar",
+    "modId": "structory",
+    "version": "1.3.5"
+  },
+  "Structory_Towers_1.20.x_v1.0.7.jar": {
+    "jarName": "Structory_Towers_1.20.x_v1.0.7.jar",
+    "modId": "structory_towers",
+    "version": "1.0.7"
+  },
+  "structure_layout_optimizer-fabric-1.0.11.jar": {
+    "jarName": "structure_layout_optimizer-fabric-1.0.11.jar",
+    "modId": "structure_layout_optimizer",
+    "version": "1.0.11"
+  },
+  "structure_pool_api-1.0+1.20.1.jar": {
+    "jarName": "structure_pool_api-1.0+1.20.1.jar",
+    "modId": "structure_pool_api",
+    "version": "1.0+1.20.1"
+  },
+  "structureessentials-fabric-1.20.1-4.8.jar": {
+    "jarName": "structureessentials-fabric-1.20.1-4.8.jar",
+    "modId": "structureessentials",
+    "version": "1.20.1-4.8"
+  },
+  "SubtleEffects-fabric-1.20.1-1.13.1.jar": {
+    "jarName": "SubtleEffects-fabric-1.20.1-1.13.1.jar",
+    "modId": "subtle_effects",
+    "version": "1.13.1"
+  },
+  "supermartijn642configlib-1.1.8a-fabric-mc1.20.jar": {
+    "jarName": "supermartijn642configlib-1.1.8a-fabric-mc1.20.jar",
+    "modId": "supermartijn642configlib",
+    "version": "1.1.8+a"
+  },
+  "supplementaries-1.20-3.1.41-fabric.jar": {
+    "jarName": "supplementaries-1.20-3.1.41-fabric.jar",
+    "modId": "supplementaries",
+    "version": "1.20-3.1.41"
+  },
+  "suppsquared-1.20-1.1.25.jar": {
+    "jarName": "suppsquared-1.20-1.1.25.jar",
+    "modId": "suppsquared",
+    "version": "1.20-1.1.25"
+  },
+  "takesapillage-fabric-1.0.9+mc1.20.1.jar": {
+    "jarName": "takesapillage-fabric-1.0.9+mc1.20.1.jar",
+    "modId": "takesapillage",
+    "version": "1.0.9"
+  },
+  "talkbubbles-1.0.8.jar": {
+    "jarName": "talkbubbles-1.0.8.jar",
+    "modId": "talkbubbles",
+    "version": "1.0.8"
+  },
+  "tcdcommons-3.12.3.3+fabric-1.20.1.jar": {
+    "jarName": "tcdcommons-3.12.3.3+fabric-1.20.1.jar",
+    "modId": "tcdcommons",
+    "version": "3.12.3.3+fabric-1.20.1"
+  },
+  "TerraBlender-fabric-1.20.1-3.0.1.10.jar": {
+    "jarName": "TerraBlender-fabric-1.20.1-3.0.1.10.jar",
+    "modId": "terrablender",
+    "version": "3.0.1.10"
+  },
+  "the_bumblezone-7.9.5+1.20.1-fabric.jar": {
+    "jarName": "the_bumblezone-7.9.5+1.20.1-fabric.jar",
+    "modId": "the_bumblezone",
+    "version": "7.9.5+1.20.1-fabric"
+  },
+  "The_Graveyard_3.1_(FABRIC)_for_1.20.1.jar": {
+    "jarName": "The_Graveyard_3.1_(FABRIC)_for_1.20.1.jar",
+    "modId": "graveyard",
+    "version": "3.0"
+  },
+  "thermoo-2.3.3.jar": {
+    "jarName": "thermoo-2.3.3.jar",
+    "modId": "thermoo",
+    "version": "2.3.3"
+  },
+  "thermoo-patches-1.1.jar": {
+    "jarName": "thermoo-patches-1.1.jar",
+    "modId": "thermoo-patches",
+    "version": "1.1"
+  },
+  "things-0.3.3+1.20.jar": {
+    "jarName": "things-0.3.3+1.20.jar",
+    "modId": "things",
+    "version": "0.3.3+1.20"
+  },
+  "tide-fabric-1.20.1-1.6.5.jar": {
+    "jarName": "tide-fabric-1.20.1-1.6.5.jar",
+    "modId": "tide",
+    "version": "1.6.5"
+  },
+  "TinySkeletons-v8.0.1-1.20.1-Fabric.jar": {
+    "jarName": "TinySkeletons-v8.0.1-1.20.1-Fabric.jar",
+    "modId": "tinyskeletons",
+    "version": "8.0.1"
+  },
+  "tlc-fabric-1.0.1-1.20.X.jar": {
+    "jarName": "tlc-fabric-1.0.1-1.20.X.jar",
+    "modId": "tlc",
+    "version": "1.0.1"
+  },
+  "toms_storage_fabric-1.20-1.7.1.jar": {
+    "jarName": "toms_storage_fabric-1.20-1.7.1.jar",
+    "modId": "toms_storage",
+    "version": "1.7.1"
+  },
+  "toofast-fabric-1.20-1.2.0.jar": {
+    "jarName": "toofast-fabric-1.20-1.2.0.jar",
+    "modId": "toofast",
+    "version": "1.2.0"
+  },
+  "ToolStats-Fabric-1.20.1-16.0.9.jar": {
+    "jarName": "ToolStats-Fabric-1.20.1-16.0.9.jar",
+    "modId": "toolstats",
+    "version": "16.0.9"
+  },
+  "Towns-and-Towers-1.12-Fabric+Forge.jar": {
+    "jarName": "Towns-and-Towers-1.12-Fabric+Forge.jar",
+    "modId": "t_and_t",
+    "version": "1.12"
+  },
+  "TradingPost-v8.0.2-1.20.1-Fabric.jar": {
+    "jarName": "TradingPost-v8.0.2-1.20.1-Fabric.jar",
+    "modId": "tradingpost",
+    "version": "8.0.2"
+  },
+  "transmog-fabric-1.3.0+1.20.jar": {
+    "jarName": "transmog-fabric-1.3.0+1.20.jar",
+    "modId": "transmog",
+    "version": "1.3.0+1.20"
+  },
+  "transparent-fabric-8.0.1+1.20.1.jar": {
+    "jarName": "transparent-fabric-8.0.1+1.20.1.jar",
+    "modId": "transparent",
+    "version": "8.0.1+1.20.1"
+  },
+  "travelersbackpack-fabric-1.20.1-9.1.43.jar": {
+    "jarName": "travelersbackpack-fabric-1.20.1-9.1.43.jar",
+    "modId": "travelersbackpack",
+    "version": "9.1.43"
+  },
+  "TravelersTitles-1.20-Fabric-4.0.2.jar": {
+    "jarName": "TravelersTitles-1.20-Fabric-4.0.2.jar",
+    "modId": "travelerstitles",
+    "version": "1.20-Fabric-4.0.2"
+  },
+  "TreeChop-1.20.1-fabric-0.19.0.jar": {
+    "jarName": "TreeChop-1.20.1-fabric-0.19.0.jar",
+    "modId": "treechop",
+    "version": "0.19.0"
+  },
+  "tru.e-ending-v1.1.0c.jar": {
+    "jarName": "tru.e-ending-v1.1.0c.jar",
+    "modId": "mr_true_ending",
+    "version": "1-v1.1.0c"
+  },
+  "twigs-3.1.0-fabric.jar": {
+    "jarName": "twigs-3.1.0-fabric.jar",
+    "modId": "twigs",
+    "version": "3.1.0"
+  },
+  "txnilib-fabric-1.0.24-1.20.1.jar": {
+    "jarName": "txnilib-fabric-1.0.24-1.20.1.jar",
+    "modId": "txnilib",
+    "version": "1.0.24"
+  },
+  "ucrashedlol-0.0.3+1.20.1.jar": {
+    "jarName": "ucrashedlol-0.0.3+1.20.1.jar",
+    "modId": "ucrashedlol",
+    "version": "0.0.3+1.20.1"
+  },
+  "underlay-1.20-v0.9.7.jar": {
+    "jarName": "underlay-1.20-v0.9.7.jar",
+    "modId": "underlay",
+    "version": "0.9.7"
+  },
+  "uranus-2.2.6-1.20.1-fabric.jar": {
+    "jarName": "uranus-2.2.6-1.20.1-fabric.jar",
+    "modId": "uranus",
+    "version": "2.2.6"
+  },
+  "vanillabackport-fabric-1.20.1-1.1.5.1.jar": {
+    "jarName": "vanillabackport-fabric-1.20.1-1.1.5.1.jar",
+    "modId": "vanillabackport",
+    "version": "1.1.5.1"
+  },
+  "veinmining-fabric-1.5.0+1.20.1.jar": {
+    "jarName": "veinmining-fabric-1.5.0+1.20.1.jar",
+    "modId": "veinmining",
+    "version": "1.5.0+1.20.1"
+  },
+  "villagernames-1.20.1-8.2.jar": {
+    "jarName": "villagernames-1.20.1-8.2.jar",
+    "modId": "villagernames",
+    "version": "8.2"
+  },
+  "VillagersPlus_3.1_(FABRIC)_for_1.20.1.jar": {
+    "jarName": "VillagersPlus_3.1_(FABRIC)_for_1.20.1.jar",
+    "modId": "villagersplus",
+    "version": "3.1"
+  },
+  "villagesandpillages-fabric-mc1.20.1-1.0.2.jar": {
+    "jarName": "villagesandpillages-fabric-mc1.20.1-1.0.2.jar",
+    "modId": "villagesandpillages",
+    "version": "1.0.2"
+  },
+  "villagespawnpoint-1.20.1-4.6.jar": {
+    "jarName": "villagespawnpoint-1.20.1-4.6.jar",
+    "modId": "villagespawnpoint",
+    "version": "4.6"
+  },
+  "VisualWorkbench-v8.0.1-1.20.1-Fabric.jar": {
+    "jarName": "VisualWorkbench-v8.0.1-1.20.1-Fabric.jar",
+    "modId": "visualworkbench",
+    "version": "8.0.1"
+  },
+  "voidtotem-fabric-1.20-3.0.1.jar": {
+    "jarName": "voidtotem-fabric-1.20-3.0.1.jar",
+    "modId": "voidtotem",
+    "version": "3.0.1"
+  },
+  "voidz-1.0.11.jar": {
+    "jarName": "voidz-1.0.11.jar",
+    "modId": "voidz",
+    "version": "1.0.11"
+  },
+  "watut-fabric-1.20.1-1.2.3.jar": {
+    "jarName": "watut-fabric-1.20.1-1.2.3.jar",
+    "modId": "watut",
+    "version": "1.20.1-1.2.3"
+  },
+  "wetlands-1.2-1.20.1.jar": {
+    "jarName": "wetlands-1.2-1.20.1.jar",
+    "modId": "wetlands",
+    "version": "1.2"
+  },
+  "whisperwoods-1.20.1-2.1.2-fabric.jar": {
+    "jarName": "whisperwoods-1.20.1-2.1.2-fabric.jar",
+    "modId": "whisperwoods",
+    "version": "1.20.1-2.1.2"
+  },
+  "winterly-0.9.3+1.20.jar": {
+    "jarName": "winterly-0.9.3+1.20.jar",
+    "modId": "winterly",
+    "version": "0.9.3+1.20"
+  },
+  "wizards-1.4.1+1.20.1.jar": {
+    "jarName": "wizards-1.4.1+1.20.1.jar",
+    "modId": "wizards",
+    "version": "1.4.1+1.20.1"
+  },
+  "wraith-waystones-3.3.3+mc1.20.1.jar": {
+    "jarName": "wraith-waystones-3.3.3+mc1.20.1.jar",
+    "modId": "fwaystones",
+    "version": "3.3.3+mc1.20.1"
+  },
+  "YeetusExperimentus-Fabric-2.3.1-build.6+mc1.20.1.jar": {
+    "jarName": "YeetusExperimentus-Fabric-2.3.1-build.6+mc1.20.1.jar",
+    "modId": "yeetusexperimentus",
+    "version": "2.3.1-build.6+mc1.20.1"
+  },
+  "yet_another_config_lib_v3-3.6.6+1.20.1-fabric.jar": {
+    "jarName": "yet_another_config_lib_v3-3.6.6+1.20.1-fabric.jar",
+    "modId": "yet_another_config_lib_v3",
+    "version": "3.6.6+1.20.1-fabric"
+  },
+  "youre-in-grave-danger-fabric-2.0.16.jar": {
+    "jarName": "youre-in-grave-danger-fabric-2.0.16.jar",
+    "modId": "yigd",
+    "version": "2.0.16"
+  },
+  "YouShallNotSpawn-fabric-1.20.x-2.0.2.jar": {
+    "jarName": "YouShallNotSpawn-fabric-1.20.x-2.0.2.jar",
+    "modId": "ysns",
+    "version": "2.0.2"
+  },
+  "YungsApi-1.20-Fabric-4.0.6.jar": {
+    "jarName": "YungsApi-1.20-Fabric-4.0.6.jar",
+    "modId": "yungsapi",
+    "version": "1.20-Fabric-4.0.6"
+  },
+  "YungsBetterDesertTemples-1.20-Fabric-3.0.3.jar": {
+    "jarName": "YungsBetterDesertTemples-1.20-Fabric-3.0.3.jar",
+    "modId": "betterdeserttemples",
+    "version": "1.20-Fabric-3.0.3"
+  },
+  "YungsBetterDungeons-1.20-Fabric-4.0.4.jar": {
+    "jarName": "YungsBetterDungeons-1.20-Fabric-4.0.4.jar",
+    "modId": "betterdungeons",
+    "version": "1.20-Fabric-4.0.4"
+  },
+  "YungsBetterEndIsland-1.20-Fabric-2.0.6.jar": {
+    "jarName": "YungsBetterEndIsland-1.20-Fabric-2.0.6.jar",
+    "modId": "betterendisland",
+    "version": "1.20-Fabric-2.0.6"
+  },
+  "YungsBetterJungleTemples-1.20-Fabric-2.0.5.jar": {
+    "jarName": "YungsBetterJungleTemples-1.20-Fabric-2.0.5.jar",
+    "modId": "betterjungletemples",
+    "version": "1.20-Fabric-2.0.5"
+  },
+  "YungsBetterMineshafts-1.20-Fabric-4.0.4.jar": {
+    "jarName": "YungsBetterMineshafts-1.20-Fabric-4.0.4.jar",
+    "modId": "bettermineshafts",
+    "version": "1.20-Fabric-4.0.4"
+  },
+  "YungsBetterNetherFortresses-1.20-Fabric-2.0.6.jar": {
+    "jarName": "YungsBetterNetherFortresses-1.20-Fabric-2.0.6.jar",
+    "modId": "betterfortresses",
+    "version": "1.20-Fabric-2.0.6"
+  },
+  "YungsBetterOceanMonuments-1.20-Fabric-3.0.4.jar": {
+    "jarName": "YungsBetterOceanMonuments-1.20-Fabric-3.0.4.jar",
+    "modId": "betteroceanmonuments",
+    "version": "1.20-Fabric-3.0.4"
+  },
+  "YungsBetterStrongholds-1.20-Fabric-4.0.3.jar": {
+    "jarName": "YungsBetterStrongholds-1.20-Fabric-4.0.3.jar",
+    "modId": "betterstrongholds",
+    "version": "1.20-Fabric-4.0.3"
+  },
+  "YungsBetterWitchHuts-1.20-Fabric-3.0.3.jar": {
+    "jarName": "YungsBetterWitchHuts-1.20-Fabric-3.0.3.jar",
+    "modId": "betterwitchhuts",
+    "version": "1.20-Fabric-3.0.3"
+  },
+  "YungsMenuTweaks-1.20.1-Fabric-1.0.2.jar": {
+    "jarName": "YungsMenuTweaks-1.20.1-Fabric-1.0.2.jar",
+    "modId": "yungsmenutweaks",
+    "version": "1.20.1-Fabric-1.0.2"
+  },
+  "zenith-1.2.5-1.20.1.jar": {
+    "jarName": "zenith-1.2.5-1.20.1.jar",
+    "modId": "zenith",
+    "version": "1.2.5-1.20.1"
+  },
+  "zenith_attributes-0.2.10.jar": {
+    "jarName": "zenith_attributes-0.2.10.jar",
+    "modId": "zenith_attributes",
+    "version": "0.2.10"
+  },
+  "zephyr-0.5.0+1.20.1.jar": {
+    "jarName": "zephyr-0.5.0+1.20.1.jar",
+    "modId": "zephyr",
+    "version": "0.5.0+1.20.1"
+  },
+  "zmedievalmusic-fabric-1.20.1-2.1.jar": {
+    "jarName": "zmedievalmusic-fabric-1.20.1-2.1.jar",
+    "modId": "medievalmusic",
+    "version": "1.20.1-2.1"
+  }
+}

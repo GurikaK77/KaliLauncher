@@ -1,0 +1,1 @@
+{"jarName":"crawl-0.12.0.jar","modId":"crawl","version":"0.12.0","mixinConfigs":["mixins.crawl.json"],"jarJarMods":[{"jarName":"Fabric-ASM-v2.3.jar","modId":"mm","version":"2.3","mixinConfigs":["mixins.mm.json","mixins.mm.refmap.json"],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

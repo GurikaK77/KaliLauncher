@@ -1,0 +1,9 @@
+{
+    "variants": {
+		"": [
+		{ "model": "zenith:block/soul_touched_deepshelf" },
+		{ "model": "zenith:block/soul_touched_deepshelf1" },
+		{ "model": "zenith:block/soul_touched_deepshelf2" }
+		]
+    }
+}

@@ -1,0 +1,126 @@
+
+[Stellar View Client Config]
+
+	[General Config]
+		# Makes the sky static (compatible with shaders)
+		client.static_sky = false
+		# Renders stars and dust clouds using instancing
+		client.instancing = true
+		# Changes the order in which vertices used in static_sky are built
+		client.alt_vertex_build_order = false
+		# False - Positions along orbits, supernovae and meteor effects are affected when /time set command is used | True - Only planetary rotation is affected, everything else is unaffected (good choice if you want to use /time set 0 command without the sky reverting back to how it looked at tick 0)
+		client.use_game_ticks = false
+		# Specifies the max distance at which a Space Region can render
+		# #Range: 1 ~ 1000
+		client.tick_multiplier = 1
+		# Gets rid of any rotation caused by the view center, making the space XYZ coordinates align with the XYZ directions in Minecraft
+		client.disable_view_center_rotation = false
+		# Specifies the max distance at which a Space Region can render
+		# #Range: 1 ~ 12
+		client.space_region_render_distance = 8
+		# Enables gravitational lensing effects
+		client.gravitational_lensing = true
+		# Enables dust cloud rendering
+		client.dust_clouds = false
+		# Removes Stars
+		client.disable_stars = false
+		# Enables the use of textures for stars
+		client.textured_stars = true
+		# Makes sky objects dimmer when the player is near a light source
+		client.light_pollution = true
+		# Specifies the base brightness of stars and planets
+		# #Range: 0 ~ 100
+		client.star_brightness = 100
+		# Specifies the base brightness of dust clouds and nebulae
+		# #Range: 0 ~ 100
+		client.dust_cloud_brightness = 100
+
+	[Overworld Config]
+		# Replaces the Vanilla Overworld sky with Stellar View sky
+		client.overworld.replace_vanilla = true
+		# Prioritizes config over information from resourcepacks
+		client.overworld.config_priority = false
+		# Stars will always be visible, even during daytime
+		client.overworld.stars_always_visible = false
+		# Chance of a meteor shower happening each day
+		# #Range: 0 ~ 100
+		client.overworld.meteor_shower_chance = 10
+		# Chance of a shooting star appearing each 1000 ticks
+		# #Range: 0 ~ 100
+		client.overworld.shooting_star_chance = 10
+		# Controls how much the Overworld sky rotates when moving along the Z-axis
+		# #Range: 0 ~ 3000
+		client.overworld_z_rotation_multiplier = 3000
+		# Uses the Vanilla Moon texture for rendering
+		client.overworld.vanilla_moon = false
+		# Specifies Sol X offset
+		# #Range: -120 ~ 120
+		client.overworld.sol_x_offset = 0
+		# Specifies Sol Y offset
+		# #Range: -120 ~ 120
+		client.overworld.sol_y_offset = 0
+		# Specifies Sol Z offset
+		# #Range: -120 ~ 120
+		client.overworld.sol_z_offset = 0
+		# Specifies Sol X-axis rotation
+		# #Range: 0 ~ 360
+		client.overworld.sol_x_rotation = 0
+		# Specifies Sol Y-axis rotation
+		# #Range: 0 ~ 360
+		client.overworld.sol_y_rotation = 0
+		# Specifies Sol Z-axis rotation
+		# #Range: 0 ~ 360
+		client.overworld.sol_z_rotation = 0
+
+	[Nether Config]
+		# Replaces the Vanilla Nether sky with Stellar View sky
+		client.nether.replace_vanilla = false
+		# Prioritizes config over information from resourcepacks
+		client.nether.config_priority = false
+		# Stars will always be visible, even during daytime
+		client.nether.stars_always_visible = false
+		# Chance of a meteor shower happening each day
+		# #Range: 0 ~ 100
+		client.nether.meteor_shower_chance = 10
+		# Chance of a shooting star appearing each 1000 ticks
+		# #Range: 0 ~ 100
+		client.nether.shooting_star_chance = 10
+
+	[End Config]
+		# Replaces the Vanilla End sky with Stellar View sky
+		client.end.replace_vanilla = false
+		# Prioritizes config over information from resourcepacks
+		client.end.config_priority = false
+		# Stars will always be visible, even during daytime
+		client.end.stars_always_visible = true
+		# Chance of a meteor shower happening each day
+		# #Range: 0 ~ 100
+		client.end.meteor_shower_chance = 10
+		# Chance of a shooting star appearing each 1000 ticks
+		# #Range: 0 ~ 100
+		client.end.shooting_star_chance = 10
+
+	[Twilight Forest Config]
+		# Replaces the default Twilight Forest sky with Stellar View sky
+		client.twilightforest.replace_default = true
+		# Prioritizes config over information from resourcepacks
+		client.twilightforest.config_priority = false
+		# Chance of a meteor shower happening each day
+		# #Range: 0 ~ 100
+		client.twilightforest.meteor_shower_chance = 10
+		# Chance of a shooting star appearing each 1000 ticks
+		# #Range: 0 ~ 100
+		client.twilightforest.shooting_star_chance = 10
+
+	[Aether Config]
+		# Replaces the default Aether sky with Stellar View sky
+		client.aether.replace_default = false
+		# Prioritizes config over information from resourcepacks
+		client.aether.config_priority = false
+		# Chance of a meteor shower happening each day
+		# #Range: 0 ~ 100
+		client.aether.meteor_shower_chance = 10
+		# Chance of a shooting star appearing each 1000 ticks
+		# #Range: 0 ~ 100
+		client.aether.shooting_star_chance = 10
+

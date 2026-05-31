@@ -1,0 +1,1 @@
+{"jarName":"guardvillagers-2.0.9-1.20.1.jar","modId":"guardvillagers","version":"2.0.9-1.20.1","mixinConfigs":["guardvillagers.mixins.json"],"jarJarMods":[{"jarName":"midnightlib-1.4.1-fabric.jar","modId":"midnightlib","version":"1.4.1","mixinConfigs":["midnightlib.mixins.json"],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

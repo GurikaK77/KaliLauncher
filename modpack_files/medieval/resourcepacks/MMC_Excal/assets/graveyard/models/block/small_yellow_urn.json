@@ -1,0 +1,7 @@
+{
+  "parent": "graveyard:block/small_urn",
+  "textures": {
+    "urn": "minecraft:block/yellow_terracotta",
+    "particle": "minecraft:block/yellow_terracotta"
+  }
+}

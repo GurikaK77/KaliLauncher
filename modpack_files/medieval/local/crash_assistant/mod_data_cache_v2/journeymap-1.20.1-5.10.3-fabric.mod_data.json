@@ -1,0 +1,1 @@
+{"jarName":"journeymap-1.20.1-5.10.3-fabric.jar","modId":"journeymap","version":"5.10.3","mixinConfigs":["journeymap.mixins.json"],"jarJarMods":[{"jarName":"journeymap-api-1.20-1.9-fabric-SNAPSHOT.jar","modId":"journeymap-api-fabric","version":"1.20-1.9-fabric-SNAPSHOT","mixinConfigs":[],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

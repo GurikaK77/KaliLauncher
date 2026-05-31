@@ -1,0 +1,23 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "betterend"
+      ]
+    }
+  ],
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "betterend:aeternium_ingot"
+  },
+  "base": {
+    "item": "paladins:netherite_claymore"
+  },
+  "result": {
+    "item": "paladins:aeternium_claymore"
+  },
+  "template": {
+    "item": "betterend:aeternium_upgrade_smithing_template"
+  }
+}

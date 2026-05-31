@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "tag": "culturaldelights:all_eggplants"
+        }
+    ],
+    "result": {
+        "item": "culturaldelights:eggplant_seeds",
+        "count": 2
+    }
+}

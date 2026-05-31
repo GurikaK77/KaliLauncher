@@ -1,0 +1,1 @@
+{"jarName":"YungsBetterWitchHuts-1.20-Fabric-3.0.3.jar","modId":"betterwitchhuts","version":"1.20-Fabric-3.0.3","mixinConfigs":["betterwitchhuts_fabric.mixins.json","betterwitchhuts.mixins.json"],"jarJarMods":[{"jarName":"reflections-0.10.2.jar","modId":"org_reflections_reflections","version":"0.10.2","mixinConfigs":[],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

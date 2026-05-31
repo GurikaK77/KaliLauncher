@@ -1,0 +1,25 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "betternether"
+      ]
+    }
+  ],
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "betternether:nether_ruby_block"
+  },
+  "base": {
+    "item": "archers:netherite_rapid_crossbow"
+  },
+  "result": {
+    "item": "archers:ruby_rapid_crossbow"
+  },
+  "template": {
+    "item": "betternether:cincinnasite_ingot"
+  },
+  "category": "equipment",
+  "show_notification": true
+}

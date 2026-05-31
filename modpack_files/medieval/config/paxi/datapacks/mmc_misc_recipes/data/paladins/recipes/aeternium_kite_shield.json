@@ -1,0 +1,23 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "betterend"
+      ]
+    }
+  ],
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "betterend:aeternium_ingot"
+  },
+  "base": {
+    "item": "paladins:netherite_kite_shield"
+  },
+  "result": {
+    "item": "paladins:aeternium_kite_shield"
+  },
+  "template": {
+    "item": "betterend:aeternium_upgrade_smithing_template"
+  }
+}

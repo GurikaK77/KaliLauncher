@@ -1,0 +1,8 @@
+{
+	// Alternate Mana Bar (Default: true)
+	"alt": false,
+	// Disable Mana Bar Altogether (Default: false)
+	"disable": false,
+	// Disable Archon Mana Bar (Default: true)
+	"disableArchonMana": true
+}

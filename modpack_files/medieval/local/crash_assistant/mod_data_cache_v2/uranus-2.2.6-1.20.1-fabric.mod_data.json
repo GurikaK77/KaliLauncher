@@ -1,0 +1,1 @@
+{"jarName":"uranus-2.2.6-1.20.1-fabric.jar","modId":"uranus","version":"2.2.6","mixinConfigs":["uranus.mixins.json"],"jarJarMods":[{"jarName":"architectury-fabric-9.2.14.jar","modId":"architectury","version":"9.2.14","mixinConfigs":["architectury.mixins.json","architectury-common.mixins.json"],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

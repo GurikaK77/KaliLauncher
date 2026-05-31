@@ -1,0 +1,615 @@
+{
+	autofocus_id: "29E6760E2BA94CCC"
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "magic"
+	group: "4D72E07320E2A8E0"
+	icon: {
+		Count: 1
+		id: "wizards:wizard_robe_head"
+		tag: {
+			Damage: 0
+		}
+	}
+	id: "466BCD4162990E03"
+	order_index: 3
+	quest_links: [ ]
+	quests: [
+		{
+			id: "3D4CC81480569704"
+			rewards: [{
+				exclude_from_claim_all: true
+				icon: "minecraft:amethyst_shard"
+				id: "5C2F1B05F325E536"
+				table_id: 1781186890092740803L
+				type: "choice"
+			}]
+			size: 1.2d
+			subtitle: "Using the &cRune Crafting Altar&r yields more &cRunes&r than a Crafting Table does."
+			tasks: [{
+				id: "74F7C7C16AE40C11"
+				item: "runes:crafting_altar"
+				type: "item"
+			}]
+			title: "Create a &cRune Crafting Altar"
+			x: 0.0d
+			y: 1.2000000000000002d
+		}
+		{
+			id: "29E6760E2BA94CCC"
+			rewards: [{
+				id: "56835258B53F6311"
+				type: "xp_levels"
+				xp_levels: 5
+			}]
+			subtitle: "Used as ammo for spells, to let them be cast without using any &3Mana&r. \\n\\nThe &aSpell Infinity&r enchantment will let you cast spells without runes or mana, but is incompatible with &aMending."
+			tasks: [{
+				id: "5366BF09AD5A5382"
+				item: {
+					Count: 1
+					id: "itemfilters:tag"
+					tag: {
+						value: "wizards:wizard_runes"
+					}
+				}
+				title: "Any #wizards:wizard_runes"
+				type: "item"
+			}]
+			title: "Craft a &cRune"
+			x: 0.0d
+			y: -0.5d
+		}
+		{
+			id: "479229958BD0732A"
+			rewards: [{
+				id: "79A346A3EAFA5062"
+				item: {
+					Count: 1
+					id: "wizards:wizard_robe_head"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			subtitle: "&dWands&r and &dStaves&r have one default spell built-in, which can be cast using mana or runes. \\n\\nNew spells can be added using a &aSpell Tome&r"
+			tasks: [{
+				id: "057BF0D38CC54A62"
+				item: {
+					Count: 1
+					id: "itemfilters:tag"
+					tag: {
+						value: "wizards:wands"
+					}
+				}
+				title: "Any #wizards:wands"
+				type: "item"
+			}]
+			title: "Obtain a &dWand&r"
+			x: 0.0d
+			y: -2.0d
+		}
+		{
+			description: [
+				"First, place a regular book into the &dSpell Binding Table&r to turn it into &bSpell Tome&r of your choice."
+				""
+				"After selecting a &bSpell Tome&r, place it back into the &dSpell Binding Table&r to select spells using lapis lazuli and XP"
+				""
+				"Adding bookshelves around the table, just like an enchanting table, gives access to stronger spells. "
+			]
+			id: "2EE9AD24191AA815"
+			rewards: [
+				{
+					id: "79AC4F92C1EB3731"
+					type: "xp_levels"
+					xp_levels: 5
+				}
+				{
+					count: 6
+					id: "31CF864A50DB94DE"
+					item: "minecraft:lapis_lazuli"
+					type: "item"
+				}
+			]
+			size: 1.25d
+			subtitle: "Used to create &aspell tomes&r, and add more spells to existing &atomes&r. Click for more details!"
+			tasks: [{
+				id: "50CBC96E0440DB96"
+				item: "spell_engine:spell_binding"
+				type: "item"
+			}]
+			title: "Create a &6Spell Binding Table"
+			x: 0.0d
+			y: -3.75d
+		}
+		{
+			id: "28AFB1FECEA18F66"
+			rewards: [{
+				count: 3
+				id: "54E8B7655A650800"
+				item: "minecraft:emerald"
+				type: "item"
+			}]
+			subtitle: "Sells powerful wizard equipment."
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "ftbquests:custom_icon"
+					tag: {
+						Icon: "merchantmarkers:textures/entity/villager/markers/wizards__wizard_merchant.png"
+					}
+				}
+				id: "0E3EBA5E17C9EBB4"
+				structure: "wizards:wizard_merchant"
+				title: "Find a Wizard Merchant"
+				type: "structure"
+			}]
+			title: "Find a &3Wizard Merchant"
+			x: 1.5d
+			y: 1.0d
+		}
+		{
+			id: "3D875FF9813FC7F9"
+			rewards: [
+				{
+					id: "0CD7DB540DB7173A"
+					type: "xp_levels"
+					xp_levels: 15
+				}
+				{
+					exclude_from_claim_all: true
+					icon: "minecraft:amethyst_shard"
+					id: "096EFF03A5DAFC60"
+					table_id: 1781186890092740803L
+					type: "choice"
+				}
+			]
+			subtitle: "These powerful weapons are made by upgrading their Netherite variants with rare materials from the Nether or End."
+			tasks: [{
+				id: "11ADFA7CE809F8A3"
+				item: {
+					Count: 1
+					id: "itemfilters:tag"
+					tag: {
+						value: "rpg_series:tier_4_weapons"
+					}
+				}
+				title: "Any #rpg_series:tier_4_weapons"
+				type: "item"
+			}]
+			title: "Obtain any of the highest tier &aRPG Series&r weapon variants"
+			x: 5.0d
+			y: -2.5d
+		}
+		{
+			id: "214AE106A2A2073F"
+			rewards: [
+				{
+					exclude_from_claim_all: true
+					icon: "minecraft:amethyst_shard"
+					id: "35097DE19FF48341"
+					table_id: 1781186890092740803L
+					type: "choice"
+				}
+				{
+					id: "2DEDB593EA13F5D6"
+					type: "xp_levels"
+					xp_levels: 15
+				}
+			]
+			subtitle: "Wearing a full set of &4Fire&r / &bFrost&r / &5Arcane&r Wizard gear will make spells of that element much more powerful."
+			tasks: [
+				{
+					id: "5EAACD7BBA3F1223"
+					item: {
+						Count: 1
+						id: "wizards:fire_robe_head"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "565AB595A9904931"
+					item: {
+						Count: 1
+						id: "wizards:arcane_robe_head"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "42C990D355F58867"
+					item: {
+						Count: 1
+						id: "wizards:frost_robe_head"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+			]
+			title: "Craft the hat for all three &3Wizard&r gearsets"
+			x: 1.5d
+			y: -0.5d
+		}
+		{
+			id: "4C11143DB83DEC43"
+			rewards: [{
+				count: 2
+				id: "024407BDFBD6F9EE"
+				item: "minecraft:emerald"
+				random_bonus: 2
+				type: "item"
+			}]
+			subtitle: "A Villager jobsite block for &6Monks&r. They can sell useful Healing equipment."
+			tasks: [{
+				id: "1A7D80E00464BCDA"
+				item: "paladins:monk_workbench"
+				type: "item"
+			}]
+			title: "Craft a &eMonk Workbench"
+			x: -1.5d
+			y: 1.0d
+		}
+		{
+			id: "63B207819F6D433D"
+			rewards: [{
+				count: 4
+				id: "3660A123426AA134"
+				item: "runes:healing_stone"
+				random_bonus: 2
+				type: "item"
+			}]
+			subtitle: "Paladin weapons have a built-in &6Smite&r spell, high &4attack damage&r and some innate &ehealing power&r."
+			tasks: [{
+				id: "21286E7D8E4668EB"
+				item: {
+					Count: 1
+					id: "paladins:iron_mace"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			title: "Craft an &fIron Mace"
+			x: 1.5d
+			y: -2.0d
+		}
+		{
+			id: "71FE2AF458B36568"
+			rewards: [
+				{
+					id: "5696373B79DDA204"
+					item: "spellbladenext:runeblaze_ingot"
+					type: "item"
+				}
+				{
+					id: "2B4D83BAD92B9CDF"
+					item: "spellbladenext:runegleam_ingot"
+					type: "item"
+				}
+				{
+					id: "7324E847B223B38B"
+					item: "spellbladenext:runefrost_ingot"
+					type: "item"
+				}
+			]
+			subtitle: "Used to create &bSpellblades&r and &9Spellblade armor&r"
+			tasks: [
+				{
+					id: "2B97C2328466EFD6"
+					item: "spellbladenext:runeblaze_ingot"
+					type: "item"
+				}
+				{
+					id: "44E38A7FB610B361"
+					item: "spellbladenext:runegleam_ingot"
+					type: "item"
+				}
+				{
+					id: "4D9CE100EBC9D0D9"
+					item: "spellbladenext:runefrost_ingot"
+					type: "item"
+				}
+			]
+			title: "Craft all three &bSpellblade Ingots"
+			x: -1.5d
+			y: -0.5d
+		}
+		{
+			id: "1F2B068083D09816"
+			rewards: [{
+				id: "639325F99E4A174A"
+				type: "xp_levels"
+				xp_levels: 15
+			}]
+			subtitle: "Its like a &aWand&r, but instead of a &aWand&r, its a &bBlade!"
+			tasks: [
+				{
+					id: "187DCB327FEF2ADF"
+					item: {
+						Count: 1
+						id: "spellbladenext:arcane_blade"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "5FC5D598D7798C3B"
+					item: {
+						Count: 1
+						id: "spellbladenext:frost_blade"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "1E3C6A74048BD24D"
+					item: {
+						Count: 1
+						id: "spellbladenext:fire_blade"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+			]
+			title: "Craft all three &bSpellblades"
+			x: 1.5d
+			y: -3.5d
+		}
+		{
+			id: "78725B756BF67102"
+			rewards: [{
+				id: "51F74338A508AEF1"
+				type: "xp_levels"
+				xp_levels: 5
+			}]
+			subtitle: "This swaggy hat gives no boost to spell power, but instead boosts your &3critical chance&r and &4critical damage&r."
+			tasks: [{
+				id: "2415F9EEDB6720C2"
+				item: {
+					Count: 1
+					id: "spellbladenext:frozen_head"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			title: "Craft a &4Mageseeker Hat"
+			x: -1.5d
+			y: -2.0d
+		}
+		{
+			id: "5C8E18C012B6CAC3"
+			rewards: [{
+				id: "79F69C5493832A4D"
+				item: "spellbladenext:fire_battlemage_spell_book"
+				type: "item"
+			}]
+			subtitle: "Orbs are weaker, but do not have a movement speed penalty when casting and have massively increased &aSpell Haste&r."
+			tasks: [
+				{
+					id: "558D0ECFE1A44BE0"
+					item: {
+						Count: 1
+						id: "spellbladenext:arcane_orb"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "08038356C3DB6ED1"
+					item: {
+						Count: 1
+						id: "spellbladenext:fire_orb"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "6DE1B4EC877C626C"
+					item: {
+						Count: 1
+						id: "spellbladenext:frost_orb"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+			]
+			title: "Craft all three &bSpell Orbs"
+			x: -1.5d
+			y: -3.5d
+		}
+		{
+			id: "460784AF8CDF5E3A"
+			rewards: [{
+				count: 5
+				id: "717E3B80D536F5DF"
+				item: "minecraft:amethyst_shard"
+				random_bonus: 10
+				type: "item"
+			}]
+			subtitle: "A unique and complex spell tome that allows you to shuffle through various &5invocations&r. Combine lesser spells in different orders to invoke something more powerful."
+			tasks: [{
+				id: "36411EABBC0841CD"
+				item: "invoke:invoker_spell_book"
+				type: "item"
+			}]
+			title: "Craft &6Runic Invocations"
+			x: -1.0d
+			y: -5.5d
+		}
+		{
+			id: "6D67A1989B545300"
+			rewards: [
+				{
+					id: "50FA70FAB32C695E"
+					item: "rpgmana:ceruleanring"
+					type: "item"
+				}
+				{
+					id: "4363BFE9FF6317C6"
+					type: "xp_levels"
+					xp_levels: 5
+				}
+			]
+			subtitle: "These trinkets embedded with magical gemstones further enhance your &2Attributes&r\\n\\nSome rare &bJewelry&r can only be found from certain uncommon loot sources."
+			tasks: [
+				{
+					id: "4FE5C21885F285D8"
+					item: {
+						Count: 1
+						id: "itemfilters:tag"
+						tag: {
+							value: "jewelry:rings"
+						}
+					}
+					title: "Any #jewelry:rings"
+					type: "item"
+				}
+				{
+					id: "599DC3A9957CCFC7"
+					item: {
+						Count: 1
+						id: "itemfilters:tag"
+						tag: {
+							value: "jewelry:necklaces"
+						}
+					}
+					title: "Any #jewelry:necklaces"
+					type: "item"
+				}
+			]
+			title: "Find a piece of magical &bJewelry&r"
+			x: -5.0d
+			y: -2.5d
+		}
+		{
+			id: "7E77BB138DC685E9"
+			rewards: [{
+				id: "41FC626247132C56"
+				type: "xp_levels"
+				xp_levels: 1
+			}]
+			subtitle: "Craftable into some pretty awesome stuff!"
+			tasks: [{
+				id: "4F24B9F6160DC343"
+				item: "epicknightsnmages:magical_ingot"
+				type: "item"
+			}]
+			title: "Craft a &5Magical Ingot"
+			x: 6.5d
+			y: -0.5d
+		}
+		{
+			id: "0FF1A4F7EF21C523"
+			rewards: [{
+				id: "70A6004B15CF7A6D"
+				type: "xp_levels"
+				xp_levels: 3
+			}]
+			subtitle: "This crafting material can be found by shearing &bMagus'&r armor. It can be reused to craft more elementally focused armors."
+			tasks: [{
+				id: "0B6F4B03D31E45D3"
+				item: "spellbladenext:thread"
+				type: "item"
+			}]
+			title: "Acquire a &3Thread of Hope"
+			x: 3.5d
+			y: -0.5d
+		}
+		{
+			id: "53CC2278F8BC4E06"
+			rewards: [{
+				id: "5CFFDC6B96973246"
+				type: "xp_levels"
+				xp_levels: 5
+			}]
+			subtitle: "Most other &3Extra RPG Attributes&r trinkets can only be found rarely in loot."
+			tasks: [{
+				id: "0844A4D9AD0E77A8"
+				item: "extraspellattributes:arcanebracer"
+				type: "item"
+			}]
+			title: "Craft an &dAmethyst Bracer"
+			x: -6.5d
+			y: -0.5d
+		}
+		{
+			id: "29223530682451D6"
+			rewards: [{
+				count: 4
+				id: "6CB14F693FC1866D"
+				item: "runes:soul_stone"
+				random_bonus: 4
+				type: "item"
+			}]
+			subtitle: "&eShards&r can not be used to cast spells. Instead, hold them in the &6off-hand&r to amplify the power of your main weapon."
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "druids:shard_lightning"
+					tag: {
+						Damage: 0
+					}
+				}
+				id: "6763B06AAD6ECA48"
+				item: {
+					Count: 1
+					id: "druids:shard_lightning"
+					tag: {
+						Damage: 0
+					}
+				}
+				title: "Obtain a &eLightning Soul Shard"
+				type: "item"
+			}]
+			x: -3.5d
+			y: -0.5d
+		}
+		{
+			id: "77A2871132794AD2"
+			rewards: [{
+				id: "3DC106264DCEEDB7"
+				item: "minecraft:bookshelf"
+				type: "item"
+			}]
+			subtitle: "Place a regular &2book&r into the spell binding table and choose your class. Place the tome back in to add more spells."
+			tasks: [{
+				id: "20376410AD8FE59E"
+				item: {
+					Count: 1
+					id: "ftbfiltersystem:smart_filter"
+					tag: {
+						"ftbfiltersystem:filter": "or(item(archers:archer_spell_book)item(druids:aetherial_druid_spell_book)item(druids:storm_druid_spell_book)item(invoke:invoker_spell_book)item(paladins:paladin_spell_book)item(paladins:priest_spell_book)item(rogues:rogue_spell_book)item(rogues:warrior_spell_book)item(spellbladenext:frost_battlemage_spell_book)item(spellbladenext:fire_battlemage_spell_book)item(spellbladenext:arcane_battlemage_spell_book)item(spellbladenext:runic_echoes_spell_book)item(spellbladenext:phoenix_spell_book)item(spellbladenext:deathchill_spell_book)item(spellbladenext:vengeance_spell_book)item(spellbladenext:defiance_spell_book)item(wizards:arcane_spell_book)item(wizards:fire_spell_book)item(wizards:frost_spell_book))"
+					}
+				}
+				title: "Craft a &3Spell Tome&r"
+				type: "item"
+			}]
+			title: "Craft a &3Spell Tome"
+			x: 1.0d
+			y: -5.5d
+		}
+	]
+	title: " &3Magic"
+}

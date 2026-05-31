@@ -1,0 +1,1 @@
+{"jarName":"YungsBetterMineshafts-1.20-Fabric-4.0.4.jar","modId":"bettermineshafts","version":"1.20-Fabric-4.0.4","mixinConfigs":["bettermineshafts_fabric.mixins.json","bettermineshafts.mixins.json"],"jarJarMods":[{"jarName":"reflections-0.10.2.jar","modId":"org_reflections_reflections","version":"0.10.2","mixinConfigs":[],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

@@ -1,0 +1,23 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "betternether"
+      ]
+    }
+  ],
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "betternether:nether_ruby_block"
+  },
+  "base": {
+    "item": "wizards:staff_netherite_fire"
+  },
+  "result": {
+    "item": "wizards:staff_ruby_fire"
+  },
+  "template": {
+    "item": "betternether:cincinnasite_ingot"
+  }
+}

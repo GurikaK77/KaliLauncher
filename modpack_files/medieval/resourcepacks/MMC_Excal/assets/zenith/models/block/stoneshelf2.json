@@ -1,0 +1,10 @@
+{
+  "parent": "zenith:block/template_bookhelf_deep",
+  "textures": {
+    	"2": "zenith:block/stoneshelf/stoneshelf_top",
+		"3": "zenith:block/stoneshelf/stone_large",
+		"4": "zenith:block/stoneshelf/stone",
+		"9": "zenith:block/stoneshelf/bookshelf_stone2",
+		"particle": "zenith:block/stoneshelf/stoneshelf_top"
+  }
+}

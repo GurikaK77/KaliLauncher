@@ -1,0 +1,1 @@
+{"jarName":"betterstats-3.12.6+fabric-1.20.1.jar","modId":"betterstats","version":"3.12.6+fabric-1.20.1","mixinConfigs":["betterstats.mixin.security.json","betterstats.mixin.events.json"],"jarJarMods":[]}

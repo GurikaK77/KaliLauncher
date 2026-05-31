@@ -1,0 +1,1 @@
+{"jarName":"spell_engine-0.15.12+1.20.1.jar","modId":"spell_engine","version":"0.15.12+1.20.1","mixinConfigs":["spell_engine.mixins.json"],"jarJarMods":[{"jarName":"TinyConfig-2.3.2.jar","modId":"com_github_zsoltmolnarrr_tinyconfig","version":"2.3.2","mixinConfigs":[],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}

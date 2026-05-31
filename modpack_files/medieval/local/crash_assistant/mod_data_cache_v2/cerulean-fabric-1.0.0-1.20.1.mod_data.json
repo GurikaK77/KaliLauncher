@@ -1,0 +1,1 @@
+{"jarName":"cerulean-fabric-1.0.0-1.20.1.jar","modId":"cerulean","version":"1.0.0","mixinConfigs":["mixins.cerulean.json"],"jarJarMods":[{"jarName":"forgeconfigapiport-fabric-8.0.0.jar","modId":"forgeconfigapiport","version":"8.0.0","mixinConfigs":["forgeconfigapiport.common.mixins.json"],"jarJarMods":[],"pathFromJarJar":"/META-INF/jars/"}]}
