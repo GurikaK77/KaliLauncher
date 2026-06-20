@@ -11,7 +11,7 @@ const https = require('https');
 
 // ─── Constants ─────────────────────────────────────────────────────────────────
 
-const LAUNCHER_VERSION = '3.3.0';
+const LAUNCHER_VERSION = '3.4.0';
 const USER_AGENT = `KaliLauncher/${LAUNCHER_VERSION}`;
 const MOJANG_VERSION_MANIFEST = 'https://launchermeta.mojang.com/mc/game/version_manifest_v2.json';
 const FABRIC_META = 'https://meta.fabricmc.net';
