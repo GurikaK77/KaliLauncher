@@ -1,76 +1,37 @@
-const path = require('path');
-
 const owner = process.env.GH_OWNER;
-const repo = process.env.GH_REPO;
-const updateUrl = process.env.UPDATE_URL;
+const repo  = process.env.GH_REPO;
 
 let publish;
 if (owner && repo) {
-  publish = [{
-    provider: 'github',
-    owner,
-    repo,
-    releaseType: 'release'
-  }];
-} else if (updateUrl) {
-  publish = [{
-    provider: 'generic',
-    url: updateUrl,
-    channel: 'latest'
-  }];
+  publish = [{ provider: 'github', owner, repo }];
+} else {
+  publish = [{ provider: 'generic', url: 'https://example.com' }];
 }
 
 module.exports = {
-  appId: 'com.kalilauncher.desktop',
+  appId: 'com.gurika.kalilauncher',
   productName: 'KaliLauncher',
-  copyright: 'Copyright © KaliLauncher',
-  directories: {
-    output: 'dist',
-    buildResources: 'build'
-  },
-  files: [
-    '**/*',
-    '!dist/**',
-    '!build/**/source/**',
-    '!*.zip',
-    '!*.log',
-    '!**/*.bak',
-    '!**/*.tmp',
-    '!**/.DS_Store',
-    '!**/Thumbs.db'
-  ],
   asar: true,
-  asarUnpack: [
-    'modpack_files/**',
-    'assets/**'
-  ],
-  extraMetadata: {
-    main: 'main.js'
-  },
+  asarUnpack: ['modpack_files/**', 'assets/**', 'build/**'],
+  files: ['main.js','renderer.js','index.html','style.css','assets/**','build/**','modpack_files/**'],
+  directories: { output: 'dist', buildResources: 'build' },
   win: {
     target: [{ target: 'nsis', arch: ['x64'] }],
-    icon: 'build/icons/icon.ico',
-    artifactName: '${productName}-Setup-${version}.${ext}'
-  },
-  linux: {
-    target: [
-      { target: 'AppImage', arch: ['x64'] },
-      { target: 'deb', arch: ['x64'] }
-    ],
-    icon: 'build/icons',
-    category: 'Game',
-    maintainer: 'Gurika Qartvelishvili <noreply@kalilauncher.local>',
-    artifactName: '${productName}-${version}-${arch}.${ext}'
+    icon: 'build/icons/icon.ico'
   },
   nsis: {
     oneClick: false,
-    perMachine: false,
-    allowElevation: true,
     allowToChangeInstallationDirectory: true,
-    deleteAppDataOnUninstall: false,
-    createDesktopShortcut: 'always',
-    createStartMenuShortcut: true,
-    shortcutName: 'KaliLauncher'
+    installerIcon: 'build/icons/icon.ico',
+    uninstallerIcon: 'build/icons/icon.ico',
+    installerHeaderIcon: 'build/icons/icon.ico',
+    createDesktopShortcut: true,
+    createStartMenuShortcut: true
+  },
+  linux: {
+    target: ['AppImage', 'deb'],
+    icon: 'build/icons/512x512.png',
+    category: 'Game'
   },
   publish
 };
