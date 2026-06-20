@@ -3,7 +3,7 @@ const repo  = process.env.GH_REPO;
 
 let publish;
 if (owner && repo) {
-  publish = [{ provider: 'github', owner, repo, draft: false }];
+  publish = [{ provider: 'github', owner, repo, releaseType: 'release' }];
 } else {
   publish = [{ provider: 'generic', url: 'https://example.com' }];
 }
