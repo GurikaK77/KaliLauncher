@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<!-- skill:chrome -->
+<style>
+/* Credit line — bottom-right */
+.design-ui-credit {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  font: 11px/1 system-ui, sans-serif;
+  color: rgba(128,128,128,0.5);
+  pointer-events: none;
+  z-index: 2147483647;
+  transition: opacity 0.4s ease;
+  user-select: none;
+  letter-spacing: 0.02em;
+}
+
+/* Hide chrome on touch devices */
+@media (hover: none) {
+  .design-ui-credit { display: none; }
+}
+
+/* Print fixes */
+@media print {
+  * {
+    transition: none !important;
+    animation: none !important;
+    box-shadow: none !important;
+  }
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  .design-ui-credit { display: none !important; }
+}
+
+</style>
+<script>
+(function () {
+    // Design-ui pages are single compositions, so the whole body is editable.
+    function markEditable() {
+        document.body.classList.add('artifact-editable');
+    }
+
+    // Credit badge with idle-fade. Hover devices only.
+    function initChromeUI() {
+        if (!matchMedia('(hover: hover)').matches) return;
+
+        var credit = document.createElement('div');
+        credit.className = 'design-ui-credit';
+        credit.setAttribute('aria-hidden', 'true');
+        credit.innerHTML = '\u{1F49C} by ClickUp Brain';
+        document.body.appendChild(credit);
+
+        var timer = null;
+        var fade = function (out) { credit.style.opacity = out ? '0' : ''; };
+        fade(true);
+        var show = function () {
+            fade(false);
+            clearTimeout(timer);
+            timer = setTimeout(function () { fade(true); }, 3000);
+        };
+        document.addEventListener('mousemove', show);
+        show();
+    }
+
+    function init() {
+        markEditable();
+        initChromeUI();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
+
+</script>
+<!-- /skill:chrome -->
+<meta charset="utf-8" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self' 'unsafe-inline'" />
+<title>Rocket Launcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper:        oklch(0.968 0.009 84);
+    --surface:      oklch(0.991 0.005 84);
+    --sunk:         oklch(0.936 0.013 84);
+    --line:         oklch(0.882 0.014 82);
+    --line-strong:  oklch(0.795 0.018 82);
+    --ink:          oklch(0.255 0.024 62);
+    --ink-2:        oklch(0.452 0.021 70);
+    --ink-3:        oklch(0.608 0.018 76);
+    --pine:         oklch(0.428 0.098 156);
+    --pine-hi:      oklch(0.512 0.116 154);
+    --pine-wash:    oklch(0.934 0.031 156);
+    --clay:         oklch(0.588 0.152 42);
+    --clay-wash:    oklch(0.944 0.042 52);
+    --amber:        oklch(0.742 0.129 78);
+    --danger:       oklch(0.512 0.168 25);
+
+    --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+    --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px;
+
+    --r-sm: 6px; --r-md: 10px; --r-lg: 16px;
+    --out: cubic-bezier(0.22, 1, 0.36, 1);
+    --shadow-sm: 0 1px 2px oklch(0.25 0.02 62 / 0.06);
+    --shadow-md: 0 8px 24px -12px oklch(0.25 0.02 62 / 0.24);
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 16px/1.5 'Noto Sans Georgian', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+    user-select: none;
+  }
+  h1, h2, h3 { margin: 0; text-wrap: balance; }
+  button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; }
+  input, select { font: inherit; color: inherit; }
+  ::selection { background: var(--pine-wash); }
+
+  .app {
+    display: grid;
+    grid-template-columns: 252px minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+    height: 100vh;
+  }
+
+  /* ---------- გვერდითი პანელი ---------- */
+  .rail {
+    grid-row: 1 / 3;
+    background: var(--surface);
+    border-right: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    padding: var(--s-5) var(--s-4) var(--s-4);
+    gap: var(--s-6);
+  }
+  .brand { display: flex; align-items: center; gap: var(--s-3); padding-left: var(--s-2); }
+  .brand .mark {
+    width: 34px; height: 34px; border-radius: 9px;
+    background: var(--pine); color: var(--pine-wash);
+    display: grid; place-items: center;
+    font-weight: 800; font-size: 1.125rem; letter-spacing: -0.02em;
+    box-shadow: inset 0 -2px 0 oklch(0.35 0.08 156);
+  }
+  .brand b { display: block; font-weight: 800; letter-spacing: -0.015em; line-height: 1.1; }
+  .brand small { color: var(--ink-3); font-size: 0.75rem; font-family: var(--mono); }
+
+  nav { display: flex; flex-direction: column; gap: 2px; }
+  .nav-item {
+    display: flex; align-items: center; gap: var(--s-3);
+    padding: 10px var(--s-3); border-radius: var(--r-md);
+    color: var(--ink-2); font-weight: 500; text-align: left;
+    transition: background 140ms var(--out), color 140ms var(--out);
+  }
+  .nav-item svg { width: 18px; height: 18px; flex: none; opacity: 0.75; }
+  .nav-item:hover { background: var(--sunk); color: var(--ink); }
+  .nav-item[aria-current='true'] { background: var(--pine-wash); color: oklch(0.32 0.08 156); font-weight: 600; }
+  .nav-item[aria-current='true'] svg { opacity: 1; }
+  .nav-item .badge {
+    margin-left: auto; font-family: var(--mono); font-size: 0.6875rem; font-weight: 600;
+    background: var(--clay); color: oklch(0.98 0.01 60); border-radius: 20px; padding: 1px 7px;
+  }
+
+  .rail-foot { margin-top: auto; display: flex; flex-direction: column; gap: var(--s-3); }
+  .who { display: flex; align-items: center; gap: var(--s-3); padding: var(--s-2); border-top: 1px solid var(--line); padding-top: var(--s-4); }
+  .who canvas { width: 32px; height: 64px; image-rendering: pixelated; }
+  .who b { display: block; font-size: 0.9375rem; line-height: 1.2; }
+  .who small { color: var(--ink-3); font-size: 0.75rem; }
+
+  /* ---------- ხედები ---------- */
+  main { overflow-y: auto; padding: var(--s-7) var(--s-7) var(--s-8); }
+  main::-webkit-scrollbar { width: 10px; }
+  main::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 10px; border: 3px solid var(--paper); }
+  .view { display: none; max-width: 1000px; }
+  .view.on { display: block; animation: rise 380ms var(--out) both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+
+  .eyebrow {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--pine); margin-bottom: var(--s-2);
+  }
+  h1 { font-size: clamp(1.875rem, 3.4vw, 2.5rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; }
+  .lede { color: var(--ink-2); margin: var(--s-3) 0 0; max-width: 62ch; }
+
+  /* ---------- გაშვება ---------- */
+  .play-grid { display: grid; grid-template-columns: minmax(0, 1fr) 264px; gap: var(--s-8); margin-top: var(--s-7); align-items: start; }
+  @media (max-width: 1080px) { .play-grid { grid-template-columns: minmax(0, 1fr); gap: var(--s-6); } }
+
+  .field-label {
+    display: block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--ink-3); margin-bottom: var(--s-2);
+  }
+
+  .loaders { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+  .loader-chip {
+    padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line-strong);
+    font-weight: 500; color: var(--ink-2); background: var(--surface);
+    transition: transform 140ms var(--out), border-color 140ms var(--out), color 140ms var(--out), background 140ms var(--out);
+  }
+  .loader-chip:hover { border-color: var(--pine); color: var(--ink); }
+  .loader-chip:active { transform: scale(0.97); }
+  .loader-chip[aria-pressed='true'] {
+    background: var(--pine); border-color: var(--pine); color: oklch(0.98 0.012 156); font-weight: 600;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .selects { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); margin-top: var(--s-6); }
+  @media (max-width: 640px) { .selects { grid-template-columns: 1fr; } }
+  .select-wrap { position: relative; }
+  select {
+    appearance: none; width: 100%; padding: 13px 40px 13px 14px;
+    background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--r-md);
+    font-family: var(--mono); font-size: 0.9375rem; cursor: pointer;
+    transition: border-color 140ms var(--out), box-shadow 140ms var(--out);
+  }
+  select:hover:enabled { border-color: var(--pine); }
+  select:disabled { color: var(--ink-3); background: var(--sunk); cursor: not-allowed; }
+  .select-wrap::after {
+    content: ''; position: absolute; right: 15px; top: 50%; width: 8px; height: 8px;
+    border-right: 2px solid var(--ink-3); border-bottom: 2px solid var(--ink-3);
+    transform: translateY(-70%) rotate(45deg); pointer-events: none;
+  }
+  .skeleton {
+    height: 48px; border-radius: var(--r-md);
+    background: linear-gradient(90deg, var(--sunk) 25%, oklch(0.955 0.01 84) 37%, var(--sunk) 63%);
+    background-size: 400% 100%; animation: shimmer 1.4s linear infinite;
+  }
+  @keyframes shimmer { to { background-position: -135% 0; } }
+
+  .launch-row { display: flex; align-items: center; gap: var(--s-5); margin-top: var(--s-7); flex-wrap: wrap; }
+  .btn-launch {
+    display: inline-flex; align-items: center; gap: var(--s-3);
+    padding: 17px 34px 17px 30px; border-radius: 14px;
+    background: var(--pine); color: oklch(0.98 0.012 156);
+    font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em;
+    box-shadow: 0 10px 20px -14px oklch(0.42 0.1 156 / 0.9), inset 0 -2px 0 oklch(0.36 0.09 156);
+    transition: transform 160ms var(--out), background 160ms var(--out), box-shadow 160ms var(--out);
+  }
+  .btn-launch svg { width: 20px; height: 20px; }
+  .btn-launch:hover:enabled { background: var(--pine-hi); transform: translateY(-1px); }
+  .btn-launch:active:enabled { transform: translateY(1px) scale(0.99); }
+  .btn-launch:disabled { background: var(--line-strong); color: oklch(0.99 0 0); box-shadow: none; cursor: progress; }
+  .launch-note { color: var(--ink-3); font-size: 0.875rem; }
+  .launch-note b { color: var(--ink-2); font-family: var(--mono); font-weight: 600; }
+
+  .error-strip {
+    display: none; margin-top: var(--s-5); padding: var(--s-3) var(--s-4);
+    background: oklch(0.955 0.035 25); border: 1px solid oklch(0.83 0.08 25);
+    border-radius: var(--r-md); color: var(--danger); font-size: 0.9375rem;
+  }
+  .error-strip.on { display: block; }
+
+  /* ---------- პროფილი ---------- */
+  .profile { background: var(--sunk); border-radius: var(--r-lg); padding: var(--s-5); }
+  .profile h3 { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; }
+  .skin-stage { display: flex; justify-content: center; padding: var(--s-5) 0 var(--s-4); }
+  .skin-stage canvas { width: 88px; height: 176px; image-rendering: pixelated; filter: drop-shadow(0 12px 14px oklch(0.25 0.02 62 / 0.18)); }
+  .text-input {
+    width: 100%; padding: 11px 13px; background: var(--surface);
+    border: 1px solid var(--line-strong); border-radius: var(--r-sm);
+    font-family: var(--mono); font-size: 0.9375rem;
+  }
+  .text-input:focus-visible { outline: 2px solid var(--pine); outline-offset: 1px; border-color: var(--pine); }
+  .profile-actions { display: flex; gap: var(--s-2); margin-top: var(--s-3); }
+  .btn-ghost {
+    flex: 1; padding: 9px 12px; border-radius: var(--r-sm); border: 1px solid var(--line-strong);
+    background: var(--surface); font-size: 0.875rem; font-weight: 500; color: var(--ink-2);
+    transition: border-color 140ms var(--out), color 140ms var(--out);
+  }
+  .btn-ghost:hover { border-color: var(--pine); color: var(--ink); }
+  .uuid { margin-top: var(--s-4); font-family: var(--mono); font-size: 0.6875rem; color: var(--ink-3); word-break: break-all; }
+
+  /* ---------- სიები ---------- */
+  .list { margin-top: var(--s-6); border-top: 1px solid var(--line); }
+  .row {
+    display: grid; grid-template-columns: 64px minmax(0, 1fr) auto;
+    gap: var(--s-4); align-items: center;
+    padding: var(--s-5) var(--s-2); border-bottom: 1px solid var(--line);
+    transition: background 160ms var(--out);
+  }
+  .row:hover { background: var(--surface); }
+  .thumb {
+    width: 64px; height: 64px; border-radius: var(--r-md); overflow: hidden;
+    background: var(--pine-wash); display: grid; place-items: center;
+    font-weight: 800; font-size: 1.5rem; color: var(--pine); image-rendering: pixelated;
+  }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
+  .row h3 { font-size: 1.1875rem; font-weight: 600; letter-spacing: -0.015em; }
+  .meta { font-family: var(--mono); font-size: 0.75rem; color: var(--ink-3); margin-top: 3px; }
+  .meta span + span::before { content: '·'; margin: 0 6px; color: var(--line-strong); }
+  .desc { color: var(--ink-2); font-size: 0.9375rem; margin-top: var(--s-2); max-width: 68ch; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .row-actions { display: flex; align-items: center; gap: var(--s-2); }
+
+  .btn {
+    padding: 10px 18px; border-radius: var(--r-sm); background: var(--pine);
+    color: oklch(0.98 0.012 156); font-weight: 600; font-size: 0.9375rem;
+    transition: background 140ms var(--out), transform 140ms var(--out);
+  }
+  .btn:hover:enabled { background: var(--pine-hi); }
+  .btn:active:enabled { transform: scale(0.98); }
+  .btn:disabled { background: var(--line-strong); cursor: not-allowed; }
+  .btn.clay { background: var(--clay); }
+  .btn.clay:hover:enabled { background: oklch(0.64 0.16 44); }
+  .icon-btn {
+    width: 36px; height: 36px; border-radius: var(--r-sm); border: 1px solid var(--line);
+    display: grid; place-items: center; color: var(--ink-3);
+    transition: border-color 140ms var(--out), color 140ms var(--out);
+  }
+  .icon-btn svg { width: 16px; height: 16px; }
+  .icon-btn:hover { border-color: var(--line-strong); color: var(--ink); }
+  .icon-btn.danger:hover { border-color: var(--danger); color: var(--danger); }
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px;
+    font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.04em; font-family: var(--mono);
+  }
+  .pill.update { background: var(--clay-wash); color: oklch(0.46 0.14 42); }
+  .pill.ok { background: var(--pine-wash); color: oklch(0.36 0.08 156); }
+  .pill.dot::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+  /* ---------- ცარიელი მდგომარეობა ---------- */
+  .empty { margin-top: var(--s-6); padding: var(--s-7) var(--s-6); background: var(--surface); border: 1px dashed var(--line-strong); border-radius: var(--r-lg); }
+  .empty h3 { font-size: 1.375rem; font-weight: 700; letter-spacing: -0.02em; }
+  .empty p { color: var(--ink-2); margin: var(--s-3) 0 var(--s-5); max-width: 60ch; }
+  pre {
+    margin: 0; padding: var(--s-4); background: var(--sunk); border-radius: var(--r-md);
+    font-family: var(--mono); font-size: 0.75rem; line-height: 1.7; color: var(--ink-2);
+    overflow-x: auto; user-select: text;
+  }
+  .empty-actions { display: flex; gap: var(--s-3); margin-top: var(--s-5); }
+
+  /* ---------- პარამეტრები ---------- */
+  .settings { margin-top: var(--s-6); border-top: 1px solid var(--line); }
+  .set-row {
+    display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: var(--s-5);
+    align-items: center; padding: var(--s-5) var(--s-2); border-bottom: 1px solid var(--line);
+  }
+  @media (max-width: 820px) { .set-row { grid-template-columns: 1fr; gap: var(--s-3); } }
+  .set-row b { font-weight: 600; }
+  .set-row p { margin: 3px 0 0; color: var(--ink-3); font-size: 0.875rem; }
+  .ram-value { font-family: var(--mono); font-variant-numeric: tabular-nums; font-weight: 600; min-width: 72px; text-align: right; }
+  input[type='range'] { flex: 1; accent-color: var(--pine); }
+  .path {
+    font-family: var(--mono); font-size: 0.75rem; color: var(--ink-2); background: var(--sunk);
+    padding: 8px 10px; border-radius: var(--r-sm); user-select: text; word-break: break-all;
+  }
+  .switch {
+    width: 46px; height: 26px; border-radius: 999px; background: var(--line-strong);
+    position: relative; transition: background 180ms var(--out); justify-self: start;
+  }
+  .switch::after {
+    content: ''; position: absolute; inset: 3px auto 3px 3px; width: 20px; border-radius: 50%;
+    background: var(--surface); box-shadow: var(--shadow-sm); transition: transform 220ms var(--out);
+  }
+  .switch[aria-checked='true'] { background: var(--pine); }
+  .switch[aria-checked='true']::after { transform: translateX(20px); }
+  .row-inline { display: flex; align-items: center; gap: var(--s-3); }
+
+  /* ---------- სტატუსი და ლოგი ---------- */
+  .status {
+    display: flex; align-items: center; gap: var(--s-4);
+    padding: 0 var(--s-5); height: 52px;
+    background: var(--surface); border-top: 1px solid var(--line);
+  }
+  .bar { flex: 1; height: 5px; border-radius: 3px; background: var(--sunk); overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 0; background: var(--pine); border-radius: 3px; transform-origin: left; transition: width 320ms var(--out); }
+  .status .stage { font-size: 0.875rem; color: var(--ink-2); min-width: 220px; }
+  .status .stage.busy { color: var(--pine); font-weight: 500; }
+  .log-toggle { display: flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 0.75rem; color: var(--ink-3); padding: 6px 10px; border-radius: var(--r-sm); }
+  .log-toggle:hover { background: var(--sunk); color: var(--ink); }
+
+  .console {
+    position: fixed; left: 252px; right: 0; bottom: 52px; height: 42vh;
+    background: oklch(0.222 0.018 62); color: oklch(0.86 0.015 84);
+    transform: translateY(calc(100% + 52px)); transition: transform 420ms var(--out);
+    display: flex; flex-direction: column; box-shadow: var(--shadow-md); z-index: 40;
+  }
+  .console.on { transform: translateY(0); }
+  .console header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: var(--s-3) var(--s-5); border-bottom: 1px solid oklch(0.3 0.02 62);
+    font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.7 0.02 84);
+  }
+  .console header button { color: oklch(0.72 0.02 84); font-family: var(--mono); font-size: 0.75rem; }
+  .console header button:hover { color: oklch(0.95 0.01 84); }
+  .console .lines { flex: 1; overflow-y: auto; padding: var(--s-3) var(--s-5) var(--s-5); font-family: var(--mono); font-size: 0.75rem; line-height: 1.75; user-select: text; }
+  .console .lines div { white-space: pre-wrap; word-break: break-word; }
+  .console .lines .warn { color: var(--amber); }
+  .console .lines .err { color: oklch(0.72 0.15 25); }
+  .console .lines:empty::after { content: 'ლოგი ცარიელია. გაუშვი თამაში.'; color: oklch(0.55 0.02 84); }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="rail">
+    <div class="brand">
+      <span class="mark">R</span>
+      <div><b>Rocket</b><small>Launcher 1.0</small></div>
+    </div>
+
+    <nav id="nav">
+      <button class="nav-item" data-view="play" aria-current="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9-14 9V3z"/></svg>
+        გაშვება
+      </button>
+      <button class="nav-item" data-view="resources">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V6a2 2 0 012-2h5v15H6a2 2 0 00-2 2z"/><path d="M11 4h7a2 2 0 012 2v13H11z"/></svg>
+        რესურსები
+        <span class="badge" id="badgeRes" hidden>0</span>
+      </button>
+      <button class="nav-item" data-view="packs">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 12l9 5 9-5"/><path d="M3 16l9 5 9-5"/></svg>
+        მოდპაკები
+        <span class="badge" id="badgePacks" hidden>0</span>
+      </button>
+      <button class="nav-item" data-view="settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 14.5a1.7 1.7 0 00.34 1.87l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.7 1.7 0 00-2.88 1.2V21a2 2 0 11-4 0v-.1a1.7 1.7 0 00-2.88-1.2l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.7 1.7 0 003.6 14.5H3.5a2 2 0 110-4h.1a1.7 1.7 0 001.2-2.88l-.06-.06A2 2 0 117.57 4.7l.06.06a1.7 1.7 0 002.87-1.2V3.5a2 2 0 114 0v.1a1.7 1.7 0 002.88 1.2l.06-.06a2 2 0 112.83 2.83l-.06.06a1.7 1.7 0 00-1.2 2.87h.1a2 2 0 110 4h-.1z"/></svg>
+        პარამეტრები
+      </button>
+    </nav>
+
+    <div class="rail-foot">
+      <div class="who">
+        <canvas id="railSkin" width="16" height="32"></canvas>
+        <div><b id="railName">Player</b><small>ოფლაინ პროფილი</small></div>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <!-- გაშვება -->
+    <section class="view on" id="view-play">
+      <p class="eyebrow">სწრაფი გაშვება</p>
+      <h1>რას ვთამაშობთ დღეს?</h1>
+      <p class="lede">აირჩიე ლოადერი და ვერსია. ყველაფერს დანარჩენს (ბიბლიოთეკები, რესურსები, სწორი Java) ლაუნჩერი თვითონ ჩამოწერს.</p>
+
+      <div class="play-grid">
+        <div>
+          <span class="field-label">ლოადერი</span>
+          <div class="loaders" id="loaders"></div>
+
+          <div class="selects">
+            <div>
+              <span class="field-label">Minecraft ვერსია</span>
+              <div class="select-wrap" id="mcWrap"><div class="skeleton"></div></div>
+            </div>
+            <div>
+              <span class="field-label" id="lvLabel">ლოადერის ბილდი</span>
+              <div class="select-wrap" id="lvWrap"><div class="skeleton"></div></div>
+            </div>
+          </div>
+
+          <div class="launch-row">
+            <button class="btn-launch" id="btnLaunch">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/><path d="M9 12H4s.55-3.03 2-4h5"/><path d="M12 15v5s3.03-.55 4-2v-5"/></svg>
+              გაშვება
+            </button>
+            <p class="launch-note" id="launchNote"></p>
+          </div>
+          <div class="error-strip" id="playError"></div>
+        </div>
+
+        <aside class="profile">
+          <h3>პროფილი</h3>
+          <div class="skin-stage"><canvas id="bigSkin" width="16" height="32"></canvas></div>
+          <label class="field-label" for="nameInput">სახელი</label>
+          <input class="text-input" id="nameInput" maxlength="16" spellcheck="false" autocomplete="off" />
+          <div class="profile-actions">
+            <button class="btn-ghost" id="btnSkin">სკინის არჩევა</button>
+            <button class="btn-ghost" id="btnSkinClear" title="სკინის მოხსნა">×</button>
+          </div>
+          <p class="uuid" id="uuidLine"></p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- რესურსები -->
+    <section class="view" id="view-resources">
+      <p class="eyebrow">ბიბლიოთეკა</p>
+      <h1>რესურსები</h1>
+      <p class="lede">ყველაფერი, რაც <code>modpack-files</code> ფოლდერშია. ჩამოწერის შემდეგ პაკი გადადის „მოდპაკებში“, აქ კი განახლების ღილაკი გამოჩნდება.</p>
+      <div id="resList"></div>
+    </section>
+
+    <!-- მოდპაკები -->
+    <section class="view" id="view-packs">
+      <p class="eyebrow">დაინსტალირებული</p>
+      <h1>მოდპაკები</h1>
+      <p class="lede">თითოეულს თავისი ფოლდერი, მოდები და სამყაროები აქვს. განახლება <b>saves</b>-ს არ ეხება.</p>
+      <div id="packList"></div>
+    </section>
+
+    <!-- პარამეტრები -->
+    <section class="view" id="view-settings">
+      <p class="eyebrow">კონფიგურაცია</p>
+      <h1>პარამეტრები</h1>
+      <div class="settings" id="settings"></div>
+    </section>
+  </main>
+
+  <footer class="status">
+    <span class="stage" id="stage">მზადაა</span>
+    <div class="bar"><i id="barFill"></i></div>
+    <button class="log-toggle" id="btnLog">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 17l6-6-6-6"/><path d="M12 19h8"/></svg>
+      ლოგი
+    </button>
+  </footer>
+</div>
+
+<div class="console" id="console">
+  <header>
+    <span>კონსოლი</span>
+    <div class="row-inline">
+      <button id="btnStop">თამაშის შეწყვეტა</button>
+      <button id="btnClearLog">გასუფთავება</button>
+      <button id="btnCloseLog">დახურვა</button>
+    </div>
+  </header>
+  <div class="lines" id="logLines"></div>
+</div>
+
+<script>
+const R = window.rocket;
+const $ = (id) => document.getElementById(id);
+const el = (html) => { const t = document.createElement('template'); t.innerHTML = html.trim(); return t.content.firstElementChild; };
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+
+const LOADERS = [
+  { id: 'vanilla', label: 'Vanilla' },
+  { id: 'fabric', label: 'Fabric' },
+  { id: 'forge', label: 'Forge' },
+  { id: 'neoforge', label: 'NeoForge' },
+  { id: 'optifine', label: 'OptiFine' },
+];
+
+const S = {
+  view: 'play', cfg: null, loader: 'vanilla', mc: '', lv: '',
+  mcList: [], lvList: [], res: [], packs: [], busy: false, skinImg: null,
+};
+
+/* ---------- სკინის რენდერი ---------- */
+const PARTS64 = {
+  head: [8, 8, 8, 8], hat: [40, 8, 8, 8], body: [20, 20, 8, 12],
+  armR: [44, 20, 4, 12], armL: [36, 52, 4, 12], legR: [4, 20, 4, 12], legL: [20, 52, 4, 12],
+};
+function drawSkin(canvas, img) {
+  const ctx = canvas.getContext('2d');
+  ctx.imageSmoothingEnabled = false;
+  ctx.clearRect(0, 0, 16, 32);
+  if (!img) {
+    const body = [['#3f6b52', 4, 0, 8, 8], ['#4f7f61', 4, 8, 8, 12], ['#3f6b52', 0, 8, 4, 12],
+      ['#3f6b52', 12, 8, 4, 12], ['#355b45', 4, 20, 4, 12], ['#355b45', 8, 20, 4, 12]];
+    body.forEach(([c, x, y, w, h]) => { ctx.fillStyle = c; ctx.fillRect(x, y, w, h); });
+    return;
+  }
+  const legacy = img.height <= 32;
+  const put = (part, dx, dy, mirror = false) => {
+    let [sx, sy, w, h] = PARTS64[part];
+    if (legacy && (part === 'armL' || part === 'legL')) {
+      [sx, sy, w, h] = PARTS64[part === 'armL' ? 'armR' : 'legR'];
+      mirror = true;
+    }
+    if (!mirror) return ctx.drawImage(img, sx, sy, w, h, dx, dy, w, h);
+    ctx.save(); ctx.translate(dx + w, dy); ctx.scale(-1, 1);
+    ctx.drawImage(img, sx, sy, w, h, 0, 0, w, h); ctx.restore();
+  };
+  put('legR', 4, 20); put('legL', 8, 20, !legacy ? false : true);
+  put('armR', 0, 8); put('armL', 12, 8);
+  put('body', 4, 8); put('head', 4, 0);
+  if (!legacy) put('hat', 4, 0);
+}
+function paintSkins() {
+  drawSkin($('bigSkin'), S.skinImg);
+  drawSkin($('railSkin'), S.skinImg);
+}
+function setSkin(dataUrl) {
+  if (!dataUrl) { S.skinImg = null; paintSkins(); return; }
+  const img = new Image();
+  img.onload = () => { S.skinImg = img; paintSkins(); };
+  img.src = dataUrl;
+}
+
+/* ---------- ნავიგაცია ---------- */
+$('nav').addEventListener('click', (e) => {
+  const btn = e.target.closest('.nav-item');
+  if (btn) show(btn.dataset.view);
+});
+function show(view) {
+  S.view = view;
+  document.querySelectorAll('.nav-item').forEach((b) => b.setAttribute('aria-current', String(b.dataset.view === view)));
+  document.querySelectorAll('.view').forEach((v) => v.classList.toggle('on', v.id === 'view-' + view));
+  if (view === 'resources') loadResources();
+  if (view === 'packs') loadPacks();
+}
+
+/* ---------- სტატუსი და ლოგი ---------- */
+function setStage(text, pct, busy = false) {
+  $('stage').textContent = text;
+  $('stage').classList.toggle('busy', busy);
+  if (pct != null) $('barFill').style.width = Math.round(Math.max(0, Math.min(1, pct)) * 100) + '%';
+}
+function addLog(line) {
+  const box = $('logLines');
+  const cls = /error|exception|failed|ჩავარდა/i.test(line) ? 'err' : /warn/i.test(line) ? 'warn' : '';
+  box.appendChild(el(`<div class="${cls}">${esc(line)}</div>`));
+  while (box.childElementCount > 900) box.removeChild(box.firstChild);
+  box.scrollTop = box.scrollHeight;
+}
+$('btnLog').onclick = () => $('console').classList.toggle('on');
+$('btnCloseLog').onclick = () => $('console').classList.remove('on');
+$('btnClearLog').onclick = () => { $('logLines').innerHTML = ''; };
+$('btnStop').onclick = () => R.stop();
+
+R.on('progress', (p) => {
+  if (p.stage) setStage(p.stage, p.pct, p.pct != null && p.pct < 1);
+  if (p.line) addLog(p.line);
+  if (p.exit !== undefined) { S.busy = false; syncLaunchBtn(); }
+});
+R.on('log', addLog);
+
+/* ---------- გაშვების პანელი ---------- */
+function renderLoaders() {
+  $('loaders').innerHTML = '';
+  LOADERS.forEach((l) => {
+    const b = el(`<button class="loader-chip" aria-pressed="${l.id === S.loader}">${l.label}</button>`);
+    b.onclick = () => { if (S.loader === l.id) return; S.loader = l.id; renderLoaders(); loadVersions(); };
+    $('loaders').appendChild(b);
+  });
+}
+
+function selectHtml(id, items, current, disabled, placeholder) {
+  if (!items.length) {
+    return el(`<select id="${id}" disabled><option>${esc(placeholder)}</option></select>`);
+  }
+  const sel = el(`<select id="${id}" ${disabled ? 'disabled' : ''}></select>`);
+  items.forEach((v) => {
+    const o = document.createElement('option');
+    o.value = v; o.textContent = v;
+    if (v === current) o.selected = true;
+    sel.appendChild(o);
+  });
+  return sel;
+}
+
+async function loadVersions(keepMc) {
+  const skeleton = '<div class="skeleton"></div>';
+  $('mcWrap').innerHTML = skeleton;
+  $('lvWrap').innerHTML = skeleton;
+  $('playError').classList.remove('on');
+  try {
+    S.mcList = await R.mcVersions(S.loader);
+    if (!keepMc || !S.mcList.includes(S.mc)) S.mc = S.mcList[0] || '';
+    const mcSel = selectHtml('mcSelect', S.mcList, S.mc, false, 'ვერსიები ვერ ჩამოიტვირთა');
+    mcSel.onchange = () => { S.mc = mcSel.value; loadLoaderVersions(); };
+    $('mcWrap').innerHTML = ''; $('mcWrap').appendChild(mcSel);
+    await loadLoaderVersions();
+  } catch (e) {
+    $('mcWrap').innerHTML = '';
+    $('mcWrap').appendChild(selectHtml('mcSelect', [], '', true, 'ინტერნეტი ვერ მოიძებნა'));
+    fail(e.message);
+  }
+  syncLaunchBtn();
+}
+
+async function loadLoaderVersions() {
+  $('lvLabel').textContent = S.loader === 'optifine' ? 'OptiFine jar' : 'ლოადერის ბილდი';
+  if (S.loader === 'vanilla') {
+    S.lvList = []; S.lv = '';
+    $('lvWrap').innerHTML = '';
+    $('lvWrap').appendChild(selectHtml('lvSelect', [], '', true, 'Vanilla-ს ბილდი არ სჭირდება'));
+    return syncLaunchBtn();
+  }
+  $('lvWrap').innerHTML = '<div class="skeleton"></div>';
+  try {
+    S.lvList = await R.loaderVersions(S.loader, S.mc);
+    S.lv = S.lvList[0] || '';
+    const empty = S.loader === 'optifine' ? `ჩააგდე jar ფოლდერში optifine/` : 'ბილდი ვერ მოიძებნა';
+    const sel = selectHtml('lvSelect', S.lvList, S.lv, false, empty);
+    sel.onchange = () => { S.lv = sel.value; };
+    $('lvWrap').innerHTML = ''; $('lvWrap').appendChild(sel);
+  } catch (e) {
+    $('lvWrap').innerHTML = '';
+    $('lvWrap').appendChild(selectHtml('lvSelect', [], '', true, 'სია ვერ ჩამოიტვირთა'));
+  }
+  syncLaunchBtn();
+}
+
+function fail(msg) {
+  const box = $('playError');
+  box.textContent = msg;
+  box.classList.add('on');
+  setStage('შეჩერდა', 0);
+}
+
+function syncLaunchBtn() {
+  const ok = Boolean(S.mc) && (S.loader === 'vanilla' || Boolean(S.lv));
+  $('btnLaunch').disabled = S.busy || !ok;
+  const ram = S.cfg ? (S.cfg.ram / 1024).toFixed(ram => 0) : '4';
+  $('launchNote').innerHTML = S.busy
+    ? 'მუშაობს…'
+    : `<b>${esc(S.mc || '—')}</b> · ${esc(S.loader)}${S.lv ? ' · <b>' + esc(S.lv) + '</b>' : ''} · RAM <b>${S.cfg ? Math.round(S.cfg.ram / 1024) : 4} GB</b>`;
+}
+
+$('btnLaunch').onclick = async () => {
+  S.busy = true; syncLaunchBtn();
+  $('playError').classList.remove('on');
+  $('console').classList.add('on');
+  setStage('მზადება…', 0.02, true);
+  try {
+    await R.launch({ loader: S.loader, mcVersion: S.mc, loaderVersion: S.lv });
+  } catch (e) {
+    fail(e.message);
+    addLog(e.message);
+  }
+  S.busy = false; syncLaunchBtn();
+};
+
+/* ---------- პროფილი ---------- */
+$('nameInput').addEventListener('input', async (e) => {
+  const v = e.target.value.replace(/[^A-Za-z0-9_]/g, '').slice(0, 16);
+  e.target.value = v;
+  $('railName').textContent = v || 'Player';
+  S.cfg.playerName = v || 'Player';
+  await R.setConfig({ playerName: S.cfg.playerName });
+});
+$('btnSkin').onclick = async () => {
+  const res = await R.pickSkin();
+  if (res) { setSkin(res.data); setStage('სკინი შენახულია', 1); }
+};
+$('btnSkinClear').onclick = async () => { await R.clearSkin(); setSkin(null); };
+
+/* ---------- რესურსები ---------- */
+async function loadResources() {
+  const box = $('resList');
+  box.innerHTML = '<div class="list"><div class="row"><div class="skeleton" style="width:64px;height:64px"></div><div><div class="skeleton" style="height:20px;width:40%"></div></div><div></div></div></div>';
+  try {
+    S.res = await R.packsAvailable();
+  } catch (e) { box.innerHTML = ''; return fail(e.message); }
+
+  const badge = $('badgeRes');
+  const updates = S.res.filter((p) => p.updateAvailable).length;
+  badge.hidden = !updates; badge.textContent = updates;
+
+  if (!S.res.length) {
+    box.innerHTML = '';
+    box.appendChild(el(`
+      <div class="empty">
+        <h3>ჯერ ერთი მოდპაკიც არ არის</h3>
+        <p>შექმენი ფოლდერი <code>modpack-files</code>-ში, ჩააგდე მოდები <code>files/</code>-ში და აღწერე <code>modpack.json</code>. ლაუნჩერი მაშინვე დაინახავს.</p>
+        <pre>modpack-files/
+└── my-pack/
+    ├── modpack.json
+    ├── icon.png
+    └── files/
+        ├── mods/
+        ├── config/
+        └── resourcepacks/
+
+modpack.json:
+{
+  "name": "ჩემი პაკი",
+  "version": "1.0.0",
+  "author": "Gurika",
+  "mcVersion": "1.20.1",
+  "loader": "forge",
+  "loaderVersion": "47.2.20",
+  "ram": 6144
+}</pre>
+        <div class="empty-actions">
+          <button class="btn" id="btnScaffold">ჩონჩხის შექმნა</button>
+          <button class="btn-ghost" id="btnOpenSrc" style="flex:0 0 auto;padding:10px 18px">ფოლდერის გახსნა</button>
+        </div>
+      </div>`));
+    $('btnScaffold').onclick = async () => { await R.newPack('my-pack'); loadResources(); };
+    $('btnOpenSrc').onclick = () => R.openPath('modpackFiles');
+    return;
+  }
+
+  const list = el('<div class="list"></div>');
+  S.res.forEach((p) => list.appendChild(resRow(p)));
+  box.innerHTML = ''; box.appendChild(list);
+}
+
+function resRow(p) {
+  const initials = esc((p.name || '?').trim().charAt(0).toUpperCase());
+  const row = el(`
+    <div class="row">
+      <div class="thumb">${p.icon ? `<img src="${p.icon}" alt="" />` : initials}</div>
+      <div>
+        <h3>${esc(p.name)}</h3>
+        <p class="meta">
+          <span>v${esc(p.version)}</span><span>${esc(p.author)}</span>
+          <span>${esc(p.mcVersion)} ${esc(p.loader)}</span>
+          <span>${p.fileCount} ფაილი</span><span>${sizeText(p.size)}</span>
+        </p>
+        ${p.description ? `<p class="desc">${esc(p.description)}</p>` : ''}
+        ${!p.valid ? `<p class="desc" style="color:var(--danger)">აკლია ქვე-ფოლდერი files/</p>` : ''}
+      </div>
+      <div class="row-actions"></div>
+    </div>`);
+  const actions = row.querySelector('.row-actions');
+
+  if (!p.installed) {
+    const b = el(`<button class="btn"${p.valid ? '' : ' disabled'}>ჩამოტვირთვა</button>`);
+    b.onclick = () => busyAction(b, 'ჩამოტვირთვა', async () => {
+      await R.installPack(p.id);
+      await loadResources(); await loadPacks();
+    });
+    actions.appendChild(b);
+  } else if (p.updateAvailable) {
+    actions.appendChild(el('<span class="pill update dot">განახლება</span>'));
+    const b = el('<button class="btn clay">განახლება</button>');
+    b.onclick = () => busyAction(b, 'განახლება', async () => {
+      const r = await R.updatePack(p.id);
+      addLog(`განახლდა: ${r.changed} ფაილი, წაიშალა: ${r.removed}`);
+      await loadResources(); await loadPacks();
+    });
+    actions.appendChild(b);
+  } else {
+    actions.appendChild(el('<span class="pill ok dot">დაინსტალირებული</span>'));
+    const b = el('<button class="btn-ghost" style="flex:0 0 auto;padding:10px 16px">თამაში</button>');
+    b.onclick = () => playPack(p.id, b);
+    actions.appendChild(b);
+  }
+  return row;
+}
+
+/* ---------- დაინსტალირებული პაკები ---------- */
+async function loadPacks() {
+  const box = $('packList');
+  try { S.packs = await R.packsInstalled(); } catch (e) { return fail(e.message); }
+  const badge = $('badgePacks');
+  const upd = S.packs.filter((p) => p.updateAvailable).length;
+  badge.hidden = !upd; badge.textContent = upd;
+
+  if (!S.packs.length) {
+    box.innerHTML = '';
+    box.appendChild(el(`
+      <div class="empty">
+        <h3>აქ ჯერ ცარიელია</h3>
+        <p>გადადი „რესურსებში“ და ჩამოწერე პაკი. ჩამოწერის შემდეგ ის აქ გამოჩნდება, თავისი ფოლდერით და სამყაროებით.</p>
+        <div class="empty-actions"><button class="btn" onclick="show('resources')">რესურსებზე გადასვლა</button></div>
+      </div>`));
+    return;
+  }
+
+  const list = el('<div class="list"></div>');
+  S.packs.forEach((p) => {
+    const initials = esc((p.name || '?').trim().charAt(0).toUpperCase());
+    const row = el(`
+      <div class="row">
+        <div class="thumb">${p.icon ? `<img src="${p.icon}" alt="" />` : initials}</div>
+        <div>
+          <h3>${esc(p.name)} ${p.updateAvailable ? '<span class="pill update dot">v' + esc(p.sourceVersion) + ' ხელმისაწვდომია</span>' : ''}</h3>
+          <p class="meta">
+            <span>v${esc(p.version)}</span><span>${esc(p.mcVersion)} ${esc(p.loader)}${p.loaderVersion ? ' ' + esc(p.loaderVersion) : ''}</span>
+            <span>${p.worlds} სამყარო</span><span>${sizeText(p.size)}</span>
+            <span>${p.lastPlayed ? 'ბოლოს ' + new Date(p.lastPlayed).toLocaleDateString('ka-GE') : 'არ თამაშობდი'}</span>
+          </p>
+          ${p.orphan ? '<p class="desc" style="color:var(--clay)">წყარო modpack-files-ში აღარ არის, განახლება ვერ მოხდება.</p>' : ''}
+        </div>
+        <div class="row-actions"></div>
+      </div>`);
+    const actions = row.querySelector('.row-actions');
+    const play = el('<button class="btn">თამაში</button>');
+    play.onclick = () => playPack(p.id, play);
+    actions.appendChild(play);
+    if (p.updateAvailable) {
+      const u = el('<button class="btn clay">განახლება</button>');
+      u.onclick = () => busyAction(u, 'განახლება', async () => { await R.updatePack(p.id); await loadPacks(); await loadResources(); });
+      actions.appendChild(u);
+    }
+    const folder = el('<button class="icon-btn" title="ფოლდერის გახსნა"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/></svg></button>');
+    folder.onclick = () => R.openPath(p.dir);
+    actions.appendChild(folder);
+    const del = el('<button class="icon-btn danger" title="წაშლა (სამყაროები შეინახება)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16"/><path d="M9 7V4h6v3"/><path d="M6 7l1 13h10l1-13"/></svg></button>');
+    del.onclick = async () => {
+      if (!confirm(`წავშალოთ "${p.name}"? სამყაროები გადავა saved-worlds ფოლდერში.`)) return;
+      const r = await R.removePack(p.id);
+      if (r.worldsMovedTo) addLog('სამყაროები აქ გადავიდა: ' + r.worldsMovedTo);
+      await loadPacks(); await loadResources();
+    };
+    actions.appendChild(del);
+    list.appendChild(row);
+  });
+  box.innerHTML = ''; box.appendChild(list);
+}
+
+async function playPack(id, btn) {
+  S.busy = true; syncLaunchBtn();
+  $('console').classList.add('on');
+  const old = btn ? btn.textContent : '';
+  if (btn) { btn.disabled = true; btn.textContent = 'იტვირთება…'; }
+  setStage('მოდპაკის მზადება…', 0.02, true);
+  try { await R.launch({ packId: id }); }
+  catch (e) { fail(e.message); addLog(e.message); }
+  if (btn) { btn.disabled = false; btn.textContent = old; }
+  S.busy = false; syncLaunchBtn();
+  loadPacks();
+}
+
+async function busyAction(btn, label, fn) {
+  const old = btn.textContent;
+  btn.disabled = true; btn.textContent = label + '…';
+  try { await fn(); } catch (e) { fail(e.message); addLog(e.message); }
+  btn.disabled = false; btn.textContent = old;
+}
+
+const sizeText = (b) => {
+  if (!b) return '0 MB';
+  const u = ['B', 'KB', 'MB', 'GB']; let i = 0, n = b;
+  while (n >= 1024 && i < u.length - 1) { n /= 1024; i++; }
+  return `${n < 10 && i > 1 ? n.toFixed(1) : Math.round(n)} ${u[i]}`;
+};
+
+/* ---------- პარამეტრები ---------- */
+function renderSettings() {
+  const c = S.cfg;
+  const box = $('settings');
+  box.innerHTML = '';
+
+  box.appendChild(setRow('ოპერატიული მეხსიერება', 'მოდპაკს შეუძლია საკუთარი მნიშვნელობა მოითხოვოს modpack.json-ში.', () => {
+    const wrap = el('<div class="row-inline"></div>');
+    const range = el(`<input type="range" min="1024" max="32768" step="512" value="${c.ram}" />`);
+    const out = el(`<span class="ram-value">${(c.ram / 1024).toFixed(1)} GB</span>`);
+    range.oninput = () => { out.textContent = (range.value / 1024).toFixed(1) + ' GB'; };
+    range.onchange = async () => { c.ram = Number(range.value); await R.setConfig({ ram: c.ram }); syncLaunchBtn(); };
+    wrap.append(range, out);
+    return wrap;
+  }));
+
+  box.appendChild(setRow('Java', 'ავტომატურად იწერს სწორ ვერსიას Adoptium-იდან. ხელით მითითება მხოლოდ საჭიროებისას.', () => {
+    const wrap = el('<div class="row-inline"></div>');
+    const p = el(`<span class="path" style="flex:1">${esc(c.javaPath || 'ავტომატური (მართავს ლაუნჩერი)')}</span>`);
+    const pick = el('<button class="btn-ghost" style="flex:0 0 auto">არჩევა</button>');
+    pick.onclick = async () => { const r = await R.pickJava(); if (r) { c.javaPath = r; renderSettings(); } };
+    const clear = el('<button class="icon-btn" title="გასუფთავება">×</button>');
+    clear.onclick = async () => { c.javaPath = ''; await R.setConfig({ javaPath: '' }); renderSettings(); };
+    wrap.append(p, pick, clear);
+    return wrap;
+  }));
+
+  box.appendChild(setRow('დამატებითი JVM არგუმენტები', 'ცარიელი დატოვე, თუ არ იცი რას აკეთებ.', () => {
+    const i = el(`<input class="text-input" value="${esc(c.extraJvm || '')}" placeholder="-XX:+UseZGC" />`);
+    i.onchange = async () => { c.extraJvm = i.value; await R.setConfig({ extraJvm: c.extraJvm }); };
+    return i;
+  }));
+
+  box.appendChild(setRow('ფანჯრის ზომა', '0 = მინეკრაფტის ნაგულისხმევი.', () => {
+    const wrap = el('<div class="row-inline"></div>');
+    const w = el(`<input class="text-input" style="width:96px" value="${c.width || 0}" />`);
+    const h = el(`<input class="text-input" style="width:96px" value="${c.height || 0}" />`);
+    const save = async () => { c.width = Number(w.value) || 0; c.height = Number(h.value) || 0; await R.setConfig({ width: c.width, height: c.height }); };
+    w.onchange = save; h.onchange = save;
+    wrap.append(w, el('<span style="color:var(--ink-3)">×</span>'), h);
+    return wrap;
+  }));
+
+  box.appendChild(setRow('სნეპშოტების ჩვენება', 'ვერსიების სიაში დაემატება არასტაბილური ბილდები.', () => {
+    const sw = el(`<button class="switch" role="switch" aria-checked="${!!c.snapshots}"></button>`);
+    sw.onclick = async () => {
+      c.snapshots = !c.snapshots; sw.setAttribute('aria-checked', String(c.snapshots));
+      await R.setConfig({ snapshots: c.snapshots }); loadVersions(true);
+    };
+    return sw;
+  }));
+
+  box.appendChild(setRow('ლაუნჩერი ღია დარჩეს', 'გამორთვისას თამაშის გაშვების შემდეგ ფანჯარა ჩაიკეცება.', () => {
+    const sw = el(`<button class="switch" role="switch" aria-checked="${!!c.keepOpen}"></button>`);
+    sw.onclick = async () => {
+      c.keepOpen = !c.keepOpen; sw.setAttribute('aria-checked', String(c.keepOpen));
+      await R.setConfig({ keepOpen: c.keepOpen });
+    };
+    return sw;
+  }));
+
+  const paths = [
+    ['მონაცემები', c.paths.data, 'data'],
+    ['modpack-files', c.paths.modpackFiles, 'modpackFiles'],
+    ['OptiFine jar-ები', c.paths.optifine, 'optifine'],
+  ];
+  paths.forEach(([label, value, key]) => {
+    box.appendChild(setRow(label, null, () => {
+      const wrap = el('<div class="row-inline"></div>');
+      wrap.append(el(`<span class="path" style="flex:1">${esc(value)}</span>`));
+      const b = el('<button class="btn-ghost" style="flex:0 0 auto">გახსნა</button>');
+      b.onclick = () => R.openPath(key);
+      wrap.append(b);
+      return wrap;
+    }));
+  });
+}
+
+function setRow(title, hint, control) {
+  const row = el(`<div class="set-row"><div><b>${esc(title)}</b>${hint ? `<p>${esc(hint)}</p>` : ''}</div></div>`);
+  row.appendChild(control());
+  return row;
+}
+
+/* ---------- სტარტი ---------- */
+(async function init() {
+  paintSkins();
+  try {
+    S.cfg = await R.getConfig();
+  } catch (e) { return fail('კონფიგი ვერ ჩაიტვირთა: ' + e.message); }
+  $('nameInput').value = S.cfg.playerName || 'Player';
+  $('railName').textContent = S.cfg.playerName || 'Player';
+  $('uuidLine').textContent = 'offline uuid: ' + fakeUuidPreview(S.cfg.playerName || 'Player');
+  if (S.cfg.skinData) setSkin(S.cfg.skinData);
+  S.loader = S.cfg.lastPlay.loader || 'vanilla';
+  S.mc = S.cfg.lastPlay.mc || '';
+  renderLoaders();
+  renderSettings();
+  await loadVersions(true);
+  loadResources();
+  loadPacks();
+  setStage('მზადაა', 0);
+})();
+
+function fakeUuidPreview(name) {
+  let h = 0;
+  for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) >>> 0;
+  const s = h.toString(16).padStart(8, '0');
+  return `${s}-${s.slice(0, 4)}-3${s.slice(1, 4)}-8${s.slice(2, 5)}-${s}${s.slice(0, 4)}`;
+}
+</script>
+</body>
+</html>
