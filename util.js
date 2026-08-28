@@ -1,5 +1,5 @@
 'use strict';
-/* Rocket Launcher: საერთო დამხმარე ფუნქციები (ქსელი, zip, hash, პროცესები) */
+/* KaliLauncher: საერთო დამხმარე ფუნქციები (ქსელი, zip, hash, პროცესები) */
 
 const fs = require('fs');
 const fsp = fs.promises;
@@ -16,7 +16,7 @@ const MC_ARCH = ({ x64: 'x86_64', ia32: 'x86', arm64: 'arm64', arm: 'arm32' })[p
 const ADOPT_OS = process.platform === 'win32' ? 'windows' : process.platform === 'darwin' ? 'mac' : 'linux';
 const ADOPT_ARCH = ({ x64: 'x64', ia32: 'x86', arm64: 'aarch64' })[process.arch] || 'x64';
 const JAVA_BIN = MC_OS === 'windows' ? 'java.exe' : 'java';
-const UA = 'RocketLauncher/1.0 (+standalone)';
+const UA = 'KaliLauncher/1.0 (+standalone)';
 
 let ROOT = path.join(os.homedir(), '.rocket-launcher');
 function setRoot(dir) { ROOT = dir; }

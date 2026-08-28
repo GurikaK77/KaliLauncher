@@ -1,6 +1,6 @@
 {
-  "name": "rocket-launcher",
-  "productName": "Rocket Launcher",
+  "name": "kalilauncher",
+  "productName": "KaliLauncher",
   "version": "1.0.0",
   "description": "დამოუკიდებელი Minecraft ლაუნჩერი: ნებისმიერი ვერსია, Fabric / Forge / NeoForge / OptiFine და საკუთარი მოდპაკები",
   "main": "main.js",
@@ -20,7 +20,7 @@
     "electron-builder": "^24.13.3"
   },
   "build": {
-    "appId": "ge.gurika.rocketlauncher",
+    "appId": "ge.gurika.kalilauncher",
     "icon": "build/icon.png",
     "files": [
       "main.js",
@@ -41,10 +41,15 @@
     ],
     "win": {
       "target": [
-        "nsis",
-        "portable"
+        "nsis"
       ],
       "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
     },
     "mac": {
       "target": [
@@ -63,8 +68,8 @@
     },
     "publish": {
       "provider": "github",
-      "owner": "REPLACE_WITH_YOUR_GITHUB_USERNAME",
-      "repo": "REPLACE_WITH_YOUR_REPO_NAME"
+      "owner": "GurikaK77",
+      "repo": "KaliLauncher"
     }
   },
   "dependencies": {

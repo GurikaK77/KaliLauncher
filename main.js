@@ -1,5 +1,5 @@
 'use strict';
-/* Rocket Launcher: მთავარი პროცესი */
+/* KaliLauncher: მთავარი პროცესი */
 
 const { app, BrowserWindow, ipcMain, dialog, shell } = require('electron');
 const { autoUpdater } = require('electron-updater');
@@ -45,8 +45,8 @@ function createWindow() {
     height: 800,
     minWidth: 980,
     minHeight: 640,
-    backgroundColor: '#f7f4ee',
-    title: 'Rocket Launcher',
+    backgroundColor: '#090d16',
+    title: 'KaliLauncher',
     autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
@@ -93,7 +93,7 @@ function setupAutoUpdater() {
     const { response } = await dialog.showMessageBox(win, {
       type: 'info',
       title: 'განახლება მზადაა',
-      message: `Rocket Launcher ${info.version} ჩამოიტვირთა.`,
+      message: `KaliLauncher ${info.version} ჩამოიტვირთა.`,
       detail: 'გადატვირთვის შემდეგ ახალ ვერსიაზე გადახვალთ ავტომატურად.',
       buttons: ['გადატვირთვა ახლავე', 'მოგვიანებით'],
       defaultId: 0,

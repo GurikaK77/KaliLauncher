@@ -1,5 +1,5 @@
 'use strict';
-/* Rocket Launcher: მოდპაკები (modpack-files -> instances), ინსტალაცია და განახლება */
+/* KaliLauncher: მოდპაკები (modpack-files -> instances), ინსტალაცია და განახლება */
 
 const fs = require('fs');
 const fsp = fs.promises;

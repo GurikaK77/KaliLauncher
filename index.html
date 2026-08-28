@@ -1,116 +1,39 @@
 <!DOCTYPE html>
 <html lang="ka">
 <head>
-<!-- skill:chrome -->
-<style>
-/* Credit line — bottom-right */
-.design-ui-credit {
-  position: fixed;
-  bottom: 12px;
-  right: 12px;
-  font: 11px/1 system-ui, sans-serif;
-  color: rgba(128,128,128,0.5);
-  pointer-events: none;
-  z-index: 2147483647;
-  transition: opacity 0.4s ease;
-  user-select: none;
-  letter-spacing: 0.02em;
-}
-
-/* Hide chrome on touch devices */
-@media (hover: none) {
-  .design-ui-credit { display: none; }
-}
-
-/* Print fixes */
-@media print {
-  * {
-    transition: none !important;
-    animation: none !important;
-    box-shadow: none !important;
-  }
-  body {
-    print-color-adjust: exact;
-    -webkit-print-color-adjust: exact;
-  }
-  .design-ui-credit { display: none !important; }
-}
-
-</style>
-<script>
-(function () {
-    // Design-ui pages are single compositions, so the whole body is editable.
-    function markEditable() {
-        document.body.classList.add('artifact-editable');
-    }
-
-    // Credit badge with idle-fade. Hover devices only.
-    function initChromeUI() {
-        if (!matchMedia('(hover: hover)').matches) return;
-
-        var credit = document.createElement('div');
-        credit.className = 'design-ui-credit';
-        credit.setAttribute('aria-hidden', 'true');
-        credit.innerHTML = '\u{1F49C} by ClickUp Brain';
-        document.body.appendChild(credit);
-
-        var timer = null;
-        var fade = function (out) { credit.style.opacity = out ? '0' : ''; };
-        fade(true);
-        var show = function () {
-            fade(false);
-            clearTimeout(timer);
-            timer = setTimeout(function () { fade(true); }, 3000);
-        };
-        document.addEventListener('mousemove', show);
-        show();
-    }
-
-    function init() {
-        markEditable();
-        initChromeUI();
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-    } else {
-        init();
-    }
-})();
-
-</script>
-<!-- /skill:chrome -->
 <meta charset="utf-8" />
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self' 'unsafe-inline'" />
-<title>Rocket Launcher</title>
+<title>KaliLauncher</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --paper:        oklch(0.968 0.009 84);
-    --surface:      oklch(0.991 0.005 84);
-    --sunk:         oklch(0.936 0.013 84);
-    --line:         oklch(0.882 0.014 82);
-    --line-strong:  oklch(0.795 0.018 82);
-    --ink:          oklch(0.255 0.024 62);
-    --ink-2:        oklch(0.452 0.021 70);
-    --ink-3:        oklch(0.608 0.018 76);
-    --pine:         oklch(0.428 0.098 156);
-    --pine-hi:      oklch(0.512 0.116 154);
-    --pine-wash:    oklch(0.934 0.031 156);
-    --clay:         oklch(0.588 0.152 42);
-    --clay-wash:    oklch(0.944 0.042 52);
-    --amber:        oklch(0.742 0.129 78);
-    --danger:       oklch(0.512 0.168 25);
+    --paper:        oklch(0.160 0.020 264);
+    --surface:      oklch(0.205 0.022 264);
+    --sunk:         oklch(0.125 0.018 264);
+    --line:         oklch(0.300 0.020 264);
+    --line-strong:  oklch(0.400 0.024 264);
+    --ink:          oklch(0.950 0.010 250);
+    --ink-2:        oklch(0.740 0.016 254);
+    --ink-3:        oklch(0.550 0.018 258);
+    --pine:         oklch(0.700 0.135 193);
+    --pine-hi:      oklch(0.780 0.140 193);
+    --pine-wash:    oklch(0.280 0.055 193);
+    --clay:         oklch(0.760 0.145 68);
+    --clay-wash:    oklch(0.300 0.060 68);
+    --amber:        oklch(0.820 0.145 98);
+    --danger:       oklch(0.680 0.170 25);
+    --on-pine:      oklch(0.160 0.035 193);
+    --on-clay:      oklch(0.180 0.045 68);
 
     --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
     --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px;
 
     --r-sm: 6px; --r-md: 10px; --r-lg: 16px;
     --out: cubic-bezier(0.22, 1, 0.36, 1);
-    --shadow-sm: 0 1px 2px oklch(0.25 0.02 62 / 0.06);
-    --shadow-md: 0 8px 24px -12px oklch(0.25 0.02 62 / 0.24);
+    --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.35);
+    --shadow-md: 0 14px 32px -14px oklch(0 0 0 / 0.6);
     --mono: 'JetBrains Mono', ui-monospace, monospace;
   }
 
@@ -128,7 +51,7 @@
   h1, h2, h3 { margin: 0; text-wrap: balance; }
   button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; }
   input, select { font: inherit; color: inherit; }
-  ::selection { background: var(--pine-wash); }
+  ::selection { background: var(--pine-wash); color: var(--ink); }
 
   .app {
     display: grid;
@@ -150,10 +73,13 @@
   .brand { display: flex; align-items: center; gap: var(--s-3); padding-left: var(--s-2); }
   .brand .mark {
     width: 34px; height: 34px; border-radius: 9px;
-    background: var(--pine); color: var(--pine-wash);
+    background: linear-gradient(155deg, oklch(0.26 0.05 193), oklch(0.19 0.04 210));
+    color: var(--pine);
     display: grid; place-items: center;
     font-weight: 800; font-size: 1.125rem; letter-spacing: -0.02em;
-    box-shadow: inset 0 -2px 0 oklch(0.35 0.08 156);
+    box-shadow: inset 0 -2px 0 oklch(0.12 0.02 210),
+      0 0 0 1px oklch(0.38 0.06 193 / 0.5),
+      0 4px 16px -4px oklch(0.70 0.135 193 / 0.5);
   }
   .brand b { display: block; font-weight: 800; letter-spacing: -0.015em; line-height: 1.1; }
   .brand small { color: var(--ink-3); font-size: 0.75rem; font-family: var(--mono); }
@@ -167,11 +93,11 @@
   }
   .nav-item svg { width: 18px; height: 18px; flex: none; opacity: 0.75; }
   .nav-item:hover { background: var(--sunk); color: var(--ink); }
-  .nav-item[aria-current='true'] { background: var(--pine-wash); color: oklch(0.32 0.08 156); font-weight: 600; }
+  .nav-item[aria-current='true'] { background: var(--pine-wash); color: oklch(0.82 0.11 193); font-weight: 600; }
   .nav-item[aria-current='true'] svg { opacity: 1; }
   .nav-item .badge {
     margin-left: auto; font-family: var(--mono); font-size: 0.6875rem; font-weight: 600;
-    background: var(--clay); color: oklch(0.98 0.01 60); border-radius: 20px; padding: 1px 7px;
+    background: var(--clay); color: var(--on-clay); border-radius: 20px; padding: 1px 7px;
   }
 
   .rail-foot { margin-top: auto; display: flex; flex-direction: column; gap: var(--s-3); }
@@ -213,7 +139,7 @@
   .loader-chip:hover { border-color: var(--pine); color: var(--ink); }
   .loader-chip:active { transform: scale(0.97); }
   .loader-chip[aria-pressed='true'] {
-    background: var(--pine); border-color: var(--pine); color: oklch(0.98 0.012 156); font-weight: 600;
+    background: var(--pine); border-color: var(--pine); color: var(--on-pine); font-weight: 600;
     box-shadow: var(--shadow-sm);
   }
 
@@ -235,7 +161,7 @@
   }
   .skeleton {
     height: 48px; border-radius: var(--r-md);
-    background: linear-gradient(90deg, var(--sunk) 25%, oklch(0.955 0.01 84) 37%, var(--sunk) 63%);
+    background: linear-gradient(90deg, var(--sunk) 25%, oklch(0.30 0.02 264) 37%, var(--sunk) 63%);
     background-size: 400% 100%; animation: shimmer 1.4s linear infinite;
   }
   @keyframes shimmer { to { background-position: -135% 0; } }
@@ -244,21 +170,22 @@
   .btn-launch {
     display: inline-flex; align-items: center; gap: var(--s-3);
     padding: 17px 34px 17px 30px; border-radius: 14px;
-    background: var(--pine); color: oklch(0.98 0.012 156);
+    background: linear-gradient(155deg, var(--pine-hi), var(--pine));
+    color: var(--on-pine);
     font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em;
-    box-shadow: 0 10px 20px -14px oklch(0.42 0.1 156 / 0.9), inset 0 -2px 0 oklch(0.36 0.09 156);
-    transition: transform 160ms var(--out), background 160ms var(--out), box-shadow 160ms var(--out);
+    box-shadow: 0 12px 28px -10px oklch(0.70 0.135 193 / 0.55), inset 0 -2px 0 oklch(0.52 0.13 193);
+    transition: transform 160ms var(--out), box-shadow 160ms var(--out), filter 160ms var(--out);
   }
   .btn-launch svg { width: 20px; height: 20px; }
-  .btn-launch:hover:enabled { background: var(--pine-hi); transform: translateY(-1px); }
+  .btn-launch:hover:enabled { filter: brightness(1.08); transform: translateY(-1px); }
   .btn-launch:active:enabled { transform: translateY(1px) scale(0.99); }
-  .btn-launch:disabled { background: var(--line-strong); color: oklch(0.99 0 0); box-shadow: none; cursor: progress; }
+  .btn-launch:disabled { background: var(--line-strong); color: var(--ink-3); box-shadow: none; cursor: progress; }
   .launch-note { color: var(--ink-3); font-size: 0.875rem; }
   .launch-note b { color: var(--ink-2); font-family: var(--mono); font-weight: 600; }
 
   .error-strip {
     display: none; margin-top: var(--s-5); padding: var(--s-3) var(--s-4);
-    background: oklch(0.955 0.035 25); border: 1px solid oklch(0.83 0.08 25);
+    background: oklch(0.24 0.06 25); border: 1px solid oklch(0.40 0.10 25);
     border-radius: var(--r-md); color: var(--danger); font-size: 0.9375rem;
   }
   .error-strip.on { display: block; }
@@ -267,7 +194,7 @@
   .profile { background: var(--sunk); border-radius: var(--r-lg); padding: var(--s-5); }
   .profile h3 { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; }
   .skin-stage { display: flex; justify-content: center; padding: var(--s-5) 0 var(--s-4); }
-  .skin-stage canvas { width: 88px; height: 176px; image-rendering: pixelated; filter: drop-shadow(0 12px 14px oklch(0.25 0.02 62 / 0.18)); }
+  .skin-stage canvas { width: 88px; height: 176px; image-rendering: pixelated; filter: drop-shadow(0 14px 18px oklch(0 0 0 / 0.5)); }
   .text-input {
     width: 100%; padding: 11px 13px; background: var(--surface);
     border: 1px solid var(--line-strong); border-radius: var(--r-sm);
@@ -306,14 +233,14 @@
 
   .btn {
     padding: 10px 18px; border-radius: var(--r-sm); background: var(--pine);
-    color: oklch(0.98 0.012 156); font-weight: 600; font-size: 0.9375rem;
+    color: var(--on-pine); font-weight: 600; font-size: 0.9375rem;
     transition: background 140ms var(--out), transform 140ms var(--out);
   }
   .btn:hover:enabled { background: var(--pine-hi); }
   .btn:active:enabled { transform: scale(0.98); }
-  .btn:disabled { background: var(--line-strong); cursor: not-allowed; }
-  .btn.clay { background: var(--clay); }
-  .btn.clay:hover:enabled { background: oklch(0.64 0.16 44); }
+  .btn:disabled { background: var(--line-strong); color: var(--ink-3); cursor: not-allowed; }
+  .btn.clay { background: var(--clay); color: var(--on-clay); }
+  .btn.clay:hover:enabled { background: oklch(0.84 0.145 68); }
   .icon-btn {
     width: 36px; height: 36px; border-radius: var(--r-sm); border: 1px solid var(--line);
     display: grid; place-items: center; color: var(--ink-3);
@@ -326,8 +253,8 @@
     display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px;
     font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.04em; font-family: var(--mono);
   }
-  .pill.update { background: var(--clay-wash); color: oklch(0.46 0.14 42); }
-  .pill.ok { background: var(--pine-wash); color: oklch(0.36 0.08 156); }
+  .pill.update { background: var(--clay-wash); color: oklch(0.84 0.12 68); }
+  .pill.ok { background: var(--pine-wash); color: oklch(0.82 0.11 193); }
   .pill.dot::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 
   /* ---------- ცარიელი მდგომარეობა ---------- */
@@ -383,31 +310,31 @@
 
   .console {
     position: fixed; left: 252px; right: 0; bottom: 52px; height: 42vh;
-    background: oklch(0.222 0.018 62); color: oklch(0.86 0.015 84);
+    background: oklch(0.110 0.014 264); color: oklch(0.85 0.012 264);
     transform: translateY(calc(100% + 52px)); transition: transform 420ms var(--out);
     display: flex; flex-direction: column; box-shadow: var(--shadow-md); z-index: 40;
   }
   .console.on { transform: translateY(0); }
   .console header {
     display: flex; align-items: center; justify-content: space-between;
-    padding: var(--s-3) var(--s-5); border-bottom: 1px solid oklch(0.3 0.02 62);
-    font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.7 0.02 84);
+    padding: var(--s-3) var(--s-5); border-bottom: 1px solid oklch(0.24 0.02 264);
+    font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.60 0.02 264);
   }
-  .console header button { color: oklch(0.72 0.02 84); font-family: var(--mono); font-size: 0.75rem; }
-  .console header button:hover { color: oklch(0.95 0.01 84); }
+  .console header button { color: oklch(0.62 0.02 264); font-family: var(--mono); font-size: 0.75rem; }
+  .console header button:hover { color: oklch(0.92 0.01 264); }
   .console .lines { flex: 1; overflow-y: auto; padding: var(--s-3) var(--s-5) var(--s-5); font-family: var(--mono); font-size: 0.75rem; line-height: 1.75; user-select: text; }
   .console .lines div { white-space: pre-wrap; word-break: break-word; }
   .console .lines .warn { color: var(--amber); }
-  .console .lines .err { color: oklch(0.72 0.15 25); }
-  .console .lines:empty::after { content: 'ლოგი ცარიელია. გაუშვი თამაში.'; color: oklch(0.55 0.02 84); }
+  .console .lines .err { color: oklch(0.75 0.16 25); }
+  .console .lines:empty::after { content: 'ლოგი ცარიელია. გაუშვი თამაში.'; color: oklch(0.45 0.02 264); }
 </style>
 </head>
 <body>
 <div class="app">
   <aside class="rail">
     <div class="brand">
-      <span class="mark">R</span>
-      <div><b>Rocket</b><small>Launcher 1.0</small></div>
+      <span class="mark">K</span>
+      <div><b>Kali</b><small id="brandVersion">Launcher</small></div>
     </div>
 
     <nav id="nav">
@@ -1013,6 +940,10 @@ function setRow(title, hint, control) {
 /* ---------- სტარტი ---------- */
 (async function init() {
   paintSkins();
+  R.getVersion().then((v) => {
+    const el = $('brandVersion');
+    if (el) el.textContent = 'Launcher ' + v;
+  }).catch(() => {});
   try {
     S.cfg = await R.getConfig();
   } catch (e) { return fail('კონფიგი ვერ ჩაიტვირთა: ' + e.message); }

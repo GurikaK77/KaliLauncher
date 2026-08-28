@@ -1,5 +1,5 @@
 'use strict';
-/* Rocket Launcher: ვერსიების ინსტალაცია, ლოადერები, Java, გაშვება */
+/* KaliLauncher: ვერსიების ინსტალაცია, ლოადერები, Java, გაშვება */
 
 const fs = require('fs');
 const fsp = fs.promises;
@@ -18,7 +18,7 @@ const NEO_META = 'https://maven.neoforged.net/releases/net/neoforged/neoforge/ma
 const NEO_JAR = 'https://maven.neoforged.net/releases/net/neoforged/neoforge';
 const ADOPTIUM = 'https://api.adoptium.net/v3/binary/latest';
 
-const LAUNCHER_NAME = 'RocketLauncher';
+const LAUNCHER_NAME = 'KaliLauncher';
 const LAUNCHER_VERSION = '1.0';
 
 let running = null; // აქტიური თამაშის პროცესი
