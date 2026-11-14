@@ -11,6 +11,7 @@ contextBridge.exposeInMainWorld('rocket', {
   getConfig: () => call('config:get'),
   setConfig: (patch) => call('config:set', patch),
   getVersion: () => call('app:version'),
+  installUpdate: () => call('update:install'),
 
   mcVersions: (loader) => call('versions:mc', loader),
   loaderVersions: (loader, mc) => call('versions:loader', { loader, mc }),
@@ -25,7 +26,7 @@ contextBridge.exposeInMainWorld('rocket', {
   installPack: (id) => call('packs:install', id),
   updatePack: (id) => call('packs:update', id),
   removePack: (id) => call('packs:remove', id),
-  newPack: (name) => call('packs:scaffold', name),
+  newPack: (name, version) => call('packs:scaffold', { name, version }),
 
   openPath: (target) => call('open:path', target),
   pickSkin: () => call('pick:skin'),

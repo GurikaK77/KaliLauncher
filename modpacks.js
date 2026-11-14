@@ -4,6 +4,7 @@
 const fs = require('fs');
 const fsp = fs.promises;
 const path = require('path');
+const crypto = require('crypto');
 const U = require('./util');
 const { P } = U;
 
@@ -63,17 +64,50 @@ async function iconDataUrl(dir, iconName) {
   return null;
 }
 
-/** ინდექსი: rel -> {size, mtime}. სწრაფია, hash-ს არ ითვლის ყოველ ჯერზე. */
+/**
+ * ინდექსი: rel -> {size, hash}. content-hash-ს ვიყენებთ mtime-ის მაგივრად, რადგან
+ * ყოველი ახალი electron-builder build ხელახლა წერს resources-ის ფაილებს დისკზე —
+ * ბაიტობრივად უცვლელ ფაილსაც კი ახალი mtime ეყრება, რაც ცრუ "განახლებას" იწვევდა
+ * აპის ყოველ ახალ ვერსიაზე, მოდპაკის საკუთარი შემცველობის შეცვლის გარეშეც კი.
+ */
+function hashFile(p) {
+  return new Promise((resolve) => {
+    const hash = crypto.createHash('sha1');
+    const stream = fs.createReadStream(p);
+    stream.on('data', (d) => hash.update(d));
+    stream.on('end', () => resolve(hash.digest('hex')));
+    stream.on('error', () => resolve(null));
+  });
+}
+
 async function buildIndex(dir) {
   const files = {};
   for (const rel of await U.walk(dir)) {
-    const st = await fsp.stat(path.join(dir, rel)).catch(() => null);
-    if (st) files[rel] = { size: st.size, mtime: Math.round(st.mtimeMs) };
+    const p = path.join(dir, rel);
+    const st = await fsp.stat(p).catch(() => null);
+    if (!st) continue;
+    files[rel] = { size: st.size, hash: await hashFile(p) };
   }
   return files;
 }
 
-const differs = (a, b) => !a || !b || a.size !== b.size || Math.abs(a.mtime - b.mtime) > 1500;
+/** მოკლედ: ერთი ფაილის (მაგ. icon.png) "თითის ანაბეჭდი" — ზომა+hash, ან null თუ არ არსებობს. */
+async function fileFingerprint(p) {
+  const st = await fsp.stat(p).catch(() => null);
+  if (!st) return null;
+  return `${st.size}:${await hashFile(p)}`;
+}
+
+async function resolveIconFile(dir, iconName) {
+  for (const candidate of [iconName, 'icon.png', 'pack.png']) {
+    if (!candidate) continue;
+    const file = path.join(dir, candidate);
+    if (await U.exists(file)) return file;
+  }
+  return null;
+}
+
+const differs = (a, b) => !a || !b || a.size !== b.size || a.hash !== b.hash;
 
 /* ---------- სია ---------- */
 
@@ -104,7 +138,12 @@ async function available() {
 
 async function hasUpdate(sourceMeta, installedMeta) {
   if (installedMeta.version !== sourceMeta.version) return true;
+  if ((installedMeta.name || '') !== (sourceMeta.name || '')) return true;
   const dir = instanceDir(sourceMeta.id);
+  const sourceDir = packSource(sourceMeta.folder);
+  const iconFile = await resolveIconFile(sourceDir, sourceMeta.icon);
+  const iconFp = iconFile ? await fileFingerprint(iconFile) : null;
+  if ((installedMeta.iconFingerprint || null) !== iconFp) return true;
   const saved = await U.readJson(path.join(dir, INDEX));
   if (!saved || !saved.files) return true;
   const src = await buildIndex(packFiles(sourceMeta.folder));
@@ -164,11 +203,13 @@ async function install(id, prog = () => {}) {
     if (done % 10 === 0 || done === files.length) prog(`ფაილები ${done}/${files.length}`, done / files.length);
   }
   const index = await buildIndex(src);
+  const iconFile = await resolveIconFile(packSource(pack.folder), pack.icon);
+  const iconFingerprint = iconFile ? await fileFingerprint(iconFile) : null;
   await U.writeJson(path.join(dest, INDEX), { version: pack.version, files: index });
   await U.writeJson(path.join(dest, META), {
     id: pack.id, folder: pack.folder, name: pack.name, version: pack.version, author: pack.author,
     description: pack.description, mcVersion: pack.mcVersion, loader: pack.loader,
-    loaderVersion: pack.loaderVersion, ram: pack.ram, installedAt: Date.now(), lastPlayed: 0,
+    loaderVersion: pack.loaderVersion, ram: pack.ram, iconFingerprint, installedAt: Date.now(), lastPlayed: 0,
   });
   return { ok: true, dir: dest, files: files.length };
 }
@@ -206,12 +247,14 @@ async function update(id, prog = () => {}) {
   }
   await pruneEmptyDirs(dest);
 
+  const iconFile = await resolveIconFile(packSource(pack.folder), pack.icon);
+  const iconFingerprint = iconFile ? await fileFingerprint(iconFile) : null;
   await U.writeJson(path.join(dest, INDEX), { version: pack.version, files: srcIndex });
   const meta = (await U.readJson(path.join(dest, META))) || {};
   await U.writeJson(path.join(dest, META), {
     ...meta, id: pack.id, folder: pack.folder, name: pack.name, version: pack.version, author: pack.author,
     mcVersion: pack.mcVersion, loader: pack.loader, loaderVersion: pack.loaderVersion,
-    description: pack.description, updatedAt: Date.now(),
+    description: pack.description, iconFingerprint, updatedAt: Date.now(),
   });
   return { ok: true, changed, removed, version: pack.version };
 }
@@ -255,7 +298,7 @@ async function markPlayed(id) {
 }
 
 /** ცარიელი ჩონჩხი ახალი მოდპაკისთვის, რომ ხელით არ აწყობდე. */
-async function scaffold(name) {
+async function scaffold(name, version) {
   const folder = U.slug(name || 'new-pack');
   const dir = path.join(SOURCE_DIR, folder);
   await U.mkdirp(path.join(dir, 'files', 'mods'));
@@ -265,7 +308,7 @@ async function scaffold(name) {
     await U.writeJson(file, {
       id: folder,
       name: name || 'ახალი მოდპაკი',
-      version: '1.0.0',
+      version: String(version || '1.0.0'),
       author: 'Gurika',
       description: 'აღწერა',
       mcVersion: '1.20.1',

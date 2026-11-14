@@ -1,7 +1,7 @@
 {
   "name": "kalilauncher",
   "productName": "KaliLauncher",
-  "version": "1.0.0",
+  "version": "1.0.9",
   "description": "დამოუკიდებელი Minecraft ლაუნჩერი: ნებისმიერი ვერსია, Fabric / Forge / NeoForge / OptiFine და საკუთარი მოდპაკები",
   "main": "main.js",
   "author": "Gurika Kartvelishvili",
@@ -13,7 +13,9 @@
     "dist:mac": "electron-builder --mac",
     "dist:linux": "electron-builder --linux",
     "release": "electron-builder --publish always",
-    "release:win": "electron-builder --win --publish always"
+    "release:win": "electron-builder --win --publish always",
+    "prerelease": "node scripts/check-version.js",
+    "prerelease:win": "node scripts/check-version.js"
   },
   "devDependencies": {
     "electron": "^31.3.1",
@@ -33,7 +35,7 @@
     "extraResources": [
       {
         "from": "modpack-files",
-        "to": "modpack-files",
+        "to": "modpack-files", 
         "filter": [
           "**/*"
         ]
@@ -69,7 +71,8 @@
     "publish": {
       "provider": "github",
       "owner": "GurikaK77",
-      "repo": "KaliLauncher"
+      "repo": "KaliLauncher",
+      "releaseType": "release"
     }
   },
   "dependencies": {

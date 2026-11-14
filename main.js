@@ -150,6 +150,7 @@ handle('config:set', async (patch) => {
 });
 
 handle('app:version', async () => app.getVersion());
+handle('update:install', () => { if (app.isPackaged) autoUpdater.quitAndInstall(); });
 handle('versions:mc', async (loader) => game.mcVersions(loader, config.snapshots));
 handle('versions:loader', async ({ loader, mc }) => game.loaderVersions(loader, mc));
 handle('optifine:list', async () => (await game.listOptifineJars()).map((j) => j.name));
@@ -213,8 +214,8 @@ handle('packs:update', async (id) => {
   return r;
 });
 handle('packs:remove', (id) => packs.remove(id, { keepWorlds: true }));
-handle('packs:scaffold', async (name) => {
-  const dir = await packs.scaffold(name);
+handle('packs:scaffold', async ({ name, version } = {}) => {
+  const dir = await packs.scaffold(name, version);
   shell.openPath(dir);
   return dir;
 });

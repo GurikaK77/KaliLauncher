@@ -9,23 +9,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --paper:        oklch(0.160 0.020 264);
-    --surface:      oklch(0.205 0.022 264);
-    --sunk:         oklch(0.125 0.018 264);
-    --line:         oklch(0.300 0.020 264);
-    --line-strong:  oklch(0.400 0.024 264);
-    --ink:          oklch(0.950 0.010 250);
-    --ink-2:        oklch(0.740 0.016 254);
-    --ink-3:        oklch(0.550 0.018 258);
-    --pine:         oklch(0.700 0.135 193);
-    --pine-hi:      oklch(0.780 0.140 193);
-    --pine-wash:    oklch(0.280 0.055 193);
-    --clay:         oklch(0.760 0.145 68);
-    --clay-wash:    oklch(0.300 0.060 68);
-    --amber:        oklch(0.820 0.145 98);
-    --danger:       oklch(0.680 0.170 25);
-    --on-pine:      oklch(0.160 0.035 193);
-    --on-clay:      oklch(0.180 0.045 68);
+    --paper:        oklch(0.140 0.028 300);
+    --surface:      oklch(0.185 0.032 300);
+    --sunk:         oklch(0.105 0.026 300);
+    --line:         oklch(0.290 0.032 300);
+    --line-strong:  oklch(0.390 0.036 300);
+    --ink:          oklch(0.950 0.012 296);
+    --ink-2:        oklch(0.740 0.020 298);
+    --ink-3:        oklch(0.550 0.022 300);
+    --pine:         oklch(0.660 0.190 300);
+    --pine-hi:      oklch(0.740 0.195 300);
+    --pine-wash:    oklch(0.270 0.075 300);
+    --clay:         oklch(0.760 0.175 145);
+    --clay-wash:    oklch(0.290 0.075 145);
+    --amber:        oklch(0.820 0.140 95);
+    --danger:       oklch(0.680 0.175 25);
+    --on-pine:      oklch(0.150 0.045 300);
+    --on-clay:      oklch(0.160 0.050 145);
 
     --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
     --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px;
@@ -73,16 +73,40 @@
   .brand { display: flex; align-items: center; gap: var(--s-3); padding-left: var(--s-2); }
   .brand .mark {
     width: 34px; height: 34px; border-radius: 9px;
-    background: linear-gradient(155deg, oklch(0.26 0.05 193), oklch(0.19 0.04 210));
+    background: linear-gradient(155deg, oklch(0.26 0.06 300), oklch(0.17 0.05 300));
     color: var(--pine);
     display: grid; place-items: center;
     font-weight: 800; font-size: 1.125rem; letter-spacing: -0.02em;
-    box-shadow: inset 0 -2px 0 oklch(0.12 0.02 210),
-      0 0 0 1px oklch(0.38 0.06 193 / 0.5),
-      0 4px 16px -4px oklch(0.70 0.135 193 / 0.5);
+    box-shadow: inset 0 -2px 0 oklch(0.10 0.03 300),
+      0 0 0 1px oklch(0.42 0.09 300 / 0.5),
+      0 4px 16px -4px oklch(0.66 0.190 300 / 0.5);
   }
   .brand b { display: block; font-weight: 800; letter-spacing: -0.015em; line-height: 1.1; }
   .brand small { color: var(--ink-3); font-size: 0.75rem; font-family: var(--mono); }
+
+  .update-status {
+    margin: var(--s-3) var(--s-2) 0; padding: 8px 12px; border-radius: var(--r-sm);
+    background: var(--sunk); border: 1px solid var(--line);
+    font-size: 0.75rem; font-family: var(--mono); color: var(--ink-3);
+    display: flex; align-items: center; gap: 8px; text-align: left; cursor: default;
+    transition: background 140ms var(--out), border-color 140ms var(--out), color 140ms var(--out);
+  }
+  .update-status .dot {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--ink-3); flex: 0 0 auto;
+  }
+  .update-status[data-state="checking"] .dot { background: var(--ink-3); animation: pulse 1.2s ease-in-out infinite; }
+  .update-status[data-state="downloading"] { border-color: var(--clay); color: var(--clay); }
+  .update-status[data-state="downloading"] .dot { background: var(--clay); animation: pulse 1.2s ease-in-out infinite; }
+  .update-status[data-state="available"] { border-color: var(--clay); color: var(--clay); }
+  .update-status[data-state="available"] .dot { background: var(--clay); }
+  .update-status[data-state="ready"] {
+    border-color: var(--pine); color: var(--pine-hi); cursor: pointer; background: var(--pine-wash);
+  }
+  .update-status[data-state="ready"] .dot { background: var(--pine-hi); }
+  .update-status[data-state="ready"]:hover { filter: brightness(1.12); }
+  .update-status[data-state="error"] { border-color: var(--danger); color: var(--danger); }
+  .update-status[data-state="error"] .dot { background: var(--danger); }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
 
   nav { display: flex; flex-direction: column; gap: 2px; }
   .nav-item {
@@ -93,7 +117,7 @@
   }
   .nav-item svg { width: 18px; height: 18px; flex: none; opacity: 0.75; }
   .nav-item:hover { background: var(--sunk); color: var(--ink); }
-  .nav-item[aria-current='true'] { background: var(--pine-wash); color: oklch(0.82 0.11 193); font-weight: 600; }
+  .nav-item[aria-current='true'] { background: var(--pine-wash); color: oklch(0.84 0.13 300); font-weight: 600; }
   .nav-item[aria-current='true'] svg { opacity: 1; }
   .nav-item .badge {
     margin-left: auto; font-family: var(--mono); font-size: 0.6875rem; font-weight: 600;
@@ -130,6 +154,19 @@
     text-transform: uppercase; color: var(--ink-3); margin-bottom: var(--s-2);
   }
 
+  .new-pack-card {
+    margin-top: var(--s-6); padding: var(--s-5); background: var(--surface);
+    border: 1px solid var(--line); border-radius: var(--r-lg);
+  }
+  .new-pack-fields { display: flex; align-items: flex-end; gap: var(--s-4); flex-wrap: wrap; }
+  .new-pack-fields > div { flex: 1 1 260px; min-width: 200px; }
+  .new-pack-version { flex: 0 1 140px !important; min-width: 120px !important; }
+  .new-pack-fields .btn { flex: 0 0 auto; height: 42px; padding: 0 22px; }
+  .new-pack-hint { margin-top: var(--s-3); font-size: 0.8125rem; color: var(--ink-3); }
+  .new-pack-hint code { font-family: var(--mono); color: var(--ink-2); }
+  .new-pack-hint.is-error { color: var(--danger); }
+  .new-pack-hint.is-ok { color: oklch(0.78 0.16 300); }
+
   .loaders { display: flex; flex-wrap: wrap; gap: var(--s-2); }
   .loader-chip {
     padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line-strong);
@@ -161,7 +198,7 @@
   }
   .skeleton {
     height: 48px; border-radius: var(--r-md);
-    background: linear-gradient(90deg, var(--sunk) 25%, oklch(0.30 0.02 264) 37%, var(--sunk) 63%);
+    background: linear-gradient(90deg, var(--sunk) 25%, oklch(0.32 0.03 300) 37%, var(--sunk) 63%);
     background-size: 400% 100%; animation: shimmer 1.4s linear infinite;
   }
   @keyframes shimmer { to { background-position: -135% 0; } }
@@ -173,7 +210,7 @@
     background: linear-gradient(155deg, var(--pine-hi), var(--pine));
     color: var(--on-pine);
     font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em;
-    box-shadow: 0 12px 28px -10px oklch(0.70 0.135 193 / 0.55), inset 0 -2px 0 oklch(0.52 0.13 193);
+    box-shadow: 0 12px 28px -10px oklch(0.660 0.190 300 / 0.55), inset 0 -2px 0 oklch(0.46 0.15 300);
     transition: transform 160ms var(--out), box-shadow 160ms var(--out), filter 160ms var(--out);
   }
   .btn-launch svg { width: 20px; height: 20px; }
@@ -240,7 +277,7 @@
   .btn:active:enabled { transform: scale(0.98); }
   .btn:disabled { background: var(--line-strong); color: var(--ink-3); cursor: not-allowed; }
   .btn.clay { background: var(--clay); color: var(--on-clay); }
-  .btn.clay:hover:enabled { background: oklch(0.84 0.145 68); }
+  .btn.clay:hover:enabled { background: oklch(0.82 0.175 145); }
   .icon-btn {
     width: 36px; height: 36px; border-radius: var(--r-sm); border: 1px solid var(--line);
     display: grid; place-items: center; color: var(--ink-3);
@@ -253,8 +290,8 @@
     display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px;
     font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.04em; font-family: var(--mono);
   }
-  .pill.update { background: var(--clay-wash); color: oklch(0.84 0.12 68); }
-  .pill.ok { background: var(--pine-wash); color: oklch(0.82 0.11 193); }
+  .pill.update { background: var(--clay-wash); color: oklch(0.82 0.15 145); }
+  .pill.ok { background: var(--pine-wash); color: oklch(0.84 0.13 300); }
   .pill.dot::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 
   /* ---------- ცარიელი მდგომარეობა ---------- */
@@ -310,23 +347,35 @@
 
   .console {
     position: fixed; left: 252px; right: 0; bottom: 52px; height: 42vh;
-    background: oklch(0.110 0.014 264); color: oklch(0.85 0.012 264);
+    background: oklch(0.095 0.022 300); color: oklch(0.85 0.014 300);
     transform: translateY(calc(100% + 52px)); transition: transform 420ms var(--out);
     display: flex; flex-direction: column; box-shadow: var(--shadow-md); z-index: 40;
   }
   .console.on { transform: translateY(0); }
   .console header {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: var(--s-3) var(--s-5); border-bottom: 1px solid oklch(0.24 0.02 264);
-    font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.60 0.02 264);
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+    padding: var(--s-3) var(--s-5); border-bottom: 1px solid oklch(0.22 0.03 300);
+    font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.60 0.03 300);
   }
-  .console header button { color: oklch(0.62 0.02 264); font-family: var(--mono); font-size: 0.75rem; }
-  .console header button:hover { color: oklch(0.92 0.01 264); }
+  .console header > span { justify-self: start; }
+  .console header .row-inline { justify-self: end; display: flex; gap: var(--s-4); }
+  .console header button { color: oklch(0.62 0.03 300); font-family: var(--mono); font-size: 0.75rem; }
+  .console header button:hover { color: oklch(0.92 0.015 300); }
+  #btnCloseLog {
+    justify-self: center; display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 28px; border-radius: 999px; background: var(--surface);
+    border: 1px solid var(--line-strong); color: var(--ink-2); font-family: inherit;
+    font-size: 0.8125rem; font-weight: 600; text-transform: none; letter-spacing: 0;
+    transition: background 140ms var(--out), border-color 140ms var(--out), color 140ms var(--out), transform 140ms var(--out);
+  }
+  #btnCloseLog svg { width: 15px; height: 15px; }
+  #btnCloseLog:hover { background: var(--pine-wash); border-color: var(--pine); color: var(--pine-hi); }
+  #btnCloseLog:active { transform: scale(0.96); }
   .console .lines { flex: 1; overflow-y: auto; padding: var(--s-3) var(--s-5) var(--s-5); font-family: var(--mono); font-size: 0.75rem; line-height: 1.75; user-select: text; }
   .console .lines div { white-space: pre-wrap; word-break: break-word; }
   .console .lines .warn { color: var(--amber); }
   .console .lines .err { color: oklch(0.75 0.16 25); }
-  .console .lines:empty::after { content: 'ლოგი ცარიელია. გაუშვი თამაში.'; color: oklch(0.45 0.02 264); }
+  .console .lines:empty::after { content: 'ლოგი ცარიელია. გაუშვი თამაში.'; color: oklch(0.45 0.03 300); }
 </style>
 </head>
 <body>
@@ -336,6 +385,7 @@
       <span class="mark">K</span>
       <div><b>Kali</b><small id="brandVersion">Launcher</small></div>
     </div>
+    <button class="update-status" id="updateStatus" type="button" hidden></button>
 
     <nav id="nav">
       <button class="nav-item" data-view="play" aria-current="true">
@@ -426,6 +476,22 @@
       <p class="eyebrow">დაინსტალირებული</p>
       <h1>მოდპაკები</h1>
       <p class="lede">თითოეულს თავისი ფოლდერი, მოდები და სამყაროები აქვს. განახლება <b>saves</b>-ს არ ეხება.</p>
+
+      <div class="new-pack-card">
+        <div class="new-pack-fields">
+          <div>
+            <span class="field-label">ახალი მოდპაკის სახელი</span>
+            <input class="text-input" id="newPackName" placeholder="მაგ. Skyblock Extreme" maxlength="60" spellcheck="false" autocomplete="off" />
+          </div>
+          <div class="new-pack-version">
+            <span class="field-label">ვერსია</span>
+            <input class="text-input" id="newPackVersion" placeholder="1.0.0" value="1.0.0" maxlength="20" spellcheck="false" autocomplete="off" />
+          </div>
+          <button class="btn" id="btnNewPack">შექმნა</button>
+        </div>
+        <p class="new-pack-hint" id="newPackHint">შექმნის ფოლდერს <code>modpack-files</code>-ში (<code>files/mods</code>, <code>files/config</code>) და გახსნის მას — ჩააგდე მოდები, შემდეგ დაამატე „რესურსებში“.</p>
+      </div>
+
       <div id="packList"></div>
     </section>
 
@@ -450,10 +516,13 @@
 <div class="console" id="console">
   <header>
     <span>კონსოლი</span>
+    <button id="btnCloseLog">
+      დახურვა
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
     <div class="row-inline">
       <button id="btnStop">თამაშის შეწყვეტა</button>
       <button id="btnClearLog">გასუფთავება</button>
-      <button id="btnCloseLog">დახურვა</button>
     </div>
   </header>
   <div class="lines" id="logLines"></div>
@@ -557,6 +626,31 @@ R.on('progress', (p) => {
   if (p.exit !== undefined) { S.busy = false; syncLaunchBtn(); }
 });
 R.on('log', addLog);
+
+/* ---------- ავტომატური განახლების ინდიკატორი ---------- */
+R.on('update', (u) => {
+  const el = $('updateStatus');
+  if (!u || !u.state) return;
+  if (u.state === 'error') {
+    // ჩვეულებრივ მოთამაშეს ტექნიკური შეცდომის ჩვენება არ სჭირდება — უბრალოდ ვმალავთ.
+    el.hidden = true;
+    return;
+  }
+  const labels = {
+    checking: 'განახლების შემოწმება…',
+    latest: 'ყველაფერი განახლებულია',
+    available: `ახალი ვერსია v${u.version} — იტვირთება…`,
+    downloading: `იტვირთება… ${u.percent || 0}%`,
+    ready: `მზადაა: v${u.version} — დააჭირე გადასატვირთად`,
+  };
+  el.hidden = false;
+  el.dataset.state = u.state;
+  el.innerHTML = `<span class="dot"></span><span>${labels[u.state] || u.state}</span>`;
+  el.onclick = u.state === 'ready' ? () => R.installUpdate() : null;
+  if (u.state === 'latest') {
+    setTimeout(() => { if (el.dataset.state === 'latest') el.hidden = true; }, 6000);
+  }
+});
 
 /* ---------- გაშვების პანელი ---------- */
 function renderLoaders() {
@@ -669,6 +763,32 @@ $('btnSkin').onclick = async () => {
 };
 $('btnSkinClear').onclick = async () => { await R.clearSkin(); setSkin(null); };
 
+/* ---------- ახალი მოდპაკის შექმნა ---------- */
+$('btnNewPack').onclick = async () => {
+  const nameEl = $('newPackName'), verEl = $('newPackVersion'), hint = $('newPackHint'), btn = $('btnNewPack');
+  const name = nameEl.value.trim();
+  const version = verEl.value.trim() || '1.0.0';
+  if (!name) {
+    hint.textContent = 'სახელის მითითება სავალდებულოა.';
+    hint.className = 'new-pack-hint is-error';
+    nameEl.focus();
+    return;
+  }
+  const old = btn.textContent;
+  btn.disabled = true; btn.textContent = 'იქმნება…';
+  try {
+    await R.newPack(name, version);
+    hint.textContent = `„${name}“ (v${version}) შეიქმნა — ფოლდერი გაიხსნა, ჩააგდე მოდები „files/mods“-ში, კონფიგები „files/config“-ში.`;
+    hint.className = 'new-pack-hint is-ok';
+    nameEl.value = ''; verEl.value = '1.0.0';
+    await loadResources();
+  } catch (e) {
+    hint.textContent = 'ვერ შეიქმნა: ' + e.message;
+    hint.className = 'new-pack-hint is-error';
+  }
+  btn.disabled = false; btn.textContent = old;
+};
+
 /* ---------- რესურსები ---------- */
 async function loadResources() {
   const box = $('resList');
@@ -707,11 +827,10 @@ modpack.json:
   "ram": 6144
 }</pre>
         <div class="empty-actions">
-          <button class="btn" id="btnScaffold">ჩონჩხის შექმნა</button>
+          <button class="btn" onclick="show('packs')">მოდპაკის შექმნაზე გადასვლა</button>
           <button class="btn-ghost" id="btnOpenSrc" style="flex:0 0 auto;padding:10px 18px">ფოლდერის გახსნა</button>
         </div>
       </div>`));
-    $('btnScaffold').onclick = async () => { await R.newPack('my-pack'); loadResources(); };
     $('btnOpenSrc').onclick = () => R.openPath('modpackFiles');
     return;
   }
