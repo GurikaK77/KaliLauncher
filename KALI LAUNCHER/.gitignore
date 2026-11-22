@@ -1,9 +1,0 @@
-node_modules/
-dist/
-*.log
-
-# მოდპაკის რეალური შემცველობა (mod jar-ები, resourcepack-ები) მძიმეა git-ისთვის —
-# ეს ფოლდერი ლოკალურად რჩება, build-ს მაინც სჭირდება (extraResources შენს დისკზე კითხულობს),
-# უბრალოდ git-ში აღარ იკვრება.
-modpack-files/*
-!modpack-files/.gitkeep
