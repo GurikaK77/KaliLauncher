@@ -3,7 +3,7 @@ const { contextBridge, ipcRenderer } = require('electron');
 
 const call = async (channel, arg) => {
   const res = await ipcRenderer.invoke(channel, arg);
-  if (!res || !res.ok) throw new Error((res && res.error) || 'უცნობი შეცდომა');
+  if (!res || !res.ok) throw new Error((res && res.error) || 'Unknown error');
   return res.data;
 };
 
@@ -13,7 +13,7 @@ contextBridge.exposeInMainWorld('rocket', {
   getVersion: () => call('app:version'),
   installUpdate: () => call('update:install'),
 
-  mcVersions: (loader) => call('versions:mc', loader),
+  mcVersions: (loader, snapshots) => call('versions:mc', { loader, snapshots }),
   loaderVersions: (loader, mc) => call('versions:loader', { loader, mc }),
   optifineJars: () => call('optifine:list'),
 
@@ -26,7 +26,7 @@ contextBridge.exposeInMainWorld('rocket', {
   installPack: (id) => call('packs:install', id),
   updatePack: (id) => call('packs:update', id),
   removePack: (id) => call('packs:remove', id),
-  newPack: (name, version) => call('packs:scaffold', { name, version }),
+  newPack: (options) => call('packs:scaffold', options),
 
   openPath: (target) => call('open:path', target),
   pickSkin: () => call('pick:skin'),

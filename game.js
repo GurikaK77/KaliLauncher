@@ -102,10 +102,10 @@ async function ensureVersionJson(id) {
   if (cached) return cached;
   const man = await manifest();
   const entry = man.versions.find((v) => v.id === id);
-  if (!entry) throw new Error(`ვერსია "${id}" ვერ მოიძებნა Mojang-ის მანიფესტში`);
+  if (!entry) throw new Error(`Version "${id}" was not found in the Mojang manifest`);
   await U.download(entry.url, local, { sha1: entry.sha1 });
   const json = await U.readJson(local);
-  if (!json) throw new Error(`ვერსიის ფაილი დაზიანებულია: ${id}`);
+  if (!json) throw new Error(`Version file is corrupted: ${id}`);
   return json;
 }
 
@@ -199,7 +199,7 @@ async function downloadLibraries(merged, prog) {
       }
     }
     done++;
-    if (done % 5 === 0 || done === jobs.length) prog(`ბიბლიოთეკები ${done}/${jobs.length}`, 0.15 + 0.3 * (done / jobs.length));
+    if (done % 5 === 0 || done === jobs.length) prog(`Libraries ${done}/${jobs.length}`, 0.15 + 0.3 * (done / jobs.length));
   });
 }
 
@@ -227,7 +227,7 @@ async function downloadAssets(merged, gameDir, prog) {
     await U.download(`${RESOURCES}/${sub}/${o.hash}`, P.assets('objects', sub, o.hash));
     done++;
     if (done % 50 === 0 || done === objects.length) {
-      prog(`რესურსები ${done}/${objects.length}`, 0.5 + 0.4 * (done / objects.length));
+      prog(`Assets ${done}/${objects.length}`, 0.5 + 0.4 * (done / objects.length));
     }
   });
   // ძველი ვერსიები (1.7.2 და უფრო ადრე) ითხოვს "ვირტუალურ" რესურსებს
@@ -270,20 +270,20 @@ async function ensureJava(major, prog) {
   const url = `${ADOPTIUM}/${major}/ga/${U.ADOPT_OS}/${U.ADOPT_ARCH}/jre/hotspot/normal/eclipse`;
   const archive = P.cache(`jre-${major}-${U.ADOPT_OS}-${U.ADOPT_ARCH}.${ext}`);
   let got = 0;
-  prog(`Java ${major} ჩამოტვირთვა`, 0.02);
+  prog(`Downloading Java ${major}`, 0.02);
   await U.download(url, archive, {
     onBytes: (n) => {
       got += n;
       if (got % (2 * 1024 * 1024) < n) prog(`Java ${major}: ${U.humanSize(got)}`, null);
     },
   });
-  prog(`Java ${major} ამოშლა`, null);
+  prog(`Extracting Java ${major}`, null);
   await U.mkdirp(dir);
   if (ext === 'zip') await U.unzip(archive, dir);
   else await U.run('tar', ['-xzf', archive, '-C', dir]);
   await fsp.rm(archive, { force: true }).catch(() => {});
   const java = await findJava(dir);
-  if (!java) throw new Error(`Java ${major} ვერ დაინსტალირდა`);
+  if (!java) throw new Error(`Java ${major} could not be installed`);
   if (U.MC_OS !== 'windows') await fsp.chmod(java, 0o755).catch(() => {});
   return java;
 }
@@ -312,7 +312,7 @@ async function installFabric(mc, loaderVersion, prog) {
   const id = `fabric-loader-${loaderVersion}-${mc}`;
   const dest = P.versions(id, `${id}.json`);
   if (!(await U.exists(dest))) {
-    prog('Fabric-ის პროფილის მოტანა', 0.02);
+    prog('Fetching Fabric profile', 0.02);
     const json = await U.fetchJson(`${FABRIC}/versions/loader/${mc}/${loaderVersion}/profile/json`);
     await U.writeJson(dest, json);
   }
@@ -324,10 +324,10 @@ async function runInstaller({ label, jarUrl, jarName, mc, prog, log }) {
   const base = await installVersion(mc, prog, log);
   await writeLauncherProfiles();
   const jar = P.cache(jarName);
-  prog(`${label}: installer-ის ჩამოტვირთვა`, 0.05);
+  prog(`${label}: downloading installer`, 0.05);
   await U.download(jarUrl, jar);
   const before = await localVersions();
-  prog(`${label}: ინსტალაცია`, 0.1);
+  prog(`${label}: installing`, 0.1);
   await U.run(base.java, ['-jar', jar, '--installClient', P.root()], { cwd: P.root(), onLine: log });
   const after = await localVersions();
   const created = after.filter((v) => !before.includes(v));
@@ -345,7 +345,7 @@ async function installForge(mc, forgeVersion, prog, log) {
     jarName: `forge-${full}-installer.jar`,
   });
   const found = created.find((v) => v.toLowerCase().includes('forge')) || created[0];
-  if (!found) throw new Error('Forge ვერსია ვერ შეიქმნა. სცადე სხვა ბილდი.');
+  if (!found) throw new Error('Could not create the Forge version. Try another build.');
   return found;
 }
 
@@ -359,7 +359,7 @@ async function installNeoForge(mc, neoVersion, prog, log) {
     jarName: `neoforge-${neoVersion}-installer.jar`,
   });
   const found = created.find((v) => v.toLowerCase().includes('neoforge')) || created[0];
-  if (!found) throw new Error('NeoForge ვერსია ვერ შეიქმნა. სცადე სხვა ბილდი.');
+  if (!found) throw new Error('NeoCould not create the Forge version. Try another build.');
   return found;
 }
 
@@ -371,13 +371,13 @@ async function installOptiFine(mc, jarName, prog, log) {
   const jars = await listOptifineJars();
   const pick = jars.find((j) => j.name === jarName) || jars.find((j) => j.name.includes(mc));
   if (!pick) {
-    throw new Error(`OptiFine jar ვერ მოიძებნა. ჩააგდე ფაილი ფოლდერში: ${P.optifine()}`);
+    throw new Error(`OptiFine JAR was not found. Add the file to: ${P.optifine()}`);
   }
   const existing = (await localVersions()).find((v) => v.includes('OptiFine') && v.includes(mc));
   if (existing) return existing;
   const created = await runInstallerGui(mc, pick.file, prog, log);
   const found = created.find((v) => v.includes('OptiFine')) || created[0];
-  if (!found) throw new Error('OptiFine ვერსია ვერ შეიქმნა (installer-ში აირჩიე ჩვენი data ფოლდერი).');
+  if (!found) throw new Error('Could not create the OptiFine version. Select the launcher data folder in the installer.');
   return found;
 }
 
@@ -385,7 +385,7 @@ async function runInstallerGui(mc, jar, prog, log) {
   const base = await installVersion(mc, prog, log);
   await writeLauncherProfiles();
   const before = await localVersions();
-  prog('OptiFine installer გაშვებულია (დაადასტურე ფანჯარაში)', 0.1);
+  prog('OptiFine installer is running (confirm in its window)', 0.1);
   await U.run(base.java, ['-jar', jar], { cwd: P.root(), env: { user_home: P.root() }, onLine: log, allowFail: true });
   const after = await localVersions();
   return after.filter((v) => !before.includes(v));
@@ -411,10 +411,10 @@ async function installVersion(id, prog, log, gameDir = P.instances('shared')) {
   if (merged.downloads.client) {
     await U.download(merged.downloads.client.url, clientJar, { sha1: merged.downloads.client.sha1 });
   }
-  prog('ბიბლიოთეკები', 0.15);
+  prog('Libraries', 0.15);
   await downloadLibraries(merged, prog);
   const nativesDir = await extractNatives(merged, id);
-  prog('რესურსები', 0.5);
+  prog('Assets', 0.5);
   const virtualAssets = await downloadAssets(merged, gameDir, prog);
   const javaMajor = (merged.javaVersion && merged.javaVersion.majorVersion) || 8;
   const java = await ensureJava(javaMajor, prog);
@@ -445,7 +445,7 @@ function expandArgs(list, vars, features) {
 async function launch(opts, { onProgress, onLog }) {
   const prog = (stage, pct, line) => onProgress({ stage, pct, line });
   const log = (l) => onLog(l);
-  if (running) throw new Error('თამაში უკვე გაშვებულია');
+  if (running) throw new Error('A game is already running');
 
   const id = await resolveTargetId(opts, prog, log);
   const gameDir = opts.gameDir || P.instances('shared');
@@ -470,7 +470,7 @@ async function launch(opts, { onProgress, onLog }) {
     : [...classpath.filter((c) => c !== clientJar), clientJar]
   ).join(path.delimiter);
   const ram = Math.max(1024, opts.ram || 4096);
-  const name = (opts.playerName || 'Player').slice(0, 16);
+  const name = String(opts.playerName || 'Player').replace(/[^A-Za-z0-9_]/g, '').slice(0, 16) || 'Player';
   const uuid = U.offlineUuid(name);
 
   const vars = {
@@ -536,7 +536,7 @@ async function launch(opts, { onProgress, onLog }) {
   }
 
   const args = [...jvm, merged.mainClass, ...gameArgs];
-  prog('იწყება…', 0.98);
+  prog('Starting…', 0.98);
   log(`$ ${path.basename(javaPath)} … ${merged.mainClass}`);
   // სრული argument-ების log — ეკრანზე მოკლე ხაზი კმარა, მაგრამ crash-ის დროს
   // ამ ფაილში ზუსტად ჩანს რა classpath/module-path გაეშვა (auth token არ ინახება, offline='0').
@@ -550,14 +550,14 @@ async function launch(opts, { onProgress, onLog }) {
 
   return new Promise((resolve, reject) => {
     let started = false;
-    const ready = setTimeout(() => { started = true; prog('თამაში გაშვებულია', 1); resolve({ versionId: id, pid: child.pid }); }, 2500);
+    const ready = setTimeout(() => { started = true; prog('Game is running', 1); resolve({ versionId: id, pid: child.pid }); }, 2500);
     child.on('error', (e) => { clearTimeout(ready); running = null; reject(e); });
     child.on('close', (code) => {
       clearTimeout(ready);
       running = null;
-      onProgress({ stage: code === 0 ? 'თამაში დაიხურა' : `თამაში დაიხურა (კოდი ${code})`, pct: 0, exit: code });
+      onProgress({ stage: code === 0 ? 'Game closed' : `Game closed (exit code ${code})`, pct: 0, exit: code });
       if (!started) {
-        code === 0 ? resolve({ versionId: id, pid: null }) : reject(new Error(`თამაში ჩავარდა, კოდი ${code}. ჩახედე ლოგს.`));
+        code === 0 ? resolve({ versionId: id, pid: null }) : reject(new Error(`Game failed with exit code ${code}. Check the log.`));
       }
     });
   });

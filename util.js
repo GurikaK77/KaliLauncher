@@ -181,7 +181,7 @@ function readZipEntries(buf) {
   for (let i = buf.length - 22; i >= min; i--) {
     if (buf.readUInt32LE(i) === 0x06054b50) { eocd = i; break; }
   }
-  if (eocd < 0) throw new Error('დაზიანებული zip არქივი');
+  if (eocd < 0) throw new Error('Invalid ZIP archive');
   const count = buf.readUInt16LE(eocd + 10);
   let off = buf.readUInt32LE(eocd + 16);
   const entries = [];
@@ -202,7 +202,7 @@ function readZipEntries(buf) {
 }
 
 function inflateEntry(buf, e) {
-  if (buf.readUInt32LE(e.local) !== 0x04034b50) throw new Error('დაზიანებული ჩანაწერი: ' + e.name);
+  if (buf.readUInt32LE(e.local) !== 0x04034b50) throw new Error('Corrupt archive entry: ' + e.name);
   const nlen = buf.readUInt16LE(e.local + 26);
   const elen = buf.readUInt16LE(e.local + 28);
   const start = e.local + 30 + nlen + elen;
@@ -248,7 +248,7 @@ function run(cmd, args, opts = {}) {
     child.on('error', reject);
     child.on('close', (code) => {
       if (code === 0 || opts.allowFail) resolve({ code, out });
-      else reject(new Error(`${path.basename(cmd)} დასრულდა კოდით ${code}\n${out.slice(-1500)}`));
+      else reject(new Error(`${path.basename(cmd)} exited with code ${code}\n${out.slice(-1500)}`));
     });
   });
 }

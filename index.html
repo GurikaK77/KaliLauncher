@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ka">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self' 'unsafe-inline'" />
@@ -42,7 +42,7 @@
   body {
     background: var(--paper);
     color: var(--ink);
-    font: 400 16px/1.5 'Noto Sans Georgian', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font: 400 16px/1.5 Inter, 'Noto Sans Georgian', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     font-optical-sizing: auto;
     -webkit-font-smoothing: antialiased;
     overflow: hidden;
@@ -307,6 +307,14 @@
 
   /* ---------- პარამეტრები ---------- */
   .settings { margin-top: var(--s-6); border-top: 1px solid var(--line); }
+  .settings-section-title { margin: 22px 0 4px; font-size: 0.95rem; color: var(--pine-hi); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+  .coming-soon { display: inline-flex; align-items: center; border: 1px solid var(--line-strong); color: var(--ink-3); border-radius: 999px; padding: 7px 12px; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; }
+  .new-pack-fields { display: grid; grid-template-columns: minmax(190px, 1.5fr) repeat(3, minmax(145px, 1fr)) auto; align-items: end; gap: var(--s-3); }
+  .new-pack-fields > div { min-width: 0; }
+  .new-pack-version { min-width: 0 !important; }
+  .new-pack-fields select { width: 100%; min-width: 0; }
+  @media (max-width: 900px) { .new-pack-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .new-pack-fields { grid-template-columns: 1fr; } }
   .set-row {
     display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: var(--s-5);
     align-items: center; padding: var(--s-5) var(--s-2); border-bottom: 1px solid var(--line);
@@ -421,7 +429,7 @@
     <section class="view on" id="view-play">
       <p class="eyebrow">სწრაფი გაშვება</p>
       <h1>რას ვთამაშობთ დღეს?</h1>
-      <p class="lede">აირჩიე ლოადერი და ვერსია. ყველაფერს დანარჩენს (ბიბლიოთეკები, რესურსები, სწორი Java) ლაუნჩერი თვითონ ჩამოწერს.</p>
+      <p class="lede">აირჩიე Minecraft-ის ვერსია და გაუშვი თამაში.</p>
 
       <div class="play-grid">
         <div>
@@ -467,7 +475,7 @@
     <section class="view" id="view-resources">
       <p class="eyebrow">ბიბლიოთეკა</p>
       <h1>რესურსები</h1>
-      <p class="lede">ყველაფერი, რაც <code>modpack-files</code> ფოლდერშია. ჩამოწერის შემდეგ პაკი გადადის „მოდპაკებში“, აქ კი განახლების ღილაკი გამოჩნდება.</p>
+      <p class="lede">ხელმისაწვდომი მოდპაკები და მათი განახლებები.</p>
       <div id="resList"></div>
     </section>
 
@@ -475,21 +483,29 @@
     <section class="view" id="view-packs">
       <p class="eyebrow">დაინსტალირებული</p>
       <h1>მოდპაკები</h1>
-      <p class="lede">თითოეულს თავისი ფოლდერი, მოდები და სამყაროები აქვს. განახლება <b>saves</b>-ს არ ეხება.</p>
+      <p class="lede">მართე დაინსტალირებული მოდპაკები.</p>
 
       <div class="new-pack-card">
         <div class="new-pack-fields">
           <div>
             <span class="field-label">ახალი მოდპაკის სახელი</span>
-            <input class="text-input" id="newPackName" placeholder="მაგ. Skyblock Extreme" maxlength="60" spellcheck="false" autocomplete="off" />
+            <input class="text-input" id="newPackName" placeholder="e.g. Skyblock Extreme" maxlength="60" spellcheck="false" autocomplete="off" />
           </div>
           <div class="new-pack-version">
-            <span class="field-label">ვერსია</span>
-            <input class="text-input" id="newPackVersion" placeholder="1.0.0" value="1.0.0" maxlength="20" spellcheck="false" autocomplete="off" />
+            <span class="field-label">Minecraft ვერსია</span>
+            <div class="select-wrap" id="newPackMcWrap"><select id="newPackMcVersion" disabled><option>იტვირთება…</option></select></div>
+          </div>
+          <div class="new-pack-version">
+            <span class="field-label">ლოადერი</span>
+            <div class="select-wrap"><select id="newPackLoader"><option value="vanilla">Vanilla</option><option value="fabric">Fabric</option><option value="forge">Forge</option><option value="neoforge">NeoForge</option><option value="optifine">OptiFine</option></select></div>
+          </div>
+          <div class="new-pack-version">
+            <span class="field-label" id="newPackLoaderVersionLabel">Loader version</span>
+            <div class="select-wrap" id="newPackLoaderVersionWrap"><select id="newPackLoaderVersion" disabled><option>Choose Minecraft version first</option></select></div>
           </div>
           <button class="btn" id="btnNewPack">შექმნა</button>
         </div>
-        <p class="new-pack-hint" id="newPackHint">შექმნის ფოლდერს <code>modpack-files</code>-ში (<code>files/mods</code>, <code>files/config</code>) და გახსნის მას — ჩააგდე მოდები, შემდეგ დაამატე „რესურსებში“.</p>
+        <p class="new-pack-hint" id="newPackHint">ახალი მოდპაკის საქაღალდე შეიქმნება და ავტომატურად გაიხსნება.</p>
       </div>
 
       <div id="packList"></div>
@@ -532,7 +548,171 @@
 const R = window.rocket;
 const $ = (id) => document.getElementById(id);
 const el = (html) => { const t = document.createElement('template'); t.innerHTML = html.trim(); return t.content.firstElementChild; };
-const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>\"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '\"': '&quot;' })[c]);
+
+let LANGUAGE = 'en';
+const I18N = [
+  ['აირჩიე ლოადერი და ვერსია. ყველაფერს დანარჩენს (ბიბლიოთეკები, რესურსები, სწორი Java) ლაუნჩერი თვითონ ჩამოწერს.', 'Choose a Minecraft version and start playing.'],
+  ['ყველაფერი, რაც modpack-files ფოლდერშია. ჩამოწერის შემდეგ პაკი გადადის „მოდპაკებში“, აქ კი განახლების ღილაკი გამოჩნდება.', 'Available modpacks and their updates.'],
+  ['თითოეულს თავისი ფოლდერი, მოდები და სამყაროები აქვს. განახლება saves-ს არ ეხება.', 'Manage your installed modpacks.'],
+  ['შექმნის ფოლდერს modpack-files-ში (files/mods, files/config) და გახსნის მას — ჩააგდე მოდები, შემდეგ დაამატე „რესურსებში“.', 'A modpack folder will be created and opened automatically.'],
+  ['მაგ. Skyblock Extreme', 'e.g. Skyblock Extreme'],
+  ['სწრაფი გაშვება', 'QUICK PLAY'], ['რას ვთამაშობთ დღეს?', 'What are we playing today?'],
+  ['აირჩიე Minecraft-ის ვერსია და გაუშვი თამაში.', 'Choose a Minecraft version and start playing.'],
+  ['გაშვება', 'Launch'], ['რესურსები', 'Resources'], ['მოდპაკები', 'Modpacks'], ['პარამეტრები', 'Settings'],
+  ['ოფლაინ პროფილი', 'Offline profile'], ['პროფილი', 'Profile'], ['სახელი', 'Username'],
+  ['სკინის არჩევა', 'Choose Skin'], ['სკინის მოხსნა', 'Remove skin'], ['სკინი შენახულია', 'Skin saved'],
+  ['ლოადერი', 'Loader'], ['Minecraft ვერსია', 'Minecraft Version'], ['ლოადერის ბილდი', 'Loader Version'],
+  ['ბიბლიოთეკა', 'LIBRARY'], ['ხელმისაწვდომი მოდპაკები და მათი განახლებები.', 'Available modpacks and their updates.'],
+  ['დაინსტალირებული', 'INSTALLED'], ['მართე დაინსტალირებული მოდპაკები.', 'Manage your installed modpacks.'],
+  ['ახალი მოდპაკის სახელი', 'New Modpack Name'], ['ვერსია', 'Version'], ['შექმნა', 'Create'],
+  ['ახალი მოდპაკის საქაღალდე შეიქმნება და ავტომატურად გაიხსნება.', 'A new modpack folder will be created and opened automatically.'],
+  ['კონფიგურაცია', 'CONFIGURATION'], ['ლოგი', 'Log'], ['კონსოლი', 'Console'], ['დახურვა', 'Close'],
+  ['თამაშის შეწყვეტა', 'Stop Game'], ['გასუფთავება', 'Clear'], ['მზადაა', 'Ready'], ['შეჩერდა', 'Stopped'],
+  ['ახალი ვერსია მოიძებნა:', 'New version found:'], ['განახლების შემოწმება…', 'Checking for updates…'],
+  ['ყველაფერი განახლებულია', 'You are up to date'], ['იტვირთება…', 'Downloading…'], ['მზადაა:', 'Ready:'],
+  ['ვერსიები ვერ ჩამოიტვირთა', 'Could not load versions'], ['ინტერნეტი ვერ მოიძებნა', 'No internet connection'],
+  ['Vanilla-ს ბილდი არ სჭირდება', 'Vanilla does not need a loader build'], ['ბილდი ვერ მოიძებნა', 'No loader builds found'],
+  ['ჩააგდე jar ფოლდერში optifine/', 'Add an OptiFine jar to the optifine folder'], ['სია ვერ ჩამოიტვირთა', 'Could not load list'],
+  ['მუშაობს…', 'Working…'], ['მზადება…', 'Preparing…'], ['მოდპაკის მზადება…', 'Preparing modpack…'],
+  ['აქ ჯერ ცარიელია', 'Nothing here yet'], ['დაინსტალირებული მოდპაკები აქ გამოჩნდება.', 'Installed modpacks will appear here.'],
+  ['რესურსებზე გადასვლა', 'Go to Resources'], ['ფოლდერის გახსნა', 'Open Folder'], ['ფოლდერის გახსნა', 'Open folder'],
+  ['ჩამოტვირთვა', 'Install'], ['განახლება', 'Update'], ['დაინსტალირებული', 'Installed'], ['თამაში', 'Play'],
+  ['სამყარო', 'worlds'], ['ფაილი', 'files'], ['წყარო modpack-files-ში აღარ არის, განახლება ვერ მოხდება.', 'Source is missing from modpack-files; updates are unavailable.'],
+  ['აკლია ქვე-ფოლდერი files/', 'Missing files/ folder'], ['ჯერ მოდპაკები არ არის', 'No modpacks yet'],
+  ['modpack-files-ში არსებული პაკები აქ გამოჩნდება.', 'Modpacks in modpack-files will appear here.'], ['მოდპაკის შექმნა', 'Create Modpack'],
+  ['ოპერატიული მეხსიერება', 'Memory (RAM)'], ['მოდპაკს შეუძლია საკუთარი მნიშვნელობა მოითხოვოს modpack.json-ში.', 'Modpacks may define their own memory allocation.'],
+  ['ავტომატურად იწერს სწორ ვერსიას Adoptium-იდან. ხელით მითითება მხოლოდ საჭიროებისას.', 'Automatically downloads the required Java runtime.'],
+  ['ავტომატური (მართავს ლაუნჩერი)', 'Automatic (managed by launcher)'], ['არჩევა', 'Browse'], ['გასუფთავება', 'Clear'],
+  ['დამატებითი JVM არგუმენტები', 'Additional JVM Arguments'], ['ცარიელი დატოვე, თუ არ იცი რას აკეთებ.', 'Leave empty unless you know what you are changing.'],
+  ['ფანჯრის ზომა', 'Window Size'], ['0 = მინეკრაფტის ნაგულისხმევი.', '0 = Minecraft default.'],
+  ['სნეპშოტების ჩვენება', 'Show Snapshots'], ['ვერსიების სიაში დაემატება არასტაბილური ბილდები.', 'Include snapshot versions in version lists.'],
+  ['ლაუნჩერი ღია დარჩეს', 'Keep Launcher Open'], ['გამორთვისას თამაშის გაშვებისას ლაუნჩერი დაიმალება.', 'When disabled, the launcher hides while the game is running.'],
+  ['მონაცემები', 'Data'], ['OptiFine jar-ები', 'OptiFine JARs'], ['გახსნა', 'Open'],
+  ['ენა', 'Language'], ['აირჩიე ინტერფეისის ენა.', 'Choose the interface language.'],
+  ['პერსონალიზაცია', 'Personalization'], ['თემები', 'Themes'], ['მალე დაემატება', 'Coming Soon'],
+  ['საცავი', 'Storage'],
+  ['თემების არჩევა მომავალ განახლებაში დაემატება.', 'Appearance themes will be available in a future update.'],
+  ['ინგლისური', 'English'], ['ქართული', 'Georgian'], ['ჯერ აირჩიე Minecraft-ის ვერსია', 'Choose Minecraft version first'],
+  ['წაშლა (სამყაროები შეინახება)', 'Delete (worlds will be kept)'], ['დააჭირე გადასატვირთად', 'Click to restart'],
+  ['ვერსიები იტვირთება…', 'Loading versions…'], ['აირჩიე Loader-ის ვერსია', 'Choose loader version'],
+  ['Vanilla-ს Loader-ის ვერსია არ სჭირდება', 'Vanilla has no loader version'],
+  ['აირჩიე Loader', 'Select a loader'], ['ასეთი სახელის მოდპაკი უკვე არსებობს.', 'This modpack name already exists.'],
+  ['სახელის მითითება სავალდებულოა.', 'A name is required.'], ['იქმნება…', 'Creating…'],
+  ['ვერ შეიქმნა:', 'Could not create:'], ['შეიქმნა', 'created'], ['სამყარო', 'world'],
+  ['ბოლოს ', 'Last played '], ['არ თამაშობდი', 'Never played'], ['ხელმისაწვდომია', 'available'],
+  ['წავშალოთ', 'Delete'], ['სამყაროები გადავა saved-worlds ფოლდერში.', 'Worlds will be moved to saved-worlds.'],
+  ['სამყაროები აქ გადავიდა:', 'Worlds moved to:'], ['ფოლდერში აღარ არის', 'is no longer in the folder'],
+  ['განახლება ახლავე', 'Restart now'], ['მოგვიანებით', 'Later'], ['განახლება მზადაა', 'Update ready'],
+  ['გადატვირთვის შემდეგ ახალ ვერსიაზე გადახვალთ ავტომატურად.', 'The new version will be installed after restarting.'],
+  ['ჩემი პაკი', 'My pack'], ['აღწერა', 'Description'], ['უცნობი', 'Unknown'],
+  ['ზოგადი', 'General'], ['თამაში', 'Game'], ['Minecraft-ის ვერსია', 'Minecraft version'],
+  ['ლოადერის ვერსია', 'Loader version'], ['OptiFine ბილდი', 'OptiFine build'],
+  ['დამატებითი JVM არგუმენტები', 'Additional JVM Arguments'], ['სწრაფი გაშვება', 'QUICK PLAY'],
+  ['ინტერფეისის ენა', 'Interface Language'], ['თემების არჩევა მომავალ განახლებაში დაემატება.', 'Theme selection will be added in a future update.'],
+  ['ვერსიების სია ვერ ჩაიტვირთა', 'Could not load the version list'], ['სახელი აუცილებელია', 'A name is required'],
+  ['აირჩიე Minecraft-ის და Loader-ის ვერსია.', 'Choose a Minecraft and loader version.'],
+  ['მოდპაკი დაინსტალირდა', 'Modpack installed'], ['განახლდა', 'Updated'], ['ფაილი', 'file'], ['ფაილები', 'files'],
+  ['გამორთვისას თამაშის გაშვებისას ლაუნჩერი დაიმალება.', 'When disabled, the launcher hides while the game is running.'],
+  ['ლოგი ცარიელია. გაუშვი თამაში.', 'The log is empty. Launch a game to see output.'],
+  ['განახლების შემოწმება ვერ მოხერხდა', 'Could not check for updates'],
+  ['ვერსია', 'version'], ['არასწორი URL', 'Invalid URL'], ['ვერ მოიძებნა', 'was not found'],
+  ['მოიძებნა', 'found'], ['მზადება', 'Preparing'], ['მოწმდება', 'Checking'], ['დახურულია', 'closed'],
+  ['რას ვთამაშობთ დღეს?', 'What are we playing today?'], ['აირჩიე java', 'Choose Java'],
+  ['კონფიგი ვერ ჩაიტვირთა:', 'Could not load configuration:'], ['მოდპაკი დაინსტალირებული არ არის', 'Modpack is not installed'],
+  ['განახლდა:', 'Updated:'], ['ფაილი, წაიშალა:', 'files changed, removed:'], ['მოდპაკი დაინსტალირდა', 'Modpack installed'],
+  ['ახალი ვერსია', 'New version'], ['ჩამოიტვირთა', 'downloaded'], ['ფონურად', 'in the background'],
+  ['ახალი ვერსია v', 'New version v'], ['— იტვირთება ფონურად', '— downloading in the background'],
+  ['განახლების შემოწმება ვერ მოხერხდა', 'Could not check for updates'],
+  ['OptiFine ვერსია ვერ შეიქმნა', 'Could not create the OptiFine version'],
+  ['OptiFine jar ვერ მოიძებნა.', 'OptiFine JAR was not found.'],
+  ['OptiFine installer გაშვებულია (დაადასტურე ფანჯარაში)', 'OptiFine installer is running (confirm in its window)'],
+  ['NeoForge ვერსია ვერ შეიქმნა. სცადე სხვა ბილდი.', 'Could not create the NeoForge version. Try another build.'],
+  ['Forge ვერსია ვერ შეიქმნა. სცადე სხვა ბილდი.', 'Could not create the Forge version. Try another build.'],
+  ['თამაში ჩავარდა, კოდი', 'Game failed with exit code'], ['ჩახედე ლოგს.', 'Check the log.'],
+  ['თამაში დაიხურა', 'Game closed'], ['თამაში გაშვებულია', 'Game is running'],
+  ['ბიბლიოთეკები', 'Libraries'], ['რესურსები', 'Resources'], ['Java', 'Java'],
+  ['ვერსია', 'version'], ['ამოშლა', 'Extracting'], ['ჩამოტვირთვა', 'Downloading'],
+  ['Fabric-ის პროფილის მოტანა', 'Fetching Fabric profile'], ['ინსტალაცია', 'Installing'],
+  ['Java ', 'Java '], ['ვერ დაინსტალირდა', 'could not be installed'], ['ვერ მოიძებნა Mojang-ის მანიფესტში', 'was not found in the Mojang manifest'],
+  ['ვერსიის ფაილი დაზიანებულია:', 'Version file is corrupted:'], ['OptiFine jar', 'OptiFine JAR'],
+  ['დაზიანებული zip არქივი', 'Invalid ZIP archive'], ['არასწორი URL:', 'Invalid URL:'],
+  ['ზედმეტად ბევრი გადამისამართება:', 'Too many redirects:'], ['დროის ამოწურვა:', 'Request timed out:'],
+  ['დაზიანებული ჩანაწერი:', 'Corrupt archive entry:'], ['უცნობი შეცდომა', 'Unknown error'],
+  ['ფაილები ', 'Files '], ['შედარება ', 'Comparing '], ['ბიბლიოთეკები ', 'Libraries '], ['რესურსები ', 'Assets '],
+  ['offline uuid:', 'offline uuid:'], ['წყარო modpack-files-ში აღარ არის, განახლება ვერ მოხდება.', 'Source is missing from modpack-files; updates are unavailable.'],
+  ['მსოფლიო', 'world'], ['სამყაროები', 'worlds'], ['სწრაფი', 'Quick'], ['ვერსიების სია', 'Version list'],
+  ['მოქმედება', 'Action'], ['ინტერფეისის ენა', 'Interface Language'],
+  ['ბიბლიოთეკა', 'Library'], ['დაინსტალირებული', 'Installed'], ['პროფილი', 'Profile'],
+  ['სახელი', 'Name'], ['ახალი მოდპაკის სახელი', 'New Modpack Name'], ['Minecraft ვერსია', 'Minecraft Version'],
+  ['ლოადერის ბილდი', 'Loader Build'], ['სკინის არჩევა', 'Choose Skin'], ['სკინის მოხსნა', 'Remove Skin'],
+  ['ფოლდერის გახსნა', 'Open Folder'], ['მონაცემები', 'Data'], ['რესურსებზე გადასვლა', 'Go to Resources'],
+  ['აქ ჯერ ცარიელია', 'Nothing here yet'], ['ჯერ მოდპაკები არ არის', 'No modpacks yet'],
+  ['მოდპაკის შექმნა', 'Create Modpack'], ['ახალი მოდპაკის საქაღალდე შეიქმნება და ავტომატურად გაიხსნება.', 'A new modpack folder will be created and opened automatically.'],
+  ['modpack-files-ში არსებული პაკები აქ გამოჩნდება.', 'Modpacks in modpack-files will appear here.'],
+  ['ხელმისაწვდომი მოდპაკები და მათი განახლებები.', 'Available modpacks and their updates.'],
+  ['მართე დაინსტალირებული მოდპაკები.', 'Manage your installed modpacks.'],
+  ['კონფიგურაცია', 'Configuration'], ['ლოადერის ვერსია', 'Loader Version'],
+  ['თამაშის შეწყვეტა', 'Stop Game'], ['გახსნა', 'Open'], ['შექმნა', 'Create'], ['მზადაა', 'Ready'],
+  ['იტვირთება…', 'Loading…'], ['არ თამაშობდი', 'Never played'], ['ბოლოს ', 'Last played '],
+  ['სამყარო', 'world'], ['ფაილი', 'file'], ['ფაილები', 'files'], ['ხელმისაწვდომია', 'available'],
+  ['წყარო modpack-files-ში აღარ არის, განახლება ვერ მოხდება.', 'Source is missing from modpack-files; updates are unavailable.'],
+  ['აკლია ქვე-ფოლდერი files/', 'Missing files/ folder'], ['მოდპაკი დაინსტალირებული არ არის', 'Modpack is not installed'],
+  ['განახლდა:', 'Updated:'], ['მოდპაკი დაინსტალირდა', 'Modpack installed'], ['განახლების შემოწმება ვერ მოხერხდა', 'Could not check for updates'],
+  ['კონფიგი ვერ ჩაიტვირთა:', 'Could not load configuration:'], ['თამაში დაიხურა', 'Game closed'], ['თამაში გაშვებულია', 'Game is running'],
+  ['თამაში უკვე გაშვებულია', 'A game is already running'], ['ჩახედე ლოგს.', 'Check the log.'],
+  ['შეიქმნა', 'created'], ['მზადება…', 'Preparing…'], ['მუშაობს…', 'Working…'], ['შეჩერდა', 'Stopped'],
+  ['სკინი შენახულია', 'Skin saved'], ['აირჩიე java', 'Choose Java'], ['კონფიგი', 'Configuration'],
+  ['ვერ შეიქმნა:', 'Could not create:'], ['სახელის მითითება სავალდებულოა.', 'A name is required.'],
+  ['არასწორი URL:', 'Invalid URL:'], ['დროის ამოწურვა:', 'Request timed out:'],
+  ['ზედმეტად ბევრი გადამისამართება:', 'Too many redirects:'], ['დაზიანებული zip არქივი', 'Invalid ZIP archive'],
+  ['დაზიანებული ჩანაწერი:', 'Corrupt archive entry:'], ['Java ', 'Java '], ['ვერ დაინსტალირდა', 'could not be installed'],
+];
+I18N.sort((a, b) => Math.max(b[0].length, b[1].length) - Math.max(a[0].length, a[1].length));
+function localizeText(value) {
+  let out = value;
+  for (const pair of I18N) {
+    const from = LANGUAGE === 'ka' ? pair[1] : pair[0];
+    const to = LANGUAGE === 'ka' ? pair[0] : pair[1];
+    if (from && out.includes(from)) out = out.split(from).join(to);
+  }
+  return out;
+}
+function applyLocale(root = document.body) {
+  document.documentElement.lang = LANGUAGE;
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+    if (!node.parentElement || node.parentElement.closest('script,style,pre,code')) continue;
+    nodes.push(node);
+  }
+  for (const node of nodes) { const next = localizeText(node.nodeValue); if (next !== node.nodeValue) node.nodeValue = next; }
+  const attrs = ['title', 'placeholder', 'aria-label'];
+  root.querySelectorAll && root.querySelectorAll('*').forEach((node) => attrs.forEach((attr) => {
+    if (node.hasAttribute(attr)) { const value = node.getAttribute(attr); const next = localizeText(value); if (next !== value) node.setAttribute(attr, next); }
+  }));
+  attrs.forEach((attr) => { if (root.nodeType === 1 && root.hasAttribute(attr)) { const value = root.getAttribute(attr); const next = localizeText(value); if (next !== value) root.setAttribute(attr, next); } });
+}
+const localeObserver = new MutationObserver((records) => {
+  for (const record of records) {
+    if (record.type === 'characterData') {
+      const node = record.target;
+      if (node.parentElement && !node.parentElement.closest('script,style,pre,code')) { const next = localizeText(node.nodeValue); if (next !== node.nodeValue) node.nodeValue = next; }
+    } else {
+      record.addedNodes && record.addedNodes.forEach((node) => {
+        if (node.nodeType === Node.TEXT_NODE) { const next = localizeText(node.nodeValue); if (next !== node.nodeValue) node.nodeValue = next; }
+        else if (node.nodeType === Node.ELEMENT_NODE && !node.matches('script,style,pre,code')) applyLocale(node);
+      });
+      if (record.type === 'attributes' && record.target && record.attributeName) {
+        const attr = record.attributeName;
+        if (['title', 'placeholder', 'aria-label'].includes(attr)) { const value = record.target.getAttribute(attr) || ''; const next = localizeText(value); if (next !== value) record.target.setAttribute(attr, next); }
+      }
+    }
+  }
+});
+localeObserver.observe(document.body, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['title', 'placeholder', 'aria-label'] });
+applyLocale(document.body);
 
 const LOADERS = [
   { id: 'vanilla', label: 'Vanilla' },
@@ -545,6 +725,8 @@ const LOADERS = [
 const S = {
   view: 'play', cfg: null, loader: 'vanilla', mc: '', lv: '',
   mcList: [], lvList: [], res: [], packs: [], busy: false, skinImg: null,
+  language: 'en', newPackMc: '', newPackLoader: 'vanilla', newPackLoaderVersion: '',
+  newPackVersionsRequest: 0, newPackLoaderVersionsRequest: 0,
 };
 
 /* ---------- სკინის რენდერი ---------- */
@@ -729,7 +911,6 @@ function fail(msg) {
 function syncLaunchBtn() {
   const ok = Boolean(S.mc) && (S.loader === 'vanilla' || Boolean(S.lv));
   $('btnLaunch').disabled = S.busy || !ok;
-  const ram = S.cfg ? (S.cfg.ram / 1024).toFixed(ram => 0) : '4';
   $('launchNote').innerHTML = S.busy
     ? 'მუშაობს…'
     : `<b>${esc(S.mc || '—')}</b> · ${esc(S.loader)}${S.lv ? ' · <b>' + esc(S.lv) + '</b>' : ''} · RAM <b>${S.cfg ? Math.round(S.cfg.ram / 1024) : 4} GB</b>`;
@@ -763,24 +944,114 @@ $('btnSkin').onclick = async () => {
 };
 $('btnSkinClear').onclick = async () => { await R.clearSkin(); setSkin(null); };
 
-/* ---------- ახალი მოდპაკის შექმნა ---------- */
+/* ---------- Modpack creation selectors ---------- */
+function setSelectOptions(select, items, selected, placeholder) {
+  select.innerHTML = '';
+  if (!items || !items.length) {
+    const option = document.createElement('option');
+    option.value = '';
+    option.textContent = placeholder;
+    select.appendChild(option);
+    select.disabled = true;
+    return;
+  }
+  select.disabled = false;
+  for (const item of items) {
+    const value = String(item);
+    const option = document.createElement('option');
+    option.value = value;
+    option.textContent = value;
+    if (value === selected) option.selected = true;
+    select.appendChild(option);
+  }
+  if (!items.includes(selected)) select.value = String(items[0]);
+}
+
+async function loadNewPackVersions(keepVersion = true) {
+  const requestId = ++S.newPackVersionsRequest;
+  const mcSelect = $('newPackMcVersion');
+  const loader = $('newPackLoader').value;
+  S.newPackLoader = loader;
+  mcSelect.disabled = true;
+  setSelectOptions(mcSelect, [], '', 'Loading versions…');
+  setSelectOptions($('newPackLoaderVersion'), [], '', loader === 'vanilla' ? 'Vanilla has no loader version' : 'Choose Minecraft version first');
+  try {
+    // Include releases, snapshots and legacy versions. Prefer the latest release as the initial selection.
+    const versions = await R.mcVersions(loader, true);
+    if (requestId !== S.newPackVersionsRequest || loader !== $('newPackLoader').value) return;
+    const latestRelease = versions.find((version) => /^\d+(?:\.\d+)*$/.test(version));
+    const selected = keepVersion && versions.includes(S.newPackMc) ? S.newPackMc : (latestRelease || versions[0] || '');
+    S.newPackMc = selected;
+    setSelectOptions(mcSelect, versions, selected, 'No versions found');
+    await loadNewPackLoaderVersions();
+  } catch (error) {
+    if (requestId !== S.newPackVersionsRequest) return;
+    setSelectOptions(mcSelect, [], '', 'Could not load versions');
+    setSelectOptions($('newPackLoaderVersion'), [], '', 'Could not load versions');
+    addLog(`Modpack version list error: ${error.message}`);
+  }
+}
+
+async function loadNewPackLoaderVersions() {
+  const requestId = ++S.newPackLoaderVersionsRequest;
+  const loader = $('newPackLoader').value;
+  const mc = $('newPackMcVersion').value;
+  S.newPackLoader = loader;
+  S.newPackMc = mc;
+  const select = $('newPackLoaderVersion');
+  $('newPackLoaderVersionLabel').textContent = loader === 'vanilla' ? 'Loader version' : (loader === 'optifine' ? 'OptiFine build' : 'Loader version');
+  if (loader === 'vanilla') {
+    S.newPackLoaderVersion = '';
+    setSelectOptions(select, [], '', 'Vanilla has no loader version');
+    return;
+  }
+  if (!mc) {
+    S.newPackLoaderVersion = '';
+    setSelectOptions(select, [], '', 'Choose Minecraft version first');
+    return;
+  }
+  setSelectOptions(select, [], '', 'Loading versions…');
+  try {
+    const list = await R.loaderVersions(loader, mc);
+    if (requestId !== S.newPackLoaderVersionsRequest || loader !== $('newPackLoader').value || mc !== $('newPackMcVersion').value) return;
+    S.newPackLoaderVersion = list[0] || '';
+    setSelectOptions(select, list, S.newPackLoaderVersion, 'No loader builds found');
+  } catch (error) {
+    if (requestId !== S.newPackLoaderVersionsRequest) return;
+    S.newPackLoaderVersion = '';
+    setSelectOptions(select, [], '', 'Could not load loader versions');
+    addLog(`Loader version list error: ${error.message}`);
+  }
+}
+
+$('newPackLoader').onchange = () => loadNewPackVersions(true);
+$('newPackMcVersion').onchange = () => loadNewPackLoaderVersions();
+$('newPackLoaderVersion').onchange = () => { S.newPackLoaderVersion = $('newPackLoaderVersion').value; };
+
 $('btnNewPack').onclick = async () => {
-  const nameEl = $('newPackName'), verEl = $('newPackVersion'), hint = $('newPackHint'), btn = $('btnNewPack');
+  const nameEl = $('newPackName'), hint = $('newPackHint'), btn = $('btnNewPack');
   const name = nameEl.value.trim();
-  const version = verEl.value.trim() || '1.0.0';
+  const mcVersion = $('newPackMcVersion').value;
+  const loader = $('newPackLoader').value;
+  const loaderVersion = $('newPackLoaderVersion').value;
   if (!name) {
     hint.textContent = 'სახელის მითითება სავალდებულოა.';
     hint.className = 'new-pack-hint is-error';
     nameEl.focus();
     return;
   }
+  if (!mcVersion || (loader !== 'vanilla' && !loaderVersion)) {
+    hint.textContent = 'Choose a Minecraft and loader version.';
+    hint.className = 'new-pack-hint is-error';
+    return;
+  }
   const old = btn.textContent;
   btn.disabled = true; btn.textContent = 'იქმნება…';
   try {
-    await R.newPack(name, version);
-    hint.textContent = `„${name}“ (v${version}) შეიქმნა — ფოლდერი გაიხსნა, ჩააგდე მოდები „files/mods“-ში, კონფიგები „files/config“-ში.`;
+    await R.newPack({ name, version: '1.0.0', mcVersion, loader, loaderVersion });
+    hint.textContent = `„${name}“ (${mcVersion} · ${loader}${loaderVersion ? ' ' + loaderVersion : ''}) შეიქმნა.`;
     hint.className = 'new-pack-hint is-ok';
-    nameEl.value = ''; verEl.value = '1.0.0';
+    nameEl.value = '';
     await loadResources();
   } catch (e) {
     hint.textContent = 'ვერ შეიქმნა: ' + e.message;
@@ -805,29 +1076,10 @@ async function loadResources() {
     box.innerHTML = '';
     box.appendChild(el(`
       <div class="empty">
-        <h3>ჯერ ერთი მოდპაკიც არ არის</h3>
-        <p>შექმენი ფოლდერი <code>modpack-files</code>-ში, ჩააგდე მოდები <code>files/</code>-ში და აღწერე <code>modpack.json</code>. ლაუნჩერი მაშინვე დაინახავს.</p>
-        <pre>modpack-files/
-└── my-pack/
-    ├── modpack.json
-    ├── icon.png
-    └── files/
-        ├── mods/
-        ├── config/
-        └── resourcepacks/
-
-modpack.json:
-{
-  "name": "ჩემი პაკი",
-  "version": "1.0.0",
-  "author": "Gurika",
-  "mcVersion": "1.20.1",
-  "loader": "forge",
-  "loaderVersion": "47.2.20",
-  "ram": 6144
-}</pre>
+        <h3>ჯერ მოდპაკები არ არის</h3>
+        <p>modpack-files-ში არსებული პაკები აქ გამოჩნდება.</p>
         <div class="empty-actions">
-          <button class="btn" onclick="show('packs')">მოდპაკის შექმნაზე გადასვლა</button>
+          <button class="btn" onclick="show('packs')">მოდპაკის შექმნა</button>
           <button class="btn-ghost" id="btnOpenSrc" style="flex:0 0 auto;padding:10px 18px">ფოლდერის გახსნა</button>
         </div>
       </div>`));
@@ -897,7 +1149,7 @@ async function loadPacks() {
     box.appendChild(el(`
       <div class="empty">
         <h3>აქ ჯერ ცარიელია</h3>
-        <p>გადადი „რესურსებში“ და ჩამოწერე პაკი. ჩამოწერის შემდეგ ის აქ გამოჩნდება, თავისი ფოლდერით და სამყაროებით.</p>
+        <p>დაინსტალირებული მოდპაკები აქ გამოჩნდება.</p>
         <div class="empty-actions"><button class="btn" onclick="show('resources')">რესურსებზე გადასვლა</button></div>
       </div>`));
     return;
@@ -914,7 +1166,7 @@ async function loadPacks() {
           <p class="meta">
             <span>v${esc(p.version)}</span><span>${esc(p.mcVersion)} ${esc(p.loader)}${p.loaderVersion ? ' ' + esc(p.loaderVersion) : ''}</span>
             <span>${p.worlds} სამყარო</span><span>${sizeText(p.size)}</span>
-            <span>${p.lastPlayed ? 'ბოლოს ' + new Date(p.lastPlayed).toLocaleDateString('ka-GE') : 'არ თამაშობდი'}</span>
+            <span>${p.lastPlayed ? 'ბოლოს ' + new Date(p.lastPlayed).toLocaleDateString(LANGUAGE === 'ka' ? 'ka-GE' : 'en-US') : 'არ თამაშობდი'}</span>
           </p>
           ${p.orphan ? '<p class="desc" style="color:var(--clay)">წყარო modpack-files-ში აღარ არის, განახლება ვერ მოხდება.</p>' : ''}
         </div>
@@ -978,6 +1230,30 @@ function renderSettings() {
   const box = $('settings');
   box.innerHTML = '';
 
+  const generalTitle = el('<h2 class="settings-section-title">General</h2>');
+  box.appendChild(generalTitle);
+  box.appendChild(setRow('Language', null, () => {
+    const select = el(`<select id="languageSelect"><option value="en">English</option><option value="ka">ქართული</option></select>`);
+    select.value = c.language || 'en';
+    select.onchange = async () => {
+      c.language = select.value;
+      S.language = select.value;
+      await R.setConfig({ language: c.language });
+      LANGUAGE = c.language;
+      applyLocale(document.body);
+      renderSettings();
+    };
+    return select;
+  }));
+
+  const appearanceTitle = el('<h2 class="settings-section-title">Personalization</h2>');
+  box.appendChild(appearanceTitle);
+  box.appendChild(setRow('Themes', 'Appearance themes will be available in a future update.', () => {
+    return el('<span class="coming-soon">Coming Soon</span>');
+  }));
+
+  const gameTitle = el('<h2 class="settings-section-title">Game</h2>');
+  box.appendChild(gameTitle);
   box.appendChild(setRow('ოპერატიული მეხსიერება', 'მოდპაკს შეუძლია საკუთარი მნიშვნელობა მოითხოვოს modpack.json-ში.', () => {
     const wrap = el('<div class="row-inline"></div>');
     const range = el(`<input type="range" min="1024" max="32768" step="512" value="${c.ram}" />`);
@@ -1024,7 +1300,7 @@ function renderSettings() {
     return sw;
   }));
 
-  box.appendChild(setRow('ლაუნჩერი ღია დარჩეს', 'გამორთვისას თამაშის გაშვების შემდეგ ფანჯარა ჩაიკეცება.', () => {
+  box.appendChild(setRow('ლაუნჩერი ღია დარჩეს', 'გამორთვისას თამაშის გაშვებისას ლაუნჩერი დაიმალება.', () => {
     const sw = el(`<button class="switch" role="switch" aria-checked="${!!c.keepOpen}"></button>`);
     sw.onclick = async () => {
       c.keepOpen = !c.keepOpen; sw.setAttribute('aria-checked', String(c.keepOpen));
@@ -1033,6 +1309,8 @@ function renderSettings() {
     return sw;
   }));
 
+  const pathsTitle = el('<h2 class="settings-section-title">Storage</h2>');
+  box.appendChild(pathsTitle);
   const paths = [
     ['მონაცემები', c.paths.data, 'data'],
     ['modpack-files', c.paths.modpackFiles, 'modpackFiles'],
@@ -1051,7 +1329,7 @@ function renderSettings() {
 }
 
 function setRow(title, hint, control) {
-  const row = el(`<div class="set-row"><div><b>${esc(title)}</b>${hint ? `<p>${esc(hint)}</p>` : ''}</div></div>`);
+  const row = el(`<div class="set-row"><div><b>${esc(title)}</b></div></div>`);
   row.appendChild(control());
   return row;
 }
@@ -1066,6 +1344,10 @@ function setRow(title, hint, control) {
   try {
     S.cfg = await R.getConfig();
   } catch (e) { return fail('კონფიგი ვერ ჩაიტვირთა: ' + e.message); }
+  S.cfg.language = S.cfg.language || 'en';
+  S.language = S.cfg.language;
+  LANGUAGE = S.language;
+  applyLocale(document.body);
   $('nameInput').value = S.cfg.playerName || 'Player';
   $('railName').textContent = S.cfg.playerName || 'Player';
   $('uuidLine').textContent = 'offline uuid: ' + fakeUuidPreview(S.cfg.playerName || 'Player');
@@ -1074,6 +1356,7 @@ function setRow(title, hint, control) {
   S.mc = S.cfg.lastPlay.mc || '';
   renderLoaders();
   renderSettings();
+  await loadNewPackVersions(false);
   await loadVersions(true);
   loadResources();
   loadPacks();

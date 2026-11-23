@@ -38,7 +38,7 @@ async function readMeta(dir, folderName) {
     folder: folderName,
     name: meta.name || folderName,
     version: String(meta.version || '1.0.0'),
-    author: meta.author || 'უცნობი',
+    author: meta.author || 'Unknown',
     description: meta.description || '',
     mcVersion: meta.mcVersion || meta.minecraft || '1.20.1',
     loader: (meta.loader || 'forge').toLowerCase(),
@@ -189,8 +189,8 @@ async function installed() {
 async function install(id, prog = () => {}) {
   const list = await available();
   const pack = list.find((p) => p.id === id);
-  if (!pack) throw new Error(`მოდპაკი "${id}" ვერ მოიძებნა ფოლდერში modpack-files`);
-  if (!pack.valid) throw new Error(`"${pack.name}"-ს აკლია ქვე-ფოლდერი files/`);
+  if (!pack) throw new Error(`Modpack "${id}" was not found in modpack-files`);
+  if (!pack.valid) throw new Error(`"${pack.name}" is missing its files/ folder`);
 
   const src = packFiles(pack.folder);
   const dest = instanceDir(pack.id);
@@ -200,7 +200,7 @@ async function install(id, prog = () => {}) {
   for (const rel of files) {
     if (!isProtected(rel)) await U.copyFile(path.join(src, rel), path.join(dest, rel));
     done++;
-    if (done % 10 === 0 || done === files.length) prog(`ფაილები ${done}/${files.length}`, done / files.length);
+    if (done % 10 === 0 || done === files.length) prog(`Files ${done}/${files.length}`, done / files.length);
   }
   const index = await buildIndex(src);
   const iconFile = await resolveIconFile(packSource(pack.folder), pack.icon);
@@ -221,7 +221,7 @@ async function install(id, prog = () => {}) {
 async function update(id, prog = () => {}) {
   const list = await available();
   const pack = list.find((p) => p.id === id);
-  if (!pack) throw new Error(`მოდპაკი "${id}" აღარ არსებობს modpack-files-ში`);
+  if (!pack) throw new Error(`Modpack "${id}" no longer exists in modpack-files`);
   const src = packFiles(pack.folder);
   const dest = instanceDir(pack.id);
   const prevIndex = (await U.readJson(path.join(dest, INDEX))) || { files: {} };
@@ -236,7 +236,7 @@ async function update(id, prog = () => {}) {
     const target = path.join(dest, rel);
     const needs = differs(srcIndex[rel], prevIndex.files[rel]) || !(await U.exists(target));
     if (needs) { await U.copyFile(path.join(src, rel), target); changed++; }
-    if (i % 20 === 0 || i === srcKeys.length) prog(`შედარება ${i}/${srcKeys.length}`, i / srcKeys.length);
+    if (i % 20 === 0 || i === srcKeys.length) prog(`Comparing ${i}/${srcKeys.length}`, i / srcKeys.length);
   }
 
   let removed = 0;
@@ -298,26 +298,32 @@ async function markPlayed(id) {
 }
 
 /** ცარიელი ჩონჩხი ახალი მოდპაკისთვის, რომ ხელით არ აწყობდე. */
-async function scaffold(name, version) {
-  const folder = U.slug(name || 'new-pack');
+async function scaffold(options = {}) {
+  const name = String(options.name || '').trim();
+  if (!name) throw new Error('A modpack name is required.');
+  const folder = U.slug(name);
   const dir = path.join(SOURCE_DIR, folder);
+  if (await U.exists(path.join(dir, 'modpack.json'))) throw new Error('A modpack with this name already exists.');
+  const loader = String(options.loader || 'vanilla').toLowerCase();
+  const mcVersion = String(options.mcVersion || '').trim();
+  const loaderVersion = String(options.loaderVersion || '').trim();
+  if (!mcVersion) throw new Error('Choose a Minecraft version.');
+  if (!['vanilla', 'fabric', 'forge', 'neoforge', 'optifine'].includes(loader)) throw new Error('Unsupported mod loader.');
+  if (loader !== 'vanilla' && !loaderVersion) throw new Error('Choose a loader version.');
   await U.mkdirp(path.join(dir, 'files', 'mods'));
   await U.mkdirp(path.join(dir, 'files', 'config'));
-  const file = path.join(dir, 'modpack.json');
-  if (!(await U.exists(file))) {
-    await U.writeJson(file, {
-      id: folder,
-      name: name || 'ახალი მოდპაკი',
-      version: String(version || '1.0.0'),
-      author: 'Gurika',
-      description: 'აღწერა',
-      mcVersion: '1.20.1',
-      loader: 'forge',
-      loaderVersion: '',
-      ram: 6144,
-      icon: 'icon.png',
-    });
-  }
+  await U.writeJson(path.join(dir, 'modpack.json'), {
+    id: folder,
+    name,
+    version: String(options.version || '1.0.0'),
+    author: 'Gurika',
+    description: '',
+    mcVersion,
+    loader,
+    loaderVersion: loader === 'vanilla' ? '' : loaderVersion,
+    ram: 6144,
+    icon: 'icon.png',
+  });
   return dir;
 }
 
